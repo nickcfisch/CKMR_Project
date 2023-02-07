@@ -43,8 +43,8 @@ Laa[1]<-uniroot(f=function(x) x+(x-Linf)*(exp(-BK)-1)-Laa[2], interval=c(0.01,10
 Waa<-Weight_scaling*Laa^Weight_allometry
 
 #Natural mortality at age
-Maa<-Mref*(Laa/(Linf*0.75))^-1
-#Maa<-rep(Mref,length(fage:lage))    #Constant M
+#Maa<-Mref*(Laa/(Linf*0.75))^-1
+Maa<-rep(Mref,length(fage:lage))    #Constant M
 
 #Maturity
 Mat<-1/(1+exp(Mat_slope*(Laa-Mat_50)))
@@ -111,10 +111,6 @@ return(list(fage=fage,lage=lage,seed=seed,fyear=fyear,lyear=lyear,Linf=Linf,a3=a
             Zaa=Zaa))
 }
 
-#To get fmsy and stuff
-#Tot_Yield=sum(t(t(Caa)*Waa))      Yield_TermYr=sum(Caa[lyear,]*Waa))
-
-
 Get_Data<-function(OM=NA,              #Operating model from which to model
                    dat_seed=1,
                    sd_catch=0.05,
@@ -139,11 +135,10 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
 }
 
 
-
 #Fhigh is F that equals 0.85 MSY, as is flow
 
-#Sardine, 0.33 is fmsy for Sardine, fhigh is 0.6021535, flow is 0.16
-#MSY 46304.48 (*0.85 = 39358.81)
+#Sardine, 0.39 is fmsy, fhigh is 0.71113, flow is 0.1894
+#MSY 122328.5 (*0.85 = 103979.2)
 Nsim<-100
 Sardine_runs<-list()
 for (s in 1:Nsim){
@@ -162,12 +157,12 @@ for (s in 1:Nsim){
    R0=exp(16),
    h=0.59,
    sd_rec=0.73,
-   fhigh=0.6021535, 
-   flow=0.16,
+   fhigh=0.71113, 
+   flow=0.1894,
    stochastic=TRUE)
 }
 
-#For Flatfish, fmsy is 0.25, MSY is 1596.706 (*0.85= 1357.2), and fhigh which reaches 0.85*MSY is 0.516, flow is 0.11
+#For Flatfish, fmsy is 0.3, MSY is 5488.004 (*0.85= 4664.803), and fhigh which reaches 0.85*MSY is 0.657, flow is 0.135
 Flatfish_runs<-list()
 for (s in 1:Nsim){
  Flatfish_runs[[s]]<-SimPop(seed=s,
@@ -189,12 +184,12 @@ for (s in 1:Nsim){
    R0=exp(10.5),
    h=0.76,
    sd_rec=0.7,
-   fhigh=0.516, 
-   flow=0.11, 
+   fhigh=0.657, 
+   flow=0.135, 
    stochastic=TRUE)
 }
 
-#For Cod, fmsy is 0.11, MSY is 8119380 (*0.85=6901473), f that reaches 0.85*MSY is 0.1981, flow is 0.05825
+#For Cod, fmsy is 0.122, MSY is 162786651 (*0.85=138368653), f that reaches 0.85*MSY is 0.2068, flow is 0.0632
 Cod_runs<-list()
 for (s in 1:Nsim){
  Cod_runs[[s]]<-SimPop(seed=s,
@@ -216,8 +211,8 @@ for (s in 1:Nsim){
    R0=exp(18.7),
    h=0.65,
    sd_rec=0.4,
-   fhigh=0.1981, 
-   flow=0.05825, 
+   fhigh=0.2068, 
+   flow=0.0632, 
    stochastic=TRUE)
 }
 
