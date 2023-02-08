@@ -22,6 +22,7 @@ SimPop<-function(seed=1,
                  R0=exp(16),
                  h=0.59,
                  sd_rec=0.73,
+                 const_F=FALSE,
                  fint=0.25,
                  fhigh=0.25,
                  flow=0.25,
@@ -57,10 +58,13 @@ Sel<-Sel/max(Sel)
 k_int<-0.15
 mid_int<-20
 F_int<-NA
-#F_int[fyear:lyear]<-fint
-F_int[fyear:25]<-0
-F_int[26:85]<-fhigh/length(26:85)*(1:length(26:85))
-F_int[86:lyear]<-F_int[85]+(flow-fhigh)/length(86:lyear)*(1:length(86:lyear))
+if (const_F==TRUE){
+ F_int[fyear:lyear]<-fint
+} else if (const_F==FALSE){
+  F_int[fyear:25]<-0
+  F_int[26:85]<-fhigh/length(26:85)*(1:length(26:85))
+  F_int[86:lyear]<-F_int[85]+(flow-fhigh)/length(86:lyear)*(1:length(86:lyear))
+}
 
 #Now Pop Stuff
 lxo<-c(1,cumprod(exp(-Maa[1:lage])))   #survivorship
@@ -73,7 +77,7 @@ Faa<-Zaa<-matrix(NA, nrow=lyear, ncol=lage+1)
 Naa<-matrix(NA, nrow=lyear+1, ncol=lage+1)
 Naa[1,]<-N0aa
 SSB<-sum(Naa[1,]*Mat*Waa)
-
+lrecdevs<-0
 for(i in fyear:lyear){
   Faa[i,]<-F_int[i]*Sel
   Zaa[i,]<-Maa+Faa[i,]
@@ -84,7 +88,8 @@ for(i in fyear:lyear){
   
   SSB[i+1] <- sum(Naa[i+1,]*Mat*Waa, na.rm=TRUE)
   if (stochastic==TRUE){
-   Naa[i+1,1] <- (4*h*R0*SSB[i+1])/(SSB0*(1-h)+SSB[i+1]*(5*h-1))*exp(rnorm(n=1,mean=0, sd=sd_rec)-0.5*sd_rec^2)
+   lrecdevs[i+1]<-rnorm(n=1,mean=0, sd=sd_rec)
+   Naa[i+1,1] <- (4*h*R0*SSB[i+1])/(SSB0*(1-h)+SSB[i+1]*(5*h-1))*exp(lrecdevs[i+1]-0.5*sd_rec^2)
 #   Naa[i+1,1] <- rlnorm(n=1,meanlog=log((4*h*R0*SSB[i+1])/(SSB0*(1-h)+SSB[i+1]*(5*h-1))), sdlog=sd_rec)
   } else {
    Naa[i+1,1] <- (4*h*R0*SSB[i+1])/(SSB0*(1-h)+SSB[i+1]*(5*h-1))
@@ -95,6 +100,7 @@ Caa<-Faa/Zaa*Naa[1:lyear,]*(1-exp(-Zaa))
 
 return(list(fage=fage,lage=lage,seed=seed,fyear=fyear,lyear=lyear,Linf=Linf,a3=a3,L1=L1,BK=BK,Weight_scaling=Weight_scaling,Weight_allometry=Weight_allometry,Mref=Mref,
             Mat_50=Mat_50,Mat_slope=Mat_slope,Sel_50=Sel_50,Sel_slope=Sel_slope,R0=R0,h=h,sd_rec=sd_rec,fint=fint,fhigh=fhigh,flow=flow,stochastic=stochastic,
+            lrecdevs=lrecdevs,
             Laa=Laa,
             Waa=Waa,
             Mat=Mat,
@@ -261,4 +267,89 @@ lines(1:101,HPDinterval(as.mcmc(Sardine_Depl), prob=0.95)[,2],lty=2)
 lines(1:101,HPDinterval(as.mcmc(Sardine_Depl), prob=0.75)[,1],lty=3)
 lines(1:101,HPDinterval(as.mcmc(Sardine_Depl), prob=0.75)[,2],lty=3)
 
-#Then CKMR
+#############################
+#Getting Data from OMs
+#############################
+N_sim<-100
+Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
+for (s in 1:N_sim){
+ Cod_wdat[[s]]<-Get_Data(OM=Cod_runs[[s]],dat_seed=s,sd_catch=0.05,N_Comp=100,q_index=0.0001,sd_index=0.25)
+ Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,sd_catch=0.05,N_Comp=100,q_index=0.0001,sd_index=0.25)
+ Sardine_wdat[[s]]<-Get_Data(OM=Sardine_runs[[s]],dat_seed=s,sd_catch=0.05,N_Comp=100,q_index=0.0001,sd_index=0.25)
+}
+
+#############################################################
+#TMB SCAAs fit to Fishery data without CKMR (Base models)
+#############################################################
+#TMB Section
+library(TMB)
+
+setwd("C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project")
+#Compile and load model 
+compile("SCAA_Fisch_wAge0.cpp")
+
+#Doing N Simulations
+N_sim<-1
+jfactor<-10
+res_list<-list()
+
+for (l in 1:3){  #Running through the life history types
+res_list[[l]]<-list()
+for (s in 1:N_sim){
+  
+ if(l==1){
+  OM<-Cod_wdat[[s]]
+ } else if (l==2){
+   OM<-Flatfish_wdat[[s]]
+ }else if (l==3){
+   OM<-Sardine_wdat[[s]]
+ }
+  
+  dat<-list(fyear=OM$OM$fyear, lyear=75, fage=OM$OM$fage, lage=OM$OM$lage, 
+            years=OM$OM$fyear:75, ages=OM$OM$fage:OM$OM$lage,
+            obs_harv=OM$Obs_Catch,
+            obs_index=OM$Obs_Index,
+            obs_fishery_comp=OM$Obs_Catch_Comp/rowSums(OM$Obs_Catch_Comp),
+            SS_fishery=rowSums(OM$Obs_Catch_Comp),
+            Mat=OM$OM$Mat,
+            Laa=OM$OM$Laa,
+            Waa=OM$OM$Waa)
+  
+  #Parameters
+  par <- list(log_M=jitter(log(OM$OM$Mref), factor=jfactor),
+              log_q=jitter(log(OM$q_index), factor=jfactor),
+              log_recruit_devs_init=rep(0,dat$lage),
+              log_recruit_devs=rep(0,dat$lyear),
+              steepness=OM$OM$h,
+              log_R0=jitter(log(OM$OM$R0), factor=jfactor),
+              log_sigma_rec=log(OM$OM$sd_rec),
+              log_sd_catch=log(OM$sd_catch),
+              log_sd_index=log(OM$sd_index),
+              Sel_logis_k=jitter(OM$OM$Sel_slope, factor=jfactor),
+              Sel_logis_midpt=jitter(OM$OM$Sel_50, factor=jfactor),
+              log_fint=jitter(log(OM$OM$F_int[26:100]), factor=jfactor))  
+  
+  ################
+  #TMB stuff
+  ################
+  dyn.load(dynlib("SCAA_Fisch_wAge0"))
+  
+  parm_names<-names(MakeADFun(dat, par, DLL="SCAA_Fisch_wAge0")$par)
+  
+  fixed<-list(steepness=factor(NA),
+              log_sd_catch=factor(NA),
+              log_sd_index=factor(NA))
+  
+  lower_bounds<-c(-5,-20,rep(-10,dat$lage),rep(-10,dat$lyear), 0, 5, -5,-5,-5, 0,  0,rep(-20,dat$lyear))
+  upper_bounds<-c( 2,  1,rep(-10,dat$lage),rep( 10,dat$lyear), 1, 25, 2, 2, 2,20,100,rep(  0,dat$lyear))
+  
+  reffects=c("log_recruit_devs")
+  l<-lower_bounds[-which(parm_names %in% c(names(fixed),reffects))]
+  u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
+  
+  SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAge0", map=fixed, random=reffects)
+  SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps=1, getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
+  
+  res_list[[l]][[s]]<-SCAA_fit
+ }
+}
