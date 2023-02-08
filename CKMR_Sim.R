@@ -222,6 +222,9 @@ for (s in 1:Nsim){
    stochastic=TRUE)
 }
 
+save(Cod_runs, file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/Cod_Base.RData")
+save(Flatfish_runs, file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/Flatfish_Base.RData")
+save(Sardine_runs, file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/Sardine_Base.RData")
 
 par(mfrow=c(1,3))
 plot(1:101,Cod_runs[[1]]$SSB/Cod_runs[[1]]$SSB0, ylim=c(0,2), las=1, xlab="Year", ylab="SSB/SSB0", main="Cod")
@@ -278,6 +281,10 @@ for (s in 1:N_sim){
  Sardine_wdat[[s]]<-Get_Data(OM=Sardine_runs[[s]],dat_seed=s,sd_catch=0.05,N_Comp=100,q_index=0.0001,sd_index=0.25)
 }
 
+save(Cod_wdat, file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/Cod_wdat_N100_Ind25.RData")
+save(Flatfish_wdat, file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/Flatfish_wdat_N100_Ind25.RData")
+save(Sardine_wdat, file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/Sardine_wdat_N100_Ind25.RData")
+
 #############################################################
 #TMB SCAAs fit to Fishery data without CKMR (Base models)
 #############################################################
@@ -289,19 +296,19 @@ setwd("C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project")
 compile("SCAA_Fisch_wAge0.cpp")
 
 #Doing N Simulations
-N_sim<-1
-jfactor<-10
+N_sim<-1:100
+jfactor<-5
 res_list<-list()
-
-for (l in 1:3){  #Running through the life history types
-res_list[[l]]<-list()
-for (s in 1:N_sim){
+set.seed(1)
+for (Q in 1:3){  #Running through the life history types
+res_list[[Q]]<-list()
+for (s in N_sim){
   
- if(l==1){
+ if(Q==1){
   OM<-Cod_wdat[[s]]
- } else if (l==2){
+ } else if (Q==2){
    OM<-Flatfish_wdat[[s]]
- }else if (l==3){
+ }else if (Q==3){
    OM<-Sardine_wdat[[s]]
  }
   
@@ -316,18 +323,18 @@ for (s in 1:N_sim){
             Waa=OM$OM$Waa)
   
   #Parameters
-  par <- list(log_M=jitter(log(OM$OM$Mref), factor=jfactor),
-              log_q=jitter(log(OM$q_index), factor=jfactor),
+  par <- list(log_M=log(jitter(OM$OM$Mref, factor=jfactor)),
+              log_q=log(jitter(OM$q_index, factor=jfactor)),
               log_recruit_devs_init=rep(0,dat$lage),
               log_recruit_devs=rep(0,dat$lyear),
               steepness=OM$OM$h,
-              log_R0=jitter(log(OM$OM$R0), factor=jfactor),
+              log_R0=log(jitter(OM$OM$R0, factor=jfactor)),
               log_sigma_rec=log(OM$OM$sd_rec),
               log_sd_catch=log(OM$sd_catch),
               log_sd_index=log(OM$sd_index),
               Sel_logis_k=jitter(OM$OM$Sel_slope, factor=jfactor),
               Sel_logis_midpt=jitter(OM$OM$Sel_50, factor=jfactor),
-              log_fint=jitter(log(OM$OM$F_int[26:100]), factor=jfactor))  
+              log_fint=log(jitter(OM$OM$F_int[26:100], factor=jfactor)))  
   
   ################
   #TMB stuff
@@ -341,15 +348,34 @@ for (s in 1:N_sim){
               log_sd_index=factor(NA))
   
   lower_bounds<-c(-5,-20,rep(-10,dat$lage),rep(-10,dat$lyear), 0, 5, -5,-5,-5, 0,  0,rep(-20,dat$lyear))
-  upper_bounds<-c( 2,  1,rep(-10,dat$lage),rep( 10,dat$lyear), 1, 25, 2, 2, 2,20,100,rep(  0,dat$lyear))
+  upper_bounds<-c( 2,  1,rep( 10,dat$lage),rep( 10,dat$lyear), 1, 25, 2, 2, 2,20,100,rep(  0,dat$lyear))
   
   reffects=c("log_recruit_devs")
   l<-lower_bounds[-which(parm_names %in% c(names(fixed),reffects))]
   u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
   
   SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAge0", map=fixed, random=reffects)
-  SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps=1, getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
+  SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
   
-  res_list[[l]][[s]]<-SCAA_fit
+  res_list[[Q]][[s]]<-SCAA_fit
  }
 }
+
+save(SCAA_fit[[1]], file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/SCAAfit_Cod_N100_Ind25.RData")
+save(SCAA_fit[[2]], file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/SCAAfit_Flatfish_N100_Ind25.RData")
+save(SCAA_fit[[3]], file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/SCAAfit_Sardine_N100_Ind25.RData")
+
+
+
+#Save rdat file and go again with more N_comp
+
+
+
+
+
+
+
+
+
+
+

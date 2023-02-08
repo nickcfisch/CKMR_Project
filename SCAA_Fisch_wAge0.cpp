@@ -243,9 +243,9 @@ Type objective_function<Type>::operator() ()
 
 //Multinomial
   for(i=0;i<=lyear-1;i++){
-    for(j=fage;j<=lage;j++){
-     L2 += -1*(SS_fishery(i)*(obs_fishery_comp(i,j)*log(pred_fishery_comp(i,j))));     //Likelihood for age composition of fishery catch
-    }
+   for(j=fage;j<=lage;j++){
+    L2 += -1*(SS_fishery(i)*(obs_fishery_comp(i,j)*log(pred_fishery_comp(i,j))));     //Likelihood for age composition of fishery catch
+   }
   }
 
 //Fishery Index
