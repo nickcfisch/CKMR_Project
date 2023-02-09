@@ -176,11 +176,11 @@ Type objective_function<Type>::operator() ()
   
   //Abundance at age in the first year
   for(j=fage+1;j<=lage;j++){
-//   N(fyear-1,j)=R0*exp(log_recruit_devs_init(fabs(j-(lage)))-0.5*pow(sd_rec,2))*lxo(j);          //set abundance in the fist year f
-   N(fyear-1,j)=R0*lxo(j);          //set abundance in the fist year f
+//   N(fyear-1,j)=R0*lxo(j);          //set abundance in the fist year f
+   N(fyear-1,j)=R0*exp(log_recruit_devs_init(fabs(j-(lage)))-0.5*pow(sd_rec,2))*lxo(j);          //set abundance in the fist year f
   }
-  N(fyear-1,fage)=R0*exp(log_rec_devs(0));     //Filling in initial year recruitment
-//  N(fyear-1,fage)=R0*exp(log_rec_devs(0)-0.5*pow(sd_rec,2));     //Filling in initial year recruitment
+//  N(fyear-1,fage)=R0*exp(log_rec_devs(0));     //Filling in initial year recruitment
+  N(fyear-1,fage)=R0*exp(log_rec_devs(0)-0.5*pow(sd_rec,2));     //Filling in initial year recruitment
   
   //Spawning Biomass in the first year
   for(j=fage;j<=lage;j++){
@@ -198,8 +198,8 @@ Type objective_function<Type>::operator() ()
    spbiomass_aa(i,j)=N(i,j)*Mat(j)*Waa(j);  // Getting spawning biomass for the first year (acounting for rec dev, unlike SSB0_FLA)
   }
    spbiomass(i)=spbiomass_aa.row(i).sum();
-   N(i,fage)=((4.*steepness*R0*spbiomass(i))/(SSB0*(1.-steepness)+spbiomass(i)*(5.*steepness-1.)))*exp(log_rec_devs(i));  //Recruitment if at age 0
-//   N(i,fage)=((4.*steepness*R0*spbiomass(i))/(SSB0*(1.-steepness)+spbiomass(i)*(5.*steepness-1.)))*exp(log_rec_devs(i)-0.5*pow(sd_rec,2));  //Recruitment, if at age 1
+//   N(i,fage)=((4.*steepness*R0*spbiomass(i))/(SSB0*(1.-steepness)+spbiomass(i)*(5.*steepness-1.)))*exp(log_rec_devs(i));  //Recruitment if at age 0
+   N(i,fage)=((4.*steepness*R0*spbiomass(i))/(SSB0*(1.-steepness)+spbiomass(i)*(5.*steepness-1.)))*exp(log_rec_devs(i)-0.5*pow(sd_rec,2));  //Recruitment, if at age 1
   }
  
 ////////////////
