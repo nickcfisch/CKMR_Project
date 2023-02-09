@@ -296,6 +296,10 @@ load(paste0(wd,"/Cod_wdat_N1000_Ind25.RData"))
 load(paste0(wd,"/Flatfish_wdat_N1000_Ind25.RData"))
 load(paste0(wd,"/Sardine_wdat_N1000_Ind25.RData"))
 
+Cod_OM<-Cod_wdat
+Flatfish_OM<-Flatfish_wdat
+Sardine_OM<-Sardine_wdat
+  
 #TMB Section
 library(TMB)
 
@@ -312,11 +316,11 @@ res_list[[Q]]<-list()
 for (s in N_sim){
   
  if(Q==1){
-  OM<-Cod_wdat[[s]]
+  OM<-Cod_OM[[s]]
  } else if (Q==2){
-   OM<-Flatfish_wdat[[s]]
+   OM<-Flatfish_OM[[s]]
  }else if (Q==3){
-   OM<-Sardine_wdat[[s]]
+   OM<-Sardine_OM[[s]]
  }
   
   dat<-list(fyear=OM$OM$fyear, lyear=75, fage=OM$OM$fage, lage=OM$OM$lage, 
@@ -358,7 +362,7 @@ for (s in N_sim){
   lower_bounds<-c(-5,-20,rep(-10,dat$lage),rep(-10,dat$lyear), 0, 5, -5,-5,-5, 0,  0,rep(-20,dat$lyear))
   upper_bounds<-c( 2,  1,rep( 10,dat$lage),rep( 10,dat$lyear), 1, 25, 2, 2, 2,20,100,rep(  0,dat$lyear))
   
-  reffects=c("log_recruit_devs")
+  reffects=c("log_recruit_devs","log_recruit_devs_init")
   l<-lower_bounds[-which(parm_names %in% c(names(fixed),reffects))]
   u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
   
@@ -382,25 +386,25 @@ re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
 for(f in 1:3){
  for (i in 1:100){
   if(f==1){
-   if(!is.null(res_list[[f]][[i]]$hessian)){
-    re_SSB[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "spbiomass"),3]-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
-    re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-    re_R0[i,f]<-(exp(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "log_R0"),1])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-    re_M[i,f]<-(exp(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "log_M"),1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+   if(!is.null(res_list[[f]][[i]]$par)){
+    re_SSB[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "spbiomass"),3]-Cod_OM[[i]]$OM$SSB[26:101])/Cod_OM[[i]]$OM$SSB[26:101]
+    re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_OM[[i]]$OM$SSB[26:101]/Cod_OM[[i]]$OM$SSB0)/(Cod_OM[[i]]$OM$SSB[26:101]/Cod_OM[[i]]$OM$SSB0)
+    re_R0[i,f]<-(exp(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "log_R0"),1])-Cod_OM[[i]]$OM$R0)/Cod_OM[[i]]$OM$R0
+    re_M[i,f]<-(exp(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "log_M"),1])-Cod_OM[[i]]$OM$Mref)/Cod_OM[[i]]$OM$Mref
    }
   }else if (f==2){
-   if(!is.null(res_list[[f]][[i]]$hessian)){
-     re_SSB[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "spbiomass"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
-     re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-     re_R0[i,f]<-(exp(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "log_R0"),1])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-     re_M[i,f]<-(exp(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "log_M"),1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+   if(!is.null(res_list[[f]][[i]]$par)){
+     re_SSB[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "spbiomass"),3]-Flatfish_OM[[i]]$OM$SSB[26:101])/Flatfish_OM[[i]]$OM$SSB[26:101]
+     re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_OM[[i]]$OM$SSB[26:101]/Flatfish_OM[[i]]$OM$SSB0)/(Flatfish_OM[[i]]$OM$SSB[26:101]/Flatfish_OM[[i]]$OM$SSB0)
+     re_R0[i,f]<-(exp(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "log_R0"),1])-Flatfish_OM[[i]]$OM$R0)/Flatfish_OM[[i]]$OM$R0
+     re_M[i,f]<-(exp(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "log_M"),1])-Flatfish_OM[[i]]$OM$Mref)/Flatfish_OM[[i]]$OM$Mref
    }
   } else if (f==3){
-   if(!is.null(res_list[[f]][[i]]$hessian)){
-     re_SSB[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "spbiomass"),3]-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
-     re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-     re_R0[i,f]<-(exp(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "log_R0"),1])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-     re_M[i,f]<-(exp(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "log_M"),1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+   if(!is.null(res_list[[f]][[i]]$par)){
+     re_SSB[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "spbiomass"),3]-Sardine_OM[[i]]$OM$SSB[26:101])/Sardine_OM[[i]]$OM$SSB[26:101]
+     re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_OM[[i]]$OM$SSB[26:101]/Sardine_OM[[i]]$OM$SSB0)/(Sardine_OM[[i]]$OM$SSB[26:101]/Sardine_OM[[i]]$OM$SSB0)
+     re_R0[i,f]<-(exp(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "log_R0"),1])-Sardine_OM[[i]]$OM$R0)/Sardine_OM[[i]]$OM$R0
+     re_M[i,f]<-(exp(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "log_M"),1])-Sardine_OM[[i]]$OM$Mref)/Sardine_OM[[i]]$OM$Mref
    }
   }
  }
