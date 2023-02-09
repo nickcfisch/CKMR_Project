@@ -299,7 +299,6 @@ compile("SCAA_Fisch_wAge0.cpp")
 N_sim<-1:100
 jfactor<-5
 res_list<-list()
-set.seed(1)
 for (Q in 1:3){  #Running through the life history types
 res_list[[Q]]<-list()
 for (s in N_sim){
@@ -323,6 +322,7 @@ for (s in N_sim){
             Waa=OM$OM$Waa)
   
   #Parameters
+  set.seed(N[s])
   par <- list(log_M=log(jitter(OM$OM$Mref, factor=jfactor)),
               log_q=log(jitter(OM$q_index, factor=jfactor)),
               log_recruit_devs_init=rep(0,dat$lage),
@@ -361,45 +361,103 @@ for (s in N_sim){
  }
 }
 
-saveRDS(res_list[[1]], file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/SCAAfit_Cod_N100_Ind25.RData")
-saveRDS(res_list[[2]], file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/SCAAfit_Flatfish_N100_Ind25.RData")
-saveRDS(res_list[[3]], file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/SCAAfit_Sardine_N100_Ind25.RData")
+#saveRDS(res_list[[1]], file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/SCAAfit_Cod_N1000_Ind25.RData")
+#saveRDS(res_list[[2]], file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/SCAAfit_Flatfish_N1000_Ind25.RData")
+#saveRDS(res_list[[3]], file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/SCAAfit_Sardine_N1000_Ind25.RData")
 
+res_list[[1]]<-readRDS("C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/SCAAfit_Cod_N100_Ind25.RData")
+res_list[[2]]<-readRDS("C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/SCAAfit_Flatfish_N100_Ind25.RData")
+res_list[[3]]<-readRDS("C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/SCAAfit_Sardine_N100_Ind25.RData")
 
-re<-array(NA, dim=c(3,100,76))
+re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
+re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
 for(f in 1:3){
  for (i in 1:100){
   if(f==1){
    if(!is.null(res_list[[f]][[i]]$hessian)){
-   re[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "spbiomass"),1]-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
-  }}else if (f==2){
-    if(!is.null(res_list[[f]][[i]]$hessian)){
-      re[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "spbiomass"),1]-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
-    }
+    re_SSB[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "spbiomass"),3]-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+    re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
+    re_R0[i,f]<-(exp(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "log_R0"),1])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+    re_M[i,f]<-(exp(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "log_M"),1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+   }
+  }else if (f==2){
+   if(!is.null(res_list[[f]][[i]]$hessian)){
+     re_SSB[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "spbiomass"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+     re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
+     re_R0[i,f]<-(exp(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "log_R0"),1])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+     re_M[i,f]<-(exp(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "log_M"),1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+   }
   } else if (f==3){
-    if(!is.null(res_list[[f]][[i]]$hessian)){
-      re[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "spbiomass"),1]-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
-    }
+   if(!is.null(res_list[[f]][[i]]$hessian)){
+     re_SSB[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "spbiomass"),3]-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+     re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
+     re_R0[i,f]<-(exp(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "log_R0"),1])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+     re_M[i,f]<-(exp(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "log_M"),1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+   }
   }
  }
 }
 
-#Save rdat file and go again with more N_comp
-
-boxplot(re[1,,], ylim=c(-0.5,0.5), las=1)
+#SSB
+par(mfcol=c(3,2))
+boxplot(re_SSB1[1,,], ylim=c(-0.5,0.5), las=1, main="Cod - N100", ylab="RE - SSB")
 abline(h=0)
-boxplot(re[2,,], ylim=c(-0.5,0.5), las=1)
+boxplot(re_SSB1[2,,], ylim=c(-0.5,0.5), las=1, main="Flatfish - N100", ylab="RE - SSB")
 abline(h=0)
-boxplot(re[3,,], ylim=c(-0.5,0.5), las=1)
-abline(h=0)
-
-
-boxplot(re[1,,1:75], ylim=c(-0.5,0.5), las=1)
-abline(h=0)
-boxplot(re[2,,1:75], ylim=c(-0.5,0.5), las=1)
-abline(h=0)
-boxplot(re[3,,1:75], ylim=c(-0.5,0.5), las=1)
+boxplot(re_SSB1[3,,], ylim=c(-0.5,0.5), las=1, main="Sardine - N100", ylab="RE - SSB")
 abline(h=0)
 
+boxplot(re_SSB[1,,], ylim=c(-0.5,0.5), las=1, main="Cod - N1000", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[2,,], ylim=c(-0.5,0.5), las=1, main="Flatfish - N1000", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[3,,], ylim=c(-0.5,0.5), las=1, main="Sardine - N1000", ylab="RE - SSB")
+abline(h=0)
 
+#Depletion
+par(mfcol=c(3,2))
+boxplot(re_Dep1[1,,], ylim=c(-0.5,0.5), las=1, main="Cod - N100", ylab="RE - Depletion")
+abline(h=0)
+boxplot(re_Dep1[2,,], ylim=c(-0.5,0.5), las=1, main="Flatfish - N100", ylab="RE - Depletion")
+abline(h=0)
+boxplot(re_Dep1[3,,], ylim=c(-0.5,0.5), las=1, main="Sardine - N100", ylab="RE - Depletion")
+abline(h=0)
 
+boxplot(re_Dep[1,,], ylim=c(-0.5,0.5), las=1, main="Cod - N1000", ylab="RE - Depletion")
+abline(h=0)
+boxplot(re_Dep[2,,], ylim=c(-0.5,0.5), las=1, main="Flatfish - N1000", ylab="RE - Depletion")
+abline(h=0)
+boxplot(re_Dep[3,,], ylim=c(-0.5,0.5), las=1, main="Sardine - N1000", ylab="RE - Depletion")
+abline(h=0)
+
+#R0
+par(mfcol=c(3,2))
+boxplot(re_R01[,1], ylim=c(-0.25,0.25), las=1, main="Cod - N100", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R01[,2], ylim=c(-0.25,0.25), las=1, main="Flatfish - N100", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R01[,3], ylim=c(-0.25,0.25), las=1, main="Sardine - N100", ylab="RE - R0")
+abline(h=0)
+
+boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="Cod - N1000", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="Flatfish - N1000", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="Sardine - N1000", ylab="RE - R0")
+abline(h=0)
+
+#M
+par(mfcol=c(3,2))
+boxplot(re_M1[,1], ylim=c(-0.1,0.1), las=1, main="Cod - N100", ylab="RE - M")
+abline(h=0)
+boxplot(re_M1[,2], ylim=c(-0.1,0.1), las=1, main="Flatfish - N100", ylab="RE - M")
+abline(h=0)
+boxplot(re_M1[,3], ylim=c(-0.1,0.1), las=1, main="Sardine - N100", ylab="RE - M")
+abline(h=0)
+
+boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="Cod - N1000", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="Flatfish - N1000", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="Sardine - N1000", ylab="RE - M")
+abline(h=0)
