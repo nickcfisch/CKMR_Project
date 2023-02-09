@@ -276,14 +276,14 @@ lines(1:101,HPDinterval(as.mcmc(Sardine_Depl), prob=0.75)[,2],lty=3)
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
 for (s in 1:N_sim){
- Cod_wdat[[s]]<-Get_Data(OM=Cod_runs[[s]],dat_seed=s,sd_catch=0.05,N_Comp=100,q_index=0.0001,sd_index=0.25)
- Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,sd_catch=0.05,N_Comp=100,q_index=0.0001,sd_index=0.25)
- Sardine_wdat[[s]]<-Get_Data(OM=Sardine_runs[[s]],dat_seed=s,sd_catch=0.05,N_Comp=100,q_index=0.0001,sd_index=0.25)
+ Cod_wdat[[s]]<-Get_Data(OM=Cod_runs[[s]],dat_seed=s,sd_catch=0.05,N_Comp=1000,q_index=0.0001,sd_index=0.25)
+ Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,sd_catch=0.05,N_Comp=1000,q_index=0.0001,sd_index=0.25)
+ Sardine_wdat[[s]]<-Get_Data(OM=Sardine_runs[[s]],dat_seed=s,sd_catch=0.05,N_Comp=1000,q_index=0.0001,sd_index=0.25)
 }
 
-save(Cod_wdat, file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/Cod_wdat_N100_Ind25.RData")
-save(Flatfish_wdat, file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/Flatfish_wdat_N100_Ind25.RData")
-save(Sardine_wdat, file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/Sardine_wdat_N100_Ind25.RData")
+save(Cod_wdat, file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/Cod_wdat_N1000_Ind25.RData")
+save(Flatfish_wdat, file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/Flatfish_wdat_N1000_Ind25.RData")
+save(Sardine_wdat, file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/Sardine_wdat_N1000_Ind25.RData")
 
 #############################################################
 #TMB SCAAs fit to Fishery data without CKMR (Base models)
@@ -361,21 +361,45 @@ for (s in N_sim){
  }
 }
 
-save(SCAA_fit[[1]], file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/SCAAfit_Cod_N100_Ind25.RData")
-save(SCAA_fit[[2]], file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/SCAAfit_Flatfish_N100_Ind25.RData")
-save(SCAA_fit[[3]], file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/SCAAfit_Sardine_N100_Ind25.RData")
+saveRDS(res_list[[1]], file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/SCAAfit_Cod_N100_Ind25.RData")
+saveRDS(res_list[[2]], file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/SCAAfit_Flatfish_N100_Ind25.RData")
+saveRDS(res_list[[3]], file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/SCAAfit_Sardine_N100_Ind25.RData")
 
 
+re<-array(NA, dim=c(3,100,76))
+for(f in 1:3){
+ for (i in 1:100){
+  if(f==1){
+   if(!is.null(res_list[[f]][[i]]$hessian)){
+   re[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "spbiomass"),1]-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+  }}else if (f==2){
+    if(!is.null(res_list[[f]][[i]]$hessian)){
+      re[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "spbiomass"),1]-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+    }
+  } else if (f==3){
+    if(!is.null(res_list[[f]][[i]]$hessian)){
+      re[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "spbiomass"),1]-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+    }
+  }
+ }
+}
 
 #Save rdat file and go again with more N_comp
 
+boxplot(re[1,,], ylim=c(-0.5,0.5), las=1)
+abline(h=0)
+boxplot(re[2,,], ylim=c(-0.5,0.5), las=1)
+abline(h=0)
+boxplot(re[3,,], ylim=c(-0.5,0.5), las=1)
+abline(h=0)
 
 
-
-
-
-
-
+boxplot(re[1,,1:75], ylim=c(-0.5,0.5), las=1)
+abline(h=0)
+boxplot(re[2,,1:75], ylim=c(-0.5,0.5), las=1)
+abline(h=0)
+boxplot(re[3,,1:75], ylim=c(-0.5,0.5), las=1)
+abline(h=0)
 
 
 
