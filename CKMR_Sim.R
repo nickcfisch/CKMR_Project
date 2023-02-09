@@ -2,6 +2,9 @@
 #Population Simulations for each Life-history type
 #####################################################
 
+#wd<-"C:/Users/nfisch/Documents/GitHub/CKMR_Project"
+#wd<-"C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/"
+
 #Still need to save population output
 SimPop<-function(seed=1,
                  fage=0,
@@ -222,9 +225,9 @@ for (s in 1:Nsim){
    stochastic=TRUE)
 }
 
-save(Cod_runs, file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/Cod_Base.RData")
-save(Flatfish_runs, file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/Flatfish_Base.RData")
-save(Sardine_runs, file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/Sardine_Base.RData")
+#save(Cod_runs, file=paste0(wd,"/Cod_Base.RData"))
+#save(Flatfish_runs, file=paste0(wd,"/Flatfish_Base.RData"))
+#save(Sardine_runs, file=paste0(wd,"/Sardine_Base.RData"))
 
 par(mfrow=c(1,3))
 plot(1:101,Cod_runs[[1]]$SSB/Cod_runs[[1]]$SSB0, ylim=c(0,2), las=1, xlab="Year", ylab="SSB/SSB0", main="Cod")
@@ -281,17 +284,22 @@ for (s in 1:N_sim){
  Sardine_wdat[[s]]<-Get_Data(OM=Sardine_runs[[s]],dat_seed=s,sd_catch=0.05,N_Comp=1000,q_index=0.0001,sd_index=0.25)
 }
 
-save(Cod_wdat, file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/Cod_wdat_N1000_Ind25.RData")
-save(Flatfish_wdat, file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/Flatfish_wdat_N1000_Ind25.RData")
-save(Sardine_wdat, file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/Sardine_wdat_N1000_Ind25.RData")
+#save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N1000_Ind25.RData"))
+#save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N1000_Ind25.RData"))
+#save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N1000_Ind25.RData"))
 
 #############################################################
 #TMB SCAAs fit to Fishery data without CKMR (Base models)
 #############################################################
+
+load(paste0(wd,"/Cod_wdat_N1000_Ind25.RData"))
+load(paste0(wd,"/Flatfish_wdat_N1000_Ind25.RData"))
+load(paste0(wd,"/Sardine_wdat_N1000_Ind25.RData"))
+
 #TMB Section
 library(TMB)
 
-setwd("C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project")
+setwd(wd)
 #Compile and load model 
 compile("SCAA_Fisch_wAge0.cpp")
 
@@ -322,7 +330,7 @@ for (s in N_sim){
             Waa=OM$OM$Waa)
   
   #Parameters
-  set.seed(N[s])
+  set.seed(s)
   par <- list(log_M=log(jitter(OM$OM$Mref, factor=jfactor)),
               log_q=log(jitter(OM$q_index, factor=jfactor)),
               log_recruit_devs_init=rep(0,dat$lage),
@@ -361,13 +369,13 @@ for (s in N_sim){
  }
 }
 
-#saveRDS(res_list[[1]], file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/SCAAfit_Cod_N1000_Ind25.RData")
-#saveRDS(res_list[[2]], file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/SCAAfit_Flatfish_N1000_Ind25.RData")
-#saveRDS(res_list[[3]], file="C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/SCAAfit_Sardine_N1000_Ind25.RData")
+#saveRDS(res_list[[1]], file=paste0(wd,"/SCAAfit_Cod_N1000_Ind25.RData"))
+#saveRDS(res_list[[2]], file=paste0(wd,"/SCAAfit_Flatfish_N1000_Ind25.RData"))
+#saveRDS(res_list[[3]], file=paste0(wd,"SCAAfit_Sardine_N1000_Ind25.RData"))
 
-res_list[[1]]<-readRDS("C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/SCAAfit_Cod_N100_Ind25.RData")
-res_list[[2]]<-readRDS("C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/SCAAfit_Flatfish_N100_Ind25.RData")
-res_list[[3]]<-readRDS("C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/SCAAfit_Sardine_N100_Ind25.RData")
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind25.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind25.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind25.RData"))
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -400,34 +408,34 @@ for(f in 1:3){
 
 #SSB
 par(mfcol=c(3,2))
-boxplot(re_SSB1[1,,], ylim=c(-0.5,0.5), las=1, main="Cod - N100", ylab="RE - SSB")
+boxplot(re_SSB1[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N100", ylab="RE - SSB")
 abline(h=0)
-boxplot(re_SSB1[2,,], ylim=c(-0.5,0.5), las=1, main="Flatfish - N100", ylab="RE - SSB")
+boxplot(re_SSB1[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N100", ylab="RE - SSB")
 abline(h=0)
-boxplot(re_SSB1[3,,], ylim=c(-0.5,0.5), las=1, main="Sardine - N100", ylab="RE - SSB")
+boxplot(re_SSB1[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N100", ylab="RE - SSB")
 abline(h=0)
 
-boxplot(re_SSB[1,,], ylim=c(-0.5,0.5), las=1, main="Cod - N1000", ylab="RE - SSB")
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N1000", ylab="RE - SSB")
 abline(h=0)
-boxplot(re_SSB[2,,], ylim=c(-0.5,0.5), las=1, main="Flatfish - N1000", ylab="RE - SSB")
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N1000", ylab="RE - SSB")
 abline(h=0)
-boxplot(re_SSB[3,,], ylim=c(-0.5,0.5), las=1, main="Sardine - N1000", ylab="RE - SSB")
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N1000", ylab="RE - SSB")
 abline(h=0)
 
 #Depletion
 par(mfcol=c(3,2))
-boxplot(re_Dep1[1,,], ylim=c(-0.5,0.5), las=1, main="Cod - N100", ylab="RE - Depletion")
+boxplot(re_Dep1[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N100", ylab="RE - Depletion")
 abline(h=0)
-boxplot(re_Dep1[2,,], ylim=c(-0.5,0.5), las=1, main="Flatfish - N100", ylab="RE - Depletion")
+boxplot(re_Dep1[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N100", ylab="RE - Depletion")
 abline(h=0)
-boxplot(re_Dep1[3,,], ylim=c(-0.5,0.5), las=1, main="Sardine - N100", ylab="RE - Depletion")
+boxplot(re_Dep1[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N100", ylab="RE - Depletion")
 abline(h=0)
 
-boxplot(re_Dep[1,,], ylim=c(-0.5,0.5), las=1, main="Cod - N1000", ylab="RE - Depletion")
+boxplot(re_Dep[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N1000", ylab="RE - Depletion")
 abline(h=0)
-boxplot(re_Dep[2,,], ylim=c(-0.5,0.5), las=1, main="Flatfish - N1000", ylab="RE - Depletion")
+boxplot(re_Dep[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N1000", ylab="RE - Depletion")
 abline(h=0)
-boxplot(re_Dep[3,,], ylim=c(-0.5,0.5), las=1, main="Sardine - N1000", ylab="RE - Depletion")
+boxplot(re_Dep[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N1000", ylab="RE - Depletion")
 abline(h=0)
 
 #R0
