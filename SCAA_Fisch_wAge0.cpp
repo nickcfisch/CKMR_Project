@@ -22,9 +22,8 @@ Type objective_function<Type>::operator() ()
   //    1. Selectivity
   //    2. Mortality
   //    3. Population
-  //    4. Expected Catch and Catch at Age
-  //    5. Expected index
-  //    7. Objective Functions
+  //    4. Expected Catch and Catch at Age and index
+  //    5. Objective Functions
   //V. REPORT SECTION
 
   //I. DATA INPUTS
@@ -134,9 +133,8 @@ Type objective_function<Type>::operator() ()
 //FISHERY SELECTIVITY
 ///////////////////////////
   for(j=0;j<=lage;j++){
-   fishery_sel(j)=1/(1+exp(-Sel_logis_k*(Laa(j)-Sel_logis_midpt)));   //Logistic Selectivity
+   fishery_sel(j)=1/(1+exp(-log(19)*(Laa(j)-exp(Sel_logis_midpt))/exp(Sel_logis_k)));   //Logistic Selectivity, stock synthesis version
   }
-  fishery_sel=fishery_sel/max(fishery_sel);
   
 //////////////////////
 //MORTALITY
@@ -172,7 +170,7 @@ Type objective_function<Type>::operator() ()
   for(i=0;i<=years.size()-1;i++){
    log_rec_devs(i)=log_recruit_devs(i);
   }
-  log_rec_devs(lyear)=0;
+  log_rec_devs(lyear)=Type(0);
   
   //Abundance at age in the first year
   for(j=fage+1;j<=lage;j++){
@@ -236,6 +234,7 @@ Type objective_function<Type>::operator() ()
   Type pi=3.141593;
 
 //LIKELIHOODS
+  L1=Type(0);
   //Catch Likelihood
   // Lognormal by SD
   for(i=0;i<=lyear-1;i++){  
@@ -243,6 +242,7 @@ Type objective_function<Type>::operator() ()
   } 
 
 //Multinomial
+  L2=Type(0);
   for(i=0;i<=lyear-1;i++){
    for(j=fage;j<=lage;j++){
     L2 += -1*(SS_fishery(i)*(obs_fishery_comp(i,j)*log(pred_fishery_comp(i,j))));     //Likelihood for age composition of fishery catch
@@ -251,6 +251,7 @@ Type objective_function<Type>::operator() ()
 
 //Fishery Index
 //Lognormal by SD
+  L3=Type(0);
   for(i=0;i<=lyear-1;i++){
    L3 += log(obs_index(i))+0.5*log(2*pi)+log_sd_index+pow(log(obs_index(i))-log(pred_index(i)),2)/(2*pow(sd_index,2));
   }
