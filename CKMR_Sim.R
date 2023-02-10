@@ -375,7 +375,7 @@ for (s in N_sim){
   u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
   
   SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAge0", map=fixed, random=reffects)
-  SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
+  SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
   
   res_list[[Q]][[s]]<-SCAA_fit
  }
