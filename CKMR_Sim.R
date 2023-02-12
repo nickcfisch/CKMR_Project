@@ -283,26 +283,26 @@ lines(1:101,HPDinterval(as.mcmc(Sardine_Depl), prob=0.75)[,2],lty=3)
 #############################
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
-N_comp<-1000
+N_comp<-100
 sd_catch<-0.05
-sd_index<-0.25
+sd_index<-0.5
 for (s in 1:N_sim){
  Cod_wdat[[s]] <-    Get_Data(OM=Cod_runs[[s]],     dat_seed=s,sd_catch=sd_catch,N_Comp=N_comp,q_index=0.0001,sd_index=sd_index)
  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,sd_catch=sd_catch,N_Comp=N_comp,q_index=0.0001,sd_index=sd_index)
  Sardine_wdat[[s]]<- Get_Data(OM=Sardine_runs[[s]], dat_seed=s,sd_catch=sd_catch,N_Comp=N_comp,q_index=0.0001,sd_index=sd_index)
 }
 
-#save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N1000_Ind25.RData"))
-#save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N1000_Ind25.RData"))
-#save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N1000_Ind25.RData"))
+#save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N100_Ind50.RData"))
+#save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N100_Ind50.RData"))
+#save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N100_Ind50.RData"))
 
 #############################################################
 #TMB SCAAs fit to Fishery data without CKMR (Base models)
 #############################################################
 
-load(paste0(wd,"/Cod_wdat_N100_Ind25.RData"))
-load(paste0(wd,"/Flatfish_wdat_N100_Ind25.RData"))
-load(paste0(wd,"/Sardine_wdat_N100_Ind25.RData"))
+load(paste0(wd,"/Cod_wdat_N1000_Ind50.RData"))
+load(paste0(wd,"/Flatfish_wdat_N1000_Ind50.RData"))
+load(paste0(wd,"/Sardine_wdat_N1000_Ind50.RData"))
 
 Cod_OM<-Cod_wdat
 Flatfish_OM<-Flatfish_wdat
@@ -381,9 +381,9 @@ for (s in N_sim){
  }
 }
 
-#saveRDS(res_list[[1]], file=paste0(wd,"/SCAAfit_Cod_N100_Ind25.RData"))
-#saveRDS(res_list[[2]], file=paste0(wd,"/SCAAfit_Flatfish_N100_Ind25.RData"))
-#saveRDS(res_list[[3]], file=paste0(wd,"/SCAAfit_Sardine_N100_Ind25.RData"))
+#saveRDS(res_list[[1]], file=paste0(wd,"/SCAAfit_Cod_N1000_Ind50.RData"))
+#saveRDS(res_list[[2]], file=paste0(wd,"/SCAAfit_Flatfish_N1000_Ind50.RData"))
+#saveRDS(res_list[[3]], file=paste0(wd,"/SCAAfit_Sardine_N1000_Ind50.RData"))
 
 res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind25.RData"))
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind25.RData"))
