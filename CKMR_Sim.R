@@ -54,8 +54,7 @@ Maa<-rep(Mref,length(fage:lage))    #Constant M
 Mat<-1/(1+exp(Mat_slope*(Laa-Mat_50)))
 
 #Fishery Selectivity 
-Sel<-1/(1+exp(-Sel_slope*(Laa-Sel_50)))
-Sel<-Sel/max(Sel)
+Sel<-1/(1+exp(-log(19)*(Laa-Sel_50)/Sel_slope))
 
 #Fishing intensity, starts in year 25
 k_int<-0.15
@@ -125,7 +124,7 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
                    sd_catch=0.05,
                    N_Comp=100,
                    q_index=0.0001,
-                   sd_index=0.25){
+                   sd_index=0.25, sd){
 
   set.seed(dat_seed)
   #Getting Data
@@ -136,7 +135,7 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
     Obs_Catch_Comp[d-25,]<-rmultinom(n=1,size=N_Comp, prob=OM$Caa[d,])
     Obs_Index[d-25]<-rlnorm(1, meanlog=log(sum(OM$Naa[d,]*((1-exp(-OM$Zaa[d,]))/OM$Zaa[d,])*OM$Sel*OM$Waa)*q_index), sdlog=sd_index)
   }
-  
+
   return(list(OM=OM,dat_seed=dat_seed,sd_catch=sd_catch,N_Comp=N_Comp,q_index=q_index,sd_index=sd_index,
               Obs_Catch=Obs_Catch,
               Obs_Catch_Comp=Obs_Catch_Comp,
@@ -146,8 +145,8 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
 
 #Fhigh is F that equals 0.85 MSY, as is flow
 
-#Sardine, 0.39 is fmsy, fhigh is 0.71113, flow is 0.1894
-#MSY 122328.5 (*0.85 = 103979.2)
+#Sardine, 0.425 is fmsy, fhigh is 0.7875, flow is 0.2037
+#MSY 122577.8 (*0.85 = 104191.1)
 Nsim<-100
 Sardine_runs<-list()
 for (s in 1:Nsim){
@@ -166,12 +165,14 @@ for (s in 1:Nsim){
    R0=exp(16),
    h=0.59,
    sd_rec=0.73,
-   fhigh=0.71113, 
-   flow=0.1894,
+   const_F=FALSE,
+   fint=0.25,
+   fhigh=0.7875, 
+   flow=0.2037,
    stochastic=TRUE)
 }
 
-#For Flatfish, fmsy is 0.3, MSY is 5488.004 (*0.85= 4664.803), and fhigh which reaches 0.85*MSY is 0.657, flow is 0.135
+#For Flatfish, fmsy is 0.27, MSY is 5240.563 (*0.85= 4454.479), and fhigh which reaches 0.85*MSY is 0.5425, flow is 0.1259
 Flatfish_runs<-list()
 for (s in 1:Nsim){
  Flatfish_runs[[s]]<-SimPop(seed=s,
@@ -193,12 +194,14 @@ for (s in 1:Nsim){
    R0=exp(10.5),
    h=0.76,
    sd_rec=0.7,
-   fhigh=0.657, 
-   flow=0.135, 
+   const_F=FALSE,
+   fint=0.25,
+   fhigh=0.5425, 
+   flow=0.1259, 
    stochastic=TRUE)
 }
 
-#For Cod, fmsy is 0.122, MSY is 162786651 (*0.85=138368653), f that reaches 0.85*MSY is 0.2068, flow is 0.0632
+#For Cod, fmsy is 0.12, MSY is 160865265 (*0.85=136735475), f that reaches 0.85*MSY is 0.20284, flow is 0.06232
 Cod_runs<-list()
 for (s in 1:Nsim){
  Cod_runs[[s]]<-SimPop(seed=s,
@@ -220,8 +223,10 @@ for (s in 1:Nsim){
    R0=exp(18.7),
    h=0.65,
    sd_rec=0.4,
-   fhigh=0.2068, 
-   flow=0.0632, 
+   const_F=FALSE,
+   fint=0.25,
+   fhigh=0.20284, 
+   flow=0.06232, 
    stochastic=TRUE)
 }
 
@@ -278,23 +283,26 @@ lines(1:101,HPDinterval(as.mcmc(Sardine_Depl), prob=0.75)[,2],lty=3)
 #############################
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
+N_comp<-100
+sd_catch<-0.05
+sd_index<-0.5
 for (s in 1:N_sim){
- Cod_wdat[[s]]<-Get_Data(OM=Cod_runs[[s]],dat_seed=s,sd_catch=0.05,N_Comp=1000,q_index=0.0001,sd_index=0.25)
- Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,sd_catch=0.05,N_Comp=1000,q_index=0.0001,sd_index=0.25)
- Sardine_wdat[[s]]<-Get_Data(OM=Sardine_runs[[s]],dat_seed=s,sd_catch=0.05,N_Comp=1000,q_index=0.0001,sd_index=0.25)
+ Cod_wdat[[s]] <-    Get_Data(OM=Cod_runs[[s]],     dat_seed=s,sd_catch=sd_catch,N_Comp=N_comp,q_index=0.0001,sd_index=sd_index)
+ Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,sd_catch=sd_catch,N_Comp=N_comp,q_index=0.0001,sd_index=sd_index)
+ Sardine_wdat[[s]]<- Get_Data(OM=Sardine_runs[[s]], dat_seed=s,sd_catch=sd_catch,N_Comp=N_comp,q_index=0.0001,sd_index=sd_index)
 }
 
-#save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N1000_Ind25.RData"))
-#save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N1000_Ind25.RData"))
-#save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N1000_Ind25.RData"))
+#save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N100_Ind50.RData"))
+#save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N100_Ind50.RData"))
+#save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N100_Ind50.RData"))
 
 #############################################################
 #TMB SCAAs fit to Fishery data without CKMR (Base models)
 #############################################################
 
-load(paste0(wd,"/Cod_wdat_N1000_Ind25.RData"))
-load(paste0(wd,"/Flatfish_wdat_N1000_Ind25.RData"))
-load(paste0(wd,"/Sardine_wdat_N1000_Ind25.RData"))
+load(paste0(wd,"/Cod_wdat_N1000_Ind50.RData"))
+load(paste0(wd,"/Flatfish_wdat_N1000_Ind50.RData"))
+load(paste0(wd,"/Sardine_wdat_N1000_Ind50.RData"))
 
 Cod_OM<-Cod_wdat
 Flatfish_OM<-Flatfish_wdat
@@ -344,8 +352,8 @@ for (s in N_sim){
               log_sigma_rec=log(OM$OM$sd_rec),
               log_sd_catch=log(OM$sd_catch),
               log_sd_index=log(OM$sd_index),
-              Sel_logis_k=jitter(OM$OM$Sel_slope, factor=jfactor),
-              Sel_logis_midpt=jitter(OM$OM$Sel_50, factor=jfactor),
+              Sel_logis_k=jitter(log(OM$OM$Sel_slope), factor=jfactor),
+              Sel_logis_midpt=jitter(log(OM$OM$Sel_50), factor=jfactor),
               log_fint=log(jitter(OM$OM$F_int[26:100], factor=jfactor)))  
   
   ################
@@ -359,23 +367,23 @@ for (s in N_sim){
               log_sd_catch=factor(NA),
               log_sd_index=factor(NA))
   
-  lower_bounds<-c(-5,-20,rep(-10,dat$lage),rep(-10,dat$lyear), 0, 5, -5,-5,-5, 0,  0,rep(-20,dat$lyear))
-  upper_bounds<-c( 2,  1,rep( 10,dat$lage),rep( 10,dat$lyear), 1, 25, 2, 2, 2,20,100,rep(  0,dat$lyear))
+  lower_bounds<-c(-5,-20,rep(-10,dat$lage),rep(-10,dat$lyear), 0, 5, -5,-5,-5,-5,-5,rep(-10,dat$lyear))
+  upper_bounds<-c( 2,  1,rep( 10,dat$lage),rep( 10,dat$lyear), 1, 25, 2, 2, 2, 5, 5,rep(  0,dat$lyear))
   
   reffects=c("log_recruit_devs","log_recruit_devs_init")
   l<-lower_bounds[-which(parm_names %in% c(names(fixed),reffects))]
   u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
   
   SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAge0", map=fixed, random=reffects)
-  SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
+  SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
   
   res_list[[Q]][[s]]<-SCAA_fit
  }
 }
 
-#saveRDS(res_list[[1]], file=paste0(wd,"/SCAAfit_Cod_N1000_Ind25.RData"))
-#saveRDS(res_list[[2]], file=paste0(wd,"/SCAAfit_Flatfish_N1000_Ind25.RData"))
-#saveRDS(res_list[[3]], file=paste0(wd,"SCAAfit_Sardine_N1000_Ind25.RData"))
+#saveRDS(res_list[[1]], file=paste0(wd,"/SCAAfit_Cod_N1000_Ind50.RData"))
+#saveRDS(res_list[[2]], file=paste0(wd,"/SCAAfit_Flatfish_N1000_Ind50.RData"))
+#saveRDS(res_list[[3]], file=paste0(wd,"/SCAAfit_Sardine_N1000_Ind50.RData"))
 
 res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind25.RData"))
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind25.RData"))
