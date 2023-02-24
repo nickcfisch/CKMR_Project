@@ -463,17 +463,17 @@ for (s in 1:N_sim){
   }
 }
 
-#save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N100_Ind50_ckmr25_1.RData"))
-#save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N100_Ind50_ckmr25_1.RData"))
-#save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N100_Ind50_ckmr25_1.RData"))
+#save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N1000_Ind50_ckmr25_1.RData"))
+#save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N1000_Ind50_ckmr25_1.RData"))
+#save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N1000_Ind50_ckmr25_1.RData"))
 
 #############################################################
 #TMB SCAAs fit to Fishery data without CKMR (Base models)
 #############################################################
 
-load(paste0(wd,"/Cod_wdat_N1000_Ind50.RData"))
-load(paste0(wd,"/Flatfish_wdat_N1000_Ind50.RData"))
-load(paste0(wd,"/Sardine_wdat_N1000_Ind50.RData"))
+load(paste0(wd,"/Cod_wdat_N1000_Ind50_ckmr25_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N1000_Ind50_ckmr25_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N1000_Ind50_ckmr25_1.RData"))
 
 Cod_OM<-Cod_wdat
 Flatfish_OM<-Flatfish_wdat
@@ -653,10 +653,11 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="Sardine - N1000", ylab="RE - M")
 abline(h=0)
 
-
+###############################################
 ######################################
 #TMB Model with both HSP and POP
 ######################################
+###############################################
 load(paste0(wd,"/Cod_wdat_N100_Ind25_ckmr25_1.RData"))
 load(paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmr25_1.RData"))
 load(paste0(wd,"/Sardine_wdat_N100_Ind25_ckmr25_1.RData"))
