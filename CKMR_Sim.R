@@ -471,9 +471,9 @@ for (s in 1:N_sim){
 #TMB SCAAs fit to Fishery data without CKMR (Base models)
 #############################################################
 
-load(paste0(wd,"/Cod_wdat_N1000_Ind50_ckmr25_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N1000_Ind50_ckmr25_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N1000_Ind50_ckmr25_1.RData"))
+load(paste0(wd,"/Cod_wdat_N100_Ind25_ckmr25_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmr25_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N100_Ind25_ckmr25_1.RData"))
 
 Cod_OM<-Cod_wdat
 Flatfish_OM<-Flatfish_wdat
@@ -675,9 +675,9 @@ compile("CKMR_HSP_and_POP_Fisch_wAge0.cpp")
 
 N_sim<-1:1
 jfactor<-5
-res_list<-list()
+res_list_ckmr<-list()
 for (Q in 1:3){  #Running through the life history types
-  res_list[[Q]]<-list()
+  res_list_ckmr[[Q]]<-list()
   for (s in N_sim){
     
     if(Q==1){
@@ -741,7 +741,7 @@ u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
 SCAA <- MakeADFun(dat, par, DLL="CKMR_HSP_and_POP_Fisch_wAge0", map=fixed, random=reffects)
 SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps=1, getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
 
-   res_list[[Q]][[s]]<-SCAA_fit
+   res_list_ckmr[[Q]][[s]]<-SCAA_fit
   }
 }
 
