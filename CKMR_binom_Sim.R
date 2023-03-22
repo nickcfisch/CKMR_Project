@@ -1,3 +1,6 @@
+
+#CKMR Simulator with Binomial
+
 #####################################################
 #Population Simulations for each Life-history type
 #####################################################
