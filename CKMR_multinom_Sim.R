@@ -127,7 +127,7 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
                    fyear_dat=26,
                    lyear_dat=100,
                    sd_catch=0.05,
-                   N_Comp=100,
+                   N_Comp=200,
                    q_index=0.0001,
                    sd_index=0.25,
                    prop_ckmr=1,
@@ -181,7 +181,7 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
   pairs <- pairs[,c("samp_year.young","age.young","born_year.young","Tot_reprod.young","samp_year.old","age.old","born_year.old","Tot_reprod.old")] #just reordering the columns
   pairs <- cbind.data.frame(pairs, age_diff = pairs$born_year.young-pairs$born_year.old) 
 
-  #Rewrote using multinomial, because you can't have too many samples it gets too complex. 
+  #Rewrote using multinomial (and binomial. rather than bernoulli), because you can't have too many samples it gets too complex. 
   collapsed_pairs<-aggregate(rep(1,nrow(pairs)),by=list(pairs$born_year.young,pairs$age_diff,pairs$samp_year.old), FUN=sum)
   colnames(collapsed_pairs)<-c("born_year.young", "age_diff","samp_year.old","times")
   
@@ -273,9 +273,10 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
   }
   collapsed_pairs<-collapsed_pairs[order(collapsed_pairs$born_year.young,collapsed_pairs$age_diff),] #ordering the counts by year born and then the age difference
   
-  sim_vals <- list(samples = samples, pairs=pairs, pair_counts = collapsed_pairs, pair_data = collapsed_pairs[,c("born_year.young", "age_diff", "n_UP", "n_HSP","n_POP","times")])
+  sim_vals <- list(samples = samples, pairs=pairs, pair_counts = collapsed_pairs, pair_data = collapsed_pairs[,c("born_year.young", "age_diff", "samp_year.old", "n_UP", "n_HSP","n_POP","times")])
     
   return(list(OM=OM,dat_seed=dat_seed,sd_catch=sd_catch,N_Comp=N_Comp,q_index=q_index,sd_index=sd_index,fyear_dat=fyear_dat,lyear_dat=lyear_dat,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,
+              sim_vals=sim_vals,
               Obs_Catch=Obs_Catch,
               Obs_Catch_Comp=Obs_Catch_Comp,
               Obs_Index=Obs_Index,
@@ -286,7 +287,8 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
               k_ckmr_hsp=sim_vals$pair_data$n_HSP,
               #CKMR POP
               born_year_young=sim_vals$pair_data$born_year.young, 
-              k_ckmr_pop=sim_vals$pair_data$n_POP))
+              k_ckmr_pop=sim_vals$pair_data$n_POP,
+              samp_year_old=sim_vals$pair_data$samp_year.old))
 }
 
 
@@ -430,7 +432,7 @@ lines(1:101,HPDinterval(as.mcmc(Sardine_Depl), prob=0.75)[,2],lty=3)
 #############################
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
-N_comp<-100
+N_comp<-200
 sd_catch<-0.05
 sd_index<-0.5
 fyear_dat<-26
@@ -448,13 +450,9 @@ for (s in 1:N_sim){
   }
 }
 
-#save(Cod_wdat,     file=paste0(wd,     "/Cod_wdat_N100_Ind50_ckmr25_1.RData"))
-#save(Flatfish_wdat,file=paste0(wd,"/Flatfish_wdat_N100_Ind50_ckmr25_1.RData"))
-#save(Sardine_wdat, file=paste0(wd, "/Sardine_wdat_N100_Ind50_ckmr25_1.RData"))
-
-
-load("C:/Users/nfisch/Documents/GitHub/CKMR_Project/Cod_wdat_N100_Ind50_ckmr25_1.RData")
-
+#save(Cod_wdat,     file=paste0(wd,     "/Cod_wdat_N200_Ind50_ckmr25_1.RData"))
+#save(Flatfish_wdat,file=paste0(wd,"/Flatfish_wdat_N200_Ind50_ckmr25_1.RData"))
+#save(Sardine_wdat, file=paste0(wd, "/Sardine_wdat_N200_Ind50_ckmr25_1.RData"))
 
 #############################################################
 #TMB SCAAs fit to Fishery data without CKMR (Base models)
@@ -660,10 +658,9 @@ library(TMB)
 
 setwd(wd)
 #Compile and load model 
-compile("CKMR_HSP_and_POP_Fisch_wAge0.cpp")
+compile("CKMRmultinom_HSP_and_POP_Fisch_wAge0.cpp")
 
 N_sim<-1:1
-jfactor<-5
 res_list<-list()
 for (Q in 1:3){  #Running through the life history types
   res_list[[Q]]<-list()
@@ -686,16 +683,14 @@ for (Q in 1:3){  #Running through the life history types
               Mat=OM$OM$Mat,
               Laa=OM$OM$Laa,
               Waa=OM$OM$Waa,
-              #CKMR HSP
-              born_year_old_hsp=OM$born_year_old_hsp-(OM$fyear_dat-1),
-              age_diff_hsp=OM$age_diff_hsp,
-              n_ckmr_hsp=OM$n_ckmr_hsp,
+              #CKMR 
+              born_year_old=OM$born_year_old-(OM$fyear_dat-1),
+              age_diff=OM$age_diff,
+              n_ckmr=OM$n_ckmr,
               k_ckmr_hsp=OM$k_ckmr_hsp,
-              #CKMR POP
-              born_year_young_pop=OM$born_year_young_pop-(OM$fyear_dat-1), 
-              age_diff_pop=OM$age_diff_pop,
-              n_ckmr_pop=OM$n_ckmr_pop,
-              k_ckmr_pop=OM$k_ckmr_pop)
+              born_year_young=OM$born_year_young-(OM$fyear_dat-1), 
+              k_ckmr_pop=OM$k_ckmr_pop,
+              samp_year_old=OM$samp_year_old-(OM$fyear_dat-1))
     
     #Parameters
     set.seed(s)
@@ -712,9 +707,9 @@ for (Q in 1:3){  #Running through the life history types
                 Sel_logis_midpt=log(runif(1,min=OM$OM$Sel_50-OM$OM$Sel_50*0.2,max=OM$OM$Sel_50+OM$OM$Sel_50*0.2)),
                 log_fint=log(runif(length(OM$OM$F_int[26:100]),min=OM$OM$F_int[26:100]-OM$OM$F_int[26:100]*0.2,max=OM$OM$F_int[26:100]+OM$OM$F_int[26:100]*0.2)))  
     
-    dyn.load(dynlib("CKMR_HSP_and_POP_Fisch_wAge0"))
+    dyn.load(dynlib("CKMRmultinom_HSP_and_POP_Fisch_wAge0"))
     
-    parm_names<-names(MakeADFun(dat, par, DLL="CKMR_HSP_and_POP_Fisch_wAge0")$par)
+    parm_names<-names(MakeADFun(dat, par, DLL="CKMRmultinom_HSP_and_POP_Fisch_wAge0")$par)
     
     fixed<-list(steepness=factor(NA),
                 log_sd_catch=factor(NA),
@@ -727,7 +722,7 @@ for (Q in 1:3){  #Running through the life history types
     l<-lower_bounds[-which(parm_names %in% c(names(fixed),reffects))]
     u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
     
-    SCAA <- MakeADFun(dat, par, DLL="CKMR_HSP_and_POP_Fisch_wAge0", map=fixed, random=reffects)
+    SCAA <- MakeADFun(dat, par, DLL="CKMRmultinom_HSP_and_POP_Fisch_wAge0", map=fixed, random=reffects)
     SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps=1, getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
     
     res_list[[Q]][[s]]<-SCAA_fit

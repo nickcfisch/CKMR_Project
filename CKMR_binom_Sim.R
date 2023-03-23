@@ -466,17 +466,17 @@ for (s in 1:N_sim){
   }
 }
 
-#save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N1000_Ind50_ckmr25_1.RData"))
-#save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N1000_Ind50_ckmr25_1.RData"))
-#save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N1000_Ind50_ckmr25_1.RData"))
+#save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N1000_Ind50_ckmrbinom25_1.RData"))
+#save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N1000_Ind50_ckmrbinom25_1.RData"))
+#save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N1000_Ind50_ckmrbinom25_1.RData"))
 
 #############################################################
 #TMB SCAAs fit to Fishery data without CKMR (Base models)
 #############################################################
 
-load(paste0(wd,"/Cod_wdat_N100_Ind25_ckmr25_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmr25_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N100_Ind25_ckmr25_1.RData"))
+load(paste0(wd,"/Cod_wdat_N100_Ind25_ckmrbinom25_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmrbinom25_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N100_Ind25_ckmrbinom25_1.RData"))
 
 Cod_OM<-Cod_wdat
 Flatfish_OM<-Flatfish_wdat
@@ -661,9 +661,9 @@ abline(h=0)
 #TMB Model with both HSP and POP
 ######################################
 ###############################################
-load(paste0(wd,"/Cod_wdat_N100_Ind25_ckmr25_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmr25_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N100_Ind25_ckmr25_1.RData"))
+load(paste0(wd,"/Cod_wdat_N100_Ind25_ckmrbinom25_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmrbinom25_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N100_Ind25_ckmrbinom25_1.RData"))
 
 Cod_OM<-Cod_wdat
 Flatfish_OM<-Flatfish_wdat
@@ -674,10 +674,9 @@ library(TMB)
 
 setwd(wd)
 #Compile and load model 
-compile("CKMR_HSP_and_POP_Fisch_wAge0.cpp")
+compile("CKMRbinom_HSP_and_POP_Fisch_wAge0.cpp")
 
 N_sim<-1:1
-jfactor<-5
 res_list_ckmr<-list()
 for (Q in 1:3){  #Running through the life history types
   res_list_ckmr[[Q]]<-list()
@@ -726,9 +725,9 @@ par <- list(log_M=log(runif(1,min=OM$OM$Mref-OM$OM$Mref*0.2,max=OM$OM$Mref+OM$OM
             Sel_logis_midpt=log(runif(1,min=OM$OM$Sel_50-OM$OM$Sel_50*0.2,max=OM$OM$Sel_50+OM$OM$Sel_50*0.2)),
             log_fint=log(runif(length(OM$OM$F_int[26:100]),min=OM$OM$F_int[26:100]-OM$OM$F_int[26:100]*0.2,max=OM$OM$F_int[26:100]+OM$OM$F_int[26:100]*0.2)))  
 
-dyn.load(dynlib("CKMR_HSP_and_POP_Fisch_wAge0"))
+dyn.load(dynlib("CKMRbinom_HSP_and_POP_Fisch_wAge0"))
 
-parm_names<-names(MakeADFun(dat, par, DLL="CKMR_HSP_and_POP_Fisch_wAge0")$par)
+parm_names<-names(MakeADFun(dat, par, DLL="CKMRbinom_HSP_and_POP_Fisch_wAge0")$par)
 
 fixed<-list(steepness=factor(NA),
             log_sd_catch=factor(NA),
@@ -741,7 +740,7 @@ reffects=c("log_recruit_devs","log_recruit_devs_init")
 l<-lower_bounds[-which(parm_names %in% c(names(fixed),reffects))]
 u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
 
-SCAA <- MakeADFun(dat, par, DLL="CKMR_HSP_and_POP_Fisch_wAge0", map=fixed, random=reffects)
+SCAA <- MakeADFun(dat, par, DLL="CKMRbinom_HSP_and_POP_Fisch_wAge0", map=fixed, random=reffects)
 SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps=1, getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
 
    res_list_ckmr[[Q]][[s]]<-SCAA_fit
