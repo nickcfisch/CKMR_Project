@@ -127,7 +127,8 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
                    fyear_dat=26,
                    lyear_dat=100,
                    sd_catch=0.05,
-                   N_Comp=200,
+                   N_Comp_preCKMR=100,
+                   N_Comp_CKMR=200,
                    q_index=0.0001,
                    sd_index=0.25,
                    prop_ckmr=1,
@@ -138,9 +139,10 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
   #Getting Data
   Obs_Catch<-Obs_Index<-NA
   Obs_Catch_Comp<-matrix(NA,nrow=length(fyear_dat:lyear_dat),ncol=length(OM$fage:OM$lage))
+  N_Comp<-c(rep(0,fyear_dat-1),rep(N_Comp_preCKMR,length(fyear_dat:(fyear_ckmr-1))),rep(N_Comp_CKMR,length(fyear_ckmr:lyear_ckmr)))
   for (d in fyear_dat:lyear_dat){
     Obs_Catch[d-(fyear_dat-1)]<-rlnorm(1, meanlog=log(sum(OM$Caa[d,]*OM$Waa)), sdlog=sd_catch)
-    Obs_Catch_Comp[d-(fyear_dat-1),]<-rmultinom(n=1,size=N_Comp, prob=OM$Caa[d,])
+    Obs_Catch_Comp[d-(fyear_dat-1),]<-rmultinom(n=1,size=N_Comp[d], prob=OM$Caa[d,])
     Obs_Index[d-(fyear_dat-1)]<-rlnorm(1, meanlog=log(sum(OM$Naa[d,]*((1-exp(-OM$Zaa[d,]))/OM$Zaa[d,])*OM$Sel*OM$Waa)*q_index), sdlog=sd_index)
   }
   
@@ -154,9 +156,9 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
   
   #Simulating the data
   ages <- OM$fage:OM$lage          #a vector of the ages at which individuals are sampled
-  n_ckmr<-round(N_Comp*prop_ckmr)
+  n_ckmr<-round(N_Comp_CKMR*prop_ckmr)
   # The age composition samples
-  age_samples<-matrix(NA, nrow=length(fyear_ckmr:lyear_ckmr),ncol=N_Comp)
+  age_samples<-matrix(NA, nrow=length(fyear_ckmr:lyear_ckmr),ncol=n_ckmr)
   for(i in 1:length(fyear_ckmr:lyear_ckmr)){
     if (prop_ckmr==1){
       age_samples[i,] <- rep(ages,times=Obs_Catch_Comp[fyear_ckmr-fyear_dat+i,])
@@ -165,7 +167,7 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
     }
   }  
   
-  samples <- data.frame(samp_year = rep(fyear_ckmr:lyear_ckmr, each=N_Comp), age = c(t(age_samples)))
+  samples <- data.frame(samp_year = rep(fyear_ckmr:lyear_ckmr, each=n_ckmr), age = c(t(age_samples)))
   samples <- cbind.data.frame(samples, born_year = samples$samp_year - samples$age)    #From the age and sampling year, calculate the year it was born in.
   #The total reproductive output at the time it was born
   Tot_reprod <- rep(NA, length(samples$born_year))
@@ -275,8 +277,8 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
   
   sim_vals <- list(samples = samples, pairs=pairs, pair_counts = collapsed_pairs, pair_data = collapsed_pairs[,c("born_year.young", "age_diff", "samp_year.old", "n_UP", "n_HSP","n_POP","times")])
     
-  return(list(OM=OM,dat_seed=dat_seed,sd_catch=sd_catch,N_Comp=N_Comp,q_index=q_index,sd_index=sd_index,fyear_dat=fyear_dat,lyear_dat=lyear_dat,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,
-              sim_vals=sim_vals,
+  return(list(OM=OM,dat_seed=dat_seed,sd_catch=sd_catch,N_Comp_preCKMR=N_Comp_preCKMR,N_Comp_CKMR=N_Comp_CKMR,q_index=q_index,sd_index=sd_index,fyear_dat=fyear_dat,lyear_dat=lyear_dat,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,
+              pair_counts=sim_vals$pair_counts,
               Obs_Catch=Obs_Catch,
               Obs_Catch_Comp=Obs_Catch_Comp,
               Obs_Index=Obs_Index,
@@ -432,7 +434,8 @@ lines(1:101,HPDinterval(as.mcmc(Sardine_Depl), prob=0.75)[,2],lty=3)
 #############################
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
-N_comp<-200
+N_comp_preCKMR<-100
+N_comp_CKMR<-200
 sd_catch<-0.05
 sd_index<-0.5
 fyear_dat<-26
@@ -442,9 +445,9 @@ fyear_ckmr<-76
 lyear_ckmr<-100
 progress_bar<-TRUE
 for (s in 1:N_sim){
-  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp=N_comp,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr)
-  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp=N_comp,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr)
-  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp=N_comp,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr)
+  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr)
+  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr)
+  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr)
   if(progress_bar==TRUE){
     plot(rep(1,length(1:s)), pch=16)
   }
