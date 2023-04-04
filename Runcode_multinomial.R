@@ -3,7 +3,7 @@
 
 wd<-"C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/"
 
-source(paste0(wd,"/CKMR_multinom_Sim.R"))
+#source(paste0(wd,"/CKMR_multinom_Sim.R"))
 
 #Ncomp 200, sdindex 0.25
 N_sim<-100
