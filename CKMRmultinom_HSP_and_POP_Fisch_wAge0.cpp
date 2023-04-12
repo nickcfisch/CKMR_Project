@@ -134,6 +134,7 @@ Type objective_function<Type>::operator() ()
   matrix<Type> HSP_prob_aa(n_ckmr.size(),ages.size());
   vector<Type> HSP_prob(n_ckmr.size());
   matrix<Type> surv_prob(n_ckmr.size(),ages.size());
+<<<<<<< HEAD
   vector<matrix<Type>> surv_prob_aa(n_ckmr.size());  //vector of matrices of survival probabilities for HSP calcs
   //Specifying dimensions of the vector of matrices
   for(i=0;i<=n_ckmr.size()-1;i++){
@@ -141,6 +142,9 @@ Type objective_function<Type>::operator() ()
    surv_prob_aa(i) = m1;
   }
    vector<Type> POP_prob(n_ckmr.size());
+=======
+  vector<Type> POP_prob(n_ckmr.size());
+>>>>>>> 31fef4c3bd18b13897f089618a4210f5e06beb72
   
   Type NLL = 0;
   Type NPRAND = 0;
@@ -258,16 +262,22 @@ Type objective_function<Type>::operator() ()
 // - 1s are for TMB indexing which starts at zero
   for(i=0;i<=n_ckmr.size()-1;i++){        
 
+<<<<<<< HEAD
+=======
+  //Specifying dimensions of the vector of matrices
+   matrix<Type> surv_prob_aa(age_diff(i),lage+age_diff(i));
+ 
+>>>>>>> 31fef4c3bd18b13897f089618a4210f5e06beb72
 /////////////////////////////////////
 //HSP Calcs
 /////////////////////////////////////  
   //This fills in the survival in the year of first born, Don't know how to fill in a segment of a matrix
    for(j=0;j<=lage;j++){ 
     if(born_year_old(i)>0){
-     surv_prob_aa(i)(0,j) = S(born_year_old(i)-1,j);
+     surv_prob_aa(0,j) = S(born_year_old(i)-1,j);
 	}
 	if(born_year_old(i)<1){
-     surv_prob_aa(i)(0,j) = exp(-1*Maa(j));
+     surv_prob_aa(0,j) = exp(-1*Maa(j));
 	}
    }
    
@@ -277,24 +287,28 @@ Type objective_function<Type>::operator() ()
 // So parent has to survive year of the birth, year after the birth,.. up to age difference
     if(k<=lage){
      if(born_year_old(i)>0){
-      surv_prob_aa(i)(j+1,k+1)= surv_prob_aa(i)(j,k) * S(born_year_old(i)+j,k);
+      surv_prob_aa(j+1,k+1)= surv_prob_aa(j,k) * S(born_year_old(i)+j,k);
 	 }
 	 if(born_year_old(i)<1){
-      surv_prob_aa(i)(j+1,k+1)= surv_prob_aa(i)(j,k) * exp(-1*Maa(k));
+      surv_prob_aa(j+1,k+1)= surv_prob_aa(j,k) * exp(-1*Maa(k));
 	 }
  	}
 	
 	if(k>lage){
      if(born_year_old(i)>0){
-      surv_prob_aa(i)(j+1,k+1)= surv_prob_aa(i)(j,k) * S(born_year_old(i)+j,lage);
+      surv_prob_aa(j+1,k+1)= surv_prob_aa(j,k) * S(born_year_old(i)+j,lage);
 	 }
      if(born_year_old(i)<1){
-      surv_prob_aa(i)(j+1,k+1)= surv_prob_aa(i)(j,k) * exp(-1*Maa(lage));
+      surv_prob_aa(j+1,k+1)= surv_prob_aa(j,k) * exp(-1*Maa(lage));
      }
 	}
    } 
   }
+<<<<<<< HEAD
    surv_prob.row(i) = surv_prob_aa(i).block(age_diff(i)-1,age_diff(i)-1,1,lage+1); //getting subset of matrix, starting at (x1,y1), and taking 1 row of lage+1 columns  
+=======
+   surv_prob.row(i) = surv_prob_aa.block(age_diff(i)-1,age_diff(i)-1,1,lage+1); //getting subset of matrix, starting at (x1,y1), and taking 1 row of lage+1 columns  
+>>>>>>> 31fef4c3bd18b13897f089618a4210f5e06beb72
   
 //CKMR_data(i,1) is the year of second born, and CKMR_data(i,2) is the age difference
    for(j=0;j<=lage;j++){  
@@ -411,7 +425,6 @@ Type objective_function<Type>::operator() ()
   REPORT(sd_index);
   REPORT(log_recruit_devs);
 
-  REPORT(surv_prob_aa);
   REPORT(surv_prob);
   REPORT(HSP_prob_aa);
   REPORT(HSP_prob);
