@@ -53,7 +53,7 @@ Type objective_function<Type>::operator() ()
   DATA_VECTOR(k_ckmr_hsp); 
   DATA_IVECTOR(born_year_young); 
   DATA_VECTOR(k_ckmr_pop); 
-  DATA_VECTOR(samp_year_old); 
+  DATA_IVECTOR(samp_year_old); 
  //Year of first born, age difference, number of replicates, number of successes for HSP, year of second born (or juves birth), number of successes for POP, and sampling year of older indv
 
   //II. PARAMETER DECLARATION
@@ -131,16 +131,16 @@ Type objective_function<Type>::operator() ()
   int k;
   
   //CKMR objects
-  matrix<Type> HSP_prob_aa(age_diff.size(),ages.size());
-  vector<Type> HSP_prob(age_diff.size());
-  matrix<Type> surv_prob(age_diff.size(),ages.size());
-  vector<matrix<Type>> surv_prob_aa(age_diff.size());  //vector of matrices of survival probabilities for HSP calcs
+  matrix<Type> HSP_prob_aa(n_ckmr.size(),ages.size());
+  vector<Type> HSP_prob(n_ckmr.size());
+  matrix<Type> surv_prob(n_ckmr.size(),ages.size());
+  vector<matrix<Type>> surv_prob_aa(n_ckmr.size());  //vector of matrices of survival probabilities for HSP calcs
   //Specifying dimensions of the vector of matrices
-  for(i=0;i<=age_diff.size()-1;i++){
+  for(i=0;i<=n_ckmr.size()-1;i++){
    matrix<Type> m1(age_diff(i),lage+age_diff(i));
    surv_prob_aa(i) = m1;
   }
-   vector<Type> POP_prob(age_diff.size());
+   vector<Type> POP_prob(n_ckmr.size());
   
   Type NLL = 0;
   Type NPRAND = 0;
@@ -252,12 +252,15 @@ Type objective_function<Type>::operator() ()
   Depletion(lyear)=spbiomass(lyear)/SSB0;
 
 ///////////////////////////////////////////
-//Close kin calculations, HSPs
+//Close kin calculations
 ///////////////////////////////////////////
-
-//HSPs
+  L4=Type(0);  
 // - 1s are for TMB indexing which starts at zero
-  for(i=0;i<=age_diff.size()-1;i++){        
+  for(i=0;i<=n_ckmr.size()-1;i++){        
+
+/////////////////////////////////////
+//HSP Calcs
+/////////////////////////////////////  
   //This fills in the survival in the year of first born, Don't know how to fill in a segment of a matrix
    for(j=0;j<=lage;j++){ 
     if(born_year_old(i)>0){
@@ -291,7 +294,7 @@ Type objective_function<Type>::operator() ()
 	}
    } 
   }
-   surv_prob.row(i) = surv_prob_aa(i).block(age_diff(i)-1,age_diff(i)-1,1,lage+1); //getting subset of matrix, starting at (x1,y1), and taking 1 row of 15 columns  
+   surv_prob.row(i) = surv_prob_aa(i).block(age_diff(i)-1,age_diff(i)-1,1,lage+1); //getting subset of matrix, starting at (x1,y1), and taking 1 row of lage+1 columns  
   
 //CKMR_data(i,1) is the year of second born, and CKMR_data(i,2) is the age difference
    for(j=0;j<=lage;j++){  
@@ -322,13 +325,11 @@ Type objective_function<Type>::operator() ()
     }
    }
    HSP_prob(i) = HSP_prob_aa.row(i).sum();
-  }
 
 /////////////////////////
 //POP calcs
 /////////////////////////
 
-  for(i=0;i<=age_diff.size()-1;i++){         
     // A potential parent has to have been sampled after or on the year of youngs birth, because sampling is lethal 
     if(samp_year_old(i) >= born_year_young(i)){
   //So the exp reproductive output of the parent in the year of offsprings birth / total reprod output that year
@@ -343,6 +344,24 @@ Type objective_function<Type>::operator() ()
    if(samp_year_old(i) < born_year_young(i)){
 	POP_prob(i) = Type(0);
    }
+   
+//////////////////////////////////////////// 
+//Multinomial Likelihood for CKMR calcs
+////////////////////////////////////////////  
+	  
+   //if potential parent was sampled after or on the year of youngs birth, because sampling is lethal  	  
+   if(samp_year_old(i) >= born_year_young(i)){
+    L4 += -1*(n_ckmr(i)*((n_ckmr(i)-(k_ckmr_hsp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-(HSP_prob(i)+POP_prob(i)))); //Prob of no match
+    L4 += -1*(n_ckmr(i)*((k_ckmr_hsp(i)/n_ckmr(i))*log(HSP_prob(i))));    //Prob of HSP
+    L4 += -1*(n_ckmr(i)*((k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i))));    //Prob of POP
+     //Alternative = Sample size * sum ( Prob of no match + Prob of HSP + Prob of POP ) 
+//    L4 += -1*( n_ckmr(i) * ( ((n_ckmr(i)-(k_ckmr_hsp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-(HSP_prob(i)+POP_prob(i))) + (k_ckmr_hsp(i)/n_ckmr(i))*log(HSP_prob(i)) + (k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i))) ); 
+   }
+   //if not, then collapses to binomial for only HSP calcs
+   if(samp_year_old(i) < born_year_young(i)){
+    L4 += -1*log(dbinom(k_ckmr_hsp(i),n_ckmr(i),HSP_prob(i))); 
+   }
+   
   }
 
 /////////////////////////
@@ -371,23 +390,6 @@ Type objective_function<Type>::operator() ()
   L3=Type(0);
   for(i=0;i<=lyear-1;i++){
    L3 += log(obs_index(i))+0.5*log(2*pi)+log_sd_index+pow(log(obs_index(i))-log(pred_index(i)),2)/(2*pow(sd_index,2));
-  }
-  
-  //Multinomial Likelihood for CKMR calcs
-  L4=Type(0);
-  for(i=0;i<=n_ckmr.size()-1;i++){
-	  
-   //if potential parent was sampled after or on the year of youngs birth, because sampling is lethal  	  
-   if(samp_year_old(i) >= born_year_young(i)){
-    L4 += -1*(n_ckmr(i)*((n_ckmr(i)-(k_ckmr_hsp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-(HSP_prob(i)+POP_prob(i)))); //Prob of no match
-    L4 += -1*(n_ckmr(i)*((k_ckmr_hsp(i)/n_ckmr(i))*log(HSP_prob(i))));    //Prob of HSP
-    L4 += -1*(n_ckmr(i)*((k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i))));    //Prob of POP
-   }
-   //if not, then collapses to binomial for only HSP calcs
-   if(samp_year_old(i) < born_year_young(i)){
-    L4 += -1*log(dbinom(k_ckmr_hsp(i),n_ckmr(i),HSP_prob(i))); 
-   }
-
   }
   
   //Recruitment deviations
