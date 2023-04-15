@@ -134,7 +134,17 @@ Type objective_function<Type>::operator() ()
   matrix<Type> HSP_prob_aa(n_ckmr.size(),ages.size());
   vector<Type> HSP_prob(n_ckmr.size());
   matrix<Type> surv_prob(n_ckmr.size(),ages.size());
+<<<<<<< HEAD
+  vector<matrix<Type>> surv_prob_aa(n_ckmr.size());  //vector of matrices of survival probabilities for HSP calcs
+  //Specifying dimensions of the vector of matrices
+  for(i=0;i<=n_ckmr.size()-1;i++){
+   matrix<Type> m1(age_diff(i),lage+age_diff(i));
+   surv_prob_aa(i) = m1;
+  }
+   vector<Type> POP_prob(n_ckmr.size());
+=======
   vector<Type> POP_prob(n_ckmr.size());
+>>>>>>> 31fef4c3bd18b13897f089618a4210f5e06beb72
   
   Type NLL = 0;
   Type NPRAND = 0;
@@ -252,9 +262,12 @@ Type objective_function<Type>::operator() ()
 // - 1s are for TMB indexing which starts at zero
   for(i=0;i<=n_ckmr.size()-1;i++){        
 
+<<<<<<< HEAD
+=======
   //Specifying dimensions of the vector of matrices
    matrix<Type> surv_prob_aa(age_diff(i),lage+age_diff(i));
  
+>>>>>>> 31fef4c3bd18b13897f089618a4210f5e06beb72
 /////////////////////////////////////
 //HSP Calcs
 /////////////////////////////////////  
@@ -291,7 +304,11 @@ Type objective_function<Type>::operator() ()
 	}
    } 
   }
+<<<<<<< HEAD
+   surv_prob.row(i) = surv_prob_aa(i).block(age_diff(i)-1,age_diff(i)-1,1,lage+1); //getting subset of matrix, starting at (x1,y1), and taking 1 row of lage+1 columns  
+=======
    surv_prob.row(i) = surv_prob_aa.block(age_diff(i)-1,age_diff(i)-1,1,lage+1); //getting subset of matrix, starting at (x1,y1), and taking 1 row of lage+1 columns  
+>>>>>>> 31fef4c3bd18b13897f089618a4210f5e06beb72
   
 //CKMR_data(i,1) is the year of second born, and CKMR_data(i,2) is the age difference
    for(j=0;j<=lage;j++){  
