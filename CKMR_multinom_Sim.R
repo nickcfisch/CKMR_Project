@@ -174,17 +174,18 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
   Tot_reprod[which(samples$born_year>0)] <- OM$SSB[samples$born_year[which(samples$born_year>0)]]
   Tot_reprod[which(samples$born_year<1)] <- OM$SSB0
   samples <- cbind.data.frame(samples, Tot_reprod = Tot_reprod)                         #The total reproductive output at the time it was born
+  samples<-aggregate(rep(1,nrow(samples)),by=list(samp_year=samples$samp_year,age=samples$age,born_year=samples$born_year,Tot_reprod=samples$Tot_reprod), FUN=sum)
+  colnames(samples)<-c("samp_year","age","born_year","Tot_reprod","reps")
+  samples<-samples[order(samples$samp_year,samples$age,samples$born_year,samples$Tot_reprod),]
   
-  #now we form all the possible pairs of those samples
-  #New way to do it that is more efficient
   pairs<-do.call(cbind.data.frame,Map(expand.grid,samples,samples))
-  colnames(pairs)<-c("samp_year.old","samp_year.young","age.old","age.young","born_year.old","born_year.young","Tot_reprod.old","Tot_reprod.young") #naming the columns 
+  colnames(pairs)<-c("samp_year.old","samp_year.young","age.old","age.young","born_year.old","born_year.young","Tot_reprod.old","Tot_reprod.young","reps.old","reps.young") #naming the columns 
   pairs <- pairs[c(pairs$born_year.old < pairs$born_year.young),] #Older sibling has to be older than younger, as does parent  
-  pairs <- pairs[,c("samp_year.young","age.young","born_year.young","Tot_reprod.young","samp_year.old","age.old","born_year.old","Tot_reprod.old")] #just reordering the columns
-  pairs <- cbind.data.frame(pairs, age_diff = pairs$born_year.young-pairs$born_year.old) 
-
+  pairs <- pairs[,c("samp_year.young","age.young","born_year.young","Tot_reprod.young","reps.young","samp_year.old","age.old","born_year.old","Tot_reprod.old","reps.old")] #just reordering the columns
+  pairs <- cbind.data.frame(pairs, age_diff = pairs$born_year.young-pairs$born_year.old, times=pairs$reps.young*pairs$reps.old) 
+  
   #Rewrote using multinomial (and binomial. rather than bernoulli), because you can't have too many samples it gets too complex. 
-  collapsed_pairs<-aggregate(rep(1,nrow(pairs)),by=list(pairs$born_year.young,pairs$age_diff,pairs$samp_year.old), FUN=sum)
+  collapsed_pairs<-aggregate.data.frame(x=pairs$times, by=list(pairs$born_year.young,pairs$age_diff,pairs$samp_year.old), FUN=sum)
   colnames(collapsed_pairs)<-c("born_year.young", "age_diff","samp_year.old","times")
   
   #Now for loop through the samples
