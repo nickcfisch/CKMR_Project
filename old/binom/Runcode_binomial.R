@@ -1,0 +1,838 @@
+
+#Binom run code
+
+wd<-"C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/"
+
+source(paste0(wd,"/CKMR_binom_Sim.R"))
+
+N_sim<-100
+Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
+N_comp<-100
+sd_catch<-0.05
+sd_index<-0.25
+fyear_dat<-26
+lyear_dat<-100
+prop_ckmr<-1
+fyear_ckmr<-76
+lyear_ckmr<-100
+progress_bar<-TRUE
+for (s in 1:N_sim){
+  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp=N_comp,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr)
+  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp=N_comp,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr)
+  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp=N_comp,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr)
+  if(progress_bar==TRUE){
+    plot(rep(1,length(1:s)), pch=16)
+  }
+}
+
+save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N100_Ind25_ckmr25_1.RData"))
+save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmr25_1.RData"))
+save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N100_Ind25_ckmr25_1.RData"))
+
+N_sim<-100
+Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
+N_comp<-100
+sd_catch<-0.05
+sd_index<-0.5
+fyear_dat<-26
+lyear_dat<-100
+prop_ckmr<-1
+fyear_ckmr<-76
+lyear_ckmr<-100
+progress_bar<-TRUE
+for (s in 1:N_sim){
+  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp=N_comp,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr)
+  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp=N_comp,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr)
+  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp=N_comp,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr)
+  if(progress_bar==TRUE){
+    plot(rep(1,length(1:s)), pch=16)
+  }
+}
+
+save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N100_Ind50_ckmr25_1.RData"))
+save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N100_Ind50_ckmr25_1.RData"))
+save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N100_Ind50_ckmr25_1.RData"))
+
+N_sim<-100
+Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
+N_comp<-1000
+sd_catch<-0.05
+sd_index<-0.5
+fyear_dat<-26
+lyear_dat<-100
+prop_ckmr<-1
+fyear_ckmr<-76
+lyear_ckmr<-100
+progress_bar<-TRUE
+for (s in 1:N_sim){
+  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp=N_comp,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr)
+  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp=N_comp,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr)
+  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp=N_comp,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr)
+  if(progress_bar==TRUE){
+    plot(rep(1,length(1:s)), pch=16)
+  }
+}
+
+save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N1000_Ind50_ckmr25_1.RData"))
+save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N1000_Ind50_ckmr25_1.RData"))
+save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N1000_Ind50_ckmr25_1.RData"))
+
+N_sim<-100
+Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
+N_comp<-1000
+sd_catch<-0.05
+sd_index<-0.25
+fyear_dat<-26
+lyear_dat<-100
+prop_ckmr<-1
+fyear_ckmr<-76
+lyear_ckmr<-100
+progress_bar<-TRUE
+for (s in 1:N_sim){
+  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp=N_comp,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr)
+  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp=N_comp,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr)
+  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp=N_comp,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr)
+  if(progress_bar==TRUE){
+    plot(rep(1,length(1:s)), pch=16)
+  }
+}
+
+save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N1000_Ind25_ckmr25_1.RData"))
+save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N1000_Ind25_ckmr25_1.RData"))
+save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N1000_Ind25_ckmr25_1.RData"))
+
+
+#############################################################
+#TMB SCAAs fit to Fishery data without CKMR (Base models)
+#############################################################
+
+load(paste0(wd,"/Cod_wdat_N100_Ind25_ckmr25_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmr25_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N100_Ind25_ckmr25_1.RData"))
+
+Cod_OM<-Cod_wdat
+Flatfish_OM<-Flatfish_wdat
+Sardine_OM<-Sardine_wdat
+
+#TMB Section
+library(TMB)
+
+setwd(wd)
+#Compile and load model 
+compile("SCAA_Fisch_wAge0.cpp")
+
+#Doing N Simulations
+N_sim<-1:100
+res_list<-list()
+for (Q in 1:3){  #Running through the life history types
+  res_list[[Q]]<-list()
+  for (s in N_sim){
+    
+    if(Q==1){
+      OM<-Cod_OM[[s]]
+    } else if (Q==2){
+      OM<-Flatfish_OM[[s]]
+    }else if (Q==3){
+      OM<-Sardine_OM[[s]]
+    }
+    
+    dat<-list(fyear=OM$OM$fyear, lyear=75, fage=OM$OM$fage, lage=OM$OM$lage, 
+              years=OM$OM$fyear:75, ages=OM$OM$fage:OM$OM$lage,
+              obs_harv=OM$Obs_Catch,
+              obs_index=OM$Obs_Index,
+              obs_fishery_comp=OM$Obs_Catch_Comp/rowSums(OM$Obs_Catch_Comp),
+              SS_fishery=rowSums(OM$Obs_Catch_Comp),
+              Mat=OM$OM$Mat,
+              Laa=OM$OM$Laa,
+              Waa=OM$OM$Waa)
+    
+    #Parameters
+    set.seed(s)
+    par <- list(log_M=log(runif(1,min=OM$OM$Mref-OM$OM$Mref*0.2,max=OM$OM$Mref+OM$OM$Mref*0.2)),
+                log_q=log(runif(1,min=OM$q_index-OM$q_index*0.2,max=OM$q_index+OM$q_index*0.2)),
+                log_recruit_devs_init=rep(0,dat$lage),
+                log_recruit_devs=rep(0,dat$lyear),
+                steepness=OM$OM$h,
+                log_R0=log(runif(1,min=OM$OM$R0-OM$OM$R0*0.2,max=OM$OM$R0+OM$OM$R0*0.2)),
+                log_sigma_rec=log(OM$OM$sd_rec),
+                log_sd_catch=log(OM$sd_catch),
+                log_sd_index=log(OM$sd_index),
+                Sel_logis_k=log(runif(1,min=OM$OM$Sel_slope-OM$OM$Sel_slope*0.2,max=OM$OM$Sel_slope+OM$OM$Sel_slope*0.2)),
+                Sel_logis_midpt=log(runif(1,min=OM$OM$Sel_50-OM$OM$Sel_50*0.2,max=OM$OM$Sel_50+OM$OM$Sel_50*0.2)),
+                log_fint=log(runif(length(OM$OM$F_int[26:100]),min=OM$OM$F_int[26:100]-OM$OM$F_int[26:100]*0.2,max=OM$OM$F_int[26:100]+OM$OM$F_int[26:100]*0.2)))  
+    
+    ################
+    #TMB stuff
+    ################
+    dyn.load(dynlib("SCAA_Fisch_wAge0"))
+    
+    parm_names<-names(MakeADFun(dat, par, DLL="SCAA_Fisch_wAge0")$par)
+    
+    fixed<-list(steepness=factor(NA),
+                log_sd_catch=factor(NA),
+                log_sd_index=factor(NA))
+    
+    lower_bounds<-c(-5,-20,rep(-10,dat$lage),rep(-10,dat$lyear), 0, 5, -5,-5,-5,-5,-5,rep(-10,dat$lyear))
+    upper_bounds<-c( 2,  1,rep( 10,dat$lage),rep( 10,dat$lyear), 1, 25, 2, 2, 2, 5, 5,rep(  0,dat$lyear))
+    
+    reffects=c("log_recruit_devs","log_recruit_devs_init")
+    l<-lower_bounds[-which(parm_names %in% c(names(fixed),reffects))]
+    u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
+    
+    SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAge0", map=fixed, random=reffects)
+    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
+    
+    res_list[[Q]][[s]]<-SCAA_fit
+  }
+}
+
+saveRDS(res_list[[1]], file=paste0(wd,"/SCAAfit_Cod_N100_Ind25.RData"))
+saveRDS(res_list[[2]], file=paste0(wd,"/SCAAfit_Flatfish_N100_Ind25.RData"))
+saveRDS(res_list[[3]], file=paste0(wd,"/SCAAfit_Sardine_N100_Ind25.RData"))
+
+#############################################################
+#TMB SCAAs fit to Fishery data without CKMR (Base models)
+#############################################################
+
+load(paste0(wd,"/Cod_wdat_N100_Ind50_ckmr25_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N100_Ind50_ckmr25_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N100_Ind50_ckmr25_1.RData"))
+
+Cod_OM<-Cod_wdat
+Flatfish_OM<-Flatfish_wdat
+Sardine_OM<-Sardine_wdat
+
+#TMB Section
+library(TMB)
+
+setwd(wd)
+#Compile and load model 
+compile("SCAA_Fisch_wAge0.cpp")
+
+#Doing N Simulations
+N_sim<-1:100
+res_list<-list()
+for (Q in 1:3){  #Running through the life history types
+  res_list[[Q]]<-list()
+  for (s in N_sim){
+    
+    if(Q==1){
+      OM<-Cod_OM[[s]]
+    } else if (Q==2){
+      OM<-Flatfish_OM[[s]]
+    }else if (Q==3){
+      OM<-Sardine_OM[[s]]
+    }
+    
+    dat<-list(fyear=OM$OM$fyear, lyear=75, fage=OM$OM$fage, lage=OM$OM$lage, 
+              years=OM$OM$fyear:75, ages=OM$OM$fage:OM$OM$lage,
+              obs_harv=OM$Obs_Catch,
+              obs_index=OM$Obs_Index,
+              obs_fishery_comp=OM$Obs_Catch_Comp/rowSums(OM$Obs_Catch_Comp),
+              SS_fishery=rowSums(OM$Obs_Catch_Comp),
+              Mat=OM$OM$Mat,
+              Laa=OM$OM$Laa,
+              Waa=OM$OM$Waa)
+    
+    #Parameters
+    set.seed(s)
+    par <- list(log_M=log(runif(1,min=OM$OM$Mref-OM$OM$Mref*0.2,max=OM$OM$Mref+OM$OM$Mref*0.2)),
+                log_q=log(runif(1,min=OM$q_index-OM$q_index*0.2,max=OM$q_index+OM$q_index*0.2)),
+                log_recruit_devs_init=rep(0,dat$lage),
+                log_recruit_devs=rep(0,dat$lyear),
+                steepness=OM$OM$h,
+                log_R0=log(runif(1,min=OM$OM$R0-OM$OM$R0*0.2,max=OM$OM$R0+OM$OM$R0*0.2)),
+                log_sigma_rec=log(OM$OM$sd_rec),
+                log_sd_catch=log(OM$sd_catch),
+                log_sd_index=log(OM$sd_index),
+                Sel_logis_k=log(runif(1,min=OM$OM$Sel_slope-OM$OM$Sel_slope*0.2,max=OM$OM$Sel_slope+OM$OM$Sel_slope*0.2)),
+                Sel_logis_midpt=log(runif(1,min=OM$OM$Sel_50-OM$OM$Sel_50*0.2,max=OM$OM$Sel_50+OM$OM$Sel_50*0.2)),
+                log_fint=log(runif(length(OM$OM$F_int[26:100]),min=OM$OM$F_int[26:100]-OM$OM$F_int[26:100]*0.2,max=OM$OM$F_int[26:100]+OM$OM$F_int[26:100]*0.2)))  
+    
+    ################
+    #TMB stuff
+    ################
+    dyn.load(dynlib("SCAA_Fisch_wAge0"))
+    
+    parm_names<-names(MakeADFun(dat, par, DLL="SCAA_Fisch_wAge0")$par)
+    
+    fixed<-list(steepness=factor(NA),
+                log_sd_catch=factor(NA),
+                log_sd_index=factor(NA))
+    
+    lower_bounds<-c(-5,-20,rep(-10,dat$lage),rep(-10,dat$lyear), 0, 5, -5,-5,-5,-5,-5,rep(-10,dat$lyear))
+    upper_bounds<-c( 2,  1,rep( 10,dat$lage),rep( 10,dat$lyear), 1, 25, 2, 2, 2, 5, 5,rep(  0,dat$lyear))
+    
+    reffects=c("log_recruit_devs","log_recruit_devs_init")
+    l<-lower_bounds[-which(parm_names %in% c(names(fixed),reffects))]
+    u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
+    
+    SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAge0", map=fixed, random=reffects)
+    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
+    
+    res_list[[Q]][[s]]<-SCAA_fit
+  }
+}
+
+saveRDS(res_list[[1]], file=paste0(wd,"/SCAAfit_Cod_N100_Ind50.RData"))
+saveRDS(res_list[[2]], file=paste0(wd,"/SCAAfit_Flatfish_N100_Ind50.RData"))
+saveRDS(res_list[[3]], file=paste0(wd,"/SCAAfit_Sardine_N100_Ind50.RData"))
+
+
+#############################################################
+#TMB SCAAs fit to Fishery data without CKMR (Base models)
+#############################################################
+
+load(paste0(wd,"/Cod_wdat_N1000_Ind25_ckmr25_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N1000_Ind25_ckmr25_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N1000_Ind25_ckmr25_1.RData"))
+
+Cod_OM<-Cod_wdat
+Flatfish_OM<-Flatfish_wdat
+Sardine_OM<-Sardine_wdat
+
+#TMB Section
+library(TMB)
+
+setwd(wd)
+#Compile and load model 
+compile("SCAA_Fisch_wAge0.cpp")
+
+#Doing N Simulations
+N_sim<-1:100
+res_list<-list()
+for (Q in 1:3){  #Running through the life history types
+  res_list[[Q]]<-list()
+  for (s in N_sim){
+    
+    if(Q==1){
+      OM<-Cod_OM[[s]]
+    } else if (Q==2){
+      OM<-Flatfish_OM[[s]]
+    }else if (Q==3){
+      OM<-Sardine_OM[[s]]
+    }
+    
+    dat<-list(fyear=OM$OM$fyear, lyear=75, fage=OM$OM$fage, lage=OM$OM$lage, 
+              years=OM$OM$fyear:75, ages=OM$OM$fage:OM$OM$lage,
+              obs_harv=OM$Obs_Catch,
+              obs_index=OM$Obs_Index,
+              obs_fishery_comp=OM$Obs_Catch_Comp/rowSums(OM$Obs_Catch_Comp),
+              SS_fishery=rowSums(OM$Obs_Catch_Comp),
+              Mat=OM$OM$Mat,
+              Laa=OM$OM$Laa,
+              Waa=OM$OM$Waa)
+    
+    #Parameters
+    set.seed(s)
+    par <- list(log_M=log(runif(1,min=OM$OM$Mref-OM$OM$Mref*0.2,max=OM$OM$Mref+OM$OM$Mref*0.2)),
+                log_q=log(runif(1,min=OM$q_index-OM$q_index*0.2,max=OM$q_index+OM$q_index*0.2)),
+                log_recruit_devs_init=rep(0,dat$lage),
+                log_recruit_devs=rep(0,dat$lyear),
+                steepness=OM$OM$h,
+                log_R0=log(runif(1,min=OM$OM$R0-OM$OM$R0*0.2,max=OM$OM$R0+OM$OM$R0*0.2)),
+                log_sigma_rec=log(OM$OM$sd_rec),
+                log_sd_catch=log(OM$sd_catch),
+                log_sd_index=log(OM$sd_index),
+                Sel_logis_k=log(runif(1,min=OM$OM$Sel_slope-OM$OM$Sel_slope*0.2,max=OM$OM$Sel_slope+OM$OM$Sel_slope*0.2)),
+                Sel_logis_midpt=log(runif(1,min=OM$OM$Sel_50-OM$OM$Sel_50*0.2,max=OM$OM$Sel_50+OM$OM$Sel_50*0.2)),
+                log_fint=log(runif(length(OM$OM$F_int[26:100]),min=OM$OM$F_int[26:100]-OM$OM$F_int[26:100]*0.2,max=OM$OM$F_int[26:100]+OM$OM$F_int[26:100]*0.2)))  
+    
+    ################
+    #TMB stuff
+    ################
+    dyn.load(dynlib("SCAA_Fisch_wAge0"))
+    
+    parm_names<-names(MakeADFun(dat, par, DLL="SCAA_Fisch_wAge0")$par)
+    
+    fixed<-list(steepness=factor(NA),
+                log_sd_catch=factor(NA),
+                log_sd_index=factor(NA))
+    
+    lower_bounds<-c(-5,-20,rep(-10,dat$lage),rep(-10,dat$lyear), 0, 5, -5,-5,-5,-5,-5,rep(-10,dat$lyear))
+    upper_bounds<-c( 2,  1,rep( 10,dat$lage),rep( 10,dat$lyear), 1, 25, 2, 2, 2, 5, 5,rep(  0,dat$lyear))
+    
+    reffects=c("log_recruit_devs","log_recruit_devs_init")
+    l<-lower_bounds[-which(parm_names %in% c(names(fixed),reffects))]
+    u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
+    
+    SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAge0", map=fixed, random=reffects)
+    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
+    
+    res_list[[Q]][[s]]<-SCAA_fit
+  }
+}
+
+saveRDS(res_list[[1]], file=paste0(wd,"/SCAAfit_Cod_N1000_Ind25.RData"))
+saveRDS(res_list[[2]], file=paste0(wd,"/SCAAfit_Flatfish_N1000_Ind25.RData"))
+saveRDS(res_list[[3]], file=paste0(wd,"/SCAAfit_Sardine_N1000_Ind25.RData"))
+
+#############################################################
+#TMB SCAAs fit to Fishery data without CKMR (Base models)
+#############################################################
+
+load(paste0(wd,"/Cod_wdat_N1000_Ind50_ckmr25_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N1000_Ind50_ckmr25_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N1000_Ind50_ckmr25_1.RData"))
+
+Cod_OM<-Cod_wdat
+Flatfish_OM<-Flatfish_wdat
+Sardine_OM<-Sardine_wdat
+
+#TMB Section
+library(TMB)
+
+setwd(wd)
+#Compile and load model 
+compile("SCAA_Fisch_wAge0.cpp")
+
+#Doing N Simulations
+N_sim<-1:100
+res_list<-list()
+for (Q in 1:3){  #Running through the life history types
+  res_list[[Q]]<-list()
+  for (s in N_sim){
+    
+    if(Q==1){
+      OM<-Cod_OM[[s]]
+    } else if (Q==2){
+      OM<-Flatfish_OM[[s]]
+    }else if (Q==3){
+      OM<-Sardine_OM[[s]]
+    }
+    
+    dat<-list(fyear=OM$OM$fyear, lyear=75, fage=OM$OM$fage, lage=OM$OM$lage, 
+              years=OM$OM$fyear:75, ages=OM$OM$fage:OM$OM$lage,
+              obs_harv=OM$Obs_Catch,
+              obs_index=OM$Obs_Index,
+              obs_fishery_comp=OM$Obs_Catch_Comp/rowSums(OM$Obs_Catch_Comp),
+              SS_fishery=rowSums(OM$Obs_Catch_Comp),
+              Mat=OM$OM$Mat,
+              Laa=OM$OM$Laa,
+              Waa=OM$OM$Waa)
+    
+    #Parameters
+    set.seed(s)
+    par <- list(log_M=log(runif(1,min=OM$OM$Mref-OM$OM$Mref*0.2,max=OM$OM$Mref+OM$OM$Mref*0.2)),
+                log_q=log(runif(1,min=OM$q_index-OM$q_index*0.2,max=OM$q_index+OM$q_index*0.2)),
+                log_recruit_devs_init=rep(0,dat$lage),
+                log_recruit_devs=rep(0,dat$lyear),
+                steepness=OM$OM$h,
+                log_R0=log(runif(1,min=OM$OM$R0-OM$OM$R0*0.2,max=OM$OM$R0+OM$OM$R0*0.2)),
+                log_sigma_rec=log(OM$OM$sd_rec),
+                log_sd_catch=log(OM$sd_catch),
+                log_sd_index=log(OM$sd_index),
+                Sel_logis_k=log(runif(1,min=OM$OM$Sel_slope-OM$OM$Sel_slope*0.2,max=OM$OM$Sel_slope+OM$OM$Sel_slope*0.2)),
+                Sel_logis_midpt=log(runif(1,min=OM$OM$Sel_50-OM$OM$Sel_50*0.2,max=OM$OM$Sel_50+OM$OM$Sel_50*0.2)),
+                log_fint=log(runif(length(OM$OM$F_int[26:100]),min=OM$OM$F_int[26:100]-OM$OM$F_int[26:100]*0.2,max=OM$OM$F_int[26:100]+OM$OM$F_int[26:100]*0.2)))  
+    
+    ################
+    #TMB stuff
+    ################
+    dyn.load(dynlib("SCAA_Fisch_wAge0"))
+    
+    parm_names<-names(MakeADFun(dat, par, DLL="SCAA_Fisch_wAge0")$par)
+    
+    fixed<-list(steepness=factor(NA),
+                log_sd_catch=factor(NA),
+                log_sd_index=factor(NA))
+    
+    lower_bounds<-c(-5,-20,rep(-10,dat$lage),rep(-10,dat$lyear), 0, 5, -5,-5,-5,-5,-5,rep(-10,dat$lyear))
+    upper_bounds<-c( 2,  1,rep( 10,dat$lage),rep( 10,dat$lyear), 1, 25, 2, 2, 2, 5, 5,rep(  0,dat$lyear))
+    
+    reffects=c("log_recruit_devs","log_recruit_devs_init")
+    l<-lower_bounds[-which(parm_names %in% c(names(fixed),reffects))]
+    u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
+    
+    SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAge0", map=fixed, random=reffects)
+    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
+    
+    res_list[[Q]][[s]]<-SCAA_fit
+  }
+}
+
+saveRDS(res_list[[1]], file=paste0(wd,"/SCAAfit_Cod_N1000_Ind50.RData"))
+saveRDS(res_list[[2]], file=paste0(wd,"/SCAAfit_Flatfish_N1000_Ind50.RData"))
+saveRDS(res_list[[3]], file=paste0(wd,"/SCAAfit_Sardine_N1000_Ind50.RData"))
+
+
+###############################################
+######################################
+#TMB Model with both HSP and POP
+######################################
+###############################################
+load(paste0(wd,"/Cod_wdat_N100_Ind25_ckmrbinom25_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmrbinom25_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N100_Ind25_ckmrbinom25_1.RData"))
+
+Cod_OM<-Cod_wdat
+Flatfish_OM<-Flatfish_wdat
+Sardine_OM<-Sardine_wdat
+
+#TMB Section
+library(TMB)
+
+setwd(wd)
+#Compile and load model 
+compile("CKMRbinom_HSP_and_POP_Fisch_wAge0.cpp")
+
+N_sim<-1:100
+res_list_ckmr<-list()
+for (Q in 1:3){  #Running through the life history types
+  res_list_ckmr[[Q]]<-list()
+  for (s in N_sim){
+    
+    if(Q==1){
+      OM<-Cod_OM[[s]]
+    } else if (Q==2){
+      OM<-Flatfish_OM[[s]]
+    }else if (Q==3){
+      OM<-Sardine_OM[[s]]
+    }
+    
+    dat<-list(fyear=OM$OM$fyear, lyear=75, fage=OM$OM$fage, lage=OM$OM$lage, 
+              years=OM$OM$fyear:75, ages=OM$OM$fage:OM$OM$lage,
+              obs_harv=OM$Obs_Catch,
+              obs_index=OM$Obs_Index,
+              obs_fishery_comp=OM$Obs_Catch_Comp/rowSums(OM$Obs_Catch_Comp),
+              SS_fishery=rowSums(OM$Obs_Catch_Comp),
+              Mat=OM$OM$Mat,
+              Laa=OM$OM$Laa,
+              Waa=OM$OM$Waa,
+              #CKMR HSP
+              born_year_old_hsp=OM$born_year_old_hsp-(OM$fyear_dat-1),
+              age_diff_hsp=OM$age_diff_hsp,
+              n_ckmr_hsp=OM$n_ckmr_hsp,
+              k_ckmr_hsp=OM$k_ckmr_hsp,
+              #CKMR POP
+              born_year_young_pop=OM$born_year_young_pop-(OM$fyear_dat-1), 
+              age_diff_pop=OM$age_diff_pop,
+              n_ckmr_pop=OM$n_ckmr_pop,
+              k_ckmr_pop=OM$k_ckmr_pop)
+    
+    #Parameters
+    set.seed(s)
+    par <- list(log_M=log(runif(1,min=OM$OM$Mref-OM$OM$Mref*0.2,max=OM$OM$Mref+OM$OM$Mref*0.2)),
+                log_q=log(runif(1,min=OM$q_index-OM$q_index*0.2,max=OM$q_index+OM$q_index*0.2)),
+                log_recruit_devs_init=rep(0,dat$lage),
+                log_recruit_devs=rep(0,dat$lyear),
+                steepness=OM$OM$h,
+                log_R0=log(runif(1,min=OM$OM$R0-OM$OM$R0*0.2,max=OM$OM$R0+OM$OM$R0*0.2)),
+                log_sigma_rec=log(OM$OM$sd_rec),
+                log_sd_catch=log(OM$sd_catch),
+                log_sd_index=log(OM$sd_index),
+                Sel_logis_k=log(runif(1,min=OM$OM$Sel_slope-OM$OM$Sel_slope*0.2,max=OM$OM$Sel_slope+OM$OM$Sel_slope*0.2)),
+                Sel_logis_midpt=log(runif(1,min=OM$OM$Sel_50-OM$OM$Sel_50*0.2,max=OM$OM$Sel_50+OM$OM$Sel_50*0.2)),
+                log_fint=log(runif(length(OM$OM$F_int[26:100]),min=OM$OM$F_int[26:100]-OM$OM$F_int[26:100]*0.2,max=OM$OM$F_int[26:100]+OM$OM$F_int[26:100]*0.2)))  
+    
+    dyn.load(dynlib("CKMRbinom_HSP_and_POP_Fisch_wAge0"))
+    
+    parm_names<-names(MakeADFun(dat, par, DLL="CKMRbinom_HSP_and_POP_Fisch_wAge0")$par)
+    
+    fixed<-list(steepness=factor(NA),
+                log_sd_catch=factor(NA),
+                log_sd_index=factor(NA))
+    
+    lower_bounds<-c(-5,-20,rep(-10,dat$lage),rep(-10,dat$lyear), 0, 5, -5,-5,-5,-5,-5,rep(-10,dat$lyear))
+    upper_bounds<-c( 2,  1,rep( 10,dat$lage),rep( 10,dat$lyear), 1, 25, 2, 2, 2, 5, 5,rep(  0,dat$lyear))
+    
+    reffects=c("log_recruit_devs","log_recruit_devs_init")
+    l<-lower_bounds[-which(parm_names %in% c(names(fixed),reffects))]
+    u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
+    
+    SCAA <- MakeADFun(dat, par, DLL="CKMRbinom_HSP_and_POP_Fisch_wAge0", map=fixed, random=reffects)
+    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps=1, getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
+    
+    res_list_ckmr[[Q]][[s]]<-SCAA_fit
+  }
+}
+
+saveRDS(res_list_ckmr[[1]], file=paste0(wd,"/SCAAfit_Cod_N100_Ind25_ckmrbinom.RData"))
+saveRDS(res_list_ckmr[[2]], file=paste0(wd,"/SCAAfit_Flatfish_N100_Ind25_ckmrbinom.RData"))
+saveRDS(res_list_ckmr[[3]], file=paste0(wd,"/SCAAfit_Sardine_N100_Ind25_ckmrbinom.RData"))
+
+###############################################
+######################################
+#TMB Model with both HSP and POP
+######################################
+###############################################
+load(paste0(wd,"/Cod_wdat_N100_Ind50_ckmrbinom25_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N100_Ind50_ckmrbinom25_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N100_Ind50_ckmrbinom25_1.RData"))
+
+Cod_OM<-Cod_wdat
+Flatfish_OM<-Flatfish_wdat
+Sardine_OM<-Sardine_wdat
+
+#TMB Section
+library(TMB)
+
+setwd(wd)
+#Compile and load model 
+compile("CKMRbinom_HSP_and_POP_Fisch_wAge0.cpp")
+
+N_sim<-1:100
+res_list_ckmr<-list()
+for (Q in 1:3){  #Running through the life history types
+  res_list_ckmr[[Q]]<-list()
+  for (s in N_sim){
+    
+    if(Q==1){
+      OM<-Cod_OM[[s]]
+    } else if (Q==2){
+      OM<-Flatfish_OM[[s]]
+    }else if (Q==3){
+      OM<-Sardine_OM[[s]]
+    }
+    
+    dat<-list(fyear=OM$OM$fyear, lyear=75, fage=OM$OM$fage, lage=OM$OM$lage, 
+              years=OM$OM$fyear:75, ages=OM$OM$fage:OM$OM$lage,
+              obs_harv=OM$Obs_Catch,
+              obs_index=OM$Obs_Index,
+              obs_fishery_comp=OM$Obs_Catch_Comp/rowSums(OM$Obs_Catch_Comp),
+              SS_fishery=rowSums(OM$Obs_Catch_Comp),
+              Mat=OM$OM$Mat,
+              Laa=OM$OM$Laa,
+              Waa=OM$OM$Waa,
+              #CKMR HSP
+              born_year_old_hsp=OM$born_year_old_hsp-(OM$fyear_dat-1),
+              age_diff_hsp=OM$age_diff_hsp,
+              n_ckmr_hsp=OM$n_ckmr_hsp,
+              k_ckmr_hsp=OM$k_ckmr_hsp,
+              #CKMR POP
+              born_year_young_pop=OM$born_year_young_pop-(OM$fyear_dat-1), 
+              age_diff_pop=OM$age_diff_pop,
+              n_ckmr_pop=OM$n_ckmr_pop,
+              k_ckmr_pop=OM$k_ckmr_pop)
+    
+    #Parameters
+    set.seed(s)
+    par <- list(log_M=log(runif(1,min=OM$OM$Mref-OM$OM$Mref*0.2,max=OM$OM$Mref+OM$OM$Mref*0.2)),
+                log_q=log(runif(1,min=OM$q_index-OM$q_index*0.2,max=OM$q_index+OM$q_index*0.2)),
+                log_recruit_devs_init=rep(0,dat$lage),
+                log_recruit_devs=rep(0,dat$lyear),
+                steepness=OM$OM$h,
+                log_R0=log(runif(1,min=OM$OM$R0-OM$OM$R0*0.2,max=OM$OM$R0+OM$OM$R0*0.2)),
+                log_sigma_rec=log(OM$OM$sd_rec),
+                log_sd_catch=log(OM$sd_catch),
+                log_sd_index=log(OM$sd_index),
+                Sel_logis_k=log(runif(1,min=OM$OM$Sel_slope-OM$OM$Sel_slope*0.2,max=OM$OM$Sel_slope+OM$OM$Sel_slope*0.2)),
+                Sel_logis_midpt=log(runif(1,min=OM$OM$Sel_50-OM$OM$Sel_50*0.2,max=OM$OM$Sel_50+OM$OM$Sel_50*0.2)),
+                log_fint=log(runif(length(OM$OM$F_int[26:100]),min=OM$OM$F_int[26:100]-OM$OM$F_int[26:100]*0.2,max=OM$OM$F_int[26:100]+OM$OM$F_int[26:100]*0.2)))  
+    
+    dyn.load(dynlib("CKMRbinom_HSP_and_POP_Fisch_wAge0"))
+    
+    parm_names<-names(MakeADFun(dat, par, DLL="CKMRbinom_HSP_and_POP_Fisch_wAge0")$par)
+    
+    fixed<-list(steepness=factor(NA),
+                log_sd_catch=factor(NA),
+                log_sd_index=factor(NA))
+    
+    lower_bounds<-c(-5,-20,rep(-10,dat$lage),rep(-10,dat$lyear), 0, 5, -5,-5,-5,-5,-5,rep(-10,dat$lyear))
+    upper_bounds<-c( 2,  1,rep( 10,dat$lage),rep( 10,dat$lyear), 1, 25, 2, 2, 2, 5, 5,rep(  0,dat$lyear))
+    
+    reffects=c("log_recruit_devs","log_recruit_devs_init")
+    l<-lower_bounds[-which(parm_names %in% c(names(fixed),reffects))]
+    u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
+    
+    SCAA <- MakeADFun(dat, par, DLL="CKMRbinom_HSP_and_POP_Fisch_wAge0", map=fixed, random=reffects)
+    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps=1, getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
+    
+    res_list_ckmr[[Q]][[s]]<-SCAA_fit
+  }
+}
+
+saveRDS(res_list_ckmr[[1]], file=paste0(wd,"/SCAAfit_Cod_N100_Ind50_ckmrbinom.RData"))
+saveRDS(res_list_ckmr[[2]], file=paste0(wd,"/SCAAfit_Flatfish_N100_Ind50_ckmrbinom.RData"))
+saveRDS(res_list_ckmr[[3]], file=paste0(wd,"/SCAAfit_Sardine_N100_Ind50_ckmrbinom.RData"))
+
+
+###############################################
+######################################
+#TMB Model with both HSP and POP
+######################################
+###############################################
+load(paste0(wd,"/Cod_wdat_N1000_Ind25_ckmrbinom25_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N1000_Ind25_ckmrbinom25_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N1000_Ind25_ckmrbinom25_1.RData"))
+
+Cod_OM<-Cod_wdat
+Flatfish_OM<-Flatfish_wdat
+Sardine_OM<-Sardine_wdat
+
+#TMB Section
+library(TMB)
+
+setwd(wd)
+#Compile and load model 
+compile("CKMRbinom_HSP_and_POP_Fisch_wAge0.cpp")
+
+N_sim<-1:100
+res_list_ckmr<-list()
+for (Q in 1:3){  #Running through the life history types
+  res_list_ckmr[[Q]]<-list()
+  for (s in N_sim){
+    
+    if(Q==1){
+      OM<-Cod_OM[[s]]
+    } else if (Q==2){
+      OM<-Flatfish_OM[[s]]
+    }else if (Q==3){
+      OM<-Sardine_OM[[s]]
+    }
+    
+    dat<-list(fyear=OM$OM$fyear, lyear=75, fage=OM$OM$fage, lage=OM$OM$lage, 
+              years=OM$OM$fyear:75, ages=OM$OM$fage:OM$OM$lage,
+              obs_harv=OM$Obs_Catch,
+              obs_index=OM$Obs_Index,
+              obs_fishery_comp=OM$Obs_Catch_Comp/rowSums(OM$Obs_Catch_Comp),
+              SS_fishery=rowSums(OM$Obs_Catch_Comp),
+              Mat=OM$OM$Mat,
+              Laa=OM$OM$Laa,
+              Waa=OM$OM$Waa,
+              #CKMR HSP
+              born_year_old_hsp=OM$born_year_old_hsp-(OM$fyear_dat-1),
+              age_diff_hsp=OM$age_diff_hsp,
+              n_ckmr_hsp=OM$n_ckmr_hsp,
+              k_ckmr_hsp=OM$k_ckmr_hsp,
+              #CKMR POP
+              born_year_young_pop=OM$born_year_young_pop-(OM$fyear_dat-1), 
+              age_diff_pop=OM$age_diff_pop,
+              n_ckmr_pop=OM$n_ckmr_pop,
+              k_ckmr_pop=OM$k_ckmr_pop)
+    
+    #Parameters
+    set.seed(s)
+    par <- list(log_M=log(runif(1,min=OM$OM$Mref-OM$OM$Mref*0.2,max=OM$OM$Mref+OM$OM$Mref*0.2)),
+                log_q=log(runif(1,min=OM$q_index-OM$q_index*0.2,max=OM$q_index+OM$q_index*0.2)),
+                log_recruit_devs_init=rep(0,dat$lage),
+                log_recruit_devs=rep(0,dat$lyear),
+                steepness=OM$OM$h,
+                log_R0=log(runif(1,min=OM$OM$R0-OM$OM$R0*0.2,max=OM$OM$R0+OM$OM$R0*0.2)),
+                log_sigma_rec=log(OM$OM$sd_rec),
+                log_sd_catch=log(OM$sd_catch),
+                log_sd_index=log(OM$sd_index),
+                Sel_logis_k=log(runif(1,min=OM$OM$Sel_slope-OM$OM$Sel_slope*0.2,max=OM$OM$Sel_slope+OM$OM$Sel_slope*0.2)),
+                Sel_logis_midpt=log(runif(1,min=OM$OM$Sel_50-OM$OM$Sel_50*0.2,max=OM$OM$Sel_50+OM$OM$Sel_50*0.2)),
+                log_fint=log(runif(length(OM$OM$F_int[26:100]),min=OM$OM$F_int[26:100]-OM$OM$F_int[26:100]*0.2,max=OM$OM$F_int[26:100]+OM$OM$F_int[26:100]*0.2)))  
+    
+    dyn.load(dynlib("CKMRbinom_HSP_and_POP_Fisch_wAge0"))
+    
+    parm_names<-names(MakeADFun(dat, par, DLL="CKMRbinom_HSP_and_POP_Fisch_wAge0")$par)
+    
+    fixed<-list(steepness=factor(NA),
+                log_sd_catch=factor(NA),
+                log_sd_index=factor(NA))
+    
+    lower_bounds<-c(-5,-20,rep(-10,dat$lage),rep(-10,dat$lyear), 0, 5, -5,-5,-5,-5,-5,rep(-10,dat$lyear))
+    upper_bounds<-c( 2,  1,rep( 10,dat$lage),rep( 10,dat$lyear), 1, 25, 2, 2, 2, 5, 5,rep(  0,dat$lyear))
+    
+    reffects=c("log_recruit_devs","log_recruit_devs_init")
+    l<-lower_bounds[-which(parm_names %in% c(names(fixed),reffects))]
+    u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
+    
+    SCAA <- MakeADFun(dat, par, DLL="CKMRbinom_HSP_and_POP_Fisch_wAge0", map=fixed, random=reffects)
+    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps=1, getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
+    
+    res_list_ckmr[[Q]][[s]]<-SCAA_fit
+  }
+}
+
+saveRDS(res_list_ckmr[[1]], file=paste0(wd,"/SCAAfit_Cod_N1000_Ind25_ckmrbinom.RData"))
+saveRDS(res_list_ckmr[[2]], file=paste0(wd,"/SCAAfit_Flatfish_N1000_Ind25_ckmrbinom.RData"))
+saveRDS(res_list_ckmr[[3]], file=paste0(wd,"/SCAAfit_Sardine_N1000_Ind25_ckmrbinom.RData"))
+
+###############################################
+######################################
+#TMB Model with both HSP and POP
+######################################
+###############################################
+load(paste0(wd,"/Cod_wdat_N1000_Ind50_ckmrbinom25_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N1000_Ind50_ckmrbinom25_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N1000_Ind50_ckmrbinom25_1.RData"))
+
+Cod_OM<-Cod_wdat
+Flatfish_OM<-Flatfish_wdat
+Sardine_OM<-Sardine_wdat
+
+#TMB Section
+library(TMB)
+
+setwd(wd)
+#Compile and load model 
+compile("CKMRbinom_HSP_and_POP_Fisch_wAge0.cpp")
+
+N_sim<-1:100
+res_list_ckmr<-list()
+for (Q in 1:3){  #Running through the life history types
+  res_list_ckmr[[Q]]<-list()
+  for (s in N_sim){
+    
+    if(Q==1){
+      OM<-Cod_OM[[s]]
+    } else if (Q==2){
+      OM<-Flatfish_OM[[s]]
+    }else if (Q==3){
+      OM<-Sardine_OM[[s]]
+    }
+    
+    dat<-list(fyear=OM$OM$fyear, lyear=75, fage=OM$OM$fage, lage=OM$OM$lage, 
+              years=OM$OM$fyear:75, ages=OM$OM$fage:OM$OM$lage,
+              obs_harv=OM$Obs_Catch,
+              obs_index=OM$Obs_Index,
+              obs_fishery_comp=OM$Obs_Catch_Comp/rowSums(OM$Obs_Catch_Comp),
+              SS_fishery=rowSums(OM$Obs_Catch_Comp),
+              Mat=OM$OM$Mat,
+              Laa=OM$OM$Laa,
+              Waa=OM$OM$Waa,
+              #CKMR HSP
+              born_year_old_hsp=OM$born_year_old_hsp-(OM$fyear_dat-1),
+              age_diff_hsp=OM$age_diff_hsp,
+              n_ckmr_hsp=OM$n_ckmr_hsp,
+              k_ckmr_hsp=OM$k_ckmr_hsp,
+              #CKMR POP
+              born_year_young_pop=OM$born_year_young_pop-(OM$fyear_dat-1), 
+              age_diff_pop=OM$age_diff_pop,
+              n_ckmr_pop=OM$n_ckmr_pop,
+              k_ckmr_pop=OM$k_ckmr_pop)
+    
+    #Parameters
+    set.seed(s)
+    par <- list(log_M=log(runif(1,min=OM$OM$Mref-OM$OM$Mref*0.2,max=OM$OM$Mref+OM$OM$Mref*0.2)),
+                log_q=log(runif(1,min=OM$q_index-OM$q_index*0.2,max=OM$q_index+OM$q_index*0.2)),
+                log_recruit_devs_init=rep(0,dat$lage),
+                log_recruit_devs=rep(0,dat$lyear),
+                steepness=OM$OM$h,
+                log_R0=log(runif(1,min=OM$OM$R0-OM$OM$R0*0.2,max=OM$OM$R0+OM$OM$R0*0.2)),
+                log_sigma_rec=log(OM$OM$sd_rec),
+                log_sd_catch=log(OM$sd_catch),
+                log_sd_index=log(OM$sd_index),
+                Sel_logis_k=log(runif(1,min=OM$OM$Sel_slope-OM$OM$Sel_slope*0.2,max=OM$OM$Sel_slope+OM$OM$Sel_slope*0.2)),
+                Sel_logis_midpt=log(runif(1,min=OM$OM$Sel_50-OM$OM$Sel_50*0.2,max=OM$OM$Sel_50+OM$OM$Sel_50*0.2)),
+                log_fint=log(runif(length(OM$OM$F_int[26:100]),min=OM$OM$F_int[26:100]-OM$OM$F_int[26:100]*0.2,max=OM$OM$F_int[26:100]+OM$OM$F_int[26:100]*0.2)))  
+    
+    dyn.load(dynlib("CKMRbinom_HSP_and_POP_Fisch_wAge0"))
+    
+    parm_names<-names(MakeADFun(dat, par, DLL="CKMRbinom_HSP_and_POP_Fisch_wAge0")$par)
+    
+    fixed<-list(steepness=factor(NA),
+                log_sd_catch=factor(NA),
+                log_sd_index=factor(NA))
+    
+    lower_bounds<-c(-5,-20,rep(-10,dat$lage),rep(-10,dat$lyear), 0, 5, -5,-5,-5,-5,-5,rep(-10,dat$lyear))
+    upper_bounds<-c( 2,  1,rep( 10,dat$lage),rep( 10,dat$lyear), 1, 25, 2, 2, 2, 5, 5,rep(  0,dat$lyear))
+    
+    reffects=c("log_recruit_devs","log_recruit_devs_init")
+    l<-lower_bounds[-which(parm_names %in% c(names(fixed),reffects))]
+    u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
+    
+    SCAA <- MakeADFun(dat, par, DLL="CKMRbinom_HSP_and_POP_Fisch_wAge0", map=fixed, random=reffects)
+    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps=1, getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
+    
+    res_list_ckmr[[Q]][[s]]<-SCAA_fit
+  }
+}
+
+saveRDS(res_list_ckmr[[1]], file=paste0(wd,"/SCAAfit_Cod_N1000_Ind50_ckmrbinom.RData"))
+saveRDS(res_list_ckmr[[2]], file=paste0(wd,"/SCAAfit_Flatfish_N1000_Ind50_ckmrbinom.RData"))
+saveRDS(res_list_ckmr[[3]], file=paste0(wd,"/SCAAfit_Sardine_N1000_Ind50_ckmrbinom.RData"))
