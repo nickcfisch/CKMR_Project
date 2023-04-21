@@ -91,20 +91,12 @@ Type objective_function<Type>::operator() ()
   matrix<Type> pred_caa(years.size(),ages.size());           //Predicted fishery catch at age
   matrix<Type> pred_fishery_comp(years.size(),ages.size());  //Predicted age composition from the fishery catch
   vector<Type> pred_harv(years.size());                      //Predicted Harvest weight (kg), (fyear,lyear) 
-  matrix<Type> pred_harv_aa(years.size(),ages.size());
-  vector<Type> pred_totcatch_fishery(years.size());         //Predicted Fishery total catch, used as denominator to get age composition, (fyear,lyear)
-  vector<Type> Biomass(years.size());                       //Biomass 
-  matrix<Type> Biomass_aa(years.size(),ages.size());
-  vector<Type> U(years.size());                             //Exploitation rate 
 
   vector<Type> pred_index(years.size());                    //Predicted index, (fyear,lyear)
-  matrix<Type> pred_index_aa(years.size(),ages.size());
   
   vector<Type> log_rec_devs(years.size()+ages.size());    //rec devs vector that adds in the current year, (fage,lyear+lage)
 
   vector<Type> spbiomass(years.size()+1);                  //Spawning biomass, (fyear,lyear+1)
-  vector<Type> Depletion(years.size()+1);                  //Depletion, (fyear,lyear+1)
-  matrix<Type> spbiomass_aa(years.size()+1,ages.size());   //Spawning biomass, (fyear,lyear+1)
   vector<Type> N0_age(ages.size());                        //Unfished numbers at, (fage,lage)
   vector<Type> lxo(ages.size());                           //Unfished numbers at age, (fage,lage)
   Type SSB0;                                               //Unfished spawning biomass
@@ -114,8 +106,7 @@ Type objective_function<Type>::operator() ()
   Type L2;
   Type L3;
   Type L4;
-  Type L5;
-
+ 
   int i; 
   int j; 
   
@@ -140,10 +131,10 @@ Type objective_function<Type>::operator() ()
 //MORTALITY
 //////////////////////
  //Lorenzen M or Constant M
-  for(j=0;j<=lage;j++){
+//  for(j=0;j<=lage;j++){
 //   Maa(j)=NatMort*pow((Lt(j)/(Linf*0.75)),-1);
-   Maa(j)=NatMort;
- }
+// }
+   Maa.fill(NatMort);
 
   for(i=0;i<=years.size()-1;i++){
    for(j=0;j<=lage;j++){
@@ -181,10 +172,7 @@ Type objective_function<Type>::operator() ()
   N(fyear-1,fage)=R0*exp(log_rec_devs(0)-0.5*pow(sd_rec,2));     //Filling in initial year recruitment
   
   //Spawning Biomass in the first year
-  for(j=fage;j<=lage;j++){
-   spbiomass_aa(fyear-1,j)=N(fyear-1,j)*Mat(j)*Waa(j);  // Getting spawning biomass for the first year (acounting for rec dev, unlike SSB0_FLA)
-  }
-  spbiomass(fyear-1)=spbiomass_aa.row(fyear-1).sum();
+  spbiomass(fyear-1)=(vector<Type>(N.row(fyear-1))*Mat*Waa).sum();
   
 //Population loop
   for(i=fyear;i<=years.size();i++){  //TMB starts at zero so this is 81 years (or 41), starting at i+1
@@ -192,10 +180,9 @@ Type objective_function<Type>::operator() ()
       N(i,j)=N(i-1,j-1)*S(i-1,j-1);
     }
    N(i,lage)+=N(i-1,lage)*S(i-1,lage);   //Plus group
-  for(j=fage;j<=lage;j++){
-   spbiomass_aa(i,j)=N(i,j)*Mat(j)*Waa(j);  // Getting spawning biomass for the first year (acounting for rec dev, unlike SSB0_FLA)
-  }
-   spbiomass(i)=spbiomass_aa.row(i).sum();
+   
+  spbiomass(i)=(vector<Type>(N.row(i))*Mat*Waa).sum();
+
 //   N(i,fage)=((4.*steepness*R0*spbiomass(i))/(SSB0*(1.-steepness)+spbiomass(i)*(5.*steepness-1.)))*exp(log_rec_devs(i));  //Recruitment if at age 0
    N(i,fage)=((4.*steepness*R0*spbiomass(i))/(SSB0*(1.-steepness)+spbiomass(i)*(5.*steepness-1.)))*exp(log_rec_devs(i)-0.5*pow(sd_rec,2));  //Recruitment, if at age 1
   }
@@ -204,29 +191,14 @@ Type objective_function<Type>::operator() ()
 //CATCH
 ////////////////
 
-  for(i=0;i<=years.size()-1;i++){  //TMB starts at zero
-   for(j=fage;j<=lage;j++){  
-    pred_caa(i,j)=F(i,j)/Z(i,j)*A(i,j)*N(i,j); //Baranov catch equation for predicting catch at age
-   }
+  pred_caa=F.array()/Z.array()*A.array()*N.block(0,fage,years.size(),lage+1).array();
+  Nbar=N.block(0,fage,years.size(),lage+1).array()*((1.0-exp(-1.0*Z.array())))*(1.0/Z.array());
+  
+  for(i=0;i<=years.size()-1;i++){  //TMB starts at zero   
+   pred_harv(i)=(vector<Type>(pred_caa.row(i))*Waa).sum();
+   pred_index(i)=q*(vector<Type>(Nbar.row(i))*Waa*fishery_sel).sum();
+   pred_fishery_comp.row(i)=pred_caa.row(i)/(pred_caa.row(i).sum());  //calculating predicted catch age composition
   }
-
-  for(i=0;i<=lyear-1;i++){
-   pred_totcatch_fishery(i)=pred_caa.row(i).sum();                        //total predicted catch by year
-   pred_fishery_comp.row(i)=pred_caa.row(i)/(pred_totcatch_fishery(i)+0.0001);  //calculating predicted catch age composition
-   for(j=fage;j<=lage;j++){  
-    pred_harv_aa(i,j)=pred_caa(i,j)*Waa(j);                              //Predicted total harvest at age weight each year
-    Biomass_aa(i,j)=N(i,j)*Waa(j);
-    Nbar(i,j)=(N(i,j)*((1.0-exp(-1.0*Z(i,j)))))*(1.0/Z(i,j));
-    pred_index_aa(i,j)=q*Nbar(i,j)*Waa(j)*fishery_sel(j);
-   }
-   pred_harv(i)=pred_harv_aa.row(i).sum();                              //Predicted total harvest weight each year
-   Biomass(i)=Biomass_aa.row(i).sum();                                    //Biomass each year
-   U(i)=pred_harv(i)/Biomass(i);                                          //Exploitation rate
-   Depletion(i)=spbiomass(i)/SSB0;
-   pred_index(i)=pred_index_aa.row(i).sum();
-  }
-    
-  Depletion(lyear)=spbiomass(lyear)/SSB0;
 
 /////////////////////////
 //Objective function
@@ -275,8 +247,8 @@ Type objective_function<Type>::operator() ()
   REPORT(sd_index);
   REPORT(log_recruit_devs);
 
-  REPORT(Depletion);
-  ADREPORT(Depletion);
+//  REPORT(Depletion);
+//  ADREPORT(Depletion);
   REPORT(fishery_sel);
 //  ADREPORT(fishery_sel);
   REPORT(N0_age);
@@ -287,13 +259,13 @@ Type objective_function<Type>::operator() ()
 //  ADREPORT(F);
   REPORT(M);
 //  ADREPORT(M);
-  REPORT(Z);
+//  REPORT(Z);
 //  ADREPORT(Z);
-  REPORT(A);
+//  REPORT(A);
   REPORT(N);
 //  ADREPORT(N);
-  REPORT(U);
-  ADREPORT(U);
+//  REPORT(U);
+//  ADREPORT(U);
   REPORT(spbiomass);
   ADREPORT(spbiomass);
   REPORT(obs_harv);
@@ -308,7 +280,6 @@ Type objective_function<Type>::operator() ()
   REPORT(L2);
   REPORT(L3);
   REPORT(L4);
-  REPORT(L5);
   REPORT(NLL);
   REPORT(NPRAND);
 
