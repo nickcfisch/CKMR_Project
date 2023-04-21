@@ -268,6 +268,7 @@ Type objective_function<Type>::operator() ()
 	}
    }
    
+   if(age_diff(i)>1){
    for(j=0;j<=age_diff(i)-1-1;j++){  // j is age of the potential parent at the year of the first born, which needs to be integrated over
     for(k=0;k<=lage+age_diff(i)-2;k++){
 //Assume that spawning happens at the very start of the year 
@@ -289,7 +290,7 @@ Type objective_function<Type>::operator() ()
       surv_prob_aa(j+1,k+1)= surv_prob_aa(j,k) * exp(-1*Maa(lage));
      }
 	}
-   } 
+   }} 
   }
    surv_prob.row(i) = surv_prob_aa.block(age_diff(i)-1,age_diff(i)-1,1,lage+1); //getting subset of matrix, starting at (x1,y1), and taking 1 row of lage+1 columns  
   
