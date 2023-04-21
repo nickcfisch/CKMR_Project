@@ -242,6 +242,7 @@ for (Q in 1:3){  #Running through the life history types
     SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
     
     res_list[[Q]][[s]]<-SCAA_fit
+    print(Q*s)
   }
 }
 
@@ -330,6 +331,7 @@ for (Q in 1:3){  #Running through the life history types
     SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
     
     res_list[[Q]][[s]]<-SCAA_fit
+    print(Q*s)
   }
 }
 
@@ -419,6 +421,7 @@ for (Q in 1:3){  #Running through the life history types
     SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
     
     res_list[[Q]][[s]]<-SCAA_fit
+    print(Q*s)
   }
 }
 
@@ -507,6 +510,7 @@ for (Q in 1:3){  #Running through the life history types
     SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
     
     res_list[[Q]][[s]]<-SCAA_fit
+    print(Q*s)
   }
 }
 
@@ -601,6 +605,7 @@ for (Q in 1:3){  #Running through the life history types
     SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps=1, getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
     
     res_list[[Q]][[s]]<-SCAA_fit
+    print(Q*s)
   }
 }
 
@@ -692,6 +697,7 @@ for (Q in 1:3){  #Running through the life history types
     SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps=1, getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
     
     res_list[[Q]][[s]]<-SCAA_fit
+    print(Q*s)
   }
 }
 
@@ -783,6 +789,7 @@ for (Q in 1:3){  #Running through the life history types
     SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps=1, getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
     
     res_list[[Q]][[s]]<-SCAA_fit
+    print(Q*s)
   }
 }
 
@@ -874,6 +881,7 @@ for (Q in 1:3){  #Running through the life history types
     SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps=1, getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
     
     res_list[[Q]][[s]]<-SCAA_fit
+    print(Q*s)
   }
 }
 
