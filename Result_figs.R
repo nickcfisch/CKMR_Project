@@ -5,6 +5,15 @@
 
 wd<-"C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/"
 
+#Ncomp 100, sdindex 0.25, ckmr 5 years
+load(paste0(wd,"/Cod_wdat_N100_Ind25_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N100_Ind25_ckmrmultinom5_1.RData"))
+
+Cod_100_25_5<-Cod_wdat
+Flatfish_100_25_5<-Flatfish_wdat
+Sardine_100_25_5<-Sardine_wdat
+
 #Ncomp 200, sdindex 0.25, ckmr 5 years
 load(paste0(wd,"/Cod_wdat_N200_Ind25_ckmrmultinom5_1.RData"))
 load(paste0(wd,"/Flatfish_wdat_N200_Ind25_ckmrmultinom5_1.RData"))
@@ -41,6 +50,15 @@ Cod_5000_25_5<-Cod_wdat
 Flatfish_5000_25_5<-Flatfish_wdat
 Sardine_5000_25_5<-Sardine_wdat
 
+#Ncomp 100, sdindex 0.25, ckmr 10 years
+load(paste0(wd,"/Cod_wdat_N100_Ind25_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N100_Ind25_ckmrmultinom10_1.RData"))
+
+Cod_100_25_10<-Cod_wdat
+Flatfish_100_25_10<-Flatfish_wdat
+Sardine_100_25_10<-Sardine_wdat
+
 #Ncomp 200, sdindex 0.25, ckmr 10 years
 load(paste0(wd,"/Cod_wdat_N200_Ind25_ckmrmultinom10_1.RData"))
 load(paste0(wd,"/Flatfish_wdat_N200_Ind25_ckmrmultinom10_1.RData"))
@@ -76,6 +94,15 @@ load(paste0(wd,"/Sardine_wdat_N5000_Ind25_ckmrmultinom10_1.RData"))
 Cod_5000_25_10<-Cod_wdat
 Flatfish_5000_25_10<-Flatfish_wdat
 Sardine_5000_25_10<-Sardine_wdat
+
+#Ncomp 100, sdindex 0.25, ckmr 25 years
+load(paste0(wd,"/Cod_wdat_N100_Ind25_ckmrmultinom25_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmrmultinom25_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N100_Ind25_ckmrmultinom25_1.RData"))
+
+Cod_100_25_25<-Cod_wdat
+Flatfish_100_25_25<-Flatfish_wdat
+Sardine_100_25_25<-Sardine_wdat
 
 #Ncomp 200, sdindex 0.25, ckmr 25 years
 load(paste0(wd,"/Cod_wdat_N200_Ind25_ckmrmultinom25_1.RData"))
@@ -116,16 +143,18 @@ Sardine_5000_25_25<-Sardine_wdat
 #############################################
 #Getting it into more usable data 
 #############################################
-Pairs_Cod_200_25_5<-Pairs_Cod_1000_25_5<-Pairs_Cod_2000_25_5<-Pairs_Cod_5000_25_5<-matrix(NA, nrow=100,ncol=2)
-Pairs_Cod_200_25_10<-Pairs_Cod_1000_25_10<-Pairs_Cod_2000_25_10<-Pairs_Cod_5000_25_10<-matrix(NA, nrow=100,ncol=2)
-Pairs_Cod_200_25_25<-Pairs_Cod_1000_25_25<-Pairs_Cod_2000_25_25<-Pairs_Cod_5000_25_25<-matrix(NA, nrow=100,ncol=2)
-Pairs_Flatfish_200_25_5<-Pairs_Flatfish_1000_25_5<-Pairs_Flatfish_2000_25_5<-Pairs_Flatfish_5000_25_5<-matrix(NA, nrow=100,ncol=2)
-Pairs_Flatfish_200_25_10<-Pairs_Flatfish_1000_25_10<-Pairs_Flatfish_2000_25_10<-Pairs_Flatfish_5000_25_10<-matrix(NA, nrow=100,ncol=2)
-Pairs_Flatfish_200_25_25<-Pairs_Flatfish_1000_25_25<-Pairs_Flatfish_2000_25_25<-Pairs_Flatfish_5000_25_25<-matrix(NA, nrow=100,ncol=2)
-Pairs_Sardine_200_25_5<-Pairs_Sardine_1000_25_5<-Pairs_Sardine_2000_25_5<-Pairs_Sardine_5000_25_5<-matrix(NA, nrow=100,ncol=2)
-Pairs_Sardine_200_25_10<-Pairs_Sardine_1000_25_10<-Pairs_Sardine_2000_25_10<-Pairs_Sardine_5000_25_10<-matrix(NA, nrow=100,ncol=2)
-Pairs_Sardine_200_25_25<-Pairs_Sardine_1000_25_25<-Pairs_Sardine_2000_25_25<-Pairs_Sardine_5000_25_25<-matrix(NA, nrow=100,ncol=2)
+Pairs_Cod_100_25_5<-Pairs_Cod_200_25_5<-Pairs_Cod_1000_25_5<-Pairs_Cod_2000_25_5<-Pairs_Cod_5000_25_5<-matrix(NA, nrow=100,ncol=2)
+Pairs_Cod_100_25_10<-Pairs_Cod_200_25_10<-Pairs_Cod_1000_25_10<-Pairs_Cod_2000_25_10<-Pairs_Cod_5000_25_10<-matrix(NA, nrow=100,ncol=2)
+Pairs_Cod_100_25_25<-Pairs_Cod_200_25_25<-Pairs_Cod_1000_25_25<-Pairs_Cod_2000_25_25<-Pairs_Cod_5000_25_25<-matrix(NA, nrow=100,ncol=2)
+Pairs_Flatfish_100_25_5<-Pairs_Flatfish_200_25_5<-Pairs_Flatfish_1000_25_5<-Pairs_Flatfish_2000_25_5<-Pairs_Flatfish_5000_25_5<-matrix(NA, nrow=100,ncol=2)
+Pairs_Flatfish_100_25_10<-Pairs_Flatfish_200_25_10<-Pairs_Flatfish_1000_25_10<-Pairs_Flatfish_2000_25_10<-Pairs_Flatfish_5000_25_10<-matrix(NA, nrow=100,ncol=2)
+Pairs_Flatfish_100_25_25<-Pairs_Flatfish_200_25_25<-Pairs_Flatfish_1000_25_25<-Pairs_Flatfish_2000_25_25<-Pairs_Flatfish_5000_25_25<-matrix(NA, nrow=100,ncol=2)
+Pairs_Sardine_100_25_5<-Pairs_Sardine_200_25_5<-Pairs_Sardine_1000_25_5<-Pairs_Sardine_2000_25_5<-Pairs_Sardine_5000_25_5<-matrix(NA, nrow=100,ncol=2)
+Pairs_Sardine_100_25_10<-Pairs_Sardine_200_25_10<-Pairs_Sardine_1000_25_10<-Pairs_Sardine_2000_25_10<-Pairs_Sardine_5000_25_10<-matrix(NA, nrow=100,ncol=2)
+Pairs_Sardine_100_25_25<-Pairs_Sardine_200_25_25<-Pairs_Sardine_1000_25_25<-Pairs_Sardine_2000_25_25<-Pairs_Sardine_5000_25_25<-matrix(NA, nrow=100,ncol=2)
 for (i in 1:100){
+ Pairs_Cod_100_25_5[i,1]<-(sum(Cod_100_25_5[[i]]$k_ckmr_pop))
+ Pairs_Cod_100_25_5[i,2]<-(sum(Cod_100_25_5[[i]]$k_ckmr_hsp))
  Pairs_Cod_200_25_5[i,1]<-(sum(Cod_200_25_5[[i]]$k_ckmr_pop))
  Pairs_Cod_200_25_5[i,2]<-(sum(Cod_200_25_5[[i]]$k_ckmr_hsp))
  Pairs_Cod_1000_25_5[i,1]<-(sum(Cod_1000_25_5[[i]]$k_ckmr_pop))
@@ -135,6 +164,8 @@ for (i in 1:100){
  Pairs_Cod_5000_25_5[i,1]<-(sum(Cod_5000_25_5[[i]]$k_ckmr_pop))
  Pairs_Cod_5000_25_5[i,2]<-(sum(Cod_5000_25_5[[i]]$k_ckmr_hsp))
  
+ Pairs_Cod_100_25_10[i,1]<-(sum(Cod_100_25_10[[i]]$k_ckmr_pop))
+ Pairs_Cod_100_25_10[i,2]<-(sum(Cod_100_25_10[[i]]$k_ckmr_hsp))
  Pairs_Cod_200_25_10[i,1]<-(sum(Cod_200_25_10[[i]]$k_ckmr_pop))
  Pairs_Cod_200_25_10[i,2]<-(sum(Cod_200_25_10[[i]]$k_ckmr_hsp))
  Pairs_Cod_1000_25_10[i,1]<-(sum(Cod_1000_25_10[[i]]$k_ckmr_pop))
@@ -144,6 +175,8 @@ for (i in 1:100){
  Pairs_Cod_5000_25_10[i,1]<-(sum(Cod_5000_25_10[[i]]$k_ckmr_pop))
  Pairs_Cod_5000_25_10[i,2]<-(sum(Cod_5000_25_10[[i]]$k_ckmr_hsp))
  
+ Pairs_Cod_100_25_25[i,1]<-(sum(Cod_100_25_25[[i]]$k_ckmr_pop))
+ Pairs_Cod_100_25_25[i,2]<-(sum(Cod_100_25_25[[i]]$k_ckmr_hsp))
  Pairs_Cod_200_25_25[i,1]<-(sum(Cod_200_25_25[[i]]$k_ckmr_pop))
  Pairs_Cod_200_25_25[i,2]<-(sum(Cod_200_25_25[[i]]$k_ckmr_hsp))
  Pairs_Cod_1000_25_25[i,1]<-(sum(Cod_1000_25_25[[i]]$k_ckmr_pop))
@@ -153,6 +186,8 @@ for (i in 1:100){
  Pairs_Cod_5000_25_25[i,1]<-(sum(Cod_5000_25_25[[i]]$k_ckmr_pop))
  Pairs_Cod_5000_25_25[i,2]<-(sum(Cod_5000_25_25[[i]]$k_ckmr_hsp))
  
+ Pairs_Flatfish_100_25_5[i,1]<-(sum(Flatfish_100_25_5[[i]]$k_ckmr_pop))
+ Pairs_Flatfish_100_25_5[i,2]<-(sum(Flatfish_100_25_5[[i]]$k_ckmr_hsp))
  Pairs_Flatfish_200_25_5[i,1]<-(sum(Flatfish_200_25_5[[i]]$k_ckmr_pop))
  Pairs_Flatfish_200_25_5[i,2]<-(sum(Flatfish_200_25_5[[i]]$k_ckmr_hsp))
  Pairs_Flatfish_1000_25_5[i,1]<-(sum(Flatfish_1000_25_5[[i]]$k_ckmr_pop))
@@ -162,6 +197,8 @@ for (i in 1:100){
  Pairs_Flatfish_5000_25_5[i,1]<-(sum(Flatfish_5000_25_5[[i]]$k_ckmr_pop))
  Pairs_Flatfish_5000_25_5[i,2]<-(sum(Flatfish_5000_25_5[[i]]$k_ckmr_hsp))
  
+ Pairs_Flatfish_100_25_10[i,1]<-(sum(Flatfish_100_25_10[[i]]$k_ckmr_pop))
+ Pairs_Flatfish_100_25_10[i,2]<-(sum(Flatfish_100_25_10[[i]]$k_ckmr_hsp))
  Pairs_Flatfish_200_25_10[i,1]<-(sum(Flatfish_200_25_10[[i]]$k_ckmr_pop))
  Pairs_Flatfish_200_25_10[i,2]<-(sum(Flatfish_200_25_10[[i]]$k_ckmr_hsp))
  Pairs_Flatfish_1000_25_10[i,1]<-(sum(Flatfish_1000_25_10[[i]]$k_ckmr_pop))
@@ -171,6 +208,8 @@ for (i in 1:100){
  Pairs_Flatfish_5000_25_10[i,1]<-(sum(Flatfish_5000_25_10[[i]]$k_ckmr_pop))
  Pairs_Flatfish_5000_25_10[i,2]<-(sum(Flatfish_5000_25_10[[i]]$k_ckmr_hsp))
  
+ Pairs_Flatfish_100_25_25[i,1]<-(sum(Flatfish_100_25_25[[i]]$k_ckmr_pop))
+ Pairs_Flatfish_100_25_25[i,2]<-(sum(Flatfish_100_25_25[[i]]$k_ckmr_hsp))
  Pairs_Flatfish_200_25_25[i,1]<-(sum(Flatfish_200_25_25[[i]]$k_ckmr_pop))
  Pairs_Flatfish_200_25_25[i,2]<-(sum(Flatfish_200_25_25[[i]]$k_ckmr_hsp))
  Pairs_Flatfish_1000_25_25[i,1]<-(sum(Flatfish_1000_25_25[[i]]$k_ckmr_pop))
@@ -180,6 +219,8 @@ for (i in 1:100){
  Pairs_Flatfish_5000_25_25[i,1]<-(sum(Flatfish_5000_25_25[[i]]$k_ckmr_pop))
  Pairs_Flatfish_5000_25_25[i,2]<-(sum(Flatfish_5000_25_25[[i]]$k_ckmr_hsp))
  
+ Pairs_Sardine_100_25_5[i,1]<-(sum(Sardine_100_25_5[[i]]$k_ckmr_pop))
+ Pairs_Sardine_100_25_5[i,2]<-(sum(Sardine_100_25_5[[i]]$k_ckmr_hsp))
  Pairs_Sardine_200_25_5[i,1]<-(sum(Sardine_200_25_5[[i]]$k_ckmr_pop))
  Pairs_Sardine_200_25_5[i,2]<-(sum(Sardine_200_25_5[[i]]$k_ckmr_hsp))
  Pairs_Sardine_1000_25_5[i,1]<-(sum(Sardine_1000_25_5[[i]]$k_ckmr_pop))
@@ -189,6 +230,8 @@ for (i in 1:100){
  Pairs_Sardine_5000_25_5[i,1]<-(sum(Sardine_5000_25_5[[i]]$k_ckmr_pop))
  Pairs_Sardine_5000_25_5[i,2]<-(sum(Sardine_5000_25_5[[i]]$k_ckmr_hsp))
  
+ Pairs_Sardine_100_25_10[i,1]<-(sum(Sardine_100_25_10[[i]]$k_ckmr_pop))
+ Pairs_Sardine_100_25_10[i,2]<-(sum(Sardine_100_25_10[[i]]$k_ckmr_hsp))
  Pairs_Sardine_200_25_10[i,1]<-(sum(Sardine_200_25_10[[i]]$k_ckmr_pop))
  Pairs_Sardine_200_25_10[i,2]<-(sum(Sardine_200_25_10[[i]]$k_ckmr_hsp))
  Pairs_Sardine_1000_25_10[i,1]<-(sum(Sardine_1000_25_10[[i]]$k_ckmr_pop))
@@ -198,6 +241,8 @@ for (i in 1:100){
  Pairs_Sardine_5000_25_10[i,1]<-(sum(Sardine_5000_25_10[[i]]$k_ckmr_pop))
  Pairs_Sardine_5000_25_10[i,2]<-(sum(Sardine_5000_25_10[[i]]$k_ckmr_hsp))
  
+ Pairs_Sardine_100_25_25[i,1]<-(sum(Sardine_100_25_25[[i]]$k_ckmr_pop))
+ Pairs_Sardine_100_25_25[i,2]<-(sum(Sardine_100_25_25[[i]]$k_ckmr_hsp))
  Pairs_Sardine_200_25_25[i,1]<-(sum(Sardine_200_25_25[[i]]$k_ckmr_pop))
  Pairs_Sardine_200_25_25[i,2]<-(sum(Sardine_200_25_25[[i]]$k_ckmr_hsp))
  Pairs_Sardine_1000_25_25[i,1]<-(sum(Sardine_1000_25_25[[i]]$k_ckmr_pop))
@@ -207,6 +252,49 @@ for (i in 1:100){
  Pairs_Sardine_5000_25_25[i,1]<-(sum(Sardine_5000_25_25[[i]]$k_ckmr_pop))
  Pairs_Sardine_5000_25_25[i,2]<-(sum(Sardine_5000_25_25[[i]]$k_ckmr_hsp))
 }
+
+#N100
+#tiff(paste0(wd,"CKMRPairs_N100.tiff"), height=20, width=30, units='cm', compression="lzw", res=500)
+par(mfrow=c(3,6), oma=c(2,2,1,1), mar=c(4,4,2.5,1))
+hist(Pairs_Cod_100_25_5[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="", main="")
+mtext(text="5yr", side=2, line=4.5, font=2)
+mtext(text="POP", side=3, line=-2,font=2)
+hist(Pairs_Cod_100_25_5[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="", main="", ylab="")
+mtext(text="Cod", side=3, line=2, at=-4, font=2)
+mtext(text="HSP", side=3, line=-2,font=2)
+
+hist(Pairs_Flatfish_100_25_5[,1], breaks=seq(-0.5,1e6,10), xlim=c(-1,400), las=1, xlab="", main="", ylab="")
+mtext(text="POP", side=3, line=-2,font=2)
+hist(Pairs_Flatfish_100_25_5[,2], breaks=seq(-0.5,1e6,10), xlim=c(-1,400), las=1, xlab="", main="", ylab="")
+mtext(text="Flatfish", side=3, line=2, at=-75, font=2)
+mtext(text="HSP", side=3, line=-2,font=2)
+
+hist(Pairs_Sardine_100_25_5[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="", main="", ylab="")
+mtext(text="POP", side=3, line=-2,font=2)
+hist(Pairs_Sardine_100_25_5[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="", main="", ylab="")
+mtext(text="Sardine", side=3, line=2, at=-4, font=2)
+mtext(text="HSP", side=3, line=-2,font=2)
+
+hist(Pairs_Cod_100_25_10[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="", main="")
+mtext(text="10yr", side=2, line=4.5, font=2)
+hist(Pairs_Cod_100_25_10[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="", main="", ylab="")
+
+hist(Pairs_Flatfish_100_25_10[,1], breaks=seq(-0.5,1e6,10), xlim=c(-1,400), las=1, xlab="", main="", ylab="")
+hist(Pairs_Flatfish_100_25_10[,2], breaks=seq(-0.5,1e6,10), xlim=c(-1,400), las=1, xlab="", main="", ylab="")
+
+hist(Pairs_Sardine_100_25_10[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="", main="", ylab="")
+hist(Pairs_Sardine_100_25_10[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="", main="", ylab="")
+
+hist(Pairs_Cod_100_25_25[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="Parent-Offspring Pairs", main="")
+mtext(text="25yr", side=2, line=4.5, font=2)
+hist(Pairs_Cod_100_25_25[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
+
+hist(Pairs_Flatfish_100_25_25[,1], breaks=seq(-0.5,1e6,10), xlim=c(-1,400), las=1, xlab="Parent-Offspring Pairs", main="", ylab="")
+hist(Pairs_Flatfish_100_25_25[,2], breaks=seq(-0.5,1e6,10), xlim=c(-1,400), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
+
+hist(Pairs_Sardine_100_25_25[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="Parent-Offspring Pairs", main="", ylab="")
+hist(Pairs_Sardine_100_25_25[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
+#dev.off()
 
 #N200
 #tiff(paste0(wd,"CKMRPairs_N200.tiff"), height=20, width=30, units='cm', compression="lzw", res=500)
