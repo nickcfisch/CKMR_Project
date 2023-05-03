@@ -742,3 +742,299 @@ points(26:101,summary(res_list[[2]][[1]]$SD)[which(rownames(summary(res_list[[2]
 
 plot(1:101,Sardine_OM[[1]]$OM$SSB,pch=16)
 points(26:101,summary(res_list[[3]][[1]]$SD)[which(rownames(summary(res_list[[3]][[1]]$SD)) %in% "spbiomass"),3], col=2,pch=16)
+
+
+
+
+###########################################
+#Dome Shaped Selectivity on OM
+###########################################
+
+SimPop_Dome<-function(seed=1,
+                 fage=0,
+                 lage=15,
+                 fyear=1,
+                 lyear=100,
+                 Linf=25,
+                 a3=0.5,
+                 L1=10,
+                 BK=0.4,
+                 Weight_scaling=1.7e-5,
+                 Weight_allometry=2.9,
+                 Mref=0.4,
+                 Mat_50=15.9,
+                 Mat_slope=-0.9,
+                 B1=3.5,
+                 B2=-4,
+                 B3=4,
+                 B4=0.2,
+                 B5=0.02,
+                 B6=0.7,
+                 R0=exp(16),
+                 h=0.59,
+                 sd_rec=0.73,
+                 const_F=FALSE,
+                 fint=0.25,
+                 fhigh=0.25,
+                 flow=0.25,
+                 stochastic=TRUE){      
+  
+  set.seed(seed)
+  
+  #Length at age
+  Lmin<-0
+  b<-(L1-Lmin)/a3
+  Laa<-Lmin+b*0
+  Laa<-NA
+  Laa[1]<-Lmin+b*0
+  Laa[2:lage]<-Linf+(L1-Linf)*exp(-BK*((1:(lage-1))-a3))
+  Laa[lage+1]<-Linf
+  Laa[1]<-uniroot(f=function(x) x+(x-Linf)*(exp(-BK)-1)-Laa[2], interval=c(0.01,100))$root
+  
+  #Weight at age
+  Waa<-Weight_scaling*Laa^Weight_allometry
+  
+  #Natural mortality at age
+  #Maa<-Mref*(Laa/(Linf*0.75))^-1
+  Maa<-rep(Mref,length(fage:lage))    #Constant M
+  
+  #Maturity
+  Mat<-1/(1+exp(Mat_slope*(Laa-Mat_50)))
+  
+  #Fishery Selectivity 
+  age<-fage:lage
+  Amin<-fage
+  Amax<-lage
+
+  #functions
+  peak2<-B1+1+((0.99*Amax-B1-1)/(1+exp(-B2)))
+  t1<-exp(-(Amin-B1)^2/exp(B3))
+  t2<-exp(-(Amax-peak2)^2/exp(B4))
+  
+  j1<-(1+exp(-20*((age-B1)/(1+abs(age-B1)))))^-1
+  j2<-(1+exp(-20*((age-peak2)/(1+abs(age-peak2)))))^-1
+  
+  #Long form
+  asc<-(1+exp(-B5))^-1+(1-(1+exp(-B5))^-1)*((exp(-(age-B1)^2/exp(B3))-t1)/(1-t1))
+  dsc<-1+(((1+exp(-B6))^-1)-1)*((exp(-(age-peak2)/exp(B4))-1)/(t2-1))
+  
+  #Actual Sel
+  Sel<-asc*(1-j1)+j1*((1-j2)+j2*dsc)
+  Sel<-Sel/max(Sel)
+  
+  #Fishing intensity, starts in year 25
+  k_int<-0.15
+  mid_int<-20
+  F_int<-NA
+  if (const_F==TRUE){
+    F_int[fyear:lyear]<-fint
+  } else if (const_F==FALSE){
+    F_int[fyear:25]<-0
+    F_int[26:85]<-fhigh/length(26:85)*(1:length(26:85))
+    F_int[86:lyear]<-F_int[85]+(flow-fhigh)/length(86:lyear)*(1:length(86:lyear))
+  }
+  
+  #Now Pop Stuff
+  lxo<-c(1,cumprod(exp(-Maa[1:lage])))   #survivorship
+  lxo[lage+1]<-lxo[lage+1]/(1-exp(-Maa[lage+1]))   #plus group survivorship
+  N0aa<-R0*lxo
+  SSB0<-sum(N0aa*Mat*Waa)  #Unfished SSB calc
+  
+  #Population Simulation
+  Faa<-Zaa<-matrix(NA, nrow=lyear, ncol=lage+1)
+  Naa<-matrix(NA, nrow=lyear+1, ncol=lage+1)
+  Naa[1,]<-N0aa
+  SSB<-sum(Naa[1,]*Mat*Waa)
+  lrecdevs<-0
+  for(i in fyear:lyear){
+    Faa[i,]<-F_int[i]*Sel
+    Zaa[i,]<-Maa+Faa[i,]
+    for(j in 1:lage){
+      Naa[i+1,j+1]<-Naa[i,j]*exp(-Zaa[i,j])
+    }
+    Naa[i+1,lage+1]<-Naa[i+1,lage+1]+Naa[i,lage+1]*exp(-Zaa[i,lage+1]) #plus group
+    
+    SSB[i+1] <- sum(Naa[i+1,]*Mat*Waa, na.rm=TRUE)
+    if (stochastic==TRUE){
+      lrecdevs[i+1]<-rnorm(n=1,mean=0, sd=sd_rec)
+      Naa[i+1,1] <- (4*h*R0*SSB[i+1])/(SSB0*(1-h)+SSB[i+1]*(5*h-1))*exp(lrecdevs[i+1]-0.5*sd_rec^2)
+      #   Naa[i+1,1] <- rlnorm(n=1,meanlog=log((4*h*R0*SSB[i+1])/(SSB0*(1-h)+SSB[i+1]*(5*h-1))), sdlog=sd_rec)
+    } else {
+      Naa[i+1,1] <- (4*h*R0*SSB[i+1])/(SSB0*(1-h)+SSB[i+1]*(5*h-1))
+    }
+  }
+  
+  Caa<-Faa/Zaa*Naa[1:lyear,]*(1-exp(-Zaa))
+  
+  return(list(fage=fage,lage=lage,seed=seed,fyear=fyear,lyear=lyear,Linf=Linf,a3=a3,L1=L1,BK=BK,Weight_scaling=Weight_scaling,Weight_allometry=Weight_allometry,Mref=Mref,
+              Mat_50=Mat_50,Mat_slope=Mat_slope,B1=B1,B2=B2,B3=B3,B4=B4,B5=B5,B6=B6,R0=R0,h=h,sd_rec=sd_rec,fint=fint,fhigh=fhigh,flow=flow,stochastic=stochastic,
+              lrecdevs=lrecdevs,
+              Laa=Laa,
+              Waa=Waa,
+              Mat=Mat,
+              F_int=F_int,
+              lxo=lxo,
+              Naa=Naa,
+              Caa=Caa,
+              SSB=SSB,
+              SSB0=SSB0,
+              N0aa=N0aa,
+              Maa=Maa,
+              Sel=Sel,
+              Faa=Faa,
+              Zaa=Zaa))
+}
+
+
+#Sardine, 0.425 is fmsy, fhigh is 0.7875, flow is 0.2037
+#MSY 122577.8 (*0.85 = 104191.1)
+Nsim<-100
+Sardine_Dome_runs<-list()
+for (s in 1:Nsim){
+  Sardine_Dome_runs[[s]]<-SimPop_Dome(seed=s,fage=0,lage=15,fyear=1,lyear=100,
+                            Linf=25,
+                            a3=0.5,
+                            L1=10,
+                            BK=0.4,
+                            Weight_scaling=1.7e-5,
+                            Weight_allometry=2.9,
+                            Mref=0.4,
+                            Mat_50=15.9,
+                            Mat_slope=-0.9,
+                            B1=2.5620178,
+                            B2=-0.7837787,
+                            B3=-0.1770974,
+                            B4=0.3569738,
+                            B5=-6.3504313,
+                            B6=0.6924779,
+                            R0=exp(16),
+                            h=0.59,
+                            sd_rec=0.73,
+                            const_F=FALSE,
+                            fint=0.25,
+                            fhigh=0.78, 
+                            flow=0.2075,
+                            stochastic=TRUE)
+}
+
+#For Flatfish, fmsy is 0.27, MSY is 5240.563 (*0.85= 4454.479), and fhigh which reaches 0.85*MSY is 0.5425, flow is 0.1259
+Flatfish_Dome_runs<-list()
+for (s in 1:Nsim){
+  Flatfish_Dome_runs[[s]]<-SimPop_Dome(seed=s,
+                             fage=0,
+                             lage=25,
+                             fyear=1,
+                             lyear=100,
+                             Linf=47.4,
+                             a3=0.5,
+                             L1=12.7,
+                             BK=0.35,
+                             Weight_scaling=1e-5,
+                             Weight_allometry=3,
+                             Mref=0.2,
+                             Mat_50=28.9,
+                             Mat_slope=-0.42,
+                             B1=3.5640193,
+                             B2=-0.9683777,
+                             B3=0.6786179,
+                             B4=0.4179561,
+                             B5=-5.6397411,
+                             B6=0.6920124,
+                             R0=exp(10.5),
+                             h=0.76,
+                             sd_rec=0.7,
+                             const_F=FALSE,
+                             fint=0.25,
+                             fhigh=0.5375, 
+                             flow=0.12, 
+                             stochastic=TRUE)
+}
+
+#For Cod, fmsy is 0.12, MSY is 160865265 (*0.85=136735475), f that reaches 0.85*MSY is 0.20284, flow is 0.06232
+Cod_Dome_runs<-list()
+for (s in 1:Nsim){
+  Cod_Dome_runs[[s]]<-SimPop_Dome(seed=s,
+                        fage=0,
+                        lage=25,
+                        fyear=1,
+                        lyear=100,
+                        Linf=132,
+                        a3=0.5,
+                        L1=20,
+                        BK=0.2,
+                        Weight_scaling=6.8e-6,
+                        Weight_allometry=3.1,
+                        Mref=0.2,
+                        Mat_50=38.2,
+                        Mat_slope=-0.27,
+                        B1=2.1734853,
+                        B2=-0.7235318,
+                        B3=-0.4950544,
+                        B4=0.3445215,
+                        B5=-5.1449292,
+                        B6=0.6926436,
+                        R0=exp(18.7),
+                        h=0.65,
+                        sd_rec=0.4,
+                        const_F=FALSE,
+                        fint=0.25,
+                        fhigh=0.2045, 
+                        flow=0.0605, 
+                        stochastic=TRUE)
+}
+
+#save(Cod_Dome_runs, file=paste0(wd,"/Cod_Dome.RData"))
+#save(Flatfish_Dome_runs, file=paste0(wd,"/Flatfish_Dome.RData"))
+#save(Sardine_Dome_runs, file=paste0(wd,"/Sardine_Dome.RData"))
+
+Cod_N<-matrix(NA, nrow=Nsim,ncol=101)
+Cod_Dome_N<-matrix(NA, nrow=Nsim,ncol=101)
+Flatfish_N<-matrix(NA, nrow=Nsim,ncol=101)
+Flatfish_Dome_N<-matrix(NA, nrow=Nsim,ncol=101)
+Sardine_N<-matrix(NA, nrow=Nsim,ncol=101)
+Sardine_Dome_N<-matrix(NA, nrow=Nsim,ncol=101)
+for(s in 1:Nsim){
+  Cod_N[s,]<-rowSums(t(t(Cod_runs[[s]]$Naa)*Cod_runs[[s]]$Sel))
+  Cod_Dome_N[s,]<-rowSums(t(t(Cod_Dome_runs[[s]]$Naa)*Cod_Dome_runs[[s]]$Sel))
+  
+  Flatfish_N[s,]<-rowSums(t(t(Flatfish_runs[[s]]$Naa)*Flatfish_runs[[s]]$Sel))
+  Flatfish_Dome_N[s,]<-rowSums(t(t(Flatfish_Dome_runs[[s]]$Naa)*Flatfish_Dome_runs[[s]]$Sel))
+
+  Sardine_N[s,]<-rowSums(t(t(Sardine_runs[[s]]$Naa)*Sardine_runs[[s]]$Sel))
+  Sardine_Dome_N[s,]<-rowSums(t(t(Sardine_Dome_runs[[s]]$Naa)*Sardine_Dome_runs[[s]]$Sel))
+}
+
+vioplot((Cod_Dome_N-Cod_N)/Cod_N, ylim=c(-0.01,0.01))
+abline(h=0, lty=2)
+vioplot((Flatfish_Dome_N-Flatfish_N)/Flatfish_N, ylim=c())
+abline(h=0, lty=2)
+vioplot((Sardine_Dome_N-Sardine_N)/Sardine_N, ylim=c())
+abline(h=0, lty=2)
+
+
+
+par(mfrow=c(1,3))
+plot(1:101,Cod_runs[[1]]$SSB/Cod_runs[[1]]$SSB0, ylim=c(0,2), las=1, xlab="Year", ylab="SSB/SSB0", main="Cod")
+Cod_Depl<-matrix(NA, nrow=Nsim,ncol=101)
+Cod_Depl[1,]<-Cod_runs[[1]]$SSB/Cod_runs[[1]]$SSB0
+for(s in 2:Nsim){
+  Cod_Depl[s,]<-Cod_runs[[s]]$SSB/Cod_runs[[s]]$SSB0
+  points(1:101,Cod_runs[[s]]$SSB/Cod_runs[[s]]$SSB0)
+}
+plot(1:101,Flatfish_runs[[1]]$SSB/Flatfish_runs[[1]]$SSB0, ylim=c(0,2), las=1, xlab="Year", ylab="SSB/SSB0", main="Flatfish")
+Flatfish_Depl<-matrix(NA, nrow=Nsim,ncol=101)
+Flatfish_Depl[1,]<-Flatfish_runs[[1]]$SSB/Flatfish_runs[[1]]$SSB0
+for(s in 2:Nsim){
+  Flatfish_Depl[s,]<-Flatfish_runs[[s]]$SSB/Flatfish_runs[[s]]$SSB0
+  points(1:101,Flatfish_runs[[s]]$SSB/Flatfish_runs[[s]]$SSB0)
+}
+plot(1:101,Sardine_runs[[1]]$SSB/Sardine_runs[[1]]$SSB0, ylim=c(0,2), las=1, xlab="Year", ylab="SSB/SSB0", main="Sardine")
+Sardine_Depl<-matrix(NA, nrow=Nsim,ncol=101)
+Sardine_Depl[1,]<-Sardine_runs[[1]]$SSB/Sardine_runs[[1]]$SSB0
+for(s in 2:Nsim){
+  Sardine_Depl[s,]<-Sardine_runs[[s]]$SSB/Sardine_runs[[s]]$SSB0
+  points(1:101,Sardine_runs[[s]]$SSB/Sardine_runs[[s]]$SSB0)
+}
+
+
+
