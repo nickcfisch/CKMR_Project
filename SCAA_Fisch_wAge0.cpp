@@ -247,25 +247,13 @@ Type objective_function<Type>::operator() ()
   REPORT(sd_index);
   REPORT(log_recruit_devs);
 
-//  REPORT(Depletion);
-//  ADREPORT(Depletion);
   REPORT(fishery_sel);
-//  ADREPORT(fishery_sel);
   REPORT(N0_age);
-//  ADREPORT(N0_age);
   REPORT(Laa);
   REPORT(lxo);
   REPORT(F);
-//  ADREPORT(F);
   REPORT(M);
-//  ADREPORT(M);
-//  REPORT(Z);
-//  ADREPORT(Z);
-//  REPORT(A);
   REPORT(N);
-//  ADREPORT(N);
-//  REPORT(U);
-//  ADREPORT(U);
   REPORT(spbiomass);
   ADREPORT(spbiomass);
   REPORT(obs_harv);

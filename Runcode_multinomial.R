@@ -3,8 +3,6 @@
 
 wd<-"C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/"
 
-#source(paste0(wd,"/CKMR_multinom_Sim.R"))
-
 ########################
 #CKMR 25 Years
 ########################
