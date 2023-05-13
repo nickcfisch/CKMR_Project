@@ -6,7 +6,6 @@
 #####################################################
 
 #wd<-"C:/Users/nfisch/Documents/GitHub/CKMR_Project"
-#wd<-"C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/"
 
 #Still need to save population output
 SimPop<-function(seed=1,

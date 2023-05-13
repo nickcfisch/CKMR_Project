@@ -1,7 +1,7 @@
 
 #Run Code
 
-wd<-"C:/Users/nicholas.fisch/Documents/GitHub/CKMR_Project/"
+wd<-"C:/Users/nfisch/Documents/GitHub/CKMR_Project/"
 
 ########################
 #CKMR 25 Years
