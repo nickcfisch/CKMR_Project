@@ -837,7 +837,10 @@ for (Q in 1:3){  #Running through the life history types
               SS_fishery=rowSums(OM$Obs_Catch_Comp),
               Mat=OM$OM$Mat,
               Laa=OM$OM$Laa,
-              Waa=OM$OM$Waa)
+              Waa=OM$OM$Waa,
+              Lamda_Harvest=1,                           #Switch for whether to use a data source or not, 0=no, 1=yes
+              Lamda_Comp=1,
+              Lamda_Index=1)
     
     #Parameters
     set.seed(s)
@@ -926,7 +929,10 @@ for (Q in 1:3){  #Running through the life history types
               SS_fishery=rowSums(OM$Obs_Catch_Comp),
               Mat=OM$OM$Mat,
               Laa=OM$OM$Laa,
-              Waa=OM$OM$Waa)
+              Waa=OM$OM$Waa,
+              Lamda_Harvest=1,                           #Switch for whether to use a data source or not, 0=no, 1=yes
+              Lamda_Comp=1,
+              Lamda_Index=1)
     
     #Parameters
     set.seed(s)
@@ -1016,7 +1022,10 @@ for (Q in 1:3){  #Running through the life history types
               SS_fishery=rowSums(OM$Obs_Catch_Comp),
               Mat=OM$OM$Mat,
               Laa=OM$OM$Laa,
-              Waa=OM$OM$Waa)
+              Waa=OM$OM$Waa,
+              Lamda_Harvest=1,                           #Switch for whether to use a data source or not, 0=no, 1=yes
+              Lamda_Comp=1,
+              Lamda_Index=1)
     
     #Parameters
     set.seed(s)
@@ -1105,7 +1114,10 @@ for (Q in 1:3){  #Running through the life history types
               SS_fishery=rowSums(OM$Obs_Catch_Comp),
               Mat=OM$OM$Mat,
               Laa=OM$OM$Laa,
-              Waa=OM$OM$Waa)
+              Waa=OM$OM$Waa,
+              Lamda_Harvest=1,                           #Switch for whether to use a data source or not, 0=no, 1=yes
+              Lamda_Comp=1,
+              Lamda_Index=1)
     
     #Parameters
     set.seed(s)
@@ -1203,7 +1215,12 @@ for (Q in 1:3){  #Running through the life history types
               k_ckmr_hsp=OM$k_ckmr_hsp,
               born_year_young=OM$born_year_young-(OM$fyear_dat-1), 
               k_ckmr_pop=OM$k_ckmr_pop,
-              samp_year_old=OM$samp_year_old-(OM$fyear_dat-1))
+              samp_year_old=OM$samp_year_old-(OM$fyear_dat-1),
+              #Switch for whether to use a data source or not, 0=no, 1=yes
+              Lamda_Harvest=1,
+              Lamda_Comp=1,
+              Lamda_Index=1,
+              Lamda_CKMR=1)
     
     #Parameters
     set.seed(s)
@@ -1295,7 +1312,12 @@ for (Q in 1:3){  #Running through the life history types
               k_ckmr_hsp=OM$k_ckmr_hsp,
               born_year_young=OM$born_year_young-(OM$fyear_dat-1), 
               k_ckmr_pop=OM$k_ckmr_pop,
-              samp_year_old=OM$samp_year_old-(OM$fyear_dat-1))
+              samp_year_old=OM$samp_year_old-(OM$fyear_dat-1),
+              #Switch for whether to use a data source or not, 0=no, 1=yes
+              Lamda_Harvest=1,
+              Lamda_Comp=1,
+              Lamda_Index=1,
+              Lamda_CKMR=1)
     
     #Parameters
     set.seed(s)
@@ -1387,7 +1409,12 @@ for (Q in 1:3){  #Running through the life history types
               k_ckmr_hsp=OM$k_ckmr_hsp,
               born_year_young=OM$born_year_young-(OM$fyear_dat-1), 
               k_ckmr_pop=OM$k_ckmr_pop,
-              samp_year_old=OM$samp_year_old-(OM$fyear_dat-1))
+              samp_year_old=OM$samp_year_old-(OM$fyear_dat-1),
+              #Switch for whether to use a data source or not, 0=no, 1=yes
+              Lamda_Harvest=1,
+              Lamda_Comp=1,
+              Lamda_Index=1,
+              Lamda_CKMR=1)
     
     #Parameters
     set.seed(s)
@@ -1479,7 +1506,12 @@ for (Q in 1:3){  #Running through the life history types
               k_ckmr_hsp=OM$k_ckmr_hsp,
               born_year_young=OM$born_year_young-(OM$fyear_dat-1), 
               k_ckmr_pop=OM$k_ckmr_pop,
-              samp_year_old=OM$samp_year_old-(OM$fyear_dat-1))
+              samp_year_old=OM$samp_year_old-(OM$fyear_dat-1),
+              #Switch for whether to use a data source or not, 0=no, 1=yes
+              Lamda_Harvest=1,
+              Lamda_Comp=1,
+              Lamda_Index=1,
+              Lamda_CKMR=1)
     
     #Parameters
     set.seed(s)

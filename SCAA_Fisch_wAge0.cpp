@@ -45,6 +45,10 @@ Type objective_function<Type>::operator() ()
   DATA_VECTOR(Laa);                 //Length at age vector
   DATA_VECTOR(Waa);                 //Weight at age vector
 
+  DATA_INTEGER(Lamda_Harvest);    //Whether to use data sources or not
+  DATA_INTEGER(Lamda_Comp);    
+  DATA_INTEGER(Lamda_Index);    
+
   //II. PARAMETER DECLARATION
   //---------------------------------------------------------------------------------------------
   PARAMETER(log_M);          //M scalar for Lorenzen M
@@ -231,7 +235,7 @@ Type objective_function<Type>::operator() ()
   //Recruitment deviations
    NPRAND = -1*(sum(dnorm(log_recruit_devs,0,sd_rec,true)) + sum(dnorm(log_recruit_devs_init,0,sd_rec,true))); //Recruitment deviations
 
-  NLL=L1+L2+L3;
+  NLL = (Lamda_Harvest*L1) + (Lamda_Comp*L2) + (Lamda_Index*L3);
   JNLL=NPRAND+NLL;
 
 /////////////////////////

@@ -56,6 +56,11 @@ Type objective_function<Type>::operator() ()
   DATA_IVECTOR(samp_year_old); 
  //Year of first born, age difference, number of replicates, number of successes for HSP, year of second born (or juves birth), number of successes for POP, and sampling year of older indv
 
+  DATA_INTEGER(Lamda_Harvest);    //Whether to use data sources or not
+  DATA_INTEGER(Lamda_Comp);    
+  DATA_INTEGER(Lamda_Index);    
+  DATA_INTEGER(Lamda_CKMR);    
+
   //II. PARAMETER DECLARATION
   //---------------------------------------------------------------------------------------------
   PARAMETER(log_M);          //M scalar for Lorenzen M
@@ -363,7 +368,7 @@ Type objective_function<Type>::operator() ()
   //Recruitment deviations
    NPRAND = -1*(sum(dnorm(log_recruit_devs,0,sd_rec,true)) + sum(dnorm(log_recruit_devs_init,0,sd_rec,true))); //Recruitment deviations
 
-  NLL=L1+L2+L3+L4;
+  NLL = (Lamda_Harvest*L1) + (Lamda_Comp*L2) + (Lamda_Index*L3) + (Lamda_CKMR*L4);
   JNLL=NPRAND+NLL;
 
 /////////////////////////
