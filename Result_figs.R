@@ -670,12 +670,12 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N100_Ind25_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N100_Ind25_5yrs_noCKMR<-apply(re_R0,2,sd)
 sd_RE_M_N100_Ind25_5yrs_noCKMR<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N100_Ind25_5yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N100_Ind25_5yrs_noCKMR<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N100_Ind25_5yrs_noCKMR<-apply(abs(re_M),2,sd)
@@ -786,12 +786,12 @@ for(f in 1:3){
   }
 }
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind25_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N1000_Ind25_5yrs_noCKMR<-apply(re_R0,2,sd)
 sd_RE_M_N1000_Ind25_5yrs_noCKMR<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N1000_Ind25_5yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N1000_Ind25_5yrs_noCKMR<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N1000_Ind25_5yrs_noCKMR<-apply(abs(re_M),2,sd)
@@ -902,12 +902,12 @@ for(f in 1:3){
   }
 }
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind25_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N5000_Ind25_5yrs_noCKMR<-apply(re_R0,2,sd)
 sd_RE_M_N5000_Ind25_5yrs_noCKMR<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N5000_Ind25_5yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N5000_Ind25_5yrs_noCKMR<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N5000_Ind25_5yrs_noCKMR<-apply(abs(re_M),2,sd)
@@ -986,12 +986,12 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N100_Ind50_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N100_Ind50_5yrs_noCKMR<-apply(re_R0,2,sd)
 sd_RE_M_N100_Ind50_5yrs_noCKMR<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N100_Ind50_5yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N100_Ind50_5yrs_noCKMR<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N100_Ind50_5yrs_noCKMR<-apply(abs(re_M),2,sd)
@@ -1102,12 +1102,12 @@ for(f in 1:3){
   }
 }
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind50_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N1000_Ind50_5yrs_noCKMR<-apply(re_R0,2,sd)
 sd_RE_M_N1000_Ind50_5yrs_noCKMR<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N1000_Ind50_5yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N1000_Ind50_5yrs_noCKMR<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N1000_Ind50_5yrs_noCKMR<-apply(abs(re_M),2,sd)
@@ -1218,12 +1218,12 @@ for(f in 1:3){
   }
 }
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind50_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N5000_Ind50_5yrs_noCKMR<-apply(re_R0,2,sd)
 sd_RE_M_N5000_Ind50_5yrs_noCKMR<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N5000_Ind50_5yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N5000_Ind50_5yrs_noCKMR<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N5000_Ind50_5yrs_noCKMR<-apply(abs(re_M),2,sd)
@@ -1306,12 +1306,12 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N100_Ind25_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N100_Ind25_10yrs_noCKMR<-apply(re_R0,2,sd)
 sd_RE_M_N100_Ind25_10yrs_noCKMR<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N100_Ind25_10yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N100_Ind25_10yrs_noCKMR<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N100_Ind25_10yrs_noCKMR<-apply(abs(re_M),2,sd)
@@ -1422,12 +1422,12 @@ for(f in 1:3){
   }
 }
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind25_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N1000_Ind25_10yrs_noCKMR<-apply(re_R0,2,sd)
 sd_RE_M_N1000_Ind25_10yrs_noCKMR<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N1000_Ind25_10yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N1000_Ind25_10yrs_noCKMR<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N1000_Ind25_10yrs_noCKMR<-apply(abs(re_M),2,sd)
@@ -1538,12 +1538,12 @@ for(f in 1:3){
   }
 }
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind25_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N5000_Ind25_10yrs_noCKMR<-apply(re_R0,2,sd)
 sd_RE_M_N5000_Ind25_10yrs_noCKMR<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N5000_Ind25_10yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N5000_Ind25_10yrs_noCKMR<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N5000_Ind25_10yrs_noCKMR<-apply(abs(re_M),2,sd)
@@ -1622,12 +1622,12 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N100_Ind50_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N100_Ind50_10yrs_noCKMR<-apply(re_R0,2,sd)
 sd_RE_M_N100_Ind50_10yrs_noCKMR<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N100_Ind50_10yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N100_Ind50_10yrs_noCKMR<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N100_Ind50_10yrs_noCKMR<-apply(abs(re_M),2,sd)
@@ -1738,12 +1738,12 @@ for(f in 1:3){
   }
 }
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind50_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N1000_Ind50_10yrs_noCKMR<-apply(re_R0,2,sd)
 sd_RE_M_N1000_Ind50_10yrs_noCKMR<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N1000_Ind50_10yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N1000_Ind50_10yrs_noCKMR<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N1000_Ind50_10yrs_noCKMR<-apply(abs(re_M),2,sd)
@@ -1854,12 +1854,12 @@ for(f in 1:3){
   }
 }
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind50_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N5000_Ind50_10yrs_noCKMR<-apply(re_R0,2,sd)
 sd_RE_M_N5000_Ind50_10yrs_noCKMR<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N5000_Ind50_10yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N5000_Ind50_10yrs_noCKMR<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N5000_Ind50_10yrs_noCKMR<-apply(abs(re_M),2,sd)
@@ -1942,12 +1942,12 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N100_Ind25_25yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N100_Ind25_25yrs_noCKMR<-apply(re_R0,2,sd)
 sd_RE_M_N100_Ind25_25yrs_noCKMR<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N100_Ind25_25yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N100_Ind25_25yrs_noCKMR<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N100_Ind25_25yrs_noCKMR<-apply(abs(re_M),2,sd)
@@ -2000,12 +2000,12 @@ for(f in 1:3){
   }
 }
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind25_25yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N1000_Ind25_25yrs_noCKMR<-apply(re_R0,2,sd)
 sd_RE_M_N1000_Ind25_25yrs_noCKMR<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N1000_Ind25_25yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N1000_Ind25_25yrs_noCKMR<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N1000_Ind25_25yrs_noCKMR<-apply(abs(re_M),2,sd)
@@ -2022,7 +2022,6 @@ for(f in 1:3){
     SD_M_N1000_Ind25_25yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
   }
 }
-
 
 #N5000 for 25yrs, sd index 0.25
 res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind25_25yrs_noCKMR.RData"))
@@ -2059,12 +2058,12 @@ for(f in 1:3){
   }
 }
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind25_25yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N5000_Ind25_25yrs_noCKMR<-apply(re_R0,2,sd)
 sd_RE_M_N5000_Ind25_25yrs_noCKMR<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N5000_Ind25_25yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N5000_Ind25_25yrs_noCKMR<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N5000_Ind25_25yrs_noCKMR<-apply(abs(re_M),2,sd)
@@ -2143,12 +2142,12 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N100_Ind50_25yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N100_Ind50_25yrs_noCKMR<-apply(re_R0,2,sd)
 sd_RE_M_N100_Ind50_25yrs_noCKMR<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N100_Ind50_25yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N100_Ind50_25yrs_noCKMR<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N100_Ind50_25yrs_noCKMR<-apply(abs(re_M),2,sd)
@@ -2201,12 +2200,12 @@ for(f in 1:3){
   }
 }
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind50_25yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N1000_Ind50_25yrs_noCKMR<-apply(re_R0,2,sd)
 sd_RE_M_N1000_Ind50_25yrs_noCKMR<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N1000_Ind50_25yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N1000_Ind50_25yrs_noCKMR<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N1000_Ind50_25yrs_noCKMR<-apply(abs(re_M),2,sd)
@@ -2259,12 +2258,12 @@ for(f in 1:3){
   }
 }
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind50_25yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N5000_Ind50_25yrs_noCKMR<-apply(re_R0,2,sd)
 sd_RE_M_N5000_Ind50_25yrs_noCKMR<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N5000_Ind50_25yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N5000_Ind50_25yrs_noCKMR<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N5000_Ind50_25yrs_noCKMR<-apply(abs(re_M),2,sd)
@@ -2347,12 +2346,12 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N100_NoIndex_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N100_NoIndex_5yrs_noCKMR<-apply(re_R0,2,sd)
 sd_RE_M_N100_NoIndex_5yrs_noCKMR<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N100_NoIndex_5yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N100_NoIndex_5yrs_noCKMR<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N100_NoIndex_5yrs_noCKMR<-apply(abs(re_M),2,sd)
@@ -2405,12 +2404,12 @@ for(f in 1:3){
   }
 }
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N1000_NoIndex_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N1000_NoIndex_5yrs_noCKMR<-apply(re_R0,2,sd)
 sd_RE_M_N1000_NoIndex_5yrs_noCKMR<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N1000_NoIndex_5yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N1000_NoIndex_5yrs_noCKMR<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N1000_NoIndex_5yrs_noCKMR<-apply(abs(re_M),2,sd)
@@ -2463,12 +2462,12 @@ for(f in 1:3){
   }
 }
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N5000_NoIndex_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N5000_NoIndex_5yrs_noCKMR<-apply(re_R0,2,sd)
 sd_RE_M_N5000_NoIndex_5yrs_noCKMR<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N5000_NoIndex_5yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N5000_NoIndex_5yrs_noCKMR<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N5000_NoIndex_5yrs_noCKMR<-apply(abs(re_M),2,sd)
@@ -2551,12 +2550,12 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N100_NoIndex_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N100_NoIndex_10yrs_noCKMR<-apply(re_R0,2,sd)
 sd_RE_M_N100_NoIndex_10yrs_noCKMR<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N100_NoIndex_10yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N100_NoIndex_10yrs_noCKMR<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N100_NoIndex_10yrs_noCKMR<-apply(abs(re_M),2,sd)
@@ -2609,12 +2608,12 @@ for(f in 1:3){
   }
 }
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N1000_NoIndex_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N1000_NoIndex_10yrs_noCKMR<-apply(re_R0,2,sd)
 sd_RE_M_N1000_NoIndex_10yrs_noCKMR<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N1000_NoIndex_10yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N1000_NoIndex_10yrs_noCKMR<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N1000_NoIndex_10yrs_noCKMR<-apply(abs(re_M),2,sd)
@@ -2667,12 +2666,12 @@ for(f in 1:3){
   }
 }
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N5000_NoIndex_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N5000_NoIndex_10yrs_noCKMR<-apply(re_R0,2,sd)
 sd_RE_M_N5000_NoIndex_10yrs_noCKMR<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N5000_NoIndex_10yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N5000_NoIndex_10yrs_noCKMR<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N5000_NoIndex_10yrs_noCKMR<-apply(abs(re_M),2,sd)
@@ -2748,12 +2747,12 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N100_NoIndex_25yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N100_NoIndex_25yrs_noCKMR<-apply(re_R0,2,sd)
 sd_RE_M_N100_NoIndex_25yrs_noCKMR<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N100_NoIndex_25yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N100_NoIndex_25yrs_noCKMR<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N100_NoIndex_25yrs_noCKMR<-apply(abs(re_M),2,sd)
@@ -2806,12 +2805,12 @@ for(f in 1:3){
   }
 }
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N1000_NoIndex_25yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N1000_NoIndex_25yrs_noCKMR<-apply(re_R0,2,sd)
 sd_RE_M_N1000_NoIndex_25yrs_noCKMR<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N1000_NoIndex_25yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N1000_NoIndex_25yrs_noCKMR<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N1000_NoIndex_25yrs_noCKMR<-apply(abs(re_M),2,sd)
@@ -2864,12 +2863,12 @@ for(f in 1:3){
   }
 }
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N5000_NoIndex_25yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N5000_NoIndex_25yrs_noCKMR<-apply(re_R0,2,sd)
 sd_RE_M_N5000_NoIndex_25yrs_noCKMR<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N5000_NoIndex_25yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N5000_NoIndex_25yrs_noCKMR<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N5000_NoIndex_25yrs_noCKMR<-apply(abs(re_M),2,sd)
@@ -2952,12 +2951,12 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N100_Ind25_ckmrmultinom5<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N100_Ind25_ckmrmultinom5<-apply(re_R0,2,sd)
 sd_RE_M_N100_Ind25_ckmrmultinom5<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N100_Ind25_ckmrmultinom5<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N100_Ind25_ckmrmultinom5<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N100_Ind25_ckmrmultinom5<-apply(abs(re_M),2,sd)
@@ -3120,12 +3119,12 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind25_ckmrmultinom5<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N1000_Ind25_ckmrmultinom5<-apply(re_R0,2,sd)
 sd_RE_M_N1000_Ind25_ckmrmultinom5<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N1000_Ind25_ckmrmultinom5<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N1000_Ind25_ckmrmultinom5<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N1000_Ind25_ckmrmultinom5<-apply(abs(re_M),2,sd)
@@ -3204,12 +3203,12 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind25_ckmrmultinom5<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N5000_Ind25_ckmrmultinom5<-apply(re_R0,2,sd)
 sd_RE_M_N5000_Ind25_ckmrmultinom5<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N5000_Ind25_ckmrmultinom5<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N5000_Ind25_ckmrmultinom5<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N5000_Ind25_ckmrmultinom5<-apply(abs(re_M),2,sd)
@@ -3288,12 +3287,12 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N100_Ind50_ckmrmultinom5<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N100_Ind50_ckmrmultinom5<-apply(re_R0,2,sd)
 sd_RE_M_N100_Ind50_ckmrmultinom5<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N100_Ind50_ckmrmultinom5<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N100_Ind50_ckmrmultinom5<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N100_Ind50_ckmrmultinom5<-apply(abs(re_M),2,sd)
@@ -3372,12 +3371,12 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind50_ckmrmultinom5<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N1000_Ind50_ckmrmultinom5<-apply(re_R0,2,sd)
 sd_RE_M_N1000_Ind50_ckmrmultinom5<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N1000_Ind50_ckmrmultinom5<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N1000_Ind50_ckmrmultinom5<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N1000_Ind50_ckmrmultinom5<-apply(abs(re_M),2,sd)
@@ -3456,12 +3455,12 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind50_ckmrmultinom5<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N5000_Ind50_ckmrmultinom5<-apply(re_R0,2,sd)
 sd_RE_M_N5000_Ind50_ckmrmultinom5<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N5000_Ind50_ckmrmultinom5<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N5000_Ind50_ckmrmultinom5<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N5000_Ind50_ckmrmultinom5<-apply(abs(re_M),2,sd)
@@ -3540,12 +3539,12 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N100_Ind25_ckmrmultinom10<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N100_Ind25_ckmrmultinom10<-apply(re_R0,2,sd)
 sd_RE_M_N100_Ind25_ckmrmultinom10<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N100_Ind25_ckmrmultinom10<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N100_Ind25_ckmrmultinom10<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N100_Ind25_ckmrmultinom10<-apply(abs(re_M),2,sd)
@@ -3624,12 +3623,12 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind25_ckmrmultinom10<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N1000_Ind25_ckmrmultinom10<-apply(re_R0,2,sd)
 sd_RE_M_N1000_Ind25_ckmrmultinom10<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N1000_Ind25_ckmrmultinom10<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N1000_Ind25_ckmrmultinom10<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N1000_Ind25_ckmrmultinom10<-apply(abs(re_M),2,sd)
@@ -3708,12 +3707,12 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind25_ckmrmultinom10<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N5000_Ind25_ckmrmultinom10<-apply(re_R0,2,sd)
 sd_RE_M_N5000_Ind25_ckmrmultinom10<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N5000_Ind25_ckmrmultinom10<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N5000_Ind25_ckmrmultinom10<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N5000_Ind25_ckmrmultinom10<-apply(abs(re_M),2,sd)
@@ -3792,12 +3791,12 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N100_Ind50_ckmrmultinom10<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N100_Ind50_ckmrmultinom10<-apply(re_R0,2,sd)
 sd_RE_M_N100_Ind50_ckmrmultinom10<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N100_Ind50_ckmrmultinom10<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N100_Ind50_ckmrmultinom10<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N100_Ind50_ckmrmultinom10<-apply(abs(re_M),2,sd)
@@ -3876,12 +3875,12 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind50_ckmrmultinom10<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N1000_Ind50_ckmrmultinom10<-apply(re_R0,2,sd)
 sd_RE_M_N1000_Ind50_ckmrmultinom10<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N1000_Ind50_ckmrmultinom10<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N1000_Ind50_ckmrmultinom10<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N1000_Ind50_ckmrmultinom10<-apply(abs(re_M),2,sd)
@@ -3960,12 +3959,12 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind50_ckmrmultinom10<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N5000_Ind50_ckmrmultinom10<-apply(re_R0,2,sd)
 sd_RE_M_N5000_Ind50_ckmrmultinom10<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N5000_Ind50_ckmrmultinom10<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N5000_Ind50_ckmrmultinom10<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N5000_Ind50_ckmrmultinom10<-apply(abs(re_M),2,sd)
@@ -4045,12 +4044,12 @@ for(f in 1:3){
 # boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 # abline(h=0)
 # 
-# #Variance of relative error for point estimates
+# #SD of relative error for point estimates
 # sd_RE_ssb_N100_Ind25_ckmrmultinom25<-apply(re_SSB,c(1,3),sd)
 # sd_RE_R0_N100_Ind25_ckmrmultinom25<-apply(re_R0,2,sd)
 # sd_RE_M_N100_Ind25_ckmrmultinom25<-apply(re_M,2,sd)
 # 
-# #variance of absolute relative error
+# #SD of absolute relative error
 # sd_ARE_ssb_N100_Ind25_ckmrmultinom25<-apply(abs(re_SSB),c(1,3),sd)
 # sd_ARE_R0_N100_Ind25_ckmrmultinom25<-apply(abs(re_R0),2,sd)
 # sd_ARE_M_N100_Ind25_ckmrmultinom25<-apply(abs(re_M),2,sd)
@@ -4129,12 +4128,12 @@ for(f in 1:3){
 # boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 # abline(h=0)
 # 
-# #Variance of relative error for point estimates
+# #SD of relative error for point estimates
 # sd_RE_ssb_N1000_Ind25_ckmrmultinom25<-apply(re_SSB,c(1,3),sd)
 # sd_RE_R0_N1000_Ind25_ckmrmultinom25<-apply(re_R0,2,sd)
 # sd_RE_M_N1000_Ind25_ckmrmultinom25<-apply(re_M,2,sd)
 # 
-# #variance of absolute relative error
+# #SD of absolute relative error
 # sd_ARE_ssb_N1000_Ind25_ckmrmultinom25<-apply(abs(re_SSB),c(1,3),sd)
 # sd_ARE_R0_N1000_Ind25_ckmrmultinom25<-apply(abs(re_R0),2,sd)
 # sd_ARE_M_N1000_Ind25_ckmrmultinom25<-apply(abs(re_M),2,sd)
@@ -4213,12 +4212,12 @@ for(f in 1:3){
 # boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 # abline(h=0)
 # 
-# #Variance of relative error for point estimates
+# #SD of relative error for point estimates
 # sd_RE_ssb_N5000_Ind25_ckmrmultinom25<-apply(re_SSB,c(1,3),sd)
 # sd_RE_R0_N5000_Ind25_ckmrmultinom25<-apply(re_R0,2,sd)
 # sd_RE_M_N5000_Ind25_ckmrmultinom25<-apply(re_M,2,sd)
 # 
-# #variance of absolute relative error
+# #SD of absolute relative error
 # sd_ARE_ssb_N5000_Ind25_ckmrmultinom25<-apply(abs(re_SSB),c(1,3),sd)
 # sd_ARE_R0_N5000_Ind25_ckmrmultinom25<-apply(abs(re_R0),2,sd)
 # sd_ARE_M_N5000_Ind25_ckmrmultinom25<-apply(abs(re_M),2,sd)
@@ -4297,12 +4296,12 @@ for(f in 1:3){
 # boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 # abline(h=0)
 # 
-# #Variance of relative error for point estimates
+# #SD of relative error for point estimates
 # sd_RE_ssb_N100_Ind50_ckmrmultinom25<-apply(re_SSB,c(1,3),sd)
 # sd_RE_R0_N100_Ind50_ckmrmultinom25<-apply(re_R0,2,sd)
 # sd_RE_M_N100_Ind50_ckmrmultinom25<-apply(re_M,2,sd)
 # 
-# #variance of absolute relative error
+# #SD of absolute relative error
 # sd_ARE_ssb_N100_Ind50_ckmrmultinom25<-apply(abs(re_SSB),c(1,3),sd)
 # sd_ARE_R0_N100_Ind50_ckmrmultinom25<-apply(abs(re_R0),2,sd)
 # sd_ARE_M_N100_Ind50_ckmrmultinom25<-apply(abs(re_M),2,sd)
@@ -4381,12 +4380,12 @@ for(f in 1:3){
 # boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 # abline(h=0)
 # 
-# #Variance of relative error for point estimates
+# #SD of relative error for point estimates
 # sd_RE_ssb_N1000_Ind50_ckmrmultinom25<-apply(re_SSB,c(1,3),sd)
 # sd_RE_R0_N1000_Ind50_ckmrmultinom25<-apply(re_R0,2,sd)
 # sd_RE_M_N1000_Ind50_ckmrmultinom25<-apply(re_M,2,sd)
 # 
-# #variance of absolute relative error
+# #SD of absolute relative error
 # sd_ARE_ssb_N1000_Ind50_ckmrmultinom25<-apply(abs(re_SSB),c(1,3),sd)
 # sd_ARE_R0_N1000_Ind50_ckmrmultinom25<-apply(abs(re_R0),2,sd)
 # sd_ARE_M_N1000_Ind50_ckmrmultinom25<-apply(abs(re_M),2,sd)
@@ -4465,12 +4464,12 @@ for(f in 1:3){
 # boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 # abline(h=0)
 # 
-# #Variance of relative error for point estimates
+# #SD of relative error for point estimates
 # sd_RE_ssb_N5000_Ind50_ckmrmultinom25<-apply(re_SSB,c(1,3),sd)
 # sd_RE_R0_N5000_Ind50_ckmrmultinom25<-apply(re_R0,2,sd)
 # sd_RE_M_N5000_Ind50_ckmrmultinom25<-apply(re_M,2,sd)
 # 
-# #variance of absolute relative error
+# #SD of absolute relative error
 # sd_ARE_ssb_N5000_Ind50_ckmrmultinom25<-apply(abs(re_SSB),c(1,3),sd)
 # sd_ARE_R0_N5000_Ind50_ckmrmultinom25<-apply(abs(re_R0),2,sd)
 # sd_ARE_M_N5000_Ind50_ckmrmultinom25<-apply(abs(re_M),2,sd)
@@ -4553,12 +4552,12 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N100_NoIndex_ckmrmultinom5<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N100_NoIndex_ckmrmultinom5<-apply(re_R0,2,sd)
 sd_RE_M_N100_NoIndex_ckmrmultinom5<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N100_NoIndex_ckmrmultinom5<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N100_NoIndex_ckmrmultinom5<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N100_NoIndex_ckmrmultinom5<-apply(abs(re_M),2,sd)
@@ -4637,12 +4636,12 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N1000_NoIndex_ckmrmultinom5<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N1000_NoIndex_ckmrmultinom5<-apply(re_R0,2,sd)
 sd_RE_M_N1000_NoIndex_ckmrmultinom5<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N1000_NoIndex_ckmrmultinom5<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N1000_NoIndex_ckmrmultinom5<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N1000_NoIndex_ckmrmultinom5<-apply(abs(re_M),2,sd)
@@ -4721,12 +4720,12 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N5000_NoIndex_ckmrmultinom5<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N5000_NoIndex_ckmrmultinom5<-apply(re_R0,2,sd)
 sd_RE_M_N5000_NoIndex_ckmrmultinom5<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N5000_NoIndex_ckmrmultinom5<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N5000_NoIndex_ckmrmultinom5<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N5000_NoIndex_ckmrmultinom5<-apply(abs(re_M),2,sd)
@@ -4737,10 +4736,10 @@ SD_R0_N5000_NoIndex_ckmrmultinom5<-matrix(NA, nrow=3, ncol=100)
 SD_M_N5000_NoIndex_ckmrmultinom5<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
-    CV_ssb_N5000_Ind25_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
-    SD_ssb_N5000_Ind25_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd
-    SD_R0_N5000_Ind25_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
-    SD_M_N5000_Ind25_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
+    CV_ssb_N5000_NoIndex_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+    SD_ssb_N5000_NoIndex_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd
+    SD_R0_N5000_NoIndex_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
+    SD_M_N5000_NoIndex_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
   }
 }
 
@@ -4805,12 +4804,12 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N100_NoIndex_ckmrmultinom10<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N100_NoIndex_ckmrmultinom10<-apply(re_R0,2,sd)
 sd_RE_M_N100_NoIndex_ckmrmultinom10<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N100_NoIndex_ckmrmultinom10<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N100_NoIndex_ckmrmultinom10<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N100_NoIndex_ckmrmultinom10<-apply(abs(re_M),2,sd)
@@ -4889,12 +4888,12 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N1000_NoIndex_ckmrmultinom10<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N1000_NoIndex_ckmrmultinom10<-apply(re_R0,2,sd)
 sd_RE_M_N1000_NoIndex_ckmrmultinom10<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N1000_NoIndex_ckmrmultinom10<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N1000_NoIndex_ckmrmultinom10<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N1000_NoIndex_ckmrmultinom10<-apply(abs(re_M),2,sd)
@@ -4973,12 +4972,12 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
-#Variance of relative error for point estimates
+#SD of relative error for point estimates
 sd_RE_ssb_N5000_NoIndex_ckmrmultinom10<-apply(re_SSB,c(1,3),sd)
 sd_RE_R0_N5000_NoIndex_ckmrmultinom10<-apply(re_R0,2,sd)
 sd_RE_M_N5000_NoIndex_ckmrmultinom10<-apply(re_M,2,sd)
 
-#variance of absolute relative error
+#SD of absolute relative error
 sd_ARE_ssb_N5000_NoIndex_ckmrmultinom10<-apply(abs(re_SSB),c(1,3),sd)
 sd_ARE_R0_N5000_NoIndex_ckmrmultinom10<-apply(abs(re_R0),2,sd)
 sd_ARE_M_N5000_NoIndex_ckmrmultinom10<-apply(abs(re_M),2,sd)
@@ -5057,12 +5056,12 @@ for(f in 1:3){
 # boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 # abline(h=0)
 # 
-# #Variance of relative error for point estimates
+# #SD of relative error for point estimates
 # sd_RE_ssb_N100_NoIndex_ckmrmultinom25<-apply(re_SSB,c(1,3),sd)
 # sd_RE_R0_N100_NoIndex_ckmrmultinom25<-apply(re_R0,2,sd)
 # sd_RE_M_N100_NoIndex_ckmrmultinom25<-apply(re_M,2,sd)
 # 
-# #variance of absolute relative error
+# #SD of absolute relative error
 # sd_ARE_ssb_N100_NoIndex_ckmrmultinom25<-apply(abs(re_SSB),c(1,3),sd)
 # sd_ARE_R0_N100_NoIndex_ckmrmultinom25<-apply(abs(re_R0),2,sd)
 # sd_ARE_M_N100_NoIndex_ckmrmultinom25<-apply(abs(re_M),2,sd)
@@ -5141,12 +5140,12 @@ for(f in 1:3){
 # boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 # abline(h=0)
 # 
-# #Variance of relative error for point estimates
+# #SD of relative error for point estimates
 # sd_RE_ssb_N1000_NoIndex_ckmrmultinom25<-apply(re_SSB,c(1,3),sd)
 # sd_RE_R0_N1000_NoIndex_ckmrmultinom25<-apply(re_R0,2,sd)
 # sd_RE_M_N1000_NoIndex_ckmrmultinom25<-apply(re_M,2,sd)
 # 
-# #variance of absolute relative error
+# #SD of absolute relative error
 # sd_ARE_ssb_N1000_NoIndex_ckmrmultinom25<-apply(abs(re_SSB),c(1,3),sd)
 # sd_ARE_R0_N1000_NoIndex_ckmrmultinom25<-apply(abs(re_R0),2,sd)
 # sd_ARE_M_N1000_NoIndex_ckmrmultinom25<-apply(abs(re_M),2,sd)
@@ -5225,12 +5224,12 @@ for(f in 1:3){
 # boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 # abline(h=0)
 # 
-# #Variance of relative error for point estimates
+# #SD of relative error for point estimates
 # sd_RE_ssb_N5000_NoIndex_ckmrmultinom25<-apply(re_SSB,c(1,3),sd)
 # sd_RE_R0_N5000_NoIndex_ckmrmultinom25<-apply(re_R0,2,sd)
 # sd_RE_M_N5000_NoIndex_ckmrmultinom25<-apply(re_M,2,sd)
 # 
-# #variance of absolute relative error
+# #SD of absolute relative error
 # sd_ARE_ssb_N5000_NoIndex_ckmrmultinom25<-apply(abs(re_SSB),c(1,3),sd)
 # sd_ARE_R0_N5000_NoIndex_ckmrmultinom25<-apply(abs(re_R0),2,sd)
 # sd_ARE_M_N5000_NoIndex_ckmrmultinom25<-apply(abs(re_M),2,sd)
@@ -5254,72 +5253,241 @@ for(f in 1:3){
 #########################################
 
 #SSB
+#No Index
+par(mfrow=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
+boxplot(CV_ssb_N100_NoIndex_ckmrmultinom5[1,,], ylim=c(0,0.35), las=1, main="Cod - N100")
+boxplot(CV_ssb_N100_NoIndex_5yrs_noCKMR[1,,], add=TRUE, las=1, main="", col=2)
+boxplot(CV_ssb_N100_NoIndex_ckmrmultinom10[1,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N100_NoIndex_10yrs_noCKMR[1,,], add=TRUE, las=1, main="", col=4)
+boxplot(CV_ssb_N1000_NoIndex_ckmrmultinom5[1,,], ylim=c(0,0.35), las=1, main="No Index, Cod - N1000")
+boxplot(CV_ssb_N1000_NoIndex_5yrs_noCKMR[1,,], add=TRUE, las=1, main="", col=2)
+boxplot(CV_ssb_N1000_NoIndex_ckmrmultinom10[1,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N1000_NoIndex_10yrs_noCKMR[1,,], add=TRUE, las=1, main="", col=4)
+legend("top",c("5yrs no CKMR","10yrs no CKMR","5yrs CKMR", "10yrs CKMR"), pch=15, col=c(2,4,1,3))
+boxplot(CV_ssb_N5000_NoIndex_ckmrmultinom5[1,,], ylim=c(0,0.35), las=1, main="Cod - N5000")
+boxplot(CV_ssb_N5000_NoIndex_5yrs_noCKMR[1,,], add=TRUE, las=1, main="", col=2)
+boxplot(CV_ssb_N5000_NoIndex_ckmrmultinom10[1,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N5000_NoIndex_10yrs_noCKMR[1,,], add=TRUE, las=1, main="", col=4)
+
+boxplot(CV_ssb_N100_NoIndex_ckmrmultinom5[2,,], ylim=c(0,0.5), las=1, main="Flatfish - N100", ylab="CV of SSB")
+boxplot(CV_ssb_N100_NoIndex_5yrs_noCKMR[2,,], add=TRUE, las=1, main="", col=2)
+boxplot(CV_ssb_N100_NoIndex_ckmrmultinom10[2,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N100_NoIndex_10yrs_noCKMR[2,,], add=TRUE, las=1, main="", col=4)
+boxplot(CV_ssb_N1000_NoIndex_ckmrmultinom5[2,,], ylim=c(0,0.5), las=1, main="Flatfish - N1000")
+boxplot(CV_ssb_N1000_NoIndex_5yrs_noCKMR[2,,], add=TRUE, las=1, main="", col=2)
+boxplot(CV_ssb_N1000_NoIndex_ckmrmultinom10[2,,], add=TRUE,las=1, main="", col=3)
+boxplot(CV_ssb_N1000_NoIndex_10yrs_noCKMR[2,,], add=TRUE, las=1, main="", col=4)
+boxplot(CV_ssb_N5000_NoIndex_ckmrmultinom5[2,,], ylim=c(0,0.5), las=1, main="Flatfish - N5000")
+boxplot(CV_ssb_N5000_NoIndex_5yrs_noCKMR[2,,], add=TRUE, las=1, main="", col=2)
+boxplot(CV_ssb_N5000_NoIndex_ckmrmultinom10[2,,], add=TRUE,las=1, main="", col=3)
+boxplot(CV_ssb_N5000_NoIndex_10yrs_noCKMR[2,,], add=TRUE, las=1, main="", col=4)
+
+boxplot(CV_ssb_N100_NoIndex_ckmrmultinom5[3,,], ylim=c(0,0.5), las=1, main="Sardine - N100")
+boxplot(CV_ssb_N100_NoIndex_5yrs_noCKMR[3,,], add=TRUE, las=1, main="", col=2)
+boxplot(CV_ssb_N100_NoIndex_ckmrmultinom10[3,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N100_NoIndex_10yrs_noCKMR[3,,], add=TRUE, las=1, main="", col=4)
+boxplot(CV_ssb_N1000_NoIndex_ckmrmultinom5[3,,], ylim=c(0,0.5), las=1, main="Sardine - N1000")
+boxplot(CV_ssb_N1000_NoIndex_5yrs_noCKMR[3,,], add=TRUE, las=1, main="", col=2)
+boxplot(CV_ssb_N1000_NoIndex_ckmrmultinom10[3,,], add=TRUE,las=1, main="", col=3)
+boxplot(CV_ssb_N1000_NoIndex_10yrs_noCKMR[3,,], add=TRUE,  las=1, main="", col=4)
+boxplot(CV_ssb_N5000_NoIndex_ckmrmultinom5[3,,], ylim=c(0,0.5), las=1, main="Sardine - N5000")
+boxplot(CV_ssb_N5000_NoIndex_5yrs_noCKMR[3,,], add=TRUE, las=1, main="", col=2)
+boxplot(CV_ssb_N5000_NoIndex_ckmrmultinom10[3,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N5000_NoIndex_10yrs_noCKMR[3,,], add=TRUE, las=1, main="", col=4)
+
+#Index 0.50
+par(mfrow=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
+boxplot(CV_ssb_N100_Ind50_ckmrmultinom5[1,,], ylim=c(0,0.25), las=1, main="Cod - N100")
+boxplot(CV_ssb_N100_Ind50_5yrs_noCKMR[1,,], add=TRUE, las=1, main="", col=2)
+boxplot(CV_ssb_N100_Ind50_ckmrmultinom10[1,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N100_Ind50_10yrs_noCKMR[1,,], add=TRUE, las=1, main="", col=4)
+boxplot(CV_ssb_N1000_Ind50_ckmrmultinom5[1,,], ylim=c(0,0.25), las=1, main="Index - 0.50, Cod - N1000")
+boxplot(CV_ssb_N1000_Ind50_5yrs_noCKMR[1,,], add=TRUE, las=1, main="", col=2)
+boxplot(CV_ssb_N1000_Ind50_ckmrmultinom10[1,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N1000_Ind50_10yrs_noCKMR[1,,], add=TRUE,las=1, main="", col=4)
+legend("top",c("5yrs no CKMR","10yrs no CKMR","5yrs CKMR", "10yrs CKMR"), pch=15, col=c(2,4,1,3))
+boxplot(CV_ssb_N5000_Ind50_ckmrmultinom5[1,,], ylim=c(0,0.25), las=1, main="Cod - N5000")
+boxplot(CV_ssb_N5000_Ind50_5yrs_noCKMR[1,,], add=TRUE, las=1, main="", col=2)
+boxplot(CV_ssb_N5000_Ind50_ckmrmultinom10[1,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N5000_Ind50_10yrs_noCKMR[1,,], add=TRUE, las=1, main="", col=4)
+
+boxplot(CV_ssb_N100_Ind50_ckmrmultinom5[2,,], ylim=c(0,0.3), las=1, main="Flatfish - N100", ylab="CV of SSB")
+boxplot(CV_ssb_N100_Ind50_5yrs_noCKMR[2,,], add=TRUE, las=1, main="", col=2)
+boxplot(CV_ssb_N100_Ind50_ckmrmultinom10[2,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N100_Ind50_10yrs_noCKMR[2,,], add=TRUE, las=1, main="", col=4)
+boxplot(CV_ssb_N1000_Ind50_ckmrmultinom5[2,,], ylim=c(0,0.3), las=1, main="Flatfish - N1000")
+boxplot(CV_ssb_N1000_Ind50_5yrs_noCKMR[2,,], add=TRUE, las=1, main="", col=2)
+boxplot(CV_ssb_N1000_Ind50_ckmrmultinom10[2,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N1000_Ind50_10yrs_noCKMR[2,,], add=TRUE, las=1, main="", col=4)
+boxplot(CV_ssb_N5000_Ind50_ckmrmultinom5[2,,], ylim=c(0,0.3), las=1, main="Flatfish - N5000")
+boxplot(CV_ssb_N5000_Ind50_5yrs_noCKMR[2,,], add=TRUE, las=1, main="", col=2)
+boxplot(CV_ssb_N5000_Ind50_ckmrmultinom10[2,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N5000_Ind50_10yrs_noCKMR[2,,], add=TRUE, las=1, main="", col=4)
+
+boxplot(CV_ssb_N100_Ind50_ckmrmultinom5[3,,], ylim=c(0,0.35), las=1, main="Sardine - N100")
+boxplot(CV_ssb_N100_Ind50_5yrs_noCKMR[3,,], add=TRUE, las=1, main="", col=2)
+boxplot(CV_ssb_N100_Ind50_ckmrmultinom10[3,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N100_Ind50_10yrs_noCKMR[3,,], add=TRUE, las=1, main="", col=4)
+boxplot(CV_ssb_N1000_Ind50_ckmrmultinom5[3,,], ylim=c(0,0.35), las=1, main="Sardine - N1000")
+boxplot(CV_ssb_N1000_Ind50_5yrs_noCKMR[3,,], add=TRUE, las=1, main="", col=2)
+boxplot(CV_ssb_N1000_Ind50_ckmrmultinom10[3,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N1000_Ind50_10yrs_noCKMR[3,,], add=TRUE, las=1, main="", col=4)
+boxplot(CV_ssb_N5000_Ind50_ckmrmultinom5[3,,], ylim=c(0,0.35), las=1, main="Sardine - N5000")
+boxplot(CV_ssb_N5000_Ind50_5yrs_noCKMR[3,,], add=TRUE,  las=1, main="", col=2)
+boxplot(CV_ssb_N5000_Ind50_ckmrmultinom10[3,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N5000_Ind50_10yrs_noCKMR[3,,], add=TRUE, las=1, main="", col=4)
+
+#Index 0.25
 par(mfrow=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
 boxplot(CV_ssb_N100_Ind25_ckmrmultinom5[1,,], ylim=c(0,0.15), las=1, main="Cod - N100")
-boxplot(CV_ssb_N100_Ind25_5yrs_noCKMR[1,,], add=TRUE, ylim=c(0,0.15), las=1, main="", col=2)
-boxplot(CV_ssb_N100_Ind25_ckmrmultinom10[1,,], add=TRUE, ylim=c(0,0.15), las=1, main="", col=3)
-boxplot(CV_ssb_N100_Ind25_10yrs_noCKMR[1,,], add=TRUE, ylim=c(0,0.15), las=1, main="", col=4)
-boxplot(CV_ssb_N1000_Ind25_ckmrmultinom5[1,,], ylim=c(0,0.15), las=1, main="Cod - N1000")
-boxplot(CV_ssb_N1000_Ind25_5yrs_noCKMR[1,,], add=TRUE, ylim=c(0,0.15), las=1, main="", col=2)
-boxplot(CV_ssb_N1000_Ind25_ckmrmultinom10[1,,], add=TRUE, ylim=c(0,0.15), las=1, main="", col=3)
-boxplot(CV_ssb_N1000_Ind25_10yrs_noCKMR[1,,], add=TRUE, ylim=c(0,0.15), las=1, main="", col=4)
-legend("top",c("5yrs no CKMR","10yrs no CKMR","5yrs CKMR", "10yrs CKMR"), pch=15, col=c(1,4,2:3))
-boxplot(CV_ssb_N5000_Ind25_ckmrmultinom5[1,,], ylim=c(0,0.15), las=1, main="Cod - N5000")
-boxplot(CV_ssb_N5000_Ind25_5yrs_noCKMR[1,,], add=TRUE, ylim=c(0,0.15), las=1, main="", col=2)
-boxplot(CV_ssb_N5000_Ind25_ckmrmultinom10[1,,], add=TRUE, ylim=c(0,0.15), las=1, main="", col=3)
-boxplot(CV_ssb_N5000_Ind25_10yrs_noCKMR[1,,], add=TRUE, ylim=c(0,0.15), las=1, main="", col=4)
+boxplot(CV_ssb_N100_Ind25_5yrs_noCKMR[1,,], add=TRUE, las=1, main="", col=2)
+boxplot(CV_ssb_N100_Ind25_ckmrmultinom10[1,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N100_Ind25_10yrs_noCKMR[1,,], add=TRUE, las=1, main="", col=4)
+boxplot(CV_ssb_N1000_Ind25_ckmrmultinom5[1,,], ylim=c(0,0.15), las=1, main="Index - 0.25, Cod - N1000")
+boxplot(CV_ssb_N1000_Ind25_5yrs_noCKMR[1,,], add=TRUE, las=1, main="", col=2)
+boxplot(CV_ssb_N1000_Ind25_ckmrmultinom10[1,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N1000_Ind25_10yrs_noCKMR[1,,], add=TRUE, las=1, main="", col=4)
+legend("top",c("5yrs no CKMR","10yrs no CKMR","5yrs CKMR", "10yrs CKMR"), pch=15, col=c(2,4,1,3))
+boxplot(CV_ssb_N5000_Ind25_ckmrmultinom5[1,,], ylim=c(0,0.2), las=1, main="Cod - N5000")
+boxplot(CV_ssb_N5000_Ind25_5yrs_noCKMR[1,,], add=TRUE, las=1, main="", col=2)
+boxplot(CV_ssb_N5000_Ind25_ckmrmultinom10[1,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N5000_Ind25_10yrs_noCKMR[1,,], add=TRUE, las=1, main="", col=4)
 
 boxplot(CV_ssb_N100_Ind25_ckmrmultinom5[2,,], ylim=c(0,0.18), las=1, main="Flatfish - N100", ylab="CV of SSB")
-boxplot(CV_ssb_N100_Ind25_5yrs_noCKMR[2,,], add=TRUE, ylim=c(0,0.18), las=1, main="", col=2)
-boxplot(CV_ssb_N100_Ind25_ckmrmultinom10[2,,], add=TRUE, ylim=c(0,0.15), las=1, main="", col=3)
-boxplot(CV_ssb_N100_Ind25_10yrs_noCKMR[2,,], add=TRUE, ylim=c(0,0.15), las=1, main="", col=4)
+boxplot(CV_ssb_N100_Ind25_5yrs_noCKMR[2,,], add=TRUE, las=1, main="", col=2)
+boxplot(CV_ssb_N100_Ind25_ckmrmultinom10[2,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N100_Ind25_10yrs_noCKMR[2,,], add=TRUE, las=1, main="", col=4)
 boxplot(CV_ssb_N1000_Ind25_ckmrmultinom5[2,,], ylim=c(0,0.18), las=1, main="Flatfish - N1000")
-boxplot(CV_ssb_N1000_Ind25_5yrs_noCKMR[2,,], add=TRUE, ylim=c(0,0.18), las=1, main="", col=2)
-boxplot(CV_ssb_N1000_Ind25_ckmrmultinom10[2,,], add=TRUE, ylim=c(0,0.15), las=1, main="", col=3)
-boxplot(CV_ssb_N1000_Ind25_10yrs_noCKMR[2,,], add=TRUE, ylim=c(0,0.15), las=1, main="", col=4)
+boxplot(CV_ssb_N1000_Ind25_5yrs_noCKMR[2,,], add=TRUE, las=1, main="", col=2)
+boxplot(CV_ssb_N1000_Ind25_ckmrmultinom10[2,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N1000_Ind25_10yrs_noCKMR[2,,], add=TRUE, las=1, main="", col=4)
 boxplot(CV_ssb_N5000_Ind25_ckmrmultinom5[2,,], ylim=c(0,0.18), las=1, main="Flatfish - N5000")
-boxplot(CV_ssb_N5000_Ind25_5yrs_noCKMR[2,,], add=TRUE, ylim=c(0,0.18), las=1, main="", col=2)
-boxplot(CV_ssb_N5000_Ind25_ckmrmultinom10[2,,], add=TRUE, ylim=c(0,0.15), las=1, main="", col=3)
-boxplot(CV_ssb_N5000_Ind25_10yrs_noCKMR[2,,], add=TRUE, ylim=c(0,0.15), las=1, main="", col=4)
+boxplot(CV_ssb_N5000_Ind25_5yrs_noCKMR[2,,], add=TRUE, las=1, main="", col=2)
+boxplot(CV_ssb_N5000_Ind25_ckmrmultinom10[2,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N5000_Ind25_10yrs_noCKMR[2,,], add=TRUE, las=1, main="", col=4)
 
 boxplot(CV_ssb_N100_Ind25_ckmrmultinom5[3,,], ylim=c(0,0.23), las=1, main="Sardine - N100")
-boxplot(CV_ssb_N100_Ind25_5yrs_noCKMR[3,,], add=TRUE, ylim=c(0,0.23), las=1, main="", col=2)
-boxplot(CV_ssb_N100_Ind25_ckmrmultinom10[3,,], add=TRUE, ylim=c(0,0.15), las=1, main="", col=3)
-boxplot(CV_ssb_N100_Ind25_10yrs_noCKMR[3,,], add=TRUE, ylim=c(0,0.15), las=1, main="", col=4)
+boxplot(CV_ssb_N100_Ind25_5yrs_noCKMR[3,,], add=TRUE, las=1, main="", col=2)
+boxplot(CV_ssb_N100_Ind25_ckmrmultinom10[3,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N100_Ind25_10yrs_noCKMR[3,,], add=TRUE, las=1, main="", col=4)
 boxplot(CV_ssb_N1000_Ind25_ckmrmultinom5[3,,], ylim=c(0,0.23), las=1, main="Sardine - N1000")
-boxplot(CV_ssb_N1000_Ind25_5yrs_noCKMR[3,,], add=TRUE, ylim=c(0,0.23), las=1, main="", col=2)
-boxplot(CV_ssb_N1000_Ind25_ckmrmultinom10[3,,], add=TRUE, ylim=c(0,0.15), las=1, main="", col=3)
-boxplot(CV_ssb_N1000_Ind25_10yrs_noCKMR[3,,], add=TRUE, ylim=c(0,0.15), las=1, main="", col=4)
+boxplot(CV_ssb_N1000_Ind25_5yrs_noCKMR[3,,], add=TRUE, las=1, main="", col=2)
+boxplot(CV_ssb_N1000_Ind25_ckmrmultinom10[3,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N1000_Ind25_10yrs_noCKMR[3,,], add=TRUE, las=1, main="", col=4)
 boxplot(CV_ssb_N5000_Ind25_ckmrmultinom5[3,,], ylim=c(0,0.23), las=1, main="Sardine - N5000")
-boxplot(CV_ssb_N5000_Ind25_5yrs_noCKMR[3,,], add=TRUE, ylim=c(0,0.23), las=1, main="", col=2)
-boxplot(CV_ssb_N5000_Ind25_ckmrmultinom10[3,,], add=TRUE, ylim=c(0,0.15), las=1, main="", col=3)
-boxplot(CV_ssb_N5000_Ind25_10yrs_noCKMR[3,,], add=TRUE, ylim=c(0,0.15), las=1, main="", col=4)
+boxplot(CV_ssb_N5000_Ind25_5yrs_noCKMR[3,,], add=TRUE, las=1, main="", col=2)
+boxplot(CV_ssb_N5000_Ind25_ckmrmultinom10[3,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N5000_Ind25_10yrs_noCKMR[3,,], add=TRUE, las=1, main="", col=4)
 
 #Relative to models with no ckmr
+#No Index
 par(mfrow=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
-boxplot(CV_ssb_N100_Ind25_ckmrmultinom5[1,,]/CV_ssb_N100_Ind25_5yrs_noCKMR[1,,], ylim=c(0.95,1.05), las=1, main="Cod - N100", col=2)
-boxplot(CV_ssb_N100_Ind25_ckmrmultinom10[1,,]/CV_ssb_N100_Ind25_10yrs_noCKMR[1,,], add=TRUE, ylim=c(0.95,1.05), las=1, main="", col=3)
+boxplot(CV_ssb_N100_NoIndex_ckmrmultinom5[1,,]/CV_ssb_N100_NoIndex_5yrs_noCKMR[1,,], ylim=c(0.999,1.001), las=1, main="Cod - N100", col=2)
+boxplot(CV_ssb_N100_NoIndex_ckmrmultinom10[1,,]/CV_ssb_N100_NoIndex_10yrs_noCKMR[1,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N1000_NoIndex_ckmrmultinom5[1,,]/CV_ssb_N1000_NoIndex_5yrs_noCKMR[1,,], ylim=c(0.97,1.02), las=1, main="No Index, Cod - N1000", col=2)
+boxplot(CV_ssb_N1000_NoIndex_ckmrmultinom10[1,,]/CV_ssb_N1000_NoIndex_10yrs_noCKMR[1,,], add=TRUE, las=1, main="", col=3)
 legend("top",c("5yrs CKMR", "10yrs CKMR"), pch=15, col=c(2,3))
-boxplot(CV_ssb_N1000_Ind25_ckmrmultinom5[1,,]/CV_ssb_N1000_Ind25_5yrs_noCKMR[1,,], ylim=c(0.95,1.05), las=1, main="Cod - N1000", col=2)
-boxplot(CV_ssb_N1000_Ind25_ckmrmultinom10[1,,]/CV_ssb_N1000_Ind25_10yrs_noCKMR[1,,], add=TRUE, ylim=c(0.95,1.05), las=1, main="", col=3)
-boxplot(CV_ssb_N5000_Ind25_ckmrmultinom5[1,,]/CV_ssb_N5000_Ind25_5yrs_noCKMR[1,,], ylim=c(0.90,1.1), las=1, main="Cod - N5000", col=2)
-boxplot(CV_ssb_N5000_Ind25_ckmrmultinom10[1,,]/CV_ssb_N5000_Ind25_10yrs_noCKMR[1,,], add=TRUE, ylim=c(0.9,1.1), las=1, main="", col=3)
+boxplot(CV_ssb_N5000_NoIndex_ckmrmultinom5[1,,]/CV_ssb_N5000_NoIndex_5yrs_noCKMR[1,,], ylim=c(0.8,1.1), las=1, main="Cod - N5000", col=2)
+boxplot(CV_ssb_N5000_NoIndex_ckmrmultinom10[1,,]/CV_ssb_N5000_NoIndex_10yrs_noCKMR[1,,], add=TRUE, las=1, main="", col=3)
 
-boxplot(CV_ssb_N100_Ind25_ckmrmultinom5[2,,]/CV_ssb_N100_Ind25_5yrs_noCKMR[2,,], ylim=c(0.95,1.05), las=1, main="Flatfish - N100", ylab="CV of SSB relative to no CKMR Model", col=2)
-boxplot(CV_ssb_N100_Ind25_ckmrmultinom10[2,,]/CV_ssb_N100_Ind25_10yrs_noCKMR[2,,], add=TRUE, ylim=c(0.95,1.05), las=1, main="", col=3)
+boxplot(CV_ssb_N100_NoIndex_ckmrmultinom5[2,,]/CV_ssb_N100_NoIndex_5yrs_noCKMR[2,,], ylim=c(0.85,1.05), las=1, main="Flatfish - N100", ylab="CV of SSB relative to no CKMR Model", col=2)
+boxplot(CV_ssb_N100_NoIndex_ckmrmultinom10[2,,]/CV_ssb_N100_NoIndex_10yrs_noCKMR[2,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N1000_NoIndex_ckmrmultinom5[2,,]/CV_ssb_N1000_NoIndex_5yrs_noCKMR[2,,], ylim=c(0.15,1.05), las=1, main="Flatfish - N1000", col=2)
+boxplot(CV_ssb_N1000_NoIndex_ckmrmultinom10[2,,]/CV_ssb_N1000_NoIndex_10yrs_noCKMR[2,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N5000_NoIndex_ckmrmultinom5[2,,]/CV_ssb_N5000_NoIndex_5yrs_noCKMR[2,,], ylim=c(0.05,1.05), las=1, main="Flatfish - N5000", col=2)
+boxplot(CV_ssb_N5000_NoIndex_ckmrmultinom10[2,,]/CV_ssb_N5000_NoIndex_10yrs_noCKMR[2,,], add=TRUE, las=1, main="", col=3)
+
+boxplot(CV_ssb_N100_NoIndex_ckmrmultinom5[3,,]/CV_ssb_N100_NoIndex_5yrs_noCKMR[3,,], ylim=c(0.99,1.01), las=1, main="Sardine - N100", col=2)
+boxplot(CV_ssb_N100_NoIndex_ckmrmultinom10[3,,]/CV_ssb_N100_NoIndex_10yrs_noCKMR[3,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N1000_NoIndex_ckmrmultinom5[3,,]/CV_ssb_N1000_NoIndex_5yrs_noCKMR[3,,], ylim=c(0.85,1.05), las=1, main="Sardine - N1000", col=2)
+boxplot(CV_ssb_N1000_NoIndex_ckmrmultinom10[3,,]/CV_ssb_N1000_NoIndex_10yrs_noCKMR[3,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N5000_NoIndex_ckmrmultinom5[3,,]/CV_ssb_N5000_NoIndex_5yrs_noCKMR[3,,], ylim=c(0.25,1.05), las=1, main="Sardine - N5000", col=2)
+boxplot(CV_ssb_N5000_NoIndex_ckmrmultinom10[3,,]/CV_ssb_N5000_NoIndex_10yrs_noCKMR[3,,], add=TRUE, las=1, main="", col=3)
+
+#Index 0.5
+par(mfrow=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
+boxplot(CV_ssb_N100_Ind50_ckmrmultinom5[1,,]/CV_ssb_N100_Ind50_5yrs_noCKMR[1,,], ylim=c(0.999,1.001), las=1, main="Cod - N100", col=2)
+boxplot(CV_ssb_N100_Ind50_ckmrmultinom10[1,,]/CV_ssb_N100_Ind50_10yrs_noCKMR[1,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N1000_Ind50_ckmrmultinom5[1,,]/CV_ssb_N1000_Ind50_5yrs_noCKMR[1,,], ylim=c(0.985,1.01), las=1, main="Index - 0.5, Cod - N1000", col=2)
+boxplot(CV_ssb_N1000_Ind50_ckmrmultinom10[1,,]/CV_ssb_N1000_Ind50_10yrs_noCKMR[1,,], add=TRUE, las=1, main="", col=3)
+legend("top",c("5yrs CKMR", "10yrs CKMR"), pch=15, col=c(2,3))
+boxplot(CV_ssb_N5000_Ind50_ckmrmultinom5[1,,]/CV_ssb_N5000_Ind50_5yrs_noCKMR[1,,], ylim=c(0.875,1.02), las=1, main="Cod - N5000", col=2)
+boxplot(CV_ssb_N5000_Ind50_ckmrmultinom10[1,,]/CV_ssb_N5000_Ind50_10yrs_noCKMR[1,,], add=TRUE, las=1, main="", col=3)
+
+boxplot(CV_ssb_N100_Ind50_ckmrmultinom5[2,,]/CV_ssb_N100_Ind50_5yrs_noCKMR[2,,], ylim=c(0.925,1.05), las=1, main="Flatfish - N100", ylab="CV of SSB relative to no CKMR Model", col=2)
+boxplot(CV_ssb_N100_Ind50_ckmrmultinom10[2,,]/CV_ssb_N100_Ind50_10yrs_noCKMR[2,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N1000_Ind50_ckmrmultinom5[2,,]/CV_ssb_N1000_Ind50_5yrs_noCKMR[2,,], ylim=c(0.25,1.05), las=1, main="Flatfish - N1000", col=2)
+boxplot(CV_ssb_N1000_Ind50_ckmrmultinom10[2,,]/CV_ssb_N1000_Ind50_10yrs_noCKMR[2,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N5000_Ind50_ckmrmultinom5[2,,]/CV_ssb_N5000_Ind50_5yrs_noCKMR[2,,], ylim=c(0.1,1.05), las=1, main="Flatfish - N5000", col=2)
+boxplot(CV_ssb_N5000_Ind50_ckmrmultinom10[2,,]/CV_ssb_N5000_Ind50_10yrs_noCKMR[2,,], add=TRUE, las=1, main="", col=3)
+
+boxplot(CV_ssb_N100_Ind50_ckmrmultinom5[3,,]/CV_ssb_N100_Ind50_5yrs_noCKMR[3,,], ylim=c(0.999,1.001), las=1, main="Sardine - N100", col=2)
+boxplot(CV_ssb_N100_Ind50_ckmrmultinom10[3,,]/CV_ssb_N100_Ind50_10yrs_noCKMR[3,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N1000_Ind50_ckmrmultinom5[3,,]/CV_ssb_N1000_Ind50_5yrs_noCKMR[3,,], ylim=c(0.9,1.1), las=1, main="Sardine - N1000", col=2)
+boxplot(CV_ssb_N1000_Ind50_ckmrmultinom10[3,,]/CV_ssb_N1000_Ind50_10yrs_noCKMR[3,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N5000_Ind50_ckmrmultinom5[3,,]/CV_ssb_N5000_Ind50_5yrs_noCKMR[3,,], ylim=c(0.5,1.05), las=1, main="Sardine - N5000", col=2)
+boxplot(CV_ssb_N5000_Ind50_ckmrmultinom10[3,,]/CV_ssb_N5000_Ind50_10yrs_noCKMR[3,,], add=TRUE, las=1, main="", col=3)
+
+#Index 0.25
+par(mfrow=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
+boxplot(CV_ssb_N100_Ind25_ckmrmultinom5[1,,]/CV_ssb_N100_Ind25_5yrs_noCKMR[1,,], ylim=c(0.999,1.001), las=1, main="Cod - N100", col=2)
+boxplot(CV_ssb_N100_Ind25_ckmrmultinom10[1,,]/CV_ssb_N100_Ind25_10yrs_noCKMR[1,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N1000_Ind25_ckmrmultinom5[1,,]/CV_ssb_N1000_Ind25_5yrs_noCKMR[1,,], ylim=c(0.985,1.01), las=1, main="Index - 0.25, Cod - N1000", col=2)
+boxplot(CV_ssb_N1000_Ind25_ckmrmultinom10[1,,]/CV_ssb_N1000_Ind25_10yrs_noCKMR[1,,], add=TRUE, las=1, main="", col=3)
+legend("top",c("5yrs CKMR", "10yrs CKMR"), pch=15, col=c(2,3))
+boxplot(CV_ssb_N5000_Ind25_ckmrmultinom5[1,,]/CV_ssb_N5000_Ind25_5yrs_noCKMR[1,,], ylim=c(0.8,1.5), las=1, main="Cod - N5000", col=2)
+boxplot(CV_ssb_N5000_Ind25_ckmrmultinom10[1,,]/CV_ssb_N5000_Ind25_10yrs_noCKMR[1,,], add=TRUE, las=1, main="", col=3)
+
+boxplot(CV_ssb_N100_Ind25_ckmrmultinom5[2,,]/CV_ssb_N100_Ind25_5yrs_noCKMR[2,,], ylim=c(0.95,1.02), las=1, main="Flatfish - N100", ylab="CV of SSB relative to no CKMR Model", col=2)
+boxplot(CV_ssb_N100_Ind25_ckmrmultinom10[2,,]/CV_ssb_N100_Ind25_10yrs_noCKMR[2,,], add=TRUE, las=1, main="", col=3)
 boxplot(CV_ssb_N1000_Ind25_ckmrmultinom5[2,,]/CV_ssb_N1000_Ind25_5yrs_noCKMR[2,,], ylim=c(0.35,1.05), las=1, main="Flatfish - N1000", col=2)
-boxplot(CV_ssb_N1000_Ind25_ckmrmultinom10[2,,]/CV_ssb_N1000_Ind25_10yrs_noCKMR[2,,], add=TRUE, ylim=c(0.35,1.05), las=1, main="", col=3)
+boxplot(CV_ssb_N1000_Ind25_ckmrmultinom10[2,,]/CV_ssb_N1000_Ind25_10yrs_noCKMR[2,,], add=TRUE, las=1, main="", col=3)
 boxplot(CV_ssb_N5000_Ind25_ckmrmultinom5[2,,]/CV_ssb_N5000_Ind25_5yrs_noCKMR[2,,], ylim=c(0.15,1.05), las=1, main="Flatfish - N5000", col=2)
-boxplot(CV_ssb_N5000_Ind25_ckmrmultinom10[2,,]/CV_ssb_N5000_Ind25_10yrs_noCKMR[2,,], add=TRUE, ylim=c(0.15,1.05), las=1, main="", col=3)
+boxplot(CV_ssb_N5000_Ind25_ckmrmultinom10[2,,]/CV_ssb_N5000_Ind25_10yrs_noCKMR[2,,], add=TRUE, las=1, main="", col=3)
 
-boxplot(CV_ssb_N100_Ind25_ckmrmultinom5[3,,]/CV_ssb_N100_Ind25_5yrs_noCKMR[3,,], ylim=c(0.95,1.05), las=1, main="Sardine - N100", col=2)
-boxplot(CV_ssb_N100_Ind25_ckmrmultinom10[3,,]/CV_ssb_N100_Ind25_10yrs_noCKMR[3,,], add=TRUE, ylim=c(0.95,1.05), las=1, main="", col=3)
-boxplot(CV_ssb_N1000_Ind25_ckmrmultinom5[3,,]/CV_ssb_N1000_Ind25_5yrs_noCKMR[3,,], ylim=c(0.95,1.05), las=1, main="Sardine - N1000", col=2)
-boxplot(CV_ssb_N1000_Ind25_ckmrmultinom10[3,,]/CV_ssb_N1000_Ind25_10yrs_noCKMR[3,,], add=TRUE, ylim=c(0.95,1.05), las=1, main="", col=3)
-boxplot(CV_ssb_N5000_Ind25_ckmrmultinom5[3,,]/CV_ssb_N5000_Ind25_5yrs_noCKMR[3,,], ylim=c(0.5,1.05), las=1, main="Sardine - N5000", col=2)
-boxplot(CV_ssb_N5000_Ind25_ckmrmultinom10[3,,]/CV_ssb_N5000_Ind25_10yrs_noCKMR[3,,], add=TRUE, ylim=c(0.5,1.05), las=1, main="", col=3)
+boxplot(CV_ssb_N100_Ind25_ckmrmultinom5[3,,]/CV_ssb_N100_Ind25_5yrs_noCKMR[3,,], ylim=c(0.999,1.001), las=1, main="Sardine - N100", col=2)
+boxplot(CV_ssb_N100_Ind25_ckmrmultinom10[3,,]/CV_ssb_N100_Ind25_10yrs_noCKMR[3,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N1000_Ind25_ckmrmultinom5[3,,]/CV_ssb_N1000_Ind25_5yrs_noCKMR[3,,], ylim=c(0.95,1.01), las=1, main="Sardine - N1000", col=2)
+boxplot(CV_ssb_N1000_Ind25_ckmrmultinom10[3,,]/CV_ssb_N1000_Ind25_10yrs_noCKMR[3,,], add=TRUE, las=1, main="", col=3)
+boxplot(CV_ssb_N5000_Ind25_ckmrmultinom5[3,,]/CV_ssb_N5000_Ind25_5yrs_noCKMR[3,,], ylim=c(0.5,1.5), las=1, main="Sardine - N5000", col=2)
+boxplot(CV_ssb_N5000_Ind25_ckmrmultinom10[3,,]/CV_ssb_N5000_Ind25_10yrs_noCKMR[3,,], add=TRUE, las=1, main="", col=3)
 
 #R0
+#No Index
+par(mfcol=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
+boxplot(cbind(SD_R0_N100_NoIndex_5yrs_noCKMR[1,],SD_R0_N100_NoIndex_ckmrmultinom5[1,],SD_R0_N100_NoIndex_10yrs_noCKMR[1,],SD_R0_N100_NoIndex_ckmrmultinom10[1,]), ylim=c(0.07,0.11), las=1, main="Cod - SD log(R0) - N100", xaxt="n")
+boxplot(cbind(SD_R0_N100_NoIndex_5yrs_noCKMR[2,],SD_R0_N100_NoIndex_ckmrmultinom5[2,],SD_R0_N100_NoIndex_10yrs_noCKMR[2,],SD_R0_N100_NoIndex_ckmrmultinom10[2,]), ylim=c(0.08,0.17), las=1, main="Flatfish - SD log(R0) - N100", ylab="SD of log(R0)", xaxt="n")
+boxplot(cbind(SD_R0_N100_NoIndex_5yrs_noCKMR[3,],SD_R0_N100_NoIndex_ckmrmultinom5[3,],SD_R0_N100_NoIndex_10yrs_noCKMR[3,],SD_R0_N100_NoIndex_ckmrmultinom10[3,]), ylim=c(0.12,0.21), las=1, main="Sardine - SD log(R0) - N100", xaxt="n")
+axis(side=1, at=1:4, labels=c("5yrs No CKMR","CKMR 5 Years","10yrs No CKMR","CKMR 10 Years"))
+
+boxplot(cbind(SD_R0_N1000_NoIndex_5yrs_noCKMR[1,],SD_R0_N1000_NoIndex_ckmrmultinom5[1,],SD_R0_N1000_NoIndex_10yrs_noCKMR[1,],SD_R0_N1000_NoIndex_ckmrmultinom10[1,]), ylim=c(0.07,0.11), las=1, main="Cod - SD log(R0) - N1000", xaxt="n")
+boxplot(cbind(SD_R0_N1000_NoIndex_5yrs_noCKMR[2,],SD_R0_N1000_NoIndex_ckmrmultinom5[2,],SD_R0_N1000_NoIndex_10yrs_noCKMR[2,],SD_R0_N1000_NoIndex_ckmrmultinom10[2,]), ylim=c(0.08,0.17), las=1, main="Flatfish - SD log(R0) - N1000     NO INDEX", ylab="SD of log(R0)", xaxt="n")
+boxplot(cbind(SD_R0_N1000_NoIndex_5yrs_noCKMR[3,],SD_R0_N1000_NoIndex_ckmrmultinom5[3,],SD_R0_N1000_NoIndex_10yrs_noCKMR[3,],SD_R0_N1000_NoIndex_ckmrmultinom10[3,]), ylim=c(0.12,0.21), las=1, main="Sardine - SD log(R0) - N1000", xaxt="n")
+axis(side=1, at=1:4, labels=c("5yrs No CKMR","CKMR 5 Years","10yrs No CKMR","CKMR 10 Years"))
+
+boxplot(cbind(SD_R0_N5000_NoIndex_5yrs_noCKMR[1,],SD_R0_N5000_NoIndex_ckmrmultinom5[1,],SD_R0_N5000_NoIndex_10yrs_noCKMR[1,],SD_R0_N5000_NoIndex_ckmrmultinom10[1,]), ylim=c(0.07,0.11), las=1, main="Cod - SD log(R0) - N5000", xaxt="n")
+boxplot(cbind(SD_R0_N5000_NoIndex_5yrs_noCKMR[2,],SD_R0_N5000_NoIndex_ckmrmultinom5[2,],SD_R0_N5000_NoIndex_10yrs_noCKMR[2,],SD_R0_N5000_NoIndex_ckmrmultinom10[2,]), ylim=c(0.08,0.17), las=1, main="Flatfish - SD log(R0) - N5000", ylab="SD of log(R0)", xaxt="n")
+boxplot(cbind(SD_R0_N5000_NoIndex_5yrs_noCKMR[3,],SD_R0_N5000_NoIndex_ckmrmultinom5[3,],SD_R0_N5000_NoIndex_10yrs_noCKMR[3,],SD_R0_N5000_NoIndex_ckmrmultinom10[3,]), ylim=c(0.12,0.21), las=1, main="Sardine - SD log(R0) - N5000", xaxt="n")
+axis(side=1, at=1:4, labels=c("5yrs No CKMR","CKMR 5 Years","10yrs No CKMR","CKMR 10 Years"))
+
+#Index 0.5
+par(mfcol=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
+boxplot(cbind(SD_R0_N100_Ind50_5yrs_noCKMR[1,],SD_R0_N100_Ind50_ckmrmultinom5[1,],SD_R0_N100_Ind50_10yrs_noCKMR[1,],SD_R0_N100_Ind50_ckmrmultinom10[1,]), ylim=c(0.07,0.11), las=1, main="Cod - SD log(R0) - N100", xaxt="n")
+boxplot(cbind(SD_R0_N100_Ind50_5yrs_noCKMR[2,],SD_R0_N100_Ind50_ckmrmultinom5[2,],SD_R0_N100_Ind50_10yrs_noCKMR[2,],SD_R0_N100_Ind50_ckmrmultinom10[2,]), ylim=c(0.08,0.17), las=1, main="Flatfish - SD log(R0) - N100", ylab="SD of log(R0)", xaxt="n")
+boxplot(cbind(SD_R0_N100_Ind50_5yrs_noCKMR[3,],SD_R0_N100_Ind50_ckmrmultinom5[3,],SD_R0_N100_Ind50_10yrs_noCKMR[3,],SD_R0_N100_Ind50_ckmrmultinom10[3,]), ylim=c(0.12,0.21), las=1, main="Sardine - SD log(R0) - N100", xaxt="n")
+axis(side=1, at=1:4, labels=c("5yrs No CKMR","CKMR 5 Years","10yrs No CKMR","CKMR 10 Years"))
+
+boxplot(cbind(SD_R0_N1000_Ind50_5yrs_noCKMR[1,],SD_R0_N1000_Ind50_ckmrmultinom5[1,],SD_R0_N1000_Ind50_10yrs_noCKMR[1,],SD_R0_N1000_Ind50_ckmrmultinom10[1,]), ylim=c(0.07,0.11), las=1, main="Cod - SD log(R0) - N1000", xaxt="n")
+boxplot(cbind(SD_R0_N1000_Ind50_5yrs_noCKMR[2,],SD_R0_N1000_Ind50_ckmrmultinom5[2,],SD_R0_N1000_Ind50_10yrs_noCKMR[2,],SD_R0_N1000_Ind50_ckmrmultinom10[2,]), ylim=c(0.08,0.17), las=1, main="Flatfish - SD log(R0) - N1000    INDEX-0.50", ylab="SD of log(R0)", xaxt="n")
+boxplot(cbind(SD_R0_N1000_Ind50_5yrs_noCKMR[3,],SD_R0_N1000_Ind50_ckmrmultinom5[3,],SD_R0_N1000_Ind50_10yrs_noCKMR[3,],SD_R0_N1000_Ind50_ckmrmultinom10[3,]), ylim=c(0.12,0.21), las=1, main="Sardine - SD log(R0) - N1000", xaxt="n")
+axis(side=1, at=1:4, labels=c("5yrs No CKMR","CKMR 5 Years","10yrs No CKMR","CKMR 10 Years"))
+
+boxplot(cbind(SD_R0_N5000_Ind50_5yrs_noCKMR[1,],SD_R0_N5000_Ind50_ckmrmultinom5[1,],SD_R0_N5000_Ind50_10yrs_noCKMR[1,],SD_R0_N5000_Ind50_ckmrmultinom10[1,]), ylim=c(0.07,0.11), las=1, main="Cod - SD log(R0) - N5000", xaxt="n")
+boxplot(cbind(SD_R0_N5000_Ind50_5yrs_noCKMR[2,],SD_R0_N5000_Ind50_ckmrmultinom5[2,],SD_R0_N5000_Ind50_10yrs_noCKMR[2,],SD_R0_N5000_Ind50_ckmrmultinom10[2,]), ylim=c(0.08,0.17), las=1, main="Flatfish - SD log(R0) - N5000", ylab="SD of log(R0)", xaxt="n")
+boxplot(cbind(SD_R0_N5000_Ind50_5yrs_noCKMR[3,],SD_R0_N5000_Ind50_ckmrmultinom5[3,],SD_R0_N5000_Ind50_10yrs_noCKMR[3,],SD_R0_N5000_Ind50_ckmrmultinom10[3,]), ylim=c(0.12,0.21), las=1, main="Sardine - SD log(R0) - N5000", xaxt="n")
+axis(side=1, at=1:4, labels=c("5yrs No CKMR","CKMR 5 Years","10yrs No CKMR","CKMR 10 Years"))
+
+#Index 0.25
 par(mfcol=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
 boxplot(cbind(SD_R0_N100_Ind25_5yrs_noCKMR[1,],SD_R0_N100_Ind25_ckmrmultinom5[1,],SD_R0_N100_Ind25_10yrs_noCKMR[1,],SD_R0_N100_Ind25_ckmrmultinom10[1,]), ylim=c(0.07,0.11), las=1, main="Cod - SD log(R0) - N100", xaxt="n")
 boxplot(cbind(SD_R0_N100_Ind25_5yrs_noCKMR[2,],SD_R0_N100_Ind25_ckmrmultinom5[2,],SD_R0_N100_Ind25_10yrs_noCKMR[2,],SD_R0_N100_Ind25_ckmrmultinom10[2,]), ylim=c(0.08,0.17), las=1, main="Flatfish - SD log(R0) - N100", ylab="SD of log(R0)", xaxt="n")
@@ -5327,7 +5495,7 @@ boxplot(cbind(SD_R0_N100_Ind25_5yrs_noCKMR[3,],SD_R0_N100_Ind25_ckmrmultinom5[3,
 axis(side=1, at=1:4, labels=c("5yrs No CKMR","CKMR 5 Years","10yrs No CKMR","CKMR 10 Years"))
 
 boxplot(cbind(SD_R0_N1000_Ind25_5yrs_noCKMR[1,],SD_R0_N1000_Ind25_ckmrmultinom5[1,],SD_R0_N1000_Ind25_10yrs_noCKMR[1,],SD_R0_N1000_Ind25_ckmrmultinom10[1,]), ylim=c(0.07,0.11), las=1, main="Cod - SD log(R0) - N1000", xaxt="n")
-boxplot(cbind(SD_R0_N1000_Ind25_5yrs_noCKMR[2,],SD_R0_N1000_Ind25_ckmrmultinom5[2,],SD_R0_N1000_Ind25_10yrs_noCKMR[2,],SD_R0_N1000_Ind25_ckmrmultinom10[2,]), ylim=c(0.08,0.17), las=1, main="Flatfish - SD log(R0) - N1000", ylab="SD of log(R0)", xaxt="n")
+boxplot(cbind(SD_R0_N1000_Ind25_5yrs_noCKMR[2,],SD_R0_N1000_Ind25_ckmrmultinom5[2,],SD_R0_N1000_Ind25_10yrs_noCKMR[2,],SD_R0_N1000_Ind25_ckmrmultinom10[2,]), ylim=c(0.08,0.17), las=1, main="Flatfish - SD log(R0) - N1000    INDEX-0.25", ylab="SD of log(R0)", xaxt="n")
 boxplot(cbind(SD_R0_N1000_Ind25_5yrs_noCKMR[3,],SD_R0_N1000_Ind25_ckmrmultinom5[3,],SD_R0_N1000_Ind25_10yrs_noCKMR[3,],SD_R0_N1000_Ind25_ckmrmultinom10[3,]), ylim=c(0.12,0.21), las=1, main="Sardine - SD log(R0) - N1000", xaxt="n")
 axis(side=1, at=1:4, labels=c("5yrs No CKMR","CKMR 5 Years","10yrs No CKMR","CKMR 10 Years"))
 
@@ -5336,7 +5504,42 @@ boxplot(cbind(SD_R0_N5000_Ind25_5yrs_noCKMR[2,],SD_R0_N5000_Ind25_ckmrmultinom5[
 boxplot(cbind(SD_R0_N5000_Ind25_5yrs_noCKMR[3,],SD_R0_N5000_Ind25_ckmrmultinom5[3,],SD_R0_N5000_Ind25_10yrs_noCKMR[3,],SD_R0_N5000_Ind25_ckmrmultinom10[3,]), ylim=c(0.12,0.21), las=1, main="Sardine - SD log(R0) - N5000", xaxt="n")
 axis(side=1, at=1:4, labels=c("5yrs No CKMR","CKMR 5 Years","10yrs No CKMR","CKMR 10 Years"))
 
-#M
+#Natural Mortality
+#No Index
+par(mfcol=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
+boxplot(cbind(SD_M_N100_NoIndex_5yrs_noCKMR[1,],SD_M_N100_NoIndex_ckmrmultinom5[1,],SD_M_N100_NoIndex_10yrs_noCKMR[1,],SD_M_N100_NoIndex_ckmrmultinom10[1,]), ylim=c(0.023,0.032), las=1, main="Cod - SD log(M) - N100", xaxt="n")
+boxplot(cbind(SD_M_N100_NoIndex_5yrs_noCKMR[2,],SD_M_N100_NoIndex_ckmrmultinom5[2,],SD_M_N100_NoIndex_10yrs_noCKMR[2,],SD_M_N100_NoIndex_ckmrmultinom10[2,]), ylim=c(0.02,0.055), las=1, main="Flatfish - SD log(M) - N100", ylab="SD of log(M)", xaxt="n")
+boxplot(cbind(SD_M_N100_NoIndex_5yrs_noCKMR[3,],SD_M_N100_NoIndex_ckmrmultinom5[3,],SD_M_N100_NoIndex_10yrs_noCKMR[3,],SD_M_N100_NoIndex_ckmrmultinom10[3,]), ylim=c(0.025,0.055), las=1, main="Sardine - SD log(M) - N100", xaxt="n")
+axis(side=1, at=1:4, labels=c("5yrs No CKMR","CKMR 5 Years","10yrs No CKMR","CKMR 10 Years"))
+
+boxplot(cbind(SD_M_N1000_NoIndex_5yrs_noCKMR[1,],SD_M_N1000_NoIndex_ckmrmultinom5[1,],SD_M_N1000_NoIndex_10yrs_noCKMR[1,],SD_M_N1000_NoIndex_ckmrmultinom10[1,]), ylim=c(0.023,0.032), las=1, main="Cod - SD log(M) - N1000", xaxt="n")
+boxplot(cbind(SD_M_N1000_NoIndex_5yrs_noCKMR[2,],SD_M_N1000_NoIndex_ckmrmultinom5[2,],SD_M_N1000_NoIndex_10yrs_noCKMR[2,],SD_M_N1000_NoIndex_ckmrmultinom10[2,]), ylim=c(0.02,0.055), las=1, main="Flatfish - SD log(M) - N1000    NO INDEX", ylab="SD of log(M)", xaxt="n")
+boxplot(cbind(SD_M_N1000_NoIndex_5yrs_noCKMR[3,],SD_M_N1000_NoIndex_ckmrmultinom5[3,],SD_M_N1000_NoIndex_10yrs_noCKMR[3,],SD_M_N1000_NoIndex_ckmrmultinom10[3,]), ylim=c(0.025,0.055), las=1, main="Sardine - SD log(M) - N1000", xaxt="n")
+axis(side=1, at=1:4, labels=c("5yrs No CKMR","CKMR 5 Years","10yrs No CKMR","CKMR 10 Years"))
+
+boxplot(cbind(SD_M_N5000_NoIndex_5yrs_noCKMR[1,],SD_M_N5000_NoIndex_ckmrmultinom5[1,],SD_M_N5000_NoIndex_10yrs_noCKMR[1,],SD_M_N5000_NoIndex_ckmrmultinom10[1,]), ylim=c(0.023,0.032), las=1, main="Cod - SD log(M) - N5000", xaxt="n")
+boxplot(cbind(SD_M_N5000_NoIndex_5yrs_noCKMR[2,],SD_M_N5000_NoIndex_ckmrmultinom5[2,],SD_M_N5000_NoIndex_10yrs_noCKMR[2,],SD_M_N5000_NoIndex_ckmrmultinom10[2,]), ylim=c(0.02,0.055), las=1, main="Flatfish - SD log(M) - N5000", ylab="SD of log(M)", xaxt="n")
+boxplot(cbind(SD_M_N5000_NoIndex_5yrs_noCKMR[3,],SD_M_N5000_NoIndex_ckmrmultinom5[3,],SD_M_N5000_NoIndex_10yrs_noCKMR[3,],SD_M_N5000_NoIndex_ckmrmultinom10[3,]), ylim=c(0.025,0.055), las=1, main="Sardine - SD log(M) - N5000", xaxt="n")
+axis(side=1, at=1:4, labels=c("5yrs No CKMR","CKMR 5 Years","10yrs No CKMR","CKMR 10 Years"))
+
+#Index 0.50
+par(mfcol=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
+boxplot(cbind(SD_M_N100_Ind50_5yrs_noCKMR[1,],SD_M_N100_Ind50_ckmrmultinom5[1,],SD_M_N100_Ind50_10yrs_noCKMR[1,],SD_M_N100_Ind50_ckmrmultinom10[1,]), ylim=c(0.023,0.03), las=1, main="Cod - SD log(M) - N100", xaxt="n")
+boxplot(cbind(SD_M_N100_Ind50_5yrs_noCKMR[2,],SD_M_N100_Ind50_ckmrmultinom5[2,],SD_M_N100_Ind50_10yrs_noCKMR[2,],SD_M_N100_Ind50_ckmrmultinom10[2,]), ylim=c(0.019,0.05), las=1, main="Flatfish - SD log(M) - N100", ylab="SD of log(M)", xaxt="n")
+boxplot(cbind(SD_M_N100_Ind50_5yrs_noCKMR[3,],SD_M_N100_Ind50_ckmrmultinom5[3,],SD_M_N100_Ind50_10yrs_noCKMR[3,],SD_M_N100_Ind50_ckmrmultinom10[3,]), ylim=c(0.025,0.05), las=1, main="Sardine - SD log(M) - N100", xaxt="n")
+axis(side=1, at=1:4, labels=c("5yrs No CKMR","CKMR 5 Years","10yrs No CKMR","CKMR 10 Years"))
+
+boxplot(cbind(SD_M_N1000_Ind50_5yrs_noCKMR[1,],SD_M_N1000_Ind50_ckmrmultinom5[1,],SD_M_N1000_Ind50_10yrs_noCKMR[1,],SD_M_N1000_Ind50_ckmrmultinom10[1,]), ylim=c(0.023,0.03), las=1, main="Cod - SD log(M) - N1000", xaxt="n")
+boxplot(cbind(SD_M_N1000_Ind50_5yrs_noCKMR[2,],SD_M_N1000_Ind50_ckmrmultinom5[2,],SD_M_N1000_Ind50_10yrs_noCKMR[2,],SD_M_N1000_Ind50_ckmrmultinom10[2,]), ylim=c(0.019,0.05), las=1, main="Flatfish - SD log(M) - N1000    INDEX-0.50", ylab="SD of log(M)", xaxt="n")
+boxplot(cbind(SD_M_N1000_Ind50_5yrs_noCKMR[3,],SD_M_N1000_Ind50_ckmrmultinom5[3,],SD_M_N1000_Ind50_10yrs_noCKMR[3,],SD_M_N1000_Ind50_ckmrmultinom10[3,]), ylim=c(0.025,0.05), las=1, main="Sardine - SD log(M) - N1000", xaxt="n")
+axis(side=1, at=1:4, labels=c("5yrs No CKMR","CKMR 5 Years","10yrs No CKMR","CKMR 10 Years"))
+
+boxplot(cbind(SD_M_N5000_Ind50_5yrs_noCKMR[1,],SD_M_N5000_Ind50_ckmrmultinom5[1,],SD_M_N5000_Ind50_10yrs_noCKMR[1,],SD_M_N5000_Ind50_ckmrmultinom10[1,]), ylim=c(0.023,0.03), las=1, main="Cod - SD log(M) - N5000", xaxt="n")
+boxplot(cbind(SD_M_N5000_Ind50_5yrs_noCKMR[2,],SD_M_N5000_Ind50_ckmrmultinom5[2,],SD_M_N5000_Ind50_10yrs_noCKMR[2,],SD_M_N5000_Ind50_ckmrmultinom10[2,]), ylim=c(0.019,0.05), las=1, main="Flatfish - SD log(M) - N5000", ylab="SD of log(M)", xaxt="n")
+boxplot(cbind(SD_M_N5000_Ind50_5yrs_noCKMR[3,],SD_M_N5000_Ind50_ckmrmultinom5[3,],SD_M_N5000_Ind50_10yrs_noCKMR[3,],SD_M_N5000_Ind50_ckmrmultinom10[3,]), ylim=c(0.025,0.05), las=1, main="Sardine - SD log(M) - N5000", xaxt="n")
+axis(side=1, at=1:4, labels=c("5yrs No CKMR","CKMR 5 Years","10yrs No CKMR","CKMR 10 Years"))
+
+#Index 0.25
 par(mfcol=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
 boxplot(cbind(SD_M_N100_Ind25_5yrs_noCKMR[1,],SD_M_N100_Ind25_ckmrmultinom5[1,],SD_M_N100_Ind25_10yrs_noCKMR[1,],SD_M_N100_Ind25_ckmrmultinom10[1,]), ylim=c(0.022,0.029), las=1, main="Cod - SD log(M) - N100", xaxt="n")
 boxplot(cbind(SD_M_N100_Ind25_5yrs_noCKMR[2,],SD_M_N100_Ind25_ckmrmultinom5[2,],SD_M_N100_Ind25_10yrs_noCKMR[2,],SD_M_N100_Ind25_ckmrmultinom10[2,]), ylim=c(0.019,0.048), las=1, main="Flatfish - SD log(M) - N100", ylab="SD of log(M)", xaxt="n")
@@ -5344,7 +5547,7 @@ boxplot(cbind(SD_M_N100_Ind25_5yrs_noCKMR[3,],SD_M_N100_Ind25_ckmrmultinom5[3,],
 axis(side=1, at=1:4, labels=c("5yrs No CKMR","CKMR 5 Years","10yrs No CKMR","CKMR 10 Years"))
 
 boxplot(cbind(SD_M_N1000_Ind25_5yrs_noCKMR[1,],SD_M_N1000_Ind25_ckmrmultinom5[1,],SD_M_N1000_Ind25_10yrs_noCKMR[1,],SD_M_N1000_Ind25_ckmrmultinom10[1,]), ylim=c(0.022,0.029), las=1, main="Cod - SD log(M) - N1000", xaxt="n")
-boxplot(cbind(SD_M_N1000_Ind25_5yrs_noCKMR[2,],SD_M_N1000_Ind25_ckmrmultinom5[2,],SD_M_N1000_Ind25_10yrs_noCKMR[2,],SD_M_N1000_Ind25_ckmrmultinom10[2,]), ylim=c(0.019,0.048), las=1, main="Flatfish - SD log(M) - N1000", ylab="SD of log(M)", xaxt="n")
+boxplot(cbind(SD_M_N1000_Ind25_5yrs_noCKMR[2,],SD_M_N1000_Ind25_ckmrmultinom5[2,],SD_M_N1000_Ind25_10yrs_noCKMR[2,],SD_M_N1000_Ind25_ckmrmultinom10[2,]), ylim=c(0.019,0.048), las=1, main="Flatfish - SD log(M) - N1000    INDEX-0.25", ylab="SD of log(M)", xaxt="n")
 boxplot(cbind(SD_M_N1000_Ind25_5yrs_noCKMR[3,],SD_M_N1000_Ind25_ckmrmultinom5[3,],SD_M_N1000_Ind25_10yrs_noCKMR[3,],SD_M_N1000_Ind25_ckmrmultinom10[3,]), ylim=c(0.025,0.044), las=1, main="Sardine - SD log(M) - N1000", xaxt="n")
 axis(side=1, at=1:4, labels=c("5yrs No CKMR","CKMR 5 Years","10yrs No CKMR","CKMR 10 Years"))
 
@@ -5354,8 +5557,92 @@ boxplot(cbind(SD_M_N5000_Ind25_5yrs_noCKMR[3,],SD_M_N5000_Ind25_ckmrmultinom5[3,
 axis(side=1, at=1:4, labels=c("5yrs No CKMR","CKMR 5 Years","10yrs No CKMR","CKMR 10 Years"))
 
 #SD of point estimates between sims
+#No Index
 par(mfcol=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
-#SD RE
+plot(sd_RE_ssb_N100_NoIndex_5yrs_noCKMR[1,], pch=16, ylim=c(0,0.14), las=1, ylab="", main="Cod - N100")
+points(sd_RE_ssb_N100_NoIndex_ckmrmultinom5[1,], pch=16, col=2)
+points(sd_RE_ssb_N100_NoIndex_ckmrmultinom10[1,], pch=16, col=3)
+points(sd_RE_ssb_N100_NoIndex_10yrs_noCKMR[1,], pch=16, col=4)
+plot(sd_RE_ssb_N100_NoIndex_5yrs_noCKMR[2,], pch=16, ylim=c(0,0.16), las=1, ylab="SD SSB RE", main="Flatfish - N100")
+points(sd_RE_ssb_N100_NoIndex_ckmrmultinom5[2,], pch=16, col=2)
+points(sd_RE_ssb_N100_NoIndex_ckmrmultinom10[2,], pch=16, col=3)
+points(sd_RE_ssb_N100_NoIndex_10yrs_noCKMR[2,], pch=16, col=4)
+plot(sd_RE_ssb_N100_NoIndex_5yrs_noCKMR[3,], pch=16, ylim=c(0,0.20), las=1, ylab="", main="Sardine - N100")
+points(sd_RE_ssb_N100_NoIndex_ckmrmultinom5[3,], pch=16, col=2)
+points(sd_RE_ssb_N100_NoIndex_ckmrmultinom10[3,], pch=16, col=3)
+points(sd_RE_ssb_N100_NoIndex_10yrs_noCKMR[3,], pch=16, col=4)
+
+plot(sd_RE_ssb_N1000_NoIndex_5yrs_noCKMR[1,], pch=16, ylim=c(0,0.14), las=1, ylab="", main="No Index,  Cod - N1000")
+points(sd_RE_ssb_N1000_NoIndex_ckmrmultinom5[1,], pch=16, col=2)
+points(sd_RE_ssb_N1000_NoIndex_ckmrmultinom10[1,], pch=16, col=3)
+points(sd_RE_ssb_N1000_NoIndex_10yrs_noCKMR[1,], pch=16, col=4)
+legend("top", c("No CKMR 5yrs","No CKMR 10yrs ","CKMR 5 years","CKMR 10 years"), col=c(1,4,2,3), pch=16)
+plot(sd_RE_ssb_N1000_NoIndex_5yrs_noCKMR[2,], pch=16, ylim=c(0,0.15), las=1, ylab="SD SSB RE", main="Flatfish - N1000")
+points(sd_RE_ssb_N1000_NoIndex_ckmrmultinom5[2,], pch=16, col=2)
+points(sd_RE_ssb_N1000_NoIndex_ckmrmultinom10[2,], pch=16, col=3)
+points(sd_RE_ssb_N1000_NoIndex_10yrs_noCKMR[2,], pch=16, col=4)
+plot(sd_RE_ssb_N1000_NoIndex_5yrs_noCKMR[3,], pch=16, ylim=c(0,0.20), las=1, ylab="", main="Sardine - N1000")
+points(sd_RE_ssb_N1000_NoIndex_ckmrmultinom5[3,], pch=16, col=2)
+points(sd_RE_ssb_N1000_NoIndex_ckmrmultinom10[3,], pch=16, col=3)
+points(sd_RE_ssb_N1000_NoIndex_10yrs_noCKMR[3,], pch=16, col=4)
+
+plot(sd_RE_ssb_N5000_NoIndex_5yrs_noCKMR[1,], pch=16, ylim=c(0,0.14), las=1, ylab="", main="Cod - N5000")
+points(sd_RE_ssb_N5000_NoIndex_ckmrmultinom5[1,], pch=16, col=2)
+points(sd_RE_ssb_N5000_NoIndex_ckmrmultinom10[1,], pch=16, col=3)
+points(sd_RE_ssb_N5000_NoIndex_10yrs_noCKMR[1,], pch=16, col=4)
+plot(sd_RE_ssb_N5000_NoIndex_5yrs_noCKMR[2,], pch=16, ylim=c(0,0.16), las=1, ylab="SD SSB RE", main="Flatfish - N5000")
+points(sd_RE_ssb_N5000_NoIndex_ckmrmultinom5[2,], pch=16, col=2)
+points(sd_RE_ssb_N5000_NoIndex_ckmrmultinom10[2,], pch=16, col=3)
+points(sd_RE_ssb_N5000_NoIndex_10yrs_noCKMR[2,], pch=16, col=4)
+plot(sd_RE_ssb_N5000_NoIndex_5yrs_noCKMR[3,], pch=16, ylim=c(0,0.20), las=1, ylab="", main="Sardine - N5000")
+points(sd_RE_ssb_N5000_NoIndex_ckmrmultinom5[3,], pch=16, col=2)
+points(sd_RE_ssb_N5000_NoIndex_ckmrmultinom10[3,], pch=16, col=3)
+points(sd_RE_ssb_N5000_NoIndex_10yrs_noCKMR[3,], pch=16, col=4)
+
+#Index 0.50
+par(mfcol=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
+plot(sd_RE_ssb_N100_Ind50_5yrs_noCKMR[1,], pch=16, ylim=c(0,0.14), las=1, ylab="", main="Cod - N100")
+points(sd_RE_ssb_N100_Ind50_ckmrmultinom5[1,], pch=16, col=2)
+points(sd_RE_ssb_N100_Ind50_ckmrmultinom10[1,], pch=16, col=3)
+points(sd_RE_ssb_N100_Ind50_10yrs_noCKMR[1,], pch=16, col=4)
+plot(sd_RE_ssb_N100_Ind50_5yrs_noCKMR[2,], pch=16, ylim=c(0,0.16), las=1, ylab="SD SSB RE", main="Flatfish - N100")
+points(sd_RE_ssb_N100_Ind50_ckmrmultinom5[2,], pch=16, col=2)
+points(sd_RE_ssb_N100_Ind50_ckmrmultinom10[2,], pch=16, col=3)
+points(sd_RE_ssb_N100_Ind50_10yrs_noCKMR[2,], pch=16, col=4)
+plot(sd_RE_ssb_N100_Ind50_5yrs_noCKMR[3,], pch=16, ylim=c(0,0.20), las=1, ylab="", main="Sardine - N100")
+points(sd_RE_ssb_N100_Ind50_ckmrmultinom5[3,], pch=16, col=2)
+points(sd_RE_ssb_N100_Ind50_ckmrmultinom10[3,], pch=16, col=3)
+points(sd_RE_ssb_N100_Ind50_10yrs_noCKMR[3,], pch=16, col=4)
+
+plot(sd_RE_ssb_N1000_Ind50_5yrs_noCKMR[1,], pch=16, ylim=c(0,0.14), las=1, ylab="", main="Index-0.50,  Cod - N1000")
+points(sd_RE_ssb_N1000_Ind50_ckmrmultinom5[1,], pch=16, col=2)
+points(sd_RE_ssb_N1000_Ind50_ckmrmultinom10[1,], pch=16, col=3)
+points(sd_RE_ssb_N1000_Ind50_10yrs_noCKMR[1,], pch=16, col=4)
+legend("top", c("No CKMR 5yrs", "No CKMR 10yrs ", "CKMR 5 years", "CKMR 10 years"), col=c(1,4,2,3), pch=16)
+plot(sd_RE_ssb_N1000_Ind50_5yrs_noCKMR[2,], pch=16, ylim=c(0,0.15), las=1, ylab="SD SSB RE", main="Flatfish - N1000")
+points(sd_RE_ssb_N1000_Ind50_ckmrmultinom5[2,], pch=16, col=2)
+points(sd_RE_ssb_N1000_Ind50_ckmrmultinom10[2,], pch=16, col=3)
+points(sd_RE_ssb_N1000_Ind50_10yrs_noCKMR[2,], pch=16, col=4)
+plot(sd_RE_ssb_N1000_Ind50_5yrs_noCKMR[3,], pch=16, ylim=c(0,0.20), las=1, ylab="", main="Sardine - N1000")
+points(sd_RE_ssb_N1000_Ind50_ckmrmultinom5[3,], pch=16, col=2)
+points(sd_RE_ssb_N1000_Ind50_ckmrmultinom10[3,], pch=16, col=3)
+points(sd_RE_ssb_N1000_Ind50_10yrs_noCKMR[3,], pch=16, col=4)
+
+plot(sd_RE_ssb_N5000_Ind50_5yrs_noCKMR[1,], pch=16, ylim=c(0,0.14), las=1, ylab="", main="Cod - N5000")
+points(sd_RE_ssb_N5000_Ind50_ckmrmultinom5[1,], pch=16, col=2)
+points(sd_RE_ssb_N5000_Ind50_ckmrmultinom10[1,], pch=16, col=3)
+points(sd_RE_ssb_N5000_Ind50_10yrs_noCKMR[1,], pch=16, col=4)
+plot(sd_RE_ssb_N5000_Ind50_5yrs_noCKMR[2,], pch=16, ylim=c(0,0.16), las=1, ylab="SD SSB RE", main="Flatfish - N5000")
+points(sd_RE_ssb_N5000_Ind50_ckmrmultinom5[2,], pch=16, col=2)
+points(sd_RE_ssb_N5000_Ind50_ckmrmultinom10[2,], pch=16, col=3)
+points(sd_RE_ssb_N5000_Ind50_10yrs_noCKMR[2,], pch=16, col=4)
+plot(sd_RE_ssb_N5000_Ind50_5yrs_noCKMR[3,], pch=16, ylim=c(0,0.20), las=1, ylab="", main="Sardine - N5000")
+points(sd_RE_ssb_N5000_Ind50_ckmrmultinom5[3,], pch=16, col=2)
+points(sd_RE_ssb_N5000_Ind50_ckmrmultinom10[3,], pch=16, col=3)
+points(sd_RE_ssb_N5000_Ind50_10yrs_noCKMR[3,], pch=16, col=4)
+
+#Index 0.25
+par(mfcol=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
 plot(sd_RE_ssb_N100_Ind25_5yrs_noCKMR[1,], pch=16, ylim=c(0,0.14), las=1, ylab="", main="Cod - N100")
 points(sd_RE_ssb_N100_Ind25_ckmrmultinom5[1,], pch=16, col=2)
 points(sd_RE_ssb_N100_Ind25_ckmrmultinom10[1,], pch=16, col=3)
@@ -5369,11 +5656,11 @@ points(sd_RE_ssb_N100_Ind25_ckmrmultinom5[3,], pch=16, col=2)
 points(sd_RE_ssb_N100_Ind25_ckmrmultinom10[3,], pch=16, col=3)
 points(sd_RE_ssb_N100_Ind25_10yrs_noCKMR[3,], pch=16, col=4)
 
-plot(sd_RE_ssb_N1000_Ind25_5yrs_noCKMR[1,], pch=16, ylim=c(0,0.14), las=1, ylab="", main="Cod - N1000")
+plot(sd_RE_ssb_N1000_Ind25_5yrs_noCKMR[1,], pch=16, ylim=c(0,0.14), las=1, ylab="", main="Index-0.25,  Cod - N1000")
 points(sd_RE_ssb_N1000_Ind25_ckmrmultinom5[1,], pch=16, col=2)
 points(sd_RE_ssb_N1000_Ind25_ckmrmultinom10[1,], pch=16, col=3)
 points(sd_RE_ssb_N1000_Ind25_10yrs_noCKMR[1,], pch=16, col=4)
-legend("top", c("No CKMR 5yrs", "CKMR 5 years","No CKMR10yrs ", "CKMR 10 years"), col=c(1,2,4,3), pch=16)
+legend("top", c("No CKMR 5yrs","No CKMR 10yrs ","CKMR 5 years","CKMR 10 years"), col=c(1,4,2,3), pch=16)
 plot(sd_RE_ssb_N1000_Ind25_5yrs_noCKMR[2,], pch=16, ylim=c(0,0.15), las=1, ylab="SD SSB RE", main="Flatfish - N1000")
 points(sd_RE_ssb_N1000_Ind25_ckmrmultinom5[2,], pch=16, col=2)
 points(sd_RE_ssb_N1000_Ind25_ckmrmultinom10[2,], pch=16, col=3)
@@ -5397,6 +5684,91 @@ points(sd_RE_ssb_N5000_Ind25_ckmrmultinom10[3,], pch=16, col=3)
 points(sd_RE_ssb_N5000_Ind25_10yrs_noCKMR[3,], pch=16, col=4)
 
 #SD ARE
+#No Index
+par(mfcol=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
+plot(sd_ARE_ssb_N100_NoIndex_5yrs_noCKMR[1,], pch=16, ylim=c(0,0.09), las=1, ylab="", main="Cod - N100")
+points(sd_ARE_ssb_N100_NoIndex_ckmrmultinom5[1,], pch=16, col=2)
+points(sd_ARE_ssb_N100_NoIndex_ckmrmultinom10[1,], pch=16, col=3)
+points(sd_ARE_ssb_N100_NoIndex_10yrs_noCKMR[1,], pch=16, col=4)
+plot(sd_ARE_ssb_N100_NoIndex_5yrs_noCKMR[2,], pch=16, ylim=c(0,0.10), las=1, ylab="SD SSB ARE", main="Flatfish - N100")
+points(sd_ARE_ssb_N100_NoIndex_ckmrmultinom5[2,], pch=16, col=2)
+points(sd_ARE_ssb_N100_NoIndex_ckmrmultinom10[2,], pch=16, col=3)
+points(sd_ARE_ssb_N100_NoIndex_10yrs_noCKMR[2,], pch=16, col=4)
+plot(sd_ARE_ssb_N100_NoIndex_5yrs_noCKMR[3,], pch=16, ylim=c(0,0.15), las=1, ylab="", main="Sardine - N100")
+points(sd_ARE_ssb_N100_NoIndex_ckmrmultinom5[3,], pch=16, col=2)
+points(sd_ARE_ssb_N100_NoIndex_ckmrmultinom10[3,], pch=16, col=3)
+points(sd_ARE_ssb_N100_NoIndex_10yrs_noCKMR[3,], pch=16, col=4)
+
+plot(sd_ARE_ssb_N1000_NoIndex_5yrs_noCKMR[1,], pch=16, ylim=c(0,0.09), las=1, ylab="", main="No Index   Cod - N1000")
+points(sd_ARE_ssb_N1000_NoIndex_ckmrmultinom5[1,], pch=16, col=2)
+points(sd_ARE_ssb_N1000_NoIndex_ckmrmultinom10[1,], pch=16, col=3)
+points(sd_ARE_ssb_N1000_NoIndex_10yrs_noCKMR[1,], pch=16, col=4)
+legend("top", c("No CKMR 5yrs", "No CKMR 10yrs","CKMR 5yrs", "CKMR 10yrs"), col=c(1,4,2,3), pch=16)
+plot(sd_ARE_ssb_N1000_NoIndex_5yrs_noCKMR[2,], pch=16, ylim=c(0,0.10), las=1, ylab="SD SSB ARE", main="Flatfish - N1000")
+points(sd_ARE_ssb_N1000_NoIndex_ckmrmultinom5[2,], pch=16, col=2)
+points(sd_ARE_ssb_N1000_NoIndex_10yrs_noCKMR[2,], pch=16, col=3)
+points(sd_ARE_ssb_N1000_NoIndex_ckmrmultinom10[2,], pch=16, col=4)
+plot(sd_ARE_ssb_N1000_NoIndex_5yrs_noCKMR[3,], pch=16, ylim=c(0,0.15), las=1, ylab="", main="Sardine - N1000")
+points(sd_ARE_ssb_N1000_NoIndex_ckmrmultinom5[3,], pch=16, col=2)
+points(sd_ARE_ssb_N1000_NoIndex_ckmrmultinom10[3,], pch=16, col=3)
+points(sd_ARE_ssb_N1000_NoIndex_10yrs_noCKMR[3,], pch=16, col=4)
+
+plot(sd_ARE_ssb_N5000_NoIndex_5yrs_noCKMR[1,], pch=16, ylim=c(0,0.09), las=1, ylab="", main="Cod - N5000")
+points(sd_ARE_ssb_N5000_NoIndex_ckmrmultinom5[1,], pch=16, col=2)
+points(sd_ARE_ssb_N5000_NoIndex_ckmrmultinom10[1,], pch=16, col=3)
+points(sd_ARE_ssb_N5000_NoIndex_10yrs_noCKMR[1,], pch=16, col=4)
+plot(sd_ARE_ssb_N5000_NoIndex_5yrs_noCKMR[2,], pch=16, ylim=c(0,0.10), las=1, ylab="SD SSB ARE", main="Flatfish - N5000")
+points(sd_ARE_ssb_N5000_NoIndex_ckmrmultinom5[2,], pch=16, col=2)
+points(sd_ARE_ssb_N5000_NoIndex_ckmrmultinom10[2,], pch=16, col=3)
+points(sd_ARE_ssb_N5000_NoIndex_10yrs_noCKMR[2,], pch=16, col=4)
+plot(sd_ARE_ssb_N5000_NoIndex_5yrs_noCKMR[3,], pch=16, ylim=c(0,0.15), las=1, ylab="", main="Sardine - N5000")
+points(sd_ARE_ssb_N5000_NoIndex_ckmrmultinom5[3,], pch=16, col=2)
+points(sd_ARE_ssb_N5000_NoIndex_ckmrmultinom10[3,], pch=16, col=3)
+points(sd_ARE_ssb_N5000_NoIndex_10yrs_noCKMR[3,], pch=16, col=4)
+
+#Index 0.50
+par(mfcol=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
+plot(sd_ARE_ssb_N100_Ind50_5yrs_noCKMR[1,], pch=16, ylim=c(0,0.09), las=1, ylab="", main="Cod - N100")
+points(sd_ARE_ssb_N100_Ind50_ckmrmultinom5[1,], pch=16, col=2)
+points(sd_ARE_ssb_N100_Ind50_ckmrmultinom10[1,], pch=16, col=3)
+points(sd_ARE_ssb_N100_Ind50_10yrs_noCKMR[1,], pch=16, col=4)
+plot(sd_ARE_ssb_N100_Ind50_5yrs_noCKMR[2,], pch=16, ylim=c(0,0.10), las=1, ylab="SD SSB ARE", main="Flatfish - N100")
+points(sd_ARE_ssb_N100_Ind50_ckmrmultinom5[2,], pch=16, col=2)
+points(sd_ARE_ssb_N100_Ind50_ckmrmultinom10[2,], pch=16, col=3)
+points(sd_ARE_ssb_N100_Ind50_10yrs_noCKMR[2,], pch=16, col=4)
+plot(sd_ARE_ssb_N100_Ind50_5yrs_noCKMR[3,], pch=16, ylim=c(0,0.15), las=1, ylab="", main="Sardine - N100")
+points(sd_ARE_ssb_N100_Ind50_ckmrmultinom5[3,], pch=16, col=2)
+points(sd_ARE_ssb_N100_Ind50_ckmrmultinom10[3,], pch=16, col=3)
+points(sd_ARE_ssb_N100_Ind50_10yrs_noCKMR[3,], pch=16, col=4)
+
+plot(sd_ARE_ssb_N1000_Ind50_5yrs_noCKMR[1,], pch=16, ylim=c(0,0.09), las=1, ylab="", main="Index 0.5   Cod - N1000")
+points(sd_ARE_ssb_N1000_Ind50_ckmrmultinom5[1,], pch=16, col=2)
+points(sd_ARE_ssb_N1000_Ind50_ckmrmultinom10[1,], pch=16, col=3)
+points(sd_ARE_ssb_N1000_Ind50_10yrs_noCKMR[1,], pch=16, col=4)
+legend("top", c("No CKMR 5yrs","No CKMR 10yrs","CKMR 5yrs","CKMR 10yrs"), col=c(1,4,2,3), pch=16)
+plot(sd_ARE_ssb_N1000_Ind50_5yrs_noCKMR[2,], pch=16, ylim=c(0,0.10), las=1, ylab="SD SSB ARE", main="Flatfish - N1000")
+points(sd_ARE_ssb_N1000_Ind50_ckmrmultinom5[2,], pch=16, col=2)
+points(sd_ARE_ssb_N1000_Ind50_10yrs_noCKMR[2,], pch=16, col=3)
+points(sd_ARE_ssb_N1000_Ind50_ckmrmultinom10[2,], pch=16, col=4)
+plot(sd_ARE_ssb_N1000_Ind50_5yrs_noCKMR[3,], pch=16, ylim=c(0,0.15), las=1, ylab="", main="Sardine - N1000")
+points(sd_ARE_ssb_N1000_Ind50_ckmrmultinom5[3,], pch=16, col=2)
+points(sd_ARE_ssb_N1000_Ind50_ckmrmultinom10[3,], pch=16, col=3)
+points(sd_ARE_ssb_N1000_Ind50_10yrs_noCKMR[3,], pch=16, col=4)
+
+plot(sd_ARE_ssb_N5000_Ind50_5yrs_noCKMR[1,], pch=16, ylim=c(0,0.09), las=1, ylab="", main="Cod - N5000")
+points(sd_ARE_ssb_N5000_Ind50_ckmrmultinom5[1,], pch=16, col=2)
+points(sd_ARE_ssb_N5000_Ind50_ckmrmultinom10[1,], pch=16, col=3)
+points(sd_ARE_ssb_N5000_Ind50_10yrs_noCKMR[1,], pch=16, col=4)
+plot(sd_ARE_ssb_N5000_Ind50_5yrs_noCKMR[2,], pch=16, ylim=c(0,0.10), las=1, ylab="SD SSB ARE", main="Flatfish - N5000")
+points(sd_ARE_ssb_N5000_Ind50_ckmrmultinom5[2,], pch=16, col=2)
+points(sd_ARE_ssb_N5000_Ind50_ckmrmultinom10[2,], pch=16, col=3)
+points(sd_ARE_ssb_N5000_Ind50_10yrs_noCKMR[2,], pch=16, col=4)
+plot(sd_ARE_ssb_N5000_Ind50_5yrs_noCKMR[3,], pch=16, ylim=c(0,0.15), las=1, ylab="", main="Sardine - N5000")
+points(sd_ARE_ssb_N5000_Ind50_ckmrmultinom5[3,], pch=16, col=2)
+points(sd_ARE_ssb_N5000_Ind50_ckmrmultinom10[3,], pch=16, col=3)
+points(sd_ARE_ssb_N5000_Ind50_10yrs_noCKMR[3,], pch=16, col=4)
+
+#Index 0.25
 par(mfcol=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
 plot(sd_ARE_ssb_N100_Ind25_5yrs_noCKMR[1,], pch=16, ylim=c(0,0.09), las=1, ylab="", main="Cod - N100")
 points(sd_ARE_ssb_N100_Ind25_ckmrmultinom5[1,], pch=16, col=2)
@@ -5411,11 +5783,11 @@ points(sd_ARE_ssb_N100_Ind25_ckmrmultinom5[3,], pch=16, col=2)
 points(sd_ARE_ssb_N100_Ind25_ckmrmultinom10[3,], pch=16, col=3)
 points(sd_ARE_ssb_N100_Ind25_10yrs_noCKMR[3,], pch=16, col=4)
 
-plot(sd_ARE_ssb_N1000_Ind25_5yrs_noCKMR[1,], pch=16, ylim=c(0,0.09), las=1, ylab="", main="Cod - N1000")
+plot(sd_ARE_ssb_N1000_Ind25_5yrs_noCKMR[1,], pch=16, ylim=c(0,0.09), las=1, ylab="", main="Index 0.25   Cod - N1000")
 points(sd_ARE_ssb_N1000_Ind25_ckmrmultinom5[1,], pch=16, col=2)
 points(sd_ARE_ssb_N1000_Ind25_ckmrmultinom10[1,], pch=16, col=3)
 points(sd_ARE_ssb_N1000_Ind25_10yrs_noCKMR[1,], pch=16, col=4)
-legend("top", c("No CKMR 5yrs", "CKMR 5yrs","No CKMR 10yrs", "CKMR 10yrs"), col=c(1,2,4,3), pch=16)
+legend("top", c("No CKMR 5yrs","No CKMR 10yrs","CKMR 5yrs","CKMR 10yrs"), col=c(1,4,2,3), pch=16)
 plot(sd_ARE_ssb_N1000_Ind25_5yrs_noCKMR[2,], pch=16, ylim=c(0,0.10), las=1, ylab="SD SSB ARE", main="Flatfish - N1000")
 points(sd_ARE_ssb_N1000_Ind25_ckmrmultinom5[2,], pch=16, col=2)
 points(sd_ARE_ssb_N1000_Ind25_10yrs_noCKMR[2,], pch=16, col=3)
@@ -5439,13 +5811,76 @@ points(sd_ARE_ssb_N5000_Ind25_ckmrmultinom10[3,], pch=16, col=3)
 points(sd_ARE_ssb_N5000_Ind25_10yrs_noCKMR[3,], pch=16, col=4)
 
 #R0 sd of relative error between sims 
+#No Index
+par(mfrow=c(2,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
+plot(1:3,sd_RE_R0_N100_NoIndex_5yrs_noCKMR, ylim=c(0,0.2), las=1, ylab="SD RE log(R0)", xaxt="n", pch=16, main="N100", xlab="",xlim=c(0.5,3.5))
+points(1:3,sd_RE_R0_N100_NoIndex_ckmrmultinom5, pch=16, col=2)
+points(1:3,sd_RE_R0_N100_NoIndex_ckmrmultinom10, pch=16, col=3)
+points(1:3,sd_RE_R0_N100_NoIndex_10yrs_noCKMR, pch=16, col=4)
+plot(1:3,sd_RE_R0_N1000_NoIndex_5yrs_noCKMR, ylim=c(0,0.2), las=1, ylab="", xaxt="n", pch=16, main="No Index,  N1000", xlab="",xlim=c(0.5,3.5))
+legend("top", c("No CKMR 5yrs","No CKMR 10yrs","CKMR 5yrs", "CKMR 10yrs"), col=c(1,4,2,3), pch=16)
+points(1:3,sd_RE_R0_N1000_NoIndex_ckmrmultinom5, pch=16, col=2)
+points(1:3,sd_RE_R0_N1000_NoIndex_ckmrmultinom10, pch=16, col=3)
+points(1:3,sd_RE_R0_N1000_NoIndex_10yrs_noCKMR, pch=16, col=4)
+plot(1:3,sd_RE_R0_N5000_NoIndex_5yrs_noCKMR, ylim=c(0,0.2), las=1, ylab="SD RE log(R0)", xaxt="n", pch=16, main="N5000", xlab="",xlim=c(0.5,3.5))
+points(1:3,sd_RE_R0_N5000_NoIndex_ckmrmultinom5, pch=16, col=2)
+points(1:3,sd_RE_R0_N5000_NoIndex_ckmrmultinom10, pch=16, col=3)
+points(1:3,sd_RE_R0_N5000_NoIndex_10yrs_noCKMR, pch=16, col=4)
+plot(1:3,sd_ARE_R0_N100_NoIndex_5yrs_noCKMR, ylim=c(0,0.2), las=1, ylab="SD ARE log(R0)", xaxt="n", pch=16, main="N100", xlab="",xlim=c(0.5,3.5))
+points(1:3,sd_ARE_R0_N100_NoIndex_ckmrmultinom5, pch=16, col=2)
+points(1:3,sd_ARE_R0_N100_NoIndex_ckmrmultinom10, pch=16, col=3)
+points(1:3,sd_ARE_R0_N100_NoIndex_10yrs_noCKMR, pch=16, col=4)
+axis(side=1, at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+plot(1:3,sd_ARE_R0_N1000_NoIndex_5yrs_noCKMR, ylim=c(0,0.2), las=1, ylab="", xaxt="n", pch=16, main="N1000", xlab="",xlim=c(0.5,3.5))
+points(1:3,sd_ARE_R0_N1000_NoIndex_ckmrmultinom5, pch=16, col=2)
+points(1:3,sd_ARE_R0_N1000_NoIndex_ckmrmultinom10, pch=16, col=3)
+points(1:3,sd_ARE_R0_N1000_NoIndex_10yrs_noCKMR, pch=16, col=4)
+axis(side=1, at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+plot(1:3,sd_ARE_R0_N5000_NoIndex_5yrs_noCKMR, ylim=c(0,0.2), las=1, ylab="SD ARE log(R0)", xaxt="n", pch=16, main="N5000", xlab="",xlim=c(0.5,3.5))
+points(1:3,sd_ARE_R0_N5000_NoIndex_ckmrmultinom5, pch=16, col=2)
+points(1:3,sd_ARE_R0_N5000_NoIndex_ckmrmultinom10, pch=16, col=3)
+points(1:3,sd_ARE_R0_N5000_NoIndex_10yrs_noCKMR, pch=16, col=4)
+axis(side=1, at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+
+#Index 0.50
+par(mfrow=c(2,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
+plot(1:3,sd_RE_R0_N100_Ind50_5yrs_noCKMR, ylim=c(0,0.2), las=1, ylab="SD RE log(R0)", xaxt="n", pch=16, main="N100", xlab="",xlim=c(0.5,3.5))
+points(1:3,sd_RE_R0_N100_Ind50_ckmrmultinom5, pch=16, col=2)
+points(1:3,sd_RE_R0_N100_Ind50_ckmrmultinom10, pch=16, col=3)
+points(1:3,sd_RE_R0_N100_Ind50_10yrs_noCKMR, pch=16, col=4)
+plot(1:3,sd_RE_R0_N1000_Ind50_5yrs_noCKMR, ylim=c(0,0.2), las=1, ylab="", xaxt="n", pch=16, main="Index 0.50,  N1000", xlab="",xlim=c(0.5,3.5))
+legend("top", c("No CKMR 5yrs", "No CKMR 10yrs","CKMR 5yrs", "CKMR 10yrs"), col=c(1,4,2,3), pch=16)
+points(1:3,sd_RE_R0_N1000_Ind50_ckmrmultinom5, pch=16, col=2)
+points(1:3,sd_RE_R0_N1000_Ind50_ckmrmultinom10, pch=16, col=3)
+points(1:3,sd_RE_R0_N1000_Ind50_10yrs_noCKMR, pch=16, col=4)
+plot(1:3,sd_RE_R0_N5000_Ind50_5yrs_noCKMR, ylim=c(0,0.2), las=1, ylab="SD RE log(R0)", xaxt="n", pch=16, main="N5000", xlab="",xlim=c(0.5,3.5))
+points(1:3,sd_RE_R0_N5000_Ind50_ckmrmultinom5, pch=16, col=2)
+points(1:3,sd_RE_R0_N5000_Ind50_ckmrmultinom10, pch=16, col=3)
+points(1:3,sd_RE_R0_N5000_Ind50_10yrs_noCKMR, pch=16, col=4)
+plot(1:3,sd_ARE_R0_N100_Ind50_5yrs_noCKMR, ylim=c(0,0.2), las=1, ylab="SD ARE log(R0)", xaxt="n", pch=16, main="N100", xlab="",xlim=c(0.5,3.5))
+points(1:3,sd_ARE_R0_N100_Ind50_ckmrmultinom5, pch=16, col=2)
+points(1:3,sd_ARE_R0_N100_Ind50_ckmrmultinom10, pch=16, col=3)
+points(1:3,sd_ARE_R0_N100_Ind50_10yrs_noCKMR, pch=16, col=4)
+axis(side=1, at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+plot(1:3,sd_ARE_R0_N1000_Ind50_5yrs_noCKMR, ylim=c(0,0.2), las=1, ylab="", xaxt="n", pch=16, main="N1000", xlab="",xlim=c(0.5,3.5))
+points(1:3,sd_ARE_R0_N1000_Ind50_ckmrmultinom5, pch=16, col=2)
+points(1:3,sd_ARE_R0_N1000_Ind50_ckmrmultinom10, pch=16, col=3)
+points(1:3,sd_ARE_R0_N1000_Ind50_10yrs_noCKMR, pch=16, col=4)
+axis(side=1, at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+plot(1:3,sd_ARE_R0_N5000_Ind50_5yrs_noCKMR, ylim=c(0,0.2), las=1, ylab="SD ARE log(R0)", xaxt="n", pch=16, main="N5000", xlab="",xlim=c(0.5,3.5))
+points(1:3,sd_ARE_R0_N5000_Ind50_ckmrmultinom5, pch=16, col=2)
+points(1:3,sd_ARE_R0_N5000_Ind50_ckmrmultinom10, pch=16, col=3)
+points(1:3,sd_ARE_R0_N5000_Ind50_10yrs_noCKMR, pch=16, col=4)
+axis(side=1, at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+
+#Index 0.25
 par(mfrow=c(2,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
 plot(1:3,sd_RE_R0_N100_Ind25_5yrs_noCKMR, ylim=c(0,0.2), las=1, ylab="SD RE log(R0)", xaxt="n", pch=16, main="N100", xlab="",xlim=c(0.5,3.5))
 points(1:3,sd_RE_R0_N100_Ind25_ckmrmultinom5, pch=16, col=2)
 points(1:3,sd_RE_R0_N100_Ind25_ckmrmultinom10, pch=16, col=3)
 points(1:3,sd_RE_R0_N100_Ind25_10yrs_noCKMR, pch=16, col=4)
-plot(1:3,sd_RE_R0_N1000_Ind25_5yrs_noCKMR, ylim=c(0,0.2), las=1, ylab="", xaxt="n", pch=16, main="N1000", xlab="",xlim=c(0.5,3.5))
-legend("top", c("No CKMR 5yrs", "CKMR 5yrs","No CKMR 10yrs", "CKMR 10yrs"), col=c(1,2,4,3), pch=16)
+plot(1:3,sd_RE_R0_N1000_Ind25_5yrs_noCKMR, ylim=c(0,0.2), las=1, ylab="", xaxt="n", pch=16, main="Index 0.25,  N1000", xlab="",xlim=c(0.5,3.5))
+legend("top", c("No CKMR 5yrs","No CKMR 10yrs", "CKMR 5yrs", "CKMR 10yrs"), col=c(1,4,2,3), pch=16)
 points(1:3,sd_RE_R0_N1000_Ind25_ckmrmultinom5, pch=16, col=2)
 points(1:3,sd_RE_R0_N1000_Ind25_ckmrmultinom10, pch=16, col=3)
 points(1:3,sd_RE_R0_N1000_Ind25_10yrs_noCKMR, pch=16, col=4)
@@ -5470,14 +5905,83 @@ points(1:3,sd_ARE_R0_N5000_Ind25_10yrs_noCKMR, pch=16, col=4)
 axis(side=1, at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
 
 #M sd of relative error between sims 
+#No Index
+par(mfrow=c(2,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
+plot(1:3,sd_RE_M_N100_NoIndex_5yrs_noCKMR, ylim=c(0,0.05), las=1, ylab="SD RE log(M)", xaxt="n", pch=16, main="N100", xlab="",xlim=c(0.5,3.5))
+points(1:3,sd_RE_M_N100_NoIndex_ckmrmultinom5, pch=16, col=2)
+points(1:3,sd_RE_M_N100_NoIndex_ckmrmultinom10, pch=16, col=3)
+points(1:3,sd_RE_M_N100_NoIndex_10yrs_noCKMR, pch=16, col=4)
+axis(side=1,at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+plot(1:3,sd_RE_M_N1000_NoIndex_5yrs_noCKMR, ylim=c(0,0.05), las=1, ylab="", xaxt="n", pch=16, main="No Index   N1000", xlab="",xlim=c(0.5,3.5))
+legend("bottom", c("No CKMR 5yrs","No CKMR 10yrs","CKMR 5yrs", "CKMR 10yrs"), col=c(1,4,2,3), pch=16)
+points(1:3,sd_RE_M_N1000_NoIndex_ckmrmultinom5, pch=16, col=2)
+points(1:3,sd_RE_M_N1000_NoIndex_ckmrmultinom10, pch=16, col=3)
+points(1:3,sd_RE_M_N1000_NoIndex_10yrs_noCKMR, pch=16, col=4)
+axis(side=1,at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+plot(1:3,sd_RE_M_N5000_NoIndex_5yrs_noCKMR, ylim=c(0,0.05), las=1, ylab="SD RE log(M)", xaxt="n", pch=16, main="N5000", xlab="",xlim=c(0.5,3.5))
+points(1:3,sd_RE_M_N5000_NoIndex_ckmrmultinom5, pch=16, col=2)
+points(1:3,sd_RE_M_N5000_NoIndex_ckmrmultinom10, pch=16, col=3)
+points(1:3,sd_RE_M_N5000_NoIndex_10yrs_noCKMR, pch=16, col=4)
+axis(side=1,at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+plot(1:3,sd_ARE_M_N100_NoIndex_5yrs_noCKMR, ylim=c(0,0.05), las=1, ylab="SD ARE log(M)", xaxt="n", pch=16, main="N100", xlab="",xlim=c(0.5,3.5))
+points(1:3,sd_ARE_M_N100_NoIndex_ckmrmultinom5, pch=16, col=2)
+points(1:3,sd_ARE_M_N100_NoIndex_ckmrmultinom10, pch=16, col=3)
+points(1:3,sd_ARE_M_N100_NoIndex_10yrs_noCKMR, pch=16, col=4)
+axis(side=1,at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+plot(1:3,sd_ARE_M_N1000_NoIndex_5yrs_noCKMR, ylim=c(0,0.05), las=1, ylab="", xaxt="n", pch=16, main="N1000", xlab="",xlim=c(0.5,3.5))
+points(1:3,sd_ARE_M_N1000_NoIndex_ckmrmultinom5, pch=16, col=2)
+points(1:3,sd_ARE_M_N1000_NoIndex_ckmrmultinom10, pch=16, col=3)
+points(1:3,sd_ARE_M_N1000_NoIndex_10yrs_noCKMR, pch=16, col=4)
+axis(side=1,at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+plot(1:3,sd_ARE_M_N5000_NoIndex_5yrs_noCKMR, ylim=c(0,0.05), las=1, ylab="SD ARE log(M)", xaxt="n", pch=16, main="N5000", xlab="",xlim=c(0.5,3.5))
+points(1:3,sd_ARE_M_N5000_NoIndex_ckmrmultinom5, pch=16, col=2)
+points(1:3,sd_ARE_M_N5000_NoIndex_ckmrmultinom10, pch=16, col=3)
+points(1:3,sd_ARE_M_N5000_NoIndex_10yrs_noCKMR, pch=16, col=4)
+axis(side=1,at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+
+#Index 0.50
+par(mfrow=c(2,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
+plot(1:3,sd_RE_M_N100_Ind50_5yrs_noCKMR, ylim=c(0,0.05), las=1, ylab="SD RE log(M)", xaxt="n", pch=16, main="N100", xlab="",xlim=c(0.5,3.5))
+points(1:3,sd_RE_M_N100_Ind50_ckmrmultinom5, pch=16, col=2)
+points(1:3,sd_RE_M_N100_Ind50_ckmrmultinom10, pch=16, col=3)
+points(1:3,sd_RE_M_N100_Ind50_10yrs_noCKMR, pch=16, col=4)
+axis(side=1,at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+plot(1:3,sd_RE_M_N1000_Ind50_5yrs_noCKMR, ylim=c(0,0.05), las=1, ylab="", xaxt="n", pch=16, main="Index 0.50   N1000", xlab="",xlim=c(0.5,3.5))
+legend("bottom", c("No CKMR 5yrs","No CKMR 10yrs", "CKMR 5yrs","CKMR 10yrs"), col=c(1,4,2,3), pch=16)
+points(1:3,sd_RE_M_N1000_Ind50_ckmrmultinom5, pch=16, col=2)
+points(1:3,sd_RE_M_N1000_Ind50_ckmrmultinom10, pch=16, col=3)
+points(1:3,sd_RE_M_N1000_Ind50_10yrs_noCKMR, pch=16, col=4)
+axis(side=1,at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+plot(1:3,sd_RE_M_N5000_Ind50_5yrs_noCKMR, ylim=c(0,0.05), las=1, ylab="SD RE log(M)", xaxt="n", pch=16, main="N5000", xlab="",xlim=c(0.5,3.5))
+points(1:3,sd_RE_M_N5000_Ind50_ckmrmultinom5, pch=16, col=2)
+points(1:3,sd_RE_M_N5000_Ind50_ckmrmultinom10, pch=16, col=3)
+points(1:3,sd_RE_M_N5000_Ind50_10yrs_noCKMR, pch=16, col=4)
+axis(side=1,at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+plot(1:3,sd_ARE_M_N100_Ind50_5yrs_noCKMR, ylim=c(0,0.05), las=1, ylab="SD ARE log(M)", xaxt="n", pch=16, main="N100", xlab="",xlim=c(0.5,3.5))
+points(1:3,sd_ARE_M_N100_Ind50_ckmrmultinom5, pch=16, col=2)
+points(1:3,sd_ARE_M_N100_Ind50_ckmrmultinom10, pch=16, col=3)
+points(1:3,sd_ARE_M_N100_Ind50_10yrs_noCKMR, pch=16, col=4)
+axis(side=1,at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+plot(1:3,sd_ARE_M_N1000_Ind50_5yrs_noCKMR, ylim=c(0,0.05), las=1, ylab="", xaxt="n", pch=16, main="N1000", xlab="",xlim=c(0.5,3.5))
+points(1:3,sd_ARE_M_N1000_Ind50_ckmrmultinom5, pch=16, col=2)
+points(1:3,sd_ARE_M_N1000_Ind50_ckmrmultinom10, pch=16, col=3)
+points(1:3,sd_ARE_M_N1000_Ind50_10yrs_noCKMR, pch=16, col=4)
+axis(side=1,at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+plot(1:3,sd_ARE_M_N5000_Ind50_5yrs_noCKMR, ylim=c(0,0.05), las=1, ylab="SD ARE log(M)", xaxt="n", pch=16, main="N5000", xlab="",xlim=c(0.5,3.5))
+points(1:3,sd_ARE_M_N5000_Ind50_ckmrmultinom5, pch=16, col=2)
+points(1:3,sd_ARE_M_N5000_Ind50_ckmrmultinom10, pch=16, col=3)
+points(1:3,sd_ARE_M_N5000_Ind50_10yrs_noCKMR, pch=16, col=4)
+axis(side=1,at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+
+#Index 0.25
 par(mfrow=c(2,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
 plot(1:3,sd_RE_M_N100_Ind25_5yrs_noCKMR, ylim=c(0,0.05), las=1, ylab="SD RE log(M)", xaxt="n", pch=16, main="N100", xlab="",xlim=c(0.5,3.5))
 points(1:3,sd_RE_M_N100_Ind25_ckmrmultinom5, pch=16, col=2)
 points(1:3,sd_RE_M_N100_Ind25_ckmrmultinom10, pch=16, col=3)
 points(1:3,sd_RE_M_N100_Ind25_10yrs_noCKMR, pch=16, col=4)
 axis(side=1,at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
-plot(1:3,sd_RE_M_N1000_Ind25_5yrs_noCKMR, ylim=c(0,0.05), las=1, ylab="", xaxt="n", pch=16, main="N1000", xlab="",xlim=c(0.5,3.5))
-legend("bottom", c("No CKMR 5yrs", "CKMR 5yrs","No CKMR 10yrs", "CKMR 10yrs"), col=c(1,2,4,3), pch=16)
+plot(1:3,sd_RE_M_N1000_Ind25_5yrs_noCKMR, ylim=c(0,0.05), las=1, ylab="", xaxt="n", pch=16, main="Index 0.25   N1000", xlab="",xlim=c(0.5,3.5))
+legend("bottom", c("No CKMR 5yrs","No CKMR 10yrs", "CKMR 5yrs", "CKMR 10yrs"), col=c(1,4,2,3), pch=16)
 points(1:3,sd_RE_M_N1000_Ind25_ckmrmultinom5, pch=16, col=2)
 points(1:3,sd_RE_M_N1000_Ind25_ckmrmultinom10, pch=16, col=3)
 points(1:3,sd_RE_M_N1000_Ind25_10yrs_noCKMR, pch=16, col=4)
@@ -5502,5 +6006,3 @@ points(1:3,sd_ARE_M_N5000_Ind25_ckmrmultinom5, pch=16, col=2)
 points(1:3,sd_ARE_M_N5000_Ind25_ckmrmultinom10, pch=16, col=3)
 points(1:3,sd_ARE_M_N5000_Ind25_10yrs_noCKMR, pch=16, col=4)
 axis(side=1,at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
-
-     
