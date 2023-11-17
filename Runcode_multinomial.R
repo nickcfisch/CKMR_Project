@@ -1,6 +1,7 @@
 
 #Run Code
 
+#devtools::install_github("kaskr/TMB_contrib_R/TMBhelper")
 wd<-"C:/Users/nfisch/Documents/GitHub/CKMR_Project/"
 
 ########################
