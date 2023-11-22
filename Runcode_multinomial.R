@@ -1261,9 +1261,9 @@ for (Q in 1:3){  #Running through the life history types
   }
 }
 
-saveRDS(res_list[[1]], file=paste0(wd,"/SCAAfit_Cod_N200_Ind25_ckmrmultinom.RData"))
-saveRDS(res_list[[2]], file=paste0(wd,"/SCAAfit_Flatfish_N200_Ind25_ckmrmultinom.RData"))
-saveRDS(res_list[[3]], file=paste0(wd,"/SCAAfit_Sardine_N200_Ind25_ckmrmultinom.RData"))
+saveRDS(res_list[[1]], file=paste0(wd,"/SCAAfit_Cod_N200_Ind25_ckmrmultinom25.RData"))
+saveRDS(res_list[[2]], file=paste0(wd,"/SCAAfit_Flatfish_N200_Ind25_ckmrmultinom25.RData"))
+saveRDS(res_list[[3]], file=paste0(wd,"/SCAAfit_Sardine_N200_Ind25_ckmrmultinom25.RData"))
 
 #########################
 #Ncomp 200, sdindex 0.5
@@ -1358,9 +1358,9 @@ for (Q in 1:3){  #Running through the life history types
   }
 }
 
-saveRDS(res_list[[1]], file=paste0(wd,"/SCAAfit_Cod_N200_Ind50_ckmrmultinom.RData"))
-saveRDS(res_list[[2]], file=paste0(wd,"/SCAAfit_Flatfish_N200_Ind50_ckmrmultinom.RData"))
-saveRDS(res_list[[3]], file=paste0(wd,"/SCAAfit_Sardine_N200_Ind50_ckmrmultinom.RData"))
+saveRDS(res_list[[1]], file=paste0(wd,"/SCAAfit_Cod_N200_Ind50_ckmrmultinom25.RData"))
+saveRDS(res_list[[2]], file=paste0(wd,"/SCAAfit_Flatfish_N200_Ind50_ckmrmultinom25.RData"))
+saveRDS(res_list[[3]], file=paste0(wd,"/SCAAfit_Sardine_N200_Ind50_ckmrmultinom25.RData"))
 
 #########################
 #Ncomp 1000, sdindex 0.25
@@ -1455,9 +1455,9 @@ for (Q in 1:3){  #Running through the life history types
   }
 }
 
-saveRDS(res_list[[1]], file=paste0(wd,"/SCAAfit_Cod_N1000_Ind25_ckmrmultinom.RData"))
-saveRDS(res_list[[2]], file=paste0(wd,"/SCAAfit_Flatfish_N1000_Ind25_ckmrmultinom.RData"))
-saveRDS(res_list[[3]], file=paste0(wd,"/SCAAfit_Sardine_N1000_Ind25_ckmrmultinom.RData"))
+saveRDS(res_list[[1]], file=paste0(wd,"/SCAAfit_Cod_N1000_Ind25_ckmrmultinom25.RData"))
+saveRDS(res_list[[2]], file=paste0(wd,"/SCAAfit_Flatfish_N1000_Ind25_ckmrmultinom25.RData"))
+saveRDS(res_list[[3]], file=paste0(wd,"/SCAAfit_Sardine_N1000_Ind25_ckmrmultinom25.RData"))
 
 #########################
 #Ncomp 1000, sdindex 0.5
@@ -1552,6 +1552,102 @@ for (Q in 1:3){  #Running through the life history types
   }
 }
 
-saveRDS(res_list[[1]], file=paste0(wd,"/SCAAfit_Cod_N1000_Ind50_ckmrmultinom.RData"))
-saveRDS(res_list[[2]], file=paste0(wd,"/SCAAfit_Flatfish_N1000_Ind50_ckmrmultinom.RData"))
-saveRDS(res_list[[3]], file=paste0(wd,"/SCAAfit_Sardine_N1000_Ind50_ckmrmultinom.RData"))
+saveRDS(res_list[[1]], file=paste0(wd,"/SCAAfit_Cod_N1000_Ind50_ckmrmultinom25.RData"))
+saveRDS(res_list[[2]], file=paste0(wd,"/SCAAfit_Flatfish_N1000_Ind50_ckmrmultinom25.RData"))
+saveRDS(res_list[[3]], file=paste0(wd,"/SCAAfit_Sardine_N1000_Ind50_ckmrmultinom25.RData"))
+
+##################################
+#Attempt at parallel compute
+##################################
+
+library(foreach)
+library(doParallel)
+
+cl<-makeCluster(2)
+registerDoParallel(cl)
+
+load(paste0(wd,"/Flatfish_wdat_N1000_Ind25_ckmrmultinom25_1.RData"))
+
+Flatfish_OM<-Flatfish_wdat
+
+#TMB Section
+library(TMB)
+
+setwd(wd)
+#Compile and load model 
+compile("CKMRmultinom_HSP_and_POP_Fisch_wAge0.cpp")
+
+res_list<-list()
+for (Q in 2:2){  #Running through the life history types
+  res_list[[Q]]<-list()
+#  foreach(s=1:3, .packages="TMB", .errorhandling="pass" )  %dopar%  {
+  res_list[[Q]]<-foreach(s=1:2, .packages="TMB", .errorhandling="pass")  %dopar%  {
+    
+    if(Q==1){
+      OM<-Cod_OM[[s]]
+    } else if (Q==2){
+      OM<-Flatfish_OM[[s]]
+    }else if (Q==3){
+      OM<-Sardine_OM[[s]]
+    }
+    
+    dat<-list(fyear=OM$OM$fyear, lyear=75, fage=OM$OM$fage, lage=OM$OM$lage, 
+              years=OM$OM$fyear:75, ages=OM$OM$fage:OM$OM$lage,
+              obs_harv=OM$Obs_Catch,
+              obs_index=OM$Obs_Index,
+              obs_fishery_comp=OM$Obs_Catch_Comp/rowSums(OM$Obs_Catch_Comp),
+              SS_fishery=rowSums(OM$Obs_Catch_Comp),
+              Mat=OM$OM$Mat,
+              Laa=OM$OM$Laa,
+              Waa=OM$OM$Waa,
+              #CKMR 
+              born_year_old=OM$born_year_old-(OM$fyear_dat-1),
+              age_diff=OM$age_diff,
+              n_ckmr=OM$n_ckmr,
+              k_ckmr_hsp=OM$k_ckmr_hsp,
+              born_year_young=OM$born_year_young-(OM$fyear_dat-1), 
+              k_ckmr_pop=OM$k_ckmr_pop,
+              samp_year_old=OM$samp_year_old-(OM$fyear_dat-1),
+              #Switch for whether to use a data source or not, 0=no, 1=yes
+              Lamda_Harvest=1,
+              Lamda_Comp=1,
+              Lamda_Index=1,
+              Lamda_CKMR=1)
+    
+    #Parameters
+    set.seed(s)
+    par <- list(log_M=log(runif(1,min=OM$OM$Mref-OM$OM$Mref*0.2,max=OM$OM$Mref+OM$OM$Mref*0.2)),
+                log_q=log(runif(1,min=OM$q_index-OM$q_index*0.2,max=OM$q_index+OM$q_index*0.2)),
+                log_recruit_devs_init=rep(0,dat$lage),
+                log_recruit_devs=rep(0,dat$lyear),
+                steepness=OM$OM$h,
+                log_R0=log(runif(1,min=OM$OM$R0-OM$OM$R0*0.2,max=OM$OM$R0+OM$OM$R0*0.2)),
+                log_sigma_rec=log(OM$OM$sd_rec),
+                log_sd_catch=log(OM$sd_catch),
+                log_sd_index=log(OM$sd_index),
+                Sel_logis_k=log(runif(1,min=OM$OM$Sel_slope-OM$OM$Sel_slope*0.2,max=OM$OM$Sel_slope+OM$OM$Sel_slope*0.2)),
+                Sel_logis_midpt=log(runif(1,min=OM$OM$Sel_50-OM$OM$Sel_50*0.2,max=OM$OM$Sel_50+OM$OM$Sel_50*0.2)),
+                log_fint=log(runif(length(OM$OM$F_int[26:100]),min=OM$OM$F_int[26:100]-OM$OM$F_int[26:100]*0.2,max=OM$OM$F_int[26:100]+OM$OM$F_int[26:100]*0.2)))  
+    
+    dyn.load(dynlib("CKMRmultinom_HSP_and_POP_Fisch_wAge0"))
+    
+    parm_names<-names(MakeADFun(dat, par, DLL="CKMRmultinom_HSP_and_POP_Fisch_wAge0")$par)
+    
+    fixed<-list(steepness=factor(NA),
+                log_sd_catch=factor(NA),
+                log_sd_index=factor(NA))
+    
+    lower_bounds<-c(-5,-20,rep(-10,dat$lage),rep(-10,dat$lyear), 0, 5, -5,-5,-5,-5,-5,rep(-10,dat$lyear))
+    upper_bounds<-c( 2,  1,rep( 10,dat$lage),rep( 10,dat$lyear), 1, 25, 2, 2, 2, 5, 5,rep(  0,dat$lyear))
+    
+    reffects=c("log_recruit_devs","log_recruit_devs_init")
+    l<-lower_bounds[-which(parm_names %in% c(names(fixed),reffects))]
+    u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
+    
+    SCAA <- MakeADFun(dat, par, DLL="CKMRmultinom_HSP_and_POP_Fisch_wAge0", map=fixed, random=reffects)
+    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps=1, getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
+    SCAA_fit
+#    res_list[[Q]][[s]]<-SCAA_fit
+  }
+}
+
