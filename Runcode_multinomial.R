@@ -1563,7 +1563,7 @@ saveRDS(res_list[[3]], file=paste0(wd,"/SCAAfit_Sardine_N1000_Ind50_ckmrmultinom
 library(foreach)
 library(doParallel)
 
-cl<-makeCluster(2)
+cl<-makeCluster(3)
 registerDoParallel(cl)
 
 load(paste0(wd,"/Flatfish_wdat_N1000_Ind25_ckmrmultinom25_1.RData"))
@@ -1580,8 +1580,7 @@ compile("CKMRmultinom_HSP_and_POP_Fisch_wAge0.cpp")
 res_list<-list()
 for (Q in 2:2){  #Running through the life history types
   res_list[[Q]]<-list()
-#  foreach(s=1:3, .packages="TMB", .errorhandling="pass" )  %dopar%  {
-  res_list[[Q]]<-foreach(s=1:2, .packages="TMB", .errorhandling="pass")  %dopar%  {
+  res_list[[Q]]<-foreach(s=1:3, .packages="TMB", .errorhandling="pass", .verbose=TRUE)  %dopar%  {
     
     if(Q==1){
       OM<-Cod_OM[[s]]
@@ -1647,7 +1646,6 @@ for (Q in 2:2){  #Running through the life history types
     SCAA <- MakeADFun(dat, par, DLL="CKMRmultinom_HSP_and_POP_Fisch_wAge0", map=fixed, random=reffects)
     SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps=1, getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
     SCAA_fit
-#    res_list[[Q]][[s]]<-SCAA_fit
   }
 }
 
