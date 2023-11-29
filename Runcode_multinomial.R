@@ -1563,7 +1563,7 @@ saveRDS(res_list[[3]], file=paste0(wd,"/SCAAfit_Sardine_N1000_Ind50_ckmrmultinom
 library(foreach)
 library(doParallel)
 
-cl<-makeCluster(3)
+cl<-makeCluster(5)
 registerDoParallel(cl)
 
 load(paste0(wd,"/Flatfish_wdat_N1000_Ind25_ckmrmultinom25_1.RData"))
@@ -1580,8 +1580,10 @@ compile("CKMRmultinom_HSP_and_POP_Fisch_wAge0.cpp")
 res_list<-list()
 for (Q in 2:2){  #Running through the life history types
   res_list[[Q]]<-list()
-  res_list[[Q]]<-foreach(s=1:3, .packages="TMB", .errorhandling="pass", .verbose=TRUE)  %dopar%  {
-    
+  res_list[[Q]]<-foreach(s=1:5, .packages="TMB", .errorhandling="pass", .verbose=TRUE)  %dopar%  {
+    library(TMB)
+    setwd(wd)
+
     if(Q==1){
       OM<-Cod_OM[[s]]
     } else if (Q==2){
@@ -1649,3 +1651,4 @@ for (Q in 2:2){  #Running through the life history types
   }
 }
 
+#saveRDS(res_list[[2]], file=paste0(wd,"/SCAAfit_Flatfish_N1000_Ind25_ckmrmultinom25.RData"))
