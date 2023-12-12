@@ -228,6 +228,7 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
         
         if(collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i]>0){ # if we're not in unfished years
           HSP_calcs[i,j] <-  ( (OM$Naa[collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i],j]*OM$Mat[j]*OM$Waa[j]) / OM$SSB[collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i]] ) * surv_prob[i,j]  * (4 * OM$Mat[j+collapsed_pairs$age_diff[i]]*OM$Waa[j+collapsed_pairs$age_diff[i]] / OM$SSB[collapsed_pairs$born_year.young[i]])  #4 is for MHSP + FHSP
+#          HSP_calcs[i,j] <- 2 * (( (0.5*OM$Naa[collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i],j]*OM$Mat[j]*OM$Waa[j]) / (0.5*OM$SSB[collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i]]) ) * surv_prob[i,j]  * (OM$Mat[j+collapsed_pairs$age_diff[i]]*OM$Waa[j+collapsed_pairs$age_diff[i]] / (0.5*OM$SSB[collapsed_pairs$born_year.young[i]])))  #4 is for MHSP + FHSP
         } else if (collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i]<1){ #if we are in unfished years
           if(collapsed_pairs$born_year.young[i]>0){ #if second born is not in unfished years
             HSP_calcs[i,j] <-  ( (OM$N0aa[j]*OM$Mat[j]*OM$Waa[j]) / OM$SSB0 ) * surv_prob[i,j]  * (4 * OM$Mat[j+collapsed_pairs$age_diff[i]]*OM$Waa[j+collapsed_pairs$age_diff[i]] / OM$SSB[collapsed_pairs$born_year.young[i]])  #4 is for MHSP + FHSP
@@ -238,6 +239,7 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
       } else if (j+collapsed_pairs$age_diff[i]>(OM$lage+1)){ #Now if we are in plus group
         if(collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i]>0){ #if we're not in unfished years
           HSP_calcs[i,j] <-  ( (OM$Naa[collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i],j]*OM$Mat[j]*OM$Waa[j]) / OM$SSB[collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i]] ) * surv_prob[i,j]  * (4 * OM$Mat[(OM$lage+1)]*OM$Waa[(OM$lage+1)] / OM$SSB[collapsed_pairs$born_year.young[i]])  #4 is for MHSP + FHSP
+#          HSP_calcs[i,j] <- 2 * (( (0.5*OM$Naa[collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i],j]*OM$Mat[j]*OM$Waa[j]) / (0.5*OM$SSB[collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i]] )) * surv_prob[i,j]  * (OM$Mat[(OM$lage+1)]*OM$Waa[(OM$lage+1)] / (0.5*OM$SSB[collapsed_pairs$born_year.young[i]])))  #4 is for MHSP + FHSP
         } else if (collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i]<1){ #if we are in unfished years
           if(collapsed_pairs$born_year.young[i]>0){ #if second born is not in unfished years
             HSP_calcs[i,j] <-  ( (OM$N0aa[j]*OM$Mat[j]*OM$Waa[j]) / OM$SSB0 ) * surv_prob[i,j]  * (4 * OM$Mat[(OM$lage+1)]*OM$Waa[(OM$lage+1)] / OM$SSB[collapsed_pairs$born_year.young[i]])  #4 is for MHSP + FHSP
@@ -386,44 +388,65 @@ for (s in 1:Nsim){
 #save(Sardine_runs, file=paste0(wd,"/Sardine_Base.RData"))
 
 par(mfrow=c(1,3))
-plot(1:101,Cod_runs[[1]]$SSB/Cod_runs[[1]]$SSB0, ylim=c(0,2), las=1, xlab="Year", ylab="SSB/SSB0", main="Cod")
+plot(1:101,Cod_runs[[1]]$SSB/Cod_runs[[1]]$SSB0, ylim=c(0,2.75), las=1, xlab="Year", ylab="SSB/SSB0", main="Cod", type="l", col="grey50")
 Cod_Depl<-matrix(NA, nrow=Nsim,ncol=101)
 Cod_Depl[1,]<-Cod_runs[[1]]$SSB/Cod_runs[[1]]$SSB0
 for(s in 2:Nsim){
   Cod_Depl[s,]<-Cod_runs[[s]]$SSB/Cod_runs[[s]]$SSB0
-  points(1:101,Cod_runs[[s]]$SSB/Cod_runs[[s]]$SSB0)
+  lines(1:101,Cod_runs[[s]]$SSB/Cod_runs[[s]]$SSB0, col="grey50")
 }
-plot(1:101,Flatfish_runs[[1]]$SSB/Flatfish_runs[[1]]$SSB0, ylim=c(0,2), las=1, xlab="Year", ylab="SSB/SSB0", main="Flatfish")
+plot(1:101,Flatfish_runs[[1]]$SSB/Flatfish_runs[[1]]$SSB0, ylim=c(0,2.75), las=1, xlab="Year", ylab="SSB/SSB0", main="Flatfish", type="l", col="grey50")
 Flatfish_Depl<-matrix(NA, nrow=Nsim,ncol=101)
 Flatfish_Depl[1,]<-Flatfish_runs[[1]]$SSB/Flatfish_runs[[1]]$SSB0
 for(s in 2:Nsim){
   Flatfish_Depl[s,]<-Flatfish_runs[[s]]$SSB/Flatfish_runs[[s]]$SSB0
-  points(1:101,Flatfish_runs[[s]]$SSB/Flatfish_runs[[s]]$SSB0)
+  lines(1:101,Flatfish_runs[[s]]$SSB/Flatfish_runs[[s]]$SSB0, col="grey50")
 }
-plot(1:101,Sardine_runs[[1]]$SSB/Sardine_runs[[1]]$SSB0, ylim=c(0,2), las=1, xlab="Year", ylab="SSB/SSB0", main="Sardine")
+plot(1:101,Sardine_runs[[1]]$SSB/Sardine_runs[[1]]$SSB0, ylim=c(0,2.75), las=1, xlab="Year", ylab="SSB/SSB0", main="Sardine", type="l", col="grey50")
 Sardine_Depl<-matrix(NA, nrow=Nsim,ncol=101)
 Sardine_Depl[1,]<-Sardine_runs[[1]]$SSB/Sardine_runs[[1]]$SSB0
 for(s in 2:Nsim){
   Sardine_Depl[s,]<-Sardine_runs[[s]]$SSB/Sardine_runs[[s]]$SSB0
-  points(1:101,Sardine_runs[[s]]$SSB/Sardine_runs[[s]]$SSB0)
+  lines(1:101,Sardine_runs[[s]]$SSB/Sardine_runs[[s]]$SSB0, col="grey50")
 }
 
 #Ok looking at some CIs of the intervals
+par(mfrow=c(1,3))
+plot(1:101,apply(Cod_Depl,2,quantile,probs=0.975), type="l", lty=2, ylim=c(0,2), las=1, xlab="Year", ylab="SSB/SSB0", main="Cod")
+lines(1:101,apply(Cod_Depl,2,median),lty=1)
+lines(1:101,apply(Cod_Depl,2,quantile,probs=0.025),lty=2)
+lines(1:101,apply(Cod_Depl,2,quantile,probs=0.875),lty=3)
+lines(1:101,apply(Cod_Depl,2,quantile,probs=0.125),lty=3)
+
+plot(1:101,apply(Flatfish_Depl,2,quantile,probs=0.975), type="l", lty=2, ylim=c(0,2), las=1, xlab="Year", ylab="SSB/SSB0", main="Flatfish")
+lines(1:101,apply(Flatfish_Depl,2,median),lty=1)
+lines(1:101,apply(Flatfish_Depl,2,quantile,probs=0.025),lty=2)
+lines(1:101,apply(Flatfish_Depl,2,quantile,probs=0.875),lty=3)
+lines(1:101,apply(Flatfish_Depl,2,quantile,probs=0.125),lty=3)
+legend("top", c("Median","Inner 75%","Inner 95%"), lwd=1, lty=c(1,3,2))
+
+plot(1:101,apply(Sardine_Depl,2,quantile,probs=0.975), type="l", lty=2, ylim=c(0,2), las=1, xlab="Year", ylab="SSB/SSB0", main="Sardine")
+lines(1:101,apply(Sardine_Depl,2,median),lty=1)
+lines(1:101,apply(Sardine_Depl,2,quantile,probs=0.025),lty=2)
+lines(1:101,apply(Sardine_Depl,2,quantile,probs=0.875),lty=3)
+lines(1:101,apply(Sardine_Depl,2,quantile,probs=0.125),lty=3)
+
+#Using HPDs
 library(coda)
 par(mfrow=c(1,3))
-plot(1:101,HPDinterval(as.mcmc(Cod_Depl), prob=0.95)[,1], type="l", lty=2, ylim=c(0,1.6), las=1, xlab="Year", ylab="SSB/SSB0", main="Cod")
+plot(1:101,HPDinterval(as.mcmc(Cod_Depl), prob=0.95)[,1], type="l", lty=2, ylim=c(0,2), las=1, xlab="Year", ylab="SSB/SSB0", main="Cod")
 lines(1:101,apply(Cod_Depl,2,median),lty=1)
 lines(1:101,HPDinterval(as.mcmc(Cod_Depl), prob=0.95)[,2],lty=2)
 lines(1:101,HPDinterval(as.mcmc(Cod_Depl), prob=0.75)[,1],lty=3)
 lines(1:101,HPDinterval(as.mcmc(Cod_Depl), prob=0.75)[,2],lty=3)
 
-plot(1:101,HPDinterval(as.mcmc(Flatfish_Depl), prob=0.95)[,1], type="l", lty=2, ylim=c(0,1.6), las=1, xlab="Year", ylab="SSB/SSB0", main="Flatfish")
+plot(1:101,HPDinterval(as.mcmc(Flatfish_Depl), prob=0.95)[,1], type="l", lty=2, ylim=c(0,2), las=1, xlab="Year", ylab="SSB/SSB0", main="Flatfish")
 lines(1:101,apply(Flatfish_Depl,2,median),lty=1)
 lines(1:101,HPDinterval(as.mcmc(Flatfish_Depl), prob=0.95)[,2],lty=2)
 lines(1:101,HPDinterval(as.mcmc(Flatfish_Depl), prob=0.75)[,1],lty=3)
 lines(1:101,HPDinterval(as.mcmc(Flatfish_Depl), prob=0.75)[,2],lty=3)
 
-plot(1:101,HPDinterval(as.mcmc(Sardine_Depl), prob=0.95)[,1], type="l", lty=2, ylim=c(0,1.6), las=1, xlab="Year", ylab="SSB/SSB0", main="Sardine")
+plot(1:101,HPDinterval(as.mcmc(Sardine_Depl), prob=0.95)[,1], type="l", lty=2, ylim=c(0,2), las=1, xlab="Year", ylab="SSB/SSB0", main="Sardine")
 lines(1:101,apply(Sardine_Depl,2,median),lty=1)
 lines(1:101,HPDinterval(as.mcmc(Sardine_Depl), prob=0.95)[,2],lty=2)
 lines(1:101,HPDinterval(as.mcmc(Sardine_Depl), prob=0.75)[,1],lty=3)
