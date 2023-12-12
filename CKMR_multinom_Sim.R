@@ -299,7 +299,8 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
 #Fhigh is F that equals 0.85 MSY, as is flow
 
 #Sardine, 0.425 is fmsy, fhigh is 0.7875, flow is 0.2037
-#MSY 122577.8 (*0.85 = 104191.1)
+#MSY 122577.8 (*0.85 = 104191.1), 
+#1.7 is approx age at 50% maturity, making 3.733245 the generation time  
 Nsim<-100
 Sardine_runs<-list()
 for (s in 1:Nsim){
@@ -326,6 +327,7 @@ for (s in 1:Nsim){
 }
 
 #For Flatfish, fmsy is 0.27, MSY is 5240.563 (*0.85= 4454.479), and fhigh which reaches 0.85*MSY is 0.5425, flow is 0.1259
+#2.4 is approx age at 50% maturity, making 6.916656 the generation time
 Flatfish_runs<-list()
 for (s in 1:Nsim){
   Flatfish_runs[[s]]<-SimPop(seed=s,
@@ -355,6 +357,7 @@ for (s in 1:Nsim){
 }
 
 #For Cod, fmsy is 0.12, MSY is 160865265 (*0.85=136735475), f that reaches 0.85*MSY is 0.20284, flow is 0.06232
+#Age at 50% maturity is 1.5, making generation time 6.02
 Cod_runs<-list()
 for (s in 1:Nsim){
   Cod_runs[[s]]<-SimPop(seed=s,
