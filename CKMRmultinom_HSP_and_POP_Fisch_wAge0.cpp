@@ -307,10 +307,10 @@ Type objective_function<Type>::operator() ()
     if(samp_year_old(i) >= born_year_young(i)){
   //So the exp reproductive output of the parent in the year of offsprings birth / total reprod output that year
      if(born_year_young(i)>0){
-	  POP_prob(i) = 4*(Mat(age_diff(i)-1)*Waa(age_diff(i)-1) / spbiomass(born_year_young(i)-1));
+	  POP_prob(i) = 2*(Mat(age_diff(i)-1)*Waa(age_diff(i)-1) / spbiomass(born_year_young(i)-1));
 	 }    
 	 if(born_year_young(i)<1){
-	  POP_prob(i) = 4*(Mat(age_diff(i)-1)*Waa(age_diff(i)-1) / SSB0);
+	  POP_prob(i) = 2*(Mat(age_diff(i)-1)*Waa(age_diff(i)-1) / SSB0);
 	 }
    }	 
    // A potential parent has to have been sampled after or on the year of youngs birth, because sampling is lethal 
@@ -321,20 +321,26 @@ Type objective_function<Type>::operator() ()
 //////////////////////////////////////////// 
 //Multinomial Likelihood for CKMR calcs
 ////////////////////////////////////////////  
-	  
-   //if potential parent was sampled after or on the year of youngs birth, because sampling is lethal  	  
-   if(samp_year_old(i) >= born_year_young(i)){
-    L4 += -1*(n_ckmr(i)*((n_ckmr(i)-(k_ckmr_hsp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-(HSP_prob(i)+POP_prob(i)))); //Prob of no match
-    L4 += -1*(n_ckmr(i)*((k_ckmr_hsp(i)/n_ckmr(i))*log(HSP_prob(i))));    //Prob of HSP
-    L4 += -1*(n_ckmr(i)*((k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i))));    //Prob of POP
-     //Alternative = Sample size * sum ( Prob of no match + Prob of HSP + Prob of POP ) 
-//    L4 += -1*( n_ckmr(i) * ( ((n_ckmr(i)-(k_ckmr_hsp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-(HSP_prob(i)+POP_prob(i))) + (k_ckmr_hsp(i)/n_ckmr(i))*log(HSP_prob(i)) + (k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i))) ); 
+
+//If the age difference is > 2*generation time, then we omit HSP consideration as they are tough to tell apart genetically
+   if(age_diff(i) > gen_time*2){
+    L4 += -1*log(dbinom(k_ckmr_pop(i),n_ckmr(i),POP_prob(i))); 
+   }  
+
+   if(age_diff(i) < gen_time*2){	  
+    //if potential parent was sampled after or on the year of youngs birth, because sampling is lethal  	  
+    if(samp_year_old(i) >= born_year_young(i)){
+     L4 += -1*(n_ckmr(i)*((n_ckmr(i)-(k_ckmr_hsp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-(HSP_prob(i)+POP_prob(i)))); //Prob of no match
+     L4 += -1*(n_ckmr(i)*((k_ckmr_hsp(i)/n_ckmr(i))*log(HSP_prob(i))));    //Prob of HSP
+     L4 += -1*(n_ckmr(i)*((k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i))));    //Prob of POP
+      //Alternative = Sample size * sum ( Prob of no match + Prob of HSP + Prob of POP ) 
+//     L4 += -1*( n_ckmr(i) * ( ((n_ckmr(i)-(k_ckmr_hsp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-(HSP_prob(i)+POP_prob(i))) + (k_ckmr_hsp(i)/n_ckmr(i))*log(HSP_prob(i)) + (k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i))) ); 
+    }
+    //if not, then collapses to binomial for only HSP calcs
+    if(samp_year_old(i) < born_year_young(i)){
+     L4 += -1*log(dbinom(k_ckmr_hsp(i),n_ckmr(i),HSP_prob(i))); 
+    }
    }
-   //if not, then collapses to binomial for only HSP calcs
-   if(samp_year_old(i) < born_year_young(i)){
-    L4 += -1*log(dbinom(k_ckmr_hsp(i),n_ckmr(i),HSP_prob(i))); 
-   }
-   
   }
 
 /////////////////////////

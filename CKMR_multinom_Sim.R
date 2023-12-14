@@ -260,11 +260,10 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
   collapsed_pairs$prob_POP<-0
   for (i in 1:nrow(collapsed_pairs)){
     #Ok so the fecundity based on the age of the potential parent / (0.5 * the total reproductive output of the population at the time of juves birth )
-    #Then we multiply by two to account for POP by Dad or Mom
     if(collapsed_pairs$born_year.young[i]>0){  #if not in unfished territory
-      collapsed_pairs$prob_POP[i]<- 4*(OM$Mat[collapsed_pairs$age_diff[i]]*OM$Waa[collapsed_pairs$age_diff[i]] / sum( OM$Naa[collapsed_pairs$born_year.young[i],]*OM$Mat*OM$Waa ))
+      collapsed_pairs$prob_POP[i]<- 2*(OM$Mat[collapsed_pairs$age_diff[i]]*OM$Waa[collapsed_pairs$age_diff[i]] / sum( OM$Naa[collapsed_pairs$born_year.young[i],]*OM$Mat*OM$Waa ))
     } else if(collapsed_pairs$born_year.young[i]<1){
-      collapsed_pairs$prob_POP[i]<- 4*(OM$Mat[collapsed_pairs$age_diff[i]]*OM$Waa[collapsed_pairs$age_diff[i]] / sum( OM$N0aa*OM$Mat*OM$Waa ))
+      collapsed_pairs$prob_POP[i]<- 2*(OM$Mat[collapsed_pairs$age_diff[i]]*OM$Waa[collapsed_pairs$age_diff[i]] / sum( OM$N0aa*OM$Mat*OM$Waa ))
     }
   }#Don't need to consider plus group calcs bc max age diff will be 25
   
@@ -300,7 +299,7 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
 
 #Sardine, 0.425 is fmsy, fhigh is 0.7875, flow is 0.2037
 #MSY 122577.8 (*0.85 = 104191.1), 
-#1.7 is approx age at 50% maturity, making 3.733245 the generation time  
+#1.7 is approx age at 50% maturity, making 3.733245 the generation time, as gen time = k+(1/(exp(M)-1))
 Nsim<-100
 Sardine_runs<-list()
 for (s in 1:Nsim){
@@ -327,7 +326,7 @@ for (s in 1:Nsim){
 }
 
 #For Flatfish, fmsy is 0.27, MSY is 5240.563 (*0.85= 4454.479), and fhigh which reaches 0.85*MSY is 0.5425, flow is 0.1259
-#2.4 is approx age at 50% maturity, making 6.916656 the generation time
+#2.4 is approx age at 50% maturity, making 6.916656 the generation time, as gen time = k+(1/(exp(M)-1))
 Flatfish_runs<-list()
 for (s in 1:Nsim){
   Flatfish_runs[[s]]<-SimPop(seed=s,
@@ -357,7 +356,7 @@ for (s in 1:Nsim){
 }
 
 #For Cod, fmsy is 0.12, MSY is 160865265 (*0.85=136735475), f that reaches 0.85*MSY is 0.20284, flow is 0.06232
-#Age at 50% maturity is 1.5, making generation time 6.02
+#Age at 50% maturity is 1.5, making generation time 6.02, as gen time = k+(1/(exp(M)-1))
 Cod_runs<-list()
 for (s in 1:Nsim){
   Cod_runs[[s]]<-SimPop(seed=s,
