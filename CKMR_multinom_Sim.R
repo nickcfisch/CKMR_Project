@@ -357,6 +357,8 @@ for (s in 1:Nsim){
 
 #For Cod, fmsy is 0.12, MSY is 160865265 (*0.85=136735475), f that reaches 0.85*MSY is 0.20284, flow is 0.06232
 #Age at 50% maturity is 1.5, making generation time 6.02, as gen time = k+(1/(exp(M)-1))
+#sum((Cod_runs[[1]]$lxo*Cod_runs[[1]]$Mat*Cod_runs[[1]]$Waa)/sum(Cod_runs[[1]]$lxo*Cod_runs[[1]]$Mat*Cod_runs[[1]]$Waa)*0:25)
+#same as weighted.mean(0:25,w=(Cod_runs[[1]]$lxo*Cod_runs[[1]]$Mat*Cod_runs[[1]]$Waa)/sum(Cod_runs[[1]]$lxo*Cod_runs[[1]]$Mat*Cod_runs[[1]]$Waa))
 Cod_runs<-list()
 for (s in 1:Nsim){
   Cod_runs[[s]]<-SimPop(seed=s,
