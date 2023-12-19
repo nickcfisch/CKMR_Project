@@ -4,7 +4,6 @@
 ####################################################
 
 #wd<-"C:/Users/nfisch/Documents/GitHub/CKMR_Project/"
-wd<-"C:/Users/nickc/OneDrive/Documents/GitHub/CKMR_Project/"
 
 #Ncomp 100, sdindex 0.25, ckmr 5 years
 load(paste0(wd,"/Cod_wdat_N100_Ind25_ckmrmultinom5_1.RData"))
@@ -15,15 +14,6 @@ Cod_100_25_5<-Cod_wdat
 Flatfish_100_25_5<-Flatfish_wdat
 Sardine_100_25_5<-Sardine_wdat
 
-##Ncomp 200, sdindex 0.25, ckmr 5 years
-#load(paste0(wd,"/Cod_wdat_N200_Ind25_ckmrmultinom5_1.RData"))
-#load(paste0(wd,"/Flatfish_wdat_N200_Ind25_ckmrmultinom5_1.RData"))
-#load(paste0(wd,"/Sardine_wdat_N200_Ind25_ckmrmultinom5_1.RData"))
-
-#Cod_200_25_5<-Cod_wdat
-#Flatfish_200_25_5<-Flatfish_wdat
-#Sardine_200_25_5<-Sardine_wdat
-
 #Ncomp 1000, sdindex 0.25, ckmr 5 years
 load(paste0(wd,"/Cod_wdat_N1000_Ind25_ckmrmultinom5_1.RData"))
 load(paste0(wd,"/Flatfish_wdat_N1000_Ind25_ckmrmultinom5_1.RData"))
@@ -32,15 +22,6 @@ load(paste0(wd,"/Sardine_wdat_N1000_Ind25_ckmrmultinom5_1.RData"))
 Cod_1000_25_5<-Cod_wdat
 Flatfish_1000_25_5<-Flatfish_wdat
 Sardine_1000_25_5<-Sardine_wdat
-
-##Ncomp 2000, sdindex 0.25, ckmr 5 years
-#load(paste0(wd,"/Cod_wdat_N2000_Ind25_ckmrmultinom5_1.RData"))
-#load(paste0(wd,"/Flatfish_wdat_N2000_Ind25_ckmrmultinom5_1.RData"))
-#load(paste0(wd,"/Sardine_wdat_N2000_Ind25_ckmrmultinom5_1.RData"))
-
-#Cod_2000_25_5<-Cod_wdat
-#Flatfish_2000_25_5<-Flatfish_wdat
-#Sardine_2000_25_5<-Sardine_wdat
 
 #Ncomp 5000, sdindex 0.25, ckmr 5 years
 load(paste0(wd,"/Cod_wdat_N5000_Ind25_ckmrmultinom5_1.RData"))
@@ -60,15 +41,6 @@ Cod_100_25_10<-Cod_wdat
 Flatfish_100_25_10<-Flatfish_wdat
 Sardine_100_25_10<-Sardine_wdat
 
-##Ncomp 200, sdindex 0.25, ckmr 10 years
-#load(paste0(wd,"/Cod_wdat_N200_Ind25_ckmrmultinom10_1.RData"))
-#load(paste0(wd,"/Flatfish_wdat_N200_Ind25_ckmrmultinom10_1.RData"))
-#load(paste0(wd,"/Sardine_wdat_N200_Ind25_ckmrmultinom10_1.RData"))
-
-#Cod_200_25_10<-Cod_wdat
-#Flatfish_200_25_10<-Flatfish_wdat
-#Sardine_200_25_10<-Sardine_wdat
-
 #Ncomp 1000, sdindex 0.25, ckmr 10 years
 load(paste0(wd,"/Cod_wdat_N1000_Ind25_ckmrmultinom10_1.RData"))
 load(paste0(wd,"/Flatfish_wdat_N1000_Ind25_ckmrmultinom10_1.RData"))
@@ -77,15 +49,6 @@ load(paste0(wd,"/Sardine_wdat_N1000_Ind25_ckmrmultinom10_1.RData"))
 Cod_1000_25_10<-Cod_wdat
 Flatfish_1000_25_10<-Flatfish_wdat
 Sardine_1000_25_10<-Sardine_wdat
-
-##Ncomp 2000, sdindex 0.25, ckmr 10 years
-#load(paste0(wd,"/Cod_wdat_N2000_Ind25_ckmrmultinom10_1.RData"))
-#load(paste0(wd,"/Flatfish_wdat_N2000_Ind25_ckmrmultinom10_1.RData"))
-#load(paste0(wd,"/Sardine_wdat_N2000_Ind25_ckmrmultinom10_1.RData"))
-
-#Cod_2000_25_10<-Cod_wdat
-#Flatfish_2000_25_10<-Flatfish_wdat
-#Sardine_2000_25_10<-Sardine_wdat
 
 #Ncomp 5000, sdindex 0.25, ckmr 10 years
 load(paste0(wd,"/Cod_wdat_N5000_Ind25_ckmrmultinom10_1.RData"))
@@ -96,50 +59,32 @@ Cod_5000_25_10<-Cod_wdat
 Flatfish_5000_25_10<-Flatfish_wdat
 Sardine_5000_25_10<-Sardine_wdat
 
-#Ncomp 100, sdindex 0.25, ckmr 25 years
-load(paste0(wd,"/Cod_wdat_N100_Ind25_ckmrmultinom25_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmrmultinom25_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N100_Ind25_ckmrmultinom25_1.RData"))
+#Ncomp 100, sdindex 0.25, ckmr 20 years
+load(paste0(wd,"/Cod_wdat_N100_Ind25_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N100_Ind25_ckmrmultinom20_1.RData"))
 
-Cod_100_25_25<-Cod_wdat
-Flatfish_100_25_25<-Flatfish_wdat
-Sardine_100_25_25<-Sardine_wdat
+Cod_100_25_20<-Cod_wdat
+Flatfish_100_25_20<-Flatfish_wdat
+Sardine_100_25_20<-Sardine_wdat
 
-##Ncomp 200, sdindex 0.25, ckmr 25 years
-#load(paste0(wd,"/Cod_wdat_N200_Ind25_ckmrmultinom25_1.RData"))
-#load(paste0(wd,"/Flatfish_wdat_N200_Ind25_ckmrmultinom25_1.RData"))
-#load(paste0(wd,"/Sardine_wdat_N200_Ind25_ckmrmultinom25_1.RData"))
+#Ncomp 1000, sdindex 0.25, ckmr 20 years
+load(paste0(wd,"/Cod_wdat_N1000_Ind25_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N1000_Ind25_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N1000_Ind25_ckmrmultinom20_1.RData"))
 
-#Cod_200_25_25<-Cod_wdat
-#Flatfish_200_25_25<-Flatfish_wdat
-#Sardine_200_25_25<-Sardine_wdat
+Cod_1000_25_20<-Cod_wdat
+Flatfish_1000_25_20<-Flatfish_wdat
+Sardine_1000_25_20<-Sardine_wdat
 
-#Ncomp 1000, sdindex 0.25, ckmr 25 years
-load(paste0(wd,"/Cod_wdat_N1000_Ind25_ckmrmultinom25_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N1000_Ind25_ckmrmultinom25_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N1000_Ind25_ckmrmultinom25_1.RData"))
+#Ncomp 5000, sdindex 0.25, ckmr 20 years
+load(paste0(wd,"/Cod_wdat_N5000_Ind25_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N5000_Ind25_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N5000_Ind25_ckmrmultinom20_1.RData"))
 
-Cod_1000_25_25<-Cod_wdat
-Flatfish_1000_25_25<-Flatfish_wdat
-Sardine_1000_25_25<-Sardine_wdat
-
-# #Ncomp 2000, sdindex 0.25, ckmr 25 years
-# load(paste0(wd,"/Cod_wdat_N2000_Ind25_ckmrmultinom25_1.RData"))
-# load(paste0(wd,"/Flatfish_wdat_N2000_Ind25_ckmrmultinom25_1.RData"))
-# load(paste0(wd,"/Sardine_wdat_N2000_Ind25_ckmrmultinom25_1.RData"))
-# 
-# Cod_2000_25_25<-Cod_wdat
-# Flatfish_2000_25_25<-Flatfish_wdat
-# Sardine_2000_25_25<-Sardine_wdat
-
-#Ncomp 5000, sdindex 0.25, ckmr 25 years
-load(paste0(wd,"/Cod_wdat_N5000_Ind25_ckmrmultinom25_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N5000_Ind25_ckmrmultinom25_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N5000_Ind25_ckmrmultinom25_1.RData"))
-
-Cod_5000_25_25<-Cod_wdat
-Flatfish_5000_25_25<-Flatfish_wdat
-Sardine_5000_25_25<-Sardine_wdat
+Cod_5000_25_20<-Cod_wdat
+Flatfish_5000_25_20<-Flatfish_wdat
+Sardine_5000_25_20<-Sardine_wdat
 
 #Ncomp 100, sdindex 0.50, ckmr 5 years
 load(paste0(wd,"/Cod_wdat_N100_Ind50_ckmrmultinom5_1.RData"))
@@ -150,15 +95,6 @@ Cod_100_50_5<-Cod_wdat
 Flatfish_100_50_5<-Flatfish_wdat
 Sardine_100_50_5<-Sardine_wdat
 
-# #Ncomp 200, sdindex 0.50, ckmr 5 years
-# load(paste0(wd,"/Cod_wdat_N200_Ind50_ckmrmultinom5_1.RData"))
-# load(paste0(wd,"/Flatfish_wdat_N200_Ind50_ckmrmultinom5_1.RData"))
-# load(paste0(wd,"/Sardine_wdat_N200_Ind50_ckmrmultinom5_1.RData"))
-# 
-# Cod_200_50_5<-Cod_wdat
-# Flatfish_200_50_5<-Flatfish_wdat
-# Sardine_200_50_5<-Sardine_wdat
-
 #Ncomp 1000, sdindex 0.50, ckmr 5 years
 load(paste0(wd,"/Cod_wdat_N1000_Ind50_ckmrmultinom5_1.RData"))
 load(paste0(wd,"/Flatfish_wdat_N1000_Ind50_ckmrmultinom5_1.RData"))
@@ -167,15 +103,6 @@ load(paste0(wd,"/Sardine_wdat_N1000_Ind50_ckmrmultinom5_1.RData"))
 Cod_1000_50_5<-Cod_wdat
 Flatfish_1000_50_5<-Flatfish_wdat
 Sardine_1000_50_5<-Sardine_wdat
-
-# #Ncomp 2000, sdindex 0.50, ckmr 5 years
-# load(paste0(wd,"/Cod_wdat_N2000_Ind50_ckmrmultinom5_1.RData"))
-# load(paste0(wd,"/Flatfish_wdat_N2000_Ind50_ckmrmultinom5_1.RData"))
-# load(paste0(wd,"/Sardine_wdat_N2000_Ind50_ckmrmultinom5_1.RData"))
-# 
-# Cod_2000_50_5<-Cod_wdat
-# Flatfish_2000_50_5<-Flatfish_wdat
-# Sardine_2000_50_5<-Sardine_wdat
 
 #Ncomp 5000, sdindex 0.50, ckmr 5 years
 load(paste0(wd,"/Cod_wdat_N5000_Ind50_ckmrmultinom5_1.RData"))
@@ -195,15 +122,6 @@ Cod_100_50_10<-Cod_wdat
 Flatfish_100_50_10<-Flatfish_wdat
 Sardine_100_50_10<-Sardine_wdat
 
-# #Ncomp 200, sdindex 0.50, ckmr 10 years
-# load(paste0(wd,"/Cod_wdat_N200_Ind50_ckmrmultinom10_1.RData"))
-# load(paste0(wd,"/Flatfish_wdat_N200_Ind50_ckmrmultinom10_1.RData"))
-# load(paste0(wd,"/Sardine_wdat_N200_Ind50_ckmrmultinom10_1.RData"))
-# 
-# Cod_200_50_10<-Cod_wdat
-# Flatfish_200_50_10<-Flatfish_wdat
-# Sardine_200_50_10<-Sardine_wdat
-
 #Ncomp 1000, sdindex 0.50, ckmr 10 years
 load(paste0(wd,"/Cod_wdat_N1000_Ind50_ckmrmultinom10_1.RData"))
 load(paste0(wd,"/Flatfish_wdat_N1000_Ind50_ckmrmultinom10_1.RData"))
@@ -212,15 +130,6 @@ load(paste0(wd,"/Sardine_wdat_N1000_Ind50_ckmrmultinom10_1.RData"))
 Cod_1000_50_10<-Cod_wdat
 Flatfish_1000_50_10<-Flatfish_wdat
 Sardine_1000_50_10<-Sardine_wdat
-
-# #Ncomp 2000, sdindex 0.50, ckmr 10 years
-# load(paste0(wd,"/Cod_wdat_N2000_Ind50_ckmrmultinom10_1.RData"))
-# load(paste0(wd,"/Flatfish_wdat_N2000_Ind50_ckmrmultinom10_1.RData"))
-# load(paste0(wd,"/Sardine_wdat_N2000_Ind50_ckmrmultinom10_1.RData"))
-# 
-# Cod_2000_50_10<-Cod_wdat
-# Flatfish_2000_50_10<-Flatfish_wdat
-# Sardine_2000_50_10<-Sardine_wdat
 
 #Ncomp 5000, sdindex 0.50, ckmr 10 years
 load(paste0(wd,"/Cod_wdat_N5000_Ind50_ckmrmultinom10_1.RData"))
@@ -231,378 +140,300 @@ Cod_5000_50_10<-Cod_wdat
 Flatfish_5000_50_10<-Flatfish_wdat
 Sardine_5000_50_10<-Sardine_wdat
 
-#Ncomp 100, sdindex 0.50, ckmr 25 years
-load(paste0(wd,"/Cod_wdat_N100_Ind50_ckmrmultinom25_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N100_Ind50_ckmrmultinom25_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N100_Ind50_ckmrmultinom25_1.RData"))
+#Ncomp 100, sdindex 0.50, ckmr 20 years
+load(paste0(wd,"/Cod_wdat_N100_Ind50_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N100_Ind50_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N100_Ind50_ckmrmultinom20_1.RData"))
 
-Cod_100_50_25<-Cod_wdat
-Flatfish_100_50_25<-Flatfish_wdat
-Sardine_100_50_25<-Sardine_wdat
+Cod_100_50_20<-Cod_wdat
+Flatfish_100_50_20<-Flatfish_wdat
+Sardine_100_50_20<-Sardine_wdat
 
-# #Ncomp 200, sdindex 0.50, ckmr 25 years
-# load(paste0(wd,"/Cod_wdat_N200_Ind50_ckmrmultinom25_1.RData"))
-# load(paste0(wd,"/Flatfish_wdat_N200_Ind50_ckmrmultinom25_1.RData"))
-# load(paste0(wd,"/Sardine_wdat_N200_Ind50_ckmrmultinom25_1.RData"))
-# 
-# Cod_200_50_25<-Cod_wdat
-# Flatfish_200_50_25<-Flatfish_wdat
-# Sardine_200_50_25<-Sardine_wdat
+#Ncomp 1000, sdindex 0.50, ckmr 20 years
+load(paste0(wd,"/Cod_wdat_N1000_Ind50_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N1000_Ind50_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N1000_Ind50_ckmrmultinom20_1.RData"))
 
-#Ncomp 1000, sdindex 0.50, ckmr 25 years
-load(paste0(wd,"/Cod_wdat_N1000_Ind50_ckmrmultinom25_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N1000_Ind50_ckmrmultinom25_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N1000_Ind50_ckmrmultinom25_1.RData"))
+Cod_1000_50_20<-Cod_wdat
+Flatfish_1000_50_20<-Flatfish_wdat
+Sardine_1000_50_20<-Sardine_wdat
 
-Cod_1000_50_25<-Cod_wdat
-Flatfish_1000_50_25<-Flatfish_wdat
-Sardine_1000_50_25<-Sardine_wdat
+#Ncomp 5000, sdindex 0.50, ckmr 20 years
+load(paste0(wd,"/Cod_wdat_N5000_Ind50_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N5000_Ind50_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N5000_Ind50_ckmrmultinom20_1.RData"))
 
-# #Ncomp 2000, sdindex 0.50, ckmr 25 years
-# load(paste0(wd,"/Cod_wdat_N2000_Ind50_ckmrmultinom25_1.RData"))
-# load(paste0(wd,"/Flatfish_wdat_N2000_Ind50_ckmrmultinom25_1.RData"))
-# load(paste0(wd,"/Sardine_wdat_N2000_Ind50_ckmrmultinom25_1.RData"))
-# 
-# Cod_2000_50_25<-Cod_wdat
-# Flatfish_2000_50_25<-Flatfish_wdat
-# Sardine_2000_50_25<-Sardine_wdat
-
-#Ncomp 5000, sdindex 0.50, ckmr 25 years
-load(paste0(wd,"/Cod_wdat_N5000_Ind50_ckmrmultinom25_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N5000_Ind50_ckmrmultinom25_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N5000_Ind50_ckmrmultinom25_1.RData"))
-
-Cod_5000_50_25<-Cod_wdat
-Flatfish_5000_50_25<-Flatfish_wdat
-Sardine_5000_50_25<-Sardine_wdat
+Cod_5000_50_20<-Cod_wdat
+Flatfish_5000_50_20<-Flatfish_wdat
+Sardine_5000_50_20<-Sardine_wdat
 
 #############################################
 #Looking at the number of pairs by treatment 
 #############################################
 #Getting it into more usable data 
-Pairs_Cod_100_25_5<-Pairs_Cod_200_25_5<-Pairs_Cod_1000_25_5<-Pairs_Cod_2000_25_5<-Pairs_Cod_5000_25_5<-matrix(NA, nrow=100,ncol=2)
-Pairs_Cod_100_25_10<-Pairs_Cod_200_25_10<-Pairs_Cod_1000_25_10<-Pairs_Cod_2000_25_10<-Pairs_Cod_5000_25_10<-matrix(NA, nrow=100,ncol=2)
-Pairs_Cod_100_25_25<-Pairs_Cod_200_25_25<-Pairs_Cod_1000_25_25<-Pairs_Cod_2000_25_25<-Pairs_Cod_5000_25_25<-matrix(NA, nrow=100,ncol=2)
-Pairs_Flatfish_100_25_5<-Pairs_Flatfish_200_25_5<-Pairs_Flatfish_1000_25_5<-Pairs_Flatfish_2000_25_5<-Pairs_Flatfish_5000_25_5<-matrix(NA, nrow=100,ncol=2)
-Pairs_Flatfish_100_25_10<-Pairs_Flatfish_200_25_10<-Pairs_Flatfish_1000_25_10<-Pairs_Flatfish_2000_25_10<-Pairs_Flatfish_5000_25_10<-matrix(NA, nrow=100,ncol=2)
-Pairs_Flatfish_100_25_25<-Pairs_Flatfish_200_25_25<-Pairs_Flatfish_1000_25_25<-Pairs_Flatfish_2000_25_25<-Pairs_Flatfish_5000_25_25<-matrix(NA, nrow=100,ncol=2)
-Pairs_Sardine_100_25_5<-Pairs_Sardine_200_25_5<-Pairs_Sardine_1000_25_5<-Pairs_Sardine_2000_25_5<-Pairs_Sardine_5000_25_5<-matrix(NA, nrow=100,ncol=2)
-Pairs_Sardine_100_25_10<-Pairs_Sardine_200_25_10<-Pairs_Sardine_1000_25_10<-Pairs_Sardine_2000_25_10<-Pairs_Sardine_5000_25_10<-matrix(NA, nrow=100,ncol=2)
-Pairs_Sardine_100_25_25<-Pairs_Sardine_200_25_25<-Pairs_Sardine_1000_25_25<-Pairs_Sardine_2000_25_25<-Pairs_Sardine_5000_25_25<-matrix(NA, nrow=100,ncol=2)
+Pairs_Cod_100_25_5<-Pairs_Cod_1000_25_5<-Pairs_Cod_5000_25_5<-matrix(NA, nrow=100,ncol=2)
+Pairs_Cod_100_25_10<-Pairs_Cod_1000_25_10<-Pairs_Cod_5000_25_10<-matrix(NA, nrow=100,ncol=2)
+Pairs_Cod_100_25_20<-Pairs_Cod_1000_25_20<-Pairs_Cod_5000_25_20<-matrix(NA, nrow=100,ncol=2)
+Pairs_Flatfish_100_25_5<-Pairs_Flatfish_1000_25_5<-Pairs_Flatfish_5000_25_5<-matrix(NA, nrow=100,ncol=2)
+Pairs_Flatfish_100_25_10<-Pairs_Flatfish_1000_25_10<-Pairs_Flatfish_5000_25_10<-matrix(NA, nrow=100,ncol=2)
+Pairs_Flatfish_100_25_20<-Pairs_Flatfish_1000_25_20<-Pairs_Flatfish_5000_25_20<-matrix(NA, nrow=100,ncol=2)
+Pairs_Sardine_100_25_5<-Pairs_Sardine_1000_25_5<-Pairs_Sardine_5000_25_5<-matrix(NA, nrow=100,ncol=2)
+Pairs_Sardine_100_25_10<-Pairs_Sardine_1000_25_10<-Pairs_Sardine_5000_25_10<-matrix(NA, nrow=100,ncol=2)
+Pairs_Sardine_100_25_20<-Pairs_Sardine_1000_25_20<-Pairs_Sardine_5000_25_20<-matrix(NA, nrow=100,ncol=2)
+Pairs_Cod_100_25_5_HSPnoGGP<-Pairs_Cod_1000_25_5_HSPnoGGP<-Pairs_Cod_5000_25_5_HSPnoGGP<-Pairs_Cod_100_25_10_HSPnoGGP<-Pairs_Cod_1000_25_10_HSPnoGGP<-NA
+Pairs_Cod_5000_25_10_HSPnoGGP<-Pairs_Cod_100_25_20_HSPnoGGP<-Pairs_Cod_1000_25_20_HSPnoGGP<-Pairs_Cod_5000_25_20_HSPnoGGP<-NA
+Pairs_Flatfish_100_25_5_HSPnoGGP<-Pairs_Flatfish_1000_25_5_HSPnoGGP<-Pairs_Flatfish_5000_25_5_HSPnoGGP<-NA
+Pairs_Flatfish_100_25_10_HSPnoGGP<-Pairs_Flatfish_1000_25_10_HSPnoGGP<-Pairs_Flatfish_5000_25_10_HSPnoGGP<-NA
+Pairs_Flatfish_100_25_20_HSPnoGGP<-Pairs_Flatfish_1000_25_20_HSPnoGGP<-Pairs_Flatfish_5000_25_20_HSPnoGGP<-NA
+Pairs_Sardine_100_25_5_HSPnoGGP<-Pairs_Sardine_1000_25_5_HSPnoGGP<-Pairs_Sardine_5000_25_5_HSPnoGGP<-NA
+Pairs_Sardine_100_25_10_HSPnoGGP<-Pairs_Sardine_1000_25_10_HSPnoGGP<-Pairs_Sardine_5000_25_10_HSPnoGGP<-NA
+Pairs_Sardine_100_25_20_HSPnoGGP<-Pairs_Sardine_1000_25_20_HSPnoGGP<-Pairs_Sardine_5000_25_20_HSPnoGGP<-NA
 for (i in 1:100){
  Pairs_Cod_100_25_5[i,1]<-(sum(Cod_100_25_5[[i]]$k_ckmr_pop))
  Pairs_Cod_100_25_5[i,2]<-(sum(Cod_100_25_5[[i]]$k_ckmr_hsp))
-# Pairs_Cod_200_25_5[i,1]<-(sum(Cod_200_25_5[[i]]$k_ckmr_pop))
-# Pairs_Cod_200_25_5[i,2]<-(sum(Cod_200_25_5[[i]]$k_ckmr_hsp))
+ Pairs_Cod_100_25_5_HSPnoGGP[i]<-(sum(Cod_100_25_5[[i]]$k_ckmr_hsp[which(Cod_100_25_5[[i]]$age_diff<(1.51*2))]))
  Pairs_Cod_1000_25_5[i,1]<-(sum(Cod_1000_25_5[[i]]$k_ckmr_pop))
  Pairs_Cod_1000_25_5[i,2]<-(sum(Cod_1000_25_5[[i]]$k_ckmr_hsp))
-# Pairs_Cod_2000_25_5[i,1]<-(sum(Cod_2000_25_5[[i]]$k_ckmr_pop))
-# Pairs_Cod_2000_25_5[i,2]<-(sum(Cod_2000_25_5[[i]]$k_ckmr_hsp))
+ Pairs_Cod_1000_25_5_HSPnoGGP[i]<-(sum(Cod_1000_25_5[[i]]$k_ckmr_hsp[which(Cod_1000_25_5[[i]]$age_diff<(1.51*2))]))
  Pairs_Cod_5000_25_5[i,1]<-(sum(Cod_5000_25_5[[i]]$k_ckmr_pop))
  Pairs_Cod_5000_25_5[i,2]<-(sum(Cod_5000_25_5[[i]]$k_ckmr_hsp))
+ Pairs_Cod_5000_25_5_HSPnoGGP[i]<-(sum(Cod_5000_25_5[[i]]$k_ckmr_hsp[which(Cod_5000_25_5[[i]]$age_diff<(1.51*2))]))
  
  Pairs_Cod_100_25_10[i,1]<-(sum(Cod_100_25_10[[i]]$k_ckmr_pop))
  Pairs_Cod_100_25_10[i,2]<-(sum(Cod_100_25_10[[i]]$k_ckmr_hsp))
-# Pairs_Cod_200_25_10[i,1]<-(sum(Cod_200_25_10[[i]]$k_ckmr_pop))
-# Pairs_Cod_200_25_10[i,2]<-(sum(Cod_200_25_10[[i]]$k_ckmr_hsp))
+ Pairs_Cod_100_25_10_HSPnoGGP[i]<-(sum(Cod_100_25_10[[i]]$k_ckmr_hsp[which(Cod_100_25_10[[i]]$age_diff<(1.51*2))]))
  Pairs_Cod_1000_25_10[i,1]<-(sum(Cod_1000_25_10[[i]]$k_ckmr_pop))
  Pairs_Cod_1000_25_10[i,2]<-(sum(Cod_1000_25_10[[i]]$k_ckmr_hsp))
-# Pairs_Cod_2000_25_10[i,1]<-(sum(Cod_2000_25_10[[i]]$k_ckmr_pop))
-# Pairs_Cod_2000_25_10[i,2]<-(sum(Cod_2000_25_10[[i]]$k_ckmr_hsp))
+ Pairs_Cod_1000_25_10_HSPnoGGP[i]<-(sum(Cod_1000_25_10[[i]]$k_ckmr_hsp[which(Cod_1000_25_10[[i]]$age_diff<(1.51*2))]))
  Pairs_Cod_5000_25_10[i,1]<-(sum(Cod_5000_25_10[[i]]$k_ckmr_pop))
  Pairs_Cod_5000_25_10[i,2]<-(sum(Cod_5000_25_10[[i]]$k_ckmr_hsp))
+ Pairs_Cod_5000_25_10_HSPnoGGP[i]<-(sum(Cod_5000_25_10[[i]]$k_ckmr_hsp[which(Cod_5000_25_10[[i]]$age_diff<(1.51*2))]))
  
- Pairs_Cod_100_25_25[i,1]<-(sum(Cod_100_25_25[[i]]$k_ckmr_pop))
- Pairs_Cod_100_25_25[i,2]<-(sum(Cod_100_25_25[[i]]$k_ckmr_hsp))
-# Pairs_Cod_200_25_25[i,1]<-(sum(Cod_200_25_25[[i]]$k_ckmr_pop))
-# Pairs_Cod_200_25_25[i,2]<-(sum(Cod_200_25_25[[i]]$k_ckmr_hsp))
- Pairs_Cod_1000_25_25[i,1]<-(sum(Cod_1000_25_25[[i]]$k_ckmr_pop))
- Pairs_Cod_1000_25_25[i,2]<-(sum(Cod_1000_25_25[[i]]$k_ckmr_hsp))
-# Pairs_Cod_2000_25_25[i,1]<-(sum(Cod_2000_25_25[[i]]$k_ckmr_pop))
-# Pairs_Cod_2000_25_25[i,2]<-(sum(Cod_2000_25_25[[i]]$k_ckmr_hsp))
- Pairs_Cod_5000_25_25[i,1]<-(sum(Cod_5000_25_25[[i]]$k_ckmr_pop))
- Pairs_Cod_5000_25_25[i,2]<-(sum(Cod_5000_25_25[[i]]$k_ckmr_hsp))
+ Pairs_Cod_100_25_20[i,1]<-(sum(Cod_100_25_20[[i]]$k_ckmr_pop))
+ Pairs_Cod_100_25_20[i,2]<-(sum(Cod_100_25_20[[i]]$k_ckmr_hsp))
+ Pairs_Cod_100_25_20_HSPnoGGP[i]<-(sum(Cod_100_25_20[[i]]$k_ckmr_hsp[which(Cod_100_25_20[[i]]$age_diff<(1.51*2))]))
+ Pairs_Cod_1000_25_20[i,1]<-(sum(Cod_1000_25_20[[i]]$k_ckmr_pop))
+ Pairs_Cod_1000_25_20[i,2]<-(sum(Cod_1000_25_20[[i]]$k_ckmr_hsp))
+ Pairs_Cod_1000_25_20_HSPnoGGP[i]<-(sum(Cod_1000_25_20[[i]]$k_ckmr_hsp[which(Cod_1000_25_20[[i]]$age_diff<(1.51*2))]))
+ Pairs_Cod_5000_25_20[i,1]<-(sum(Cod_5000_25_20[[i]]$k_ckmr_pop))
+ Pairs_Cod_5000_25_20[i,2]<-(sum(Cod_5000_25_20[[i]]$k_ckmr_hsp))
+ Pairs_Cod_5000_25_20_HSPnoGGP[i]<-(sum(Cod_5000_25_20[[i]]$k_ckmr_hsp[which(Cod_5000_25_20[[i]]$age_diff<(1.51*2))]))
  
  Pairs_Flatfish_100_25_5[i,1]<-(sum(Flatfish_100_25_5[[i]]$k_ckmr_pop))
  Pairs_Flatfish_100_25_5[i,2]<-(sum(Flatfish_100_25_5[[i]]$k_ckmr_hsp))
-# Pairs_Flatfish_200_25_5[i,1]<-(sum(Flatfish_200_25_5[[i]]$k_ckmr_pop))
-# Pairs_Flatfish_200_25_5[i,2]<-(sum(Flatfish_200_25_5[[i]]$k_ckmr_hsp))
+ Pairs_Flatfish_100_25_5_HSPnoGGP[i]<-(sum(Flatfish_100_25_5[[i]]$k_ckmr_hsp[which(Flatfish_100_25_5[[i]]$age_diff<(2.4*2))]))
  Pairs_Flatfish_1000_25_5[i,1]<-(sum(Flatfish_1000_25_5[[i]]$k_ckmr_pop))
  Pairs_Flatfish_1000_25_5[i,2]<-(sum(Flatfish_1000_25_5[[i]]$k_ckmr_hsp))
-# Pairs_Flatfish_2000_25_5[i,1]<-(sum(Flatfish_2000_25_5[[i]]$k_ckmr_pop))
-# Pairs_Flatfish_2000_25_5[i,2]<-(sum(Flatfish_2000_25_5[[i]]$k_ckmr_hsp))
+ Pairs_Flatfish_1000_25_5_HSPnoGGP[i]<-(sum(Flatfish_1000_25_5[[i]]$k_ckmr_hsp[which(Flatfish_1000_25_5[[i]]$age_diff<(2.4*2))]))
  Pairs_Flatfish_5000_25_5[i,1]<-(sum(Flatfish_5000_25_5[[i]]$k_ckmr_pop))
  Pairs_Flatfish_5000_25_5[i,2]<-(sum(Flatfish_5000_25_5[[i]]$k_ckmr_hsp))
+ Pairs_Flatfish_5000_25_5_HSPnoGGP[i]<-(sum(Flatfish_5000_25_5[[i]]$k_ckmr_hsp[which(Flatfish_5000_25_5[[i]]$age_diff<(2.4*2))]))
  
  Pairs_Flatfish_100_25_10[i,1]<-(sum(Flatfish_100_25_10[[i]]$k_ckmr_pop))
  Pairs_Flatfish_100_25_10[i,2]<-(sum(Flatfish_100_25_10[[i]]$k_ckmr_hsp))
-# Pairs_Flatfish_200_25_10[i,1]<-(sum(Flatfish_200_25_10[[i]]$k_ckmr_pop))
-# Pairs_Flatfish_200_25_10[i,2]<-(sum(Flatfish_200_25_10[[i]]$k_ckmr_hsp))
+ Pairs_Flatfish_100_25_10_HSPnoGGP[i]<-(sum(Flatfish_100_25_10[[i]]$k_ckmr_hsp[which(Flatfish_100_25_10[[i]]$age_diff<(2.4*2))]))
  Pairs_Flatfish_1000_25_10[i,1]<-(sum(Flatfish_1000_25_10[[i]]$k_ckmr_pop))
  Pairs_Flatfish_1000_25_10[i,2]<-(sum(Flatfish_1000_25_10[[i]]$k_ckmr_hsp))
-# Pairs_Flatfish_2000_25_10[i,1]<-(sum(Flatfish_2000_25_10[[i]]$k_ckmr_pop))
-# Pairs_Flatfish_2000_25_10[i,2]<-(sum(Flatfish_2000_25_10[[i]]$k_ckmr_hsp))
+ Pairs_Flatfish_1000_25_10_HSPnoGGP[i]<-(sum(Flatfish_1000_25_10[[i]]$k_ckmr_hsp[which(Flatfish_1000_25_10[[i]]$age_diff<(2.4*2))]))
  Pairs_Flatfish_5000_25_10[i,1]<-(sum(Flatfish_5000_25_10[[i]]$k_ckmr_pop))
  Pairs_Flatfish_5000_25_10[i,2]<-(sum(Flatfish_5000_25_10[[i]]$k_ckmr_hsp))
+ Pairs_Flatfish_5000_25_10_HSPnoGGP[i]<-(sum(Flatfish_5000_25_10[[i]]$k_ckmr_hsp[which(Flatfish_5000_25_10[[i]]$age_diff<(2.4*2))]))
  
- Pairs_Flatfish_100_25_25[i,1]<-(sum(Flatfish_100_25_25[[i]]$k_ckmr_pop))
- Pairs_Flatfish_100_25_25[i,2]<-(sum(Flatfish_100_25_25[[i]]$k_ckmr_hsp))
-# Pairs_Flatfish_200_25_25[i,1]<-(sum(Flatfish_200_25_25[[i]]$k_ckmr_pop))
-# Pairs_Flatfish_200_25_25[i,2]<-(sum(Flatfish_200_25_25[[i]]$k_ckmr_hsp))
- Pairs_Flatfish_1000_25_25[i,1]<-(sum(Flatfish_1000_25_25[[i]]$k_ckmr_pop))
- Pairs_Flatfish_1000_25_25[i,2]<-(sum(Flatfish_1000_25_25[[i]]$k_ckmr_hsp))
-# Pairs_Flatfish_2000_25_25[i,1]<-(sum(Flatfish_2000_25_25[[i]]$k_ckmr_pop))
-# Pairs_Flatfish_2000_25_25[i,2]<-(sum(Flatfish_2000_25_25[[i]]$k_ckmr_hsp))
- Pairs_Flatfish_5000_25_25[i,1]<-(sum(Flatfish_5000_25_25[[i]]$k_ckmr_pop))
- Pairs_Flatfish_5000_25_25[i,2]<-(sum(Flatfish_5000_25_25[[i]]$k_ckmr_hsp))
+ Pairs_Flatfish_100_25_20[i,1]<-(sum(Flatfish_100_25_20[[i]]$k_ckmr_pop))
+ Pairs_Flatfish_100_25_20[i,2]<-(sum(Flatfish_100_25_20[[i]]$k_ckmr_hsp))
+ Pairs_Flatfish_100_25_20_HSPnoGGP[i]<-(sum(Flatfish_100_25_20[[i]]$k_ckmr_hsp[which(Flatfish_100_25_20[[i]]$age_diff<(2.4*2))]))
+ Pairs_Flatfish_1000_25_20[i,1]<-(sum(Flatfish_1000_25_20[[i]]$k_ckmr_pop))
+ Pairs_Flatfish_1000_25_20[i,2]<-(sum(Flatfish_1000_25_20[[i]]$k_ckmr_hsp))
+ Pairs_Flatfish_1000_25_20_HSPnoGGP[i]<-(sum(Flatfish_1000_25_20[[i]]$k_ckmr_hsp[which(Flatfish_1000_25_20[[i]]$age_diff<(2.4*2))]))
+ Pairs_Flatfish_5000_25_20[i,1]<-(sum(Flatfish_5000_25_20[[i]]$k_ckmr_pop))
+ Pairs_Flatfish_5000_25_20[i,2]<-(sum(Flatfish_5000_25_20[[i]]$k_ckmr_hsp))
+ Pairs_Flatfish_5000_25_20_HSPnoGGP[i]<-(sum(Flatfish_5000_25_20[[i]]$k_ckmr_hsp[which(Flatfish_5000_25_20[[i]]$age_diff<(2.4*2))]))
  
  Pairs_Sardine_100_25_5[i,1]<-(sum(Sardine_100_25_5[[i]]$k_ckmr_pop))
  Pairs_Sardine_100_25_5[i,2]<-(sum(Sardine_100_25_5[[i]]$k_ckmr_hsp))
-# Pairs_Sardine_200_25_5[i,1]<-(sum(Sardine_200_25_5[[i]]$k_ckmr_pop))
-# Pairs_Sardine_200_25_5[i,2]<-(sum(Sardine_200_25_5[[i]]$k_ckmr_hsp))
+ Pairs_Sardine_100_25_5_HSPnoGGP[i]<-(sum(Sardine_100_25_5[[i]]$k_ckmr_hsp[which(Sardine_100_25_5[[i]]$age_diff<(1.7*2))]))
  Pairs_Sardine_1000_25_5[i,1]<-(sum(Sardine_1000_25_5[[i]]$k_ckmr_pop))
  Pairs_Sardine_1000_25_5[i,2]<-(sum(Sardine_1000_25_5[[i]]$k_ckmr_hsp))
-# Pairs_Sardine_2000_25_5[i,1]<-(sum(Sardine_2000_25_5[[i]]$k_ckmr_pop))
-# Pairs_Sardine_2000_25_5[i,2]<-(sum(Sardine_2000_25_5[[i]]$k_ckmr_hsp))
+ Pairs_Sardine_1000_25_5_HSPnoGGP[i]<-(sum(Sardine_1000_25_5[[i]]$k_ckmr_hsp[which(Sardine_1000_25_5[[i]]$age_diff<(1.7*2))]))
  Pairs_Sardine_5000_25_5[i,1]<-(sum(Sardine_5000_25_5[[i]]$k_ckmr_pop))
  Pairs_Sardine_5000_25_5[i,2]<-(sum(Sardine_5000_25_5[[i]]$k_ckmr_hsp))
+ Pairs_Sardine_5000_25_5_HSPnoGGP[i]<-(sum(Sardine_5000_25_5[[i]]$k_ckmr_hsp[which(Sardine_5000_25_5[[i]]$age_diff<(1.7*2))]))
  
  Pairs_Sardine_100_25_10[i,1]<-(sum(Sardine_100_25_10[[i]]$k_ckmr_pop))
  Pairs_Sardine_100_25_10[i,2]<-(sum(Sardine_100_25_10[[i]]$k_ckmr_hsp))
-# Pairs_Sardine_200_25_10[i,1]<-(sum(Sardine_200_25_10[[i]]$k_ckmr_pop))
-# Pairs_Sardine_200_25_10[i,2]<-(sum(Sardine_200_25_10[[i]]$k_ckmr_hsp))
+ Pairs_Sardine_100_25_10_HSPnoGGP[i]<-(sum(Sardine_100_25_10[[i]]$k_ckmr_hsp[which(Sardine_100_25_10[[i]]$age_diff<(1.7*2))]))
  Pairs_Sardine_1000_25_10[i,1]<-(sum(Sardine_1000_25_10[[i]]$k_ckmr_pop))
  Pairs_Sardine_1000_25_10[i,2]<-(sum(Sardine_1000_25_10[[i]]$k_ckmr_hsp))
-# Pairs_Sardine_2000_25_10[i,1]<-(sum(Sardine_2000_25_10[[i]]$k_ckmr_pop))
-# Pairs_Sardine_2000_25_10[i,2]<-(sum(Sardine_2000_25_10[[i]]$k_ckmr_hsp))
+ Pairs_Sardine_1000_25_10_HSPnoGGP[i]<-(sum(Sardine_1000_25_10[[i]]$k_ckmr_hsp[which(Sardine_1000_25_10[[i]]$age_diff<(1.7*2))]))
  Pairs_Sardine_5000_25_10[i,1]<-(sum(Sardine_5000_25_10[[i]]$k_ckmr_pop))
  Pairs_Sardine_5000_25_10[i,2]<-(sum(Sardine_5000_25_10[[i]]$k_ckmr_hsp))
+ Pairs_Sardine_5000_25_10_HSPnoGGP[i]<-(sum(Sardine_5000_25_10[[i]]$k_ckmr_hsp[which(Sardine_5000_25_10[[i]]$age_diff<(1.7*2))]))
  
- Pairs_Sardine_100_25_25[i,1]<-(sum(Sardine_100_25_25[[i]]$k_ckmr_pop))
- Pairs_Sardine_100_25_25[i,2]<-(sum(Sardine_100_25_25[[i]]$k_ckmr_hsp))
-# Pairs_Sardine_200_25_25[i,1]<-(sum(Sardine_200_25_25[[i]]$k_ckmr_pop))
-# Pairs_Sardine_200_25_25[i,2]<-(sum(Sardine_200_25_25[[i]]$k_ckmr_hsp))
- Pairs_Sardine_1000_25_25[i,1]<-(sum(Sardine_1000_25_25[[i]]$k_ckmr_pop))
- Pairs_Sardine_1000_25_25[i,2]<-(sum(Sardine_1000_25_25[[i]]$k_ckmr_hsp))
-# Pairs_Sardine_2000_25_25[i,1]<-(sum(Sardine_2000_25_25[[i]]$k_ckmr_pop))
-# Pairs_Sardine_2000_25_25[i,2]<-(sum(Sardine_2000_25_25[[i]]$k_ckmr_hsp))
- Pairs_Sardine_5000_25_25[i,1]<-(sum(Sardine_5000_25_25[[i]]$k_ckmr_pop))
- Pairs_Sardine_5000_25_25[i,2]<-(sum(Sardine_5000_25_25[[i]]$k_ckmr_hsp))
+ Pairs_Sardine_100_25_20[i,1]<-(sum(Sardine_100_25_20[[i]]$k_ckmr_pop))
+ Pairs_Sardine_100_25_20[i,2]<-(sum(Sardine_100_25_20[[i]]$k_ckmr_hsp))
+ Pairs_Sardine_100_25_20_HSPnoGGP[i]<-(sum(Sardine_100_25_20[[i]]$k_ckmr_hsp[which(Sardine_100_25_20[[i]]$age_diff<(1.7*2))]))
+ Pairs_Sardine_1000_25_20[i,1]<-(sum(Sardine_1000_25_20[[i]]$k_ckmr_pop))
+ Pairs_Sardine_1000_25_20[i,2]<-(sum(Sardine_1000_25_20[[i]]$k_ckmr_hsp))
+ Pairs_Sardine_1000_25_20_HSPnoGGP[i]<-(sum(Sardine_1000_25_20[[i]]$k_ckmr_hsp[which(Sardine_1000_25_20[[i]]$age_diff<(1.7*2))]))
+ Pairs_Sardine_5000_25_20[i,1]<-(sum(Sardine_5000_25_20[[i]]$k_ckmr_pop))
+ Pairs_Sardine_5000_25_20[i,2]<-(sum(Sardine_5000_25_20[[i]]$k_ckmr_hsp))
+ Pairs_Sardine_5000_25_20_HSPnoGGP[i]<-(sum(Sardine_5000_25_20[[i]]$k_ckmr_hsp[which(Sardine_5000_25_20[[i]]$age_diff<(1.7*2))]))
 }
 
 #N100
-#tiff(paste0(wd,"CKMRPairs_N100.tiff"), height=20, width=30, units='cm', compression="lzw", res=500)
+#tiff(paste0(wd,"CKMRPairs_N100_noGPP.tiff"), height=20, width=30, units='cm', compression="lzw", res=500)
 par(mfrow=c(3,6), oma=c(2,2,1,1), mar=c(4,4,2.5,1))
-hist(Pairs_Cod_100_25_5[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="", main="")
+hist(Pairs_Cod_100_25_5[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="", main="")
 mtext(text="5yr", side=2, line=4.5, font=2)
 mtext(text="POP", side=3, line=-2,font=2)
-hist(Pairs_Cod_100_25_5[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="", main="", ylab="")
+#hist(Pairs_Cod_100_25_5[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="", main="", ylab="")
+hist(Pairs_Cod_100_25_5_HSPnoGGP, breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="", main="", ylab="")
 mtext(text="Cod", side=3, line=2, at=-4, font=2)
 mtext(text="HSP", side=3, line=-2,font=2)
 
-hist(Pairs_Flatfish_100_25_5[,1], breaks=seq(-0.5,1e6,10), xlim=c(-1,400), las=1, xlab="", main="", ylab="")
+hist(Pairs_Flatfish_100_25_5[,1], breaks=seq(-0.5,1e6,10), xlim=c(-0.5,200), las=1, xlab="", main="", ylab="")
 mtext(text="POP", side=3, line=-2,font=2)
-hist(Pairs_Flatfish_100_25_5[,2], breaks=seq(-0.5,1e6,10), xlim=c(-1,400), las=1, xlab="", main="", ylab="")
+#hist(Pairs_Flatfish_100_25_5[,2], breaks=seq(-0.5,1e6,10), xlim=c(-0.5,200), las=1, xlab="", main="", ylab="")
+hist(Pairs_Flatfish_100_25_5_HSPnoGGP, breaks=seq(-0.5,1e6,10), xlim=c(-0.5,200), las=1, xlab="", main="", ylab="")
 mtext(text="Flatfish", side=3, line=2, at=-75, font=2)
 mtext(text="HSP", side=3, line=-2,font=2)
 
-hist(Pairs_Sardine_100_25_5[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="", main="", ylab="")
+hist(Pairs_Sardine_100_25_5[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="", main="", ylab="")
 mtext(text="POP", side=3, line=-2,font=2)
-hist(Pairs_Sardine_100_25_5[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="", main="", ylab="")
+#hist(Pairs_Sardine_100_25_5[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="", main="", ylab="")
+hist(Pairs_Sardine_100_25_5_HSPnoGGP, breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="", main="", ylab="")
 mtext(text="Sardine", side=3, line=2, at=-4, font=2)
 mtext(text="HSP", side=3, line=-2,font=2)
 
-hist(Pairs_Cod_100_25_10[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="", main="")
+hist(Pairs_Cod_100_25_10[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="", main="")
 mtext(text="10yr", side=2, line=4.5, font=2)
-hist(Pairs_Cod_100_25_10[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="", main="", ylab="")
+#hist(Pairs_Cod_100_25_10[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="", main="", ylab="")
+hist(Pairs_Cod_100_25_10_HSPnoGGP, breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="", main="", ylab="")
 
-hist(Pairs_Flatfish_100_25_10[,1], breaks=seq(-0.5,1e6,10), xlim=c(-1,400), las=1, xlab="", main="", ylab="")
-hist(Pairs_Flatfish_100_25_10[,2], breaks=seq(-0.5,1e6,10), xlim=c(-1,400), las=1, xlab="", main="", ylab="")
+hist(Pairs_Flatfish_100_25_10[,1], breaks=seq(-0.5,1e6,10), xlim=c(-0.5,200), las=1, xlab="", main="", ylab="")
+#hist(Pairs_Flatfish_100_25_10[,2], breaks=seq(-0.5,1e6,10), xlim=c(-0.5,200), las=1, xlab="", main="", ylab="")
+hist(Pairs_Flatfish_100_25_10_HSPnoGGP, breaks=seq(-0.5,1e6,10), xlim=c(-0.5,200), las=1, xlab="", main="", ylab="")
 
-hist(Pairs_Sardine_100_25_10[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="", main="", ylab="")
-hist(Pairs_Sardine_100_25_10[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="", main="", ylab="")
+hist(Pairs_Sardine_100_25_10[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="", main="", ylab="")
+#hist(Pairs_Sardine_100_25_10[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="", main="", ylab="")
+hist(Pairs_Sardine_100_25_10_HSPnoGGP, breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="", main="", ylab="")
 
-hist(Pairs_Cod_100_25_25[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="Parent-Offspring Pairs", main="")
-mtext(text="25yr", side=2, line=4.5, font=2)
-hist(Pairs_Cod_100_25_25[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
+hist(Pairs_Cod_100_25_20[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="Parent-Offspring Pairs", main="")
+mtext(text="20yr", side=2, line=4.5, font=2)
+#hist(Pairs_Cod_100_25_20[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
+hist(Pairs_Cod_100_25_20_HSPnoGGP, breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
 
-hist(Pairs_Flatfish_100_25_25[,1], breaks=seq(-0.5,1e6,10), xlim=c(-1,400), las=1, xlab="Parent-Offspring Pairs", main="", ylab="")
-hist(Pairs_Flatfish_100_25_25[,2], breaks=seq(-0.5,1e6,10), xlim=c(-1,400), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
+hist(Pairs_Flatfish_100_25_20[,1], breaks=seq(-0.5,1e6,10), xlim=c(-0.5,200), las=1, xlab="Parent-Offspring Pairs", main="", ylab="")
+#hist(Pairs_Flatfish_100_25_20[,2], breaks=seq(-0.5,1e6,10), xlim=c(-0.5,200), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
+hist(Pairs_Flatfish_100_25_20_HSPnoGGP, breaks=seq(-0.5,1e6,10), xlim=c(-0.5,200), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
 
-hist(Pairs_Sardine_100_25_25[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="Parent-Offspring Pairs", main="", ylab="")
-hist(Pairs_Sardine_100_25_25[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
+hist(Pairs_Sardine_100_25_20[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="Parent-Offspring Pairs", main="", ylab="")
+#hist(Pairs_Sardine_100_25_20[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
+hist(Pairs_Sardine_100_25_20_HSPnoGGP, breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
 #dev.off()
 
-# #N200
-# #tiff(paste0(wd,"CKMRPairs_N200.tiff"), height=20, width=30, units='cm', compression="lzw", res=500)
-# par(mfrow=c(3,6), oma=c(2,2,1,1), mar=c(4,4,2.5,1))
-# hist(Pairs_Cod_200_25_5[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="", main="")
-# mtext(text="5yr", side=2, line=4.5, font=2)
-# mtext(text="POP", side=3, line=-2,font=2)
-# hist(Pairs_Cod_200_25_5[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="", main="", ylab="")
-# mtext(text="Cod", side=3, line=2, at=-4, font=2)
-# mtext(text="HSP", side=3, line=-2,font=2)
-# 
-# hist(Pairs_Flatfish_200_25_5[,1], breaks=seq(-0.5,1e6,10), xlim=c(-1,400), las=1, xlab="", main="", ylab="")
-# mtext(text="POP", side=3, line=-2,font=2)
-# hist(Pairs_Flatfish_200_25_5[,2], breaks=seq(-0.5,1e6,10), xlim=c(-1,400), las=1, xlab="", main="", ylab="")
-# mtext(text="Flatfish", side=3, line=2, at=-75, font=2)
-# mtext(text="HSP", side=3, line=-2,font=2)
-# 
-# hist(Pairs_Sardine_200_25_5[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="", main="", ylab="")
-# mtext(text="POP", side=3, line=-2,font=2)
-# hist(Pairs_Sardine_200_25_5[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="", main="", ylab="")
-# mtext(text="Sardine", side=3, line=2, at=-4, font=2)
-# mtext(text="HSP", side=3, line=-2,font=2)
-# 
-# hist(Pairs_Cod_200_25_10[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="", main="")
-# mtext(text="10yr", side=2, line=4.5, font=2)
-# hist(Pairs_Cod_200_25_10[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="", main="", ylab="")
-# 
-# hist(Pairs_Flatfish_200_25_10[,1], breaks=seq(-0.5,1e6,10), xlim=c(-1,400), las=1, xlab="", main="", ylab="")
-# hist(Pairs_Flatfish_200_25_10[,2], breaks=seq(-0.5,1e6,10), xlim=c(-1,400), las=1, xlab="", main="", ylab="")
-# 
-# hist(Pairs_Sardine_200_25_10[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="", main="", ylab="")
-# hist(Pairs_Sardine_200_25_10[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="", main="", ylab="")
-# 
-# hist(Pairs_Cod_200_25_25[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="Parent-Offspring Pairs", main="")
-# mtext(text="25yr", side=2, line=4.5, font=2)
-# hist(Pairs_Cod_200_25_25[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
-# 
-# hist(Pairs_Flatfish_200_25_25[,1], breaks=seq(-0.5,1e6,10), xlim=c(-1,400), las=1, xlab="Parent-Offspring Pairs", main="", ylab="")
-# hist(Pairs_Flatfish_200_25_25[,2], breaks=seq(-0.5,1e6,10), xlim=c(-1,400), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
-# 
-# hist(Pairs_Sardine_200_25_25[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="Parent-Offspring Pairs", main="", ylab="")
-# hist(Pairs_Sardine_200_25_25[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
-# #dev.off()
-
 #N1000
-#tiff(paste0(wd,"CKMRPairs_N1000.tiff"), height=20, width=30, units='cm', compression="lzw", res=500)
+#tiff(paste0(wd,"CKMRPairs_N1000_noGPP.tiff"), height=20, width=30, units='cm', compression="lzw", res=500)
 par(mfrow=c(3,6), oma=c(2,2,1,1), mar=c(4,4,2.5,1))
-hist(Pairs_Cod_1000_25_5[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="", main="")
+hist(Pairs_Cod_1000_25_5[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,10), las=1, xlab="", main="")
 mtext(text="5yr", side=2, line=4.5, font=2)
 mtext(text="POP", side=3, line=-2,font=2)
-hist(Pairs_Cod_1000_25_5[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="", main="", ylab="")
+#hist(Pairs_Cod_1000_25_5[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,10), las=1, xlab="", main="", ylab="")
+hist(Pairs_Cod_1000_25_5_HSPnoGGP, breaks=seq(-0.5,1e6,1), xlim=c(-0.5,10), las=1, xlab="", main="", ylab="")
 mtext(text="Cod", side=3, line=2, at=-4, font=2)
 mtext(text="HSP", side=3, line=-2,font=2)
 
-hist(Pairs_Flatfish_1000_25_5[,1], breaks=seq(-0.5,1e6,100), xlim=c(-1,15000), las=1, xlab="", main="", ylab="")
+hist(Pairs_Flatfish_1000_25_5[,1], breaks=seq(-0.5,1e6,100), xlim=c(-0.5,15000), las=1, xlab="", main="", ylab="")
 mtext(text="POP", side=3, line=-2,font=2)
-hist(Pairs_Flatfish_1000_25_5[,2], breaks=seq(-0.5,1e6,100), xlim=c(-1,15000), las=1, xlab="", main="", ylab="")
+#hist(Pairs_Flatfish_1000_25_5[,2], breaks=seq(-0.5,1e6,100), xlim=c(-0.5,15000), las=1, xlab="", main="", ylab="")
+hist(Pairs_Flatfish_1000_25_5_HSPnoGGP, breaks=seq(-0.5,1e6,100), xlim=c(-0.5,15000), las=1, xlab="", main="", ylab="")
 mtext(text="Flatfish", side=3, line=2, at=-2500, font=2)
 mtext(text="HSP", side=3, line=-2,font=2)
 
-hist(Pairs_Sardine_1000_25_5[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,100), las=1, xlab="", main="", ylab="")
+hist(Pairs_Sardine_1000_25_5[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,100), las=1, xlab="", main="", ylab="")
 mtext(text="POP", side=3, line=-2,font=2)
-hist(Pairs_Sardine_1000_25_5[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,100), las=1, xlab="", main="", ylab="")
+#hist(Pairs_Sardine_1000_25_5[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,100), las=1, xlab="", main="", ylab="")
+hist(Pairs_Sardine_1000_25_5_HSPnoGGP, breaks=seq(-0.5,1e6,1), xlim=c(-0.5,100), las=1, xlab="", main="", ylab="")
 mtext(text="Sardine", side=3, line=2, at=-25, font=2)
 mtext(text="HSP", side=3, line=-2,font=2)
 
-hist(Pairs_Cod_1000_25_10[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="", main="")
+hist(Pairs_Cod_1000_25_10[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,10), las=1, xlab="", main="")
 mtext(text="10yr", side=2, line=4.5, font=2)
-hist(Pairs_Cod_1000_25_10[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="", main="", ylab="")
+#hist(Pairs_Cod_1000_25_10[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,10), las=1, xlab="", main="", ylab="")
+hist(Pairs_Cod_1000_25_10_HSPnoGGP, breaks=seq(-0.5,1e6,1), xlim=c(-0.5,10), las=1, xlab="", main="", ylab="")
 
-hist(Pairs_Flatfish_1000_25_10[,1], breaks=seq(-0.5,1e6,100), xlim=c(-1,15000), las=1, xlab="", main="", ylab="")
-hist(Pairs_Flatfish_1000_25_10[,2], breaks=seq(-0.5,1e6,100), xlim=c(-1,15000), las=1, xlab="", main="", ylab="")
+hist(Pairs_Flatfish_1000_25_10[,1], breaks=seq(-0.5,1e6,100), xlim=c(-0.5,15000), las=1, xlab="", main="", ylab="")
+#hist(Pairs_Flatfish_1000_25_10[,2], breaks=seq(-0.5,1e6,100), xlim=c(-0.5,15000), las=1, xlab="", main="", ylab="")
+hist(Pairs_Flatfish_1000_25_10_HSPnoGGP, breaks=seq(-0.5,1e6,100), xlim=c(-0.5,15000), las=1, xlab="", main="", ylab="")
 
-hist(Pairs_Sardine_1000_25_10[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,100), las=1, xlab="", main="", ylab="")
-hist(Pairs_Sardine_1000_25_10[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,100), las=1, xlab="", main="", ylab="")
+hist(Pairs_Sardine_1000_25_10[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,100), las=1, xlab="", main="", ylab="")
+#hist(Pairs_Sardine_1000_25_10[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,100), las=1, xlab="", main="", ylab="")
+hist(Pairs_Sardine_1000_25_10_HSPnoGGP, breaks=seq(-0.5,1e6,1), xlim=c(-0.5,100), las=1, xlab="", main="", ylab="")
 
-hist(Pairs_Cod_1000_25_25[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="Parent-Offspring Pairs", main="")
-mtext(text="25yr", side=2, line=4.5, font=2)
-hist(Pairs_Cod_1000_25_25[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,10), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
+hist(Pairs_Cod_1000_25_20[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,10), las=1, xlab="Parent-Offspring Pairs", main="")
+mtext(text="20yr", side=2, line=4.5, font=2)
+#hist(Pairs_Cod_1000_25_20[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,10), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
+hist(Pairs_Cod_1000_25_20_HSPnoGGP, breaks=seq(-0.5,1e6,1), xlim=c(-0.5,10), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
 
-hist(Pairs_Flatfish_1000_25_25[,1], breaks=seq(-0.5,1e6,100), xlim=c(-1,15000), las=1, xlab="Parent-Offspring Pairs", main="", ylab="")
-hist(Pairs_Flatfish_1000_25_25[,2], breaks=seq(-0.5,1e6,100), xlim=c(-1,15000), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
+hist(Pairs_Flatfish_1000_25_20[,1], breaks=seq(-0.5,1e6,100), xlim=c(-0.5,15000), las=1, xlab="Parent-Offspring Pairs", main="", ylab="")
+#hist(Pairs_Flatfish_1000_25_20[,2], breaks=seq(-0.5,1e6,100), xlim=c(-0.5,15000), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
+hist(Pairs_Flatfish_1000_25_20_HSPnoGGP, breaks=seq(-0.5,1e6,100), xlim=c(-0.5,15000), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
 
-hist(Pairs_Sardine_1000_25_25[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,100), las=1, xlab="Parent-Offspring Pairs", main="", ylab="")
-hist(Pairs_Sardine_1000_25_25[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,100), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
+hist(Pairs_Sardine_1000_25_20[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,100), las=1, xlab="Parent-Offspring Pairs", main="", ylab="")
+#hist(Pairs_Sardine_1000_25_20[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,100), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
+hist(Pairs_Sardine_1000_25_20_HSPnoGGP, breaks=seq(-0.5,1e6,1), xlim=c(-0.5,100), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
 #dev.off()
 
-# #N2000
-# #tiff(paste0(wd,"CKMRPairs_N2000.tiff"), height=20, width=30, units='cm', compression="lzw", res=500)
-# par(mfrow=c(3,6), oma=c(2,2,1,1), mar=c(4,4,2.5,1))
-# hist(Pairs_Cod_2000_25_5[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,25), las=1, xlab="", main="")
-# mtext(text="5yr", side=2, line=4.5, font=2)
-# mtext(text="POP", side=3, line=-2,font=2)
-# hist(Pairs_Cod_2000_25_5[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,25), las=1, xlab="", main="", ylab="")
-# mtext(text="Cod", side=3, line=2, at=-8, font=2)
-# mtext(text="HSP", side=3, line=-2,font=2)
-# 
-# hist(Pairs_Flatfish_2000_25_5[,1], breaks=seq(-0.5,1e6,500), xlim=c(-1,50000), las=1, xlab="", main="", ylab="")
-# mtext(text="POP", side=3, line=-2,font=2)
-# hist(Pairs_Flatfish_2000_25_5[,2], breaks=seq(-0.5,1e6,500), xlim=c(-1,50000), las=1, xlab="", main="", ylab="")
-# mtext(text="Flatfish", side=3, line=2, at=-10000, font=2)
-# mtext(text="HSP", side=3, line=-2,font=2)
-# 
-# hist(Pairs_Sardine_2000_25_5[,1], breaks=seq(-0.5,1e6,10), xlim=c(-1,500), las=1, xlab="", main="", ylab="")
-# mtext(text="POP", side=3, line=-2,font=2)
-# hist(Pairs_Sardine_2000_25_5[,2], breaks=seq(-0.5,1e6,10), xlim=c(-1,500), las=1, xlab="", main="", ylab="")
-# mtext(text="Sardine", side=3, line=2, at=-130, font=2)
-# mtext(text="HSP", side=3, line=-2,font=2)
-# 
-# hist(Pairs_Cod_2000_25_10[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,25), las=1, xlab="", main="")
-# mtext(text="10yr", side=2, line=4.5, font=2)
-# hist(Pairs_Cod_2000_25_10[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,25), las=1, xlab="", main="", ylab="")
-# 
-# hist(Pairs_Flatfish_2000_25_10[,1], breaks=seq(-0.5,1e6,500), xlim=c(-1,50000), las=1, xlab="", main="", ylab="")
-# hist(Pairs_Flatfish_2000_25_10[,2], breaks=seq(-0.5,1e6,500), xlim=c(-1,50000), las=1, xlab="", main="", ylab="")
-# 
-# hist(Pairs_Sardine_2000_25_10[,1], breaks=seq(-0.5,1e6,10), xlim=c(-1,500), las=1, xlab="", main="", ylab="")
-# hist(Pairs_Sardine_2000_25_10[,2], breaks=seq(-0.5,1e6,10), xlim=c(-1,500), las=1, xlab="", main="", ylab="")
-# 
-# hist(Pairs_Cod_2000_25_25[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,25), las=1, xlab="Parent-Offspring Pairs", main="")
-# mtext(text="25yr", side=2, line=4.5, font=2)
-# hist(Pairs_Cod_2000_25_25[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,25), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
-# 
-# hist(Pairs_Flatfish_2000_25_25[,1], breaks=seq(-0.5,1e6,500), xlim=c(-1,50000), las=1, xlab="Parent-Offspring Pairs", main="", ylab="")
-# hist(Pairs_Flatfish_2000_25_25[,2], breaks=seq(-0.5,1e6,500), xlim=c(-1,50000), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
-# 
-# hist(Pairs_Sardine_2000_25_25[,1], breaks=seq(-0.5,1e6,10), xlim=c(-1,500), las=1, xlab="Parent-Offspring Pairs", main="", ylab="")
-# hist(Pairs_Sardine_2000_25_25[,2], breaks=seq(-0.5,1e6,10), xlim=c(-1,500), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
-# #dev.off()
-
 #N5000
-#tiff(paste0(wd,"CKMRPairs_N5000.tiff"), height=20, width=30, units='cm', compression="lzw", res=500)
+#tiff(paste0(wd,"CKMRPairs_N5000_noGPP.tiff"), height=20, width=30, units='cm', compression="lzw", res=500)
 par(mfrow=c(3,6), oma=c(2,2,1,1), mar=c(4,4,2.5,1))
-hist(Pairs_Cod_5000_25_5[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,120), las=1, xlab="", main="")
+hist(Pairs_Cod_5000_25_5[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,120), las=1, xlab="", main="")
 mtext(text="5yr", side=2, line=4.5, font=2)
 mtext(text="POP", side=3, line=-2,font=2)
-hist(Pairs_Cod_5000_25_5[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,120), las=1, xlab="", main="", ylab="")
+#hist(Pairs_Cod_5000_25_5[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,120), las=1, xlab="", main="", ylab="")
+hist(Pairs_Cod_5000_25_5_HSPnoGGP, breaks=seq(-0.5,1e6,1), xlim=c(-0.5,120), las=1, xlab="", main="", ylab="")
 mtext(text="Cod", side=3, line=2, at=-30, font=2)
 mtext(text="HSP", side=3, line=-2,font=2)
 
-hist(Pairs_Flatfish_5000_25_5[,1], breaks=seq(-0.5,1e6,2e3), xlim=c(-1,3e5), las=1, xlab="", main="", ylab="")
+hist(Pairs_Flatfish_5000_25_5[,1], breaks=seq(-0.5,1e6,2e3), xlim=c(-0.5,3e5), las=1, xlab="", main="", ylab="")
 mtext(text="POP", side=3, line=-2,font=2)
-hist(Pairs_Flatfish_5000_25_5[,2], breaks=seq(-0.5,1e6,2e3), xlim=c(-1,3e5), las=1, xlab="", main="", ylab="")
+#hist(Pairs_Flatfish_5000_25_5[,2], breaks=seq(-0.5,1e6,2e3), xlim=c(-0.5,3e5), las=1, xlab="", main="", ylab="")
+hist(Pairs_Flatfish_5000_25_5_HSPnoGGP, breaks=seq(-0.5,1e6,2e3), xlim=c(-0.5,3e5), las=1, xlab="", main="", ylab="")
 mtext(text="Flatfish", side=3, line=2, at=-50000, font=2)
 mtext(text="HSP", side=3, line=-2,font=2)
 
-hist(Pairs_Sardine_5000_25_5[,1], breaks=seq(-0.5,1e6,50), xlim=c(-1,2500), las=1, xlab="", main="", ylab="")
+hist(Pairs_Sardine_5000_25_5[,1], breaks=seq(-0.5,1e6,50), xlim=c(-0.5,2500), las=1, xlab="", main="", ylab="")
 mtext(text="POP", side=3, line=-2,font=2)
-hist(Pairs_Sardine_5000_25_5[,2], breaks=seq(-0.5,1e6,50), xlim=c(-1,2500), las=1, xlab="", main="", ylab="")
+#hist(Pairs_Sardine_5000_25_5[,2], breaks=seq(-0.5,1e6,50), xlim=c(-0.5,2500), las=1, xlab="", main="", ylab="")
+hist(Pairs_Sardine_5000_25_5_HSPnoGGP, breaks=seq(-0.5,1e6,50), xlim=c(-0.5,2500), las=1, xlab="", main="", ylab="")
 mtext(text="Sardine", side=3, line=2, at=-600, font=2)
 mtext(text="HSP", side=3, line=-2,font=2)
 
-hist(Pairs_Cod_5000_25_10[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,120), las=1, xlab="", main="")
+hist(Pairs_Cod_5000_25_10[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,120), las=1, xlab="", main="")
 mtext(text="10yr", side=2, line=4.5, font=2)
-hist(Pairs_Cod_5000_25_10[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,120), las=1, xlab="", main="", ylab="")
+#hist(Pairs_Cod_5000_25_10[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,120), las=1, xlab="", main="", ylab="")
+hist(Pairs_Cod_5000_25_10_HSPnoGGP, breaks=seq(-0.5,1e6,1), xlim=c(-0.5,120), las=1, xlab="", main="", ylab="")
 
-hist(Pairs_Flatfish_5000_25_10[,1], breaks=seq(-0.5,1e6,2e3), xlim=c(-1,3e5), las=1, xlab="", main="", ylab="")
-hist(Pairs_Flatfish_5000_25_10[,2], breaks=seq(-0.5,1e6,2e3), xlim=c(-1,3e5), las=1, xlab="", main="", ylab="")
+hist(Pairs_Flatfish_5000_25_10[,1], breaks=seq(-0.5,1e6,2e3), xlim=c(-0.5,3e5), las=1, xlab="", main="", ylab="")
+#hist(Pairs_Flatfish_5000_25_10[,2], breaks=seq(-0.5,1e6,2e3), xlim=c(-0.5,3e5), las=1, xlab="", main="", ylab="")
+hist(Pairs_Flatfish_5000_25_10_HSPnoGGP, breaks=seq(-0.5,1e6,2e3), xlim=c(-0.5,3e5), las=1, xlab="", main="", ylab="")
 
-hist(Pairs_Sardine_5000_25_10[,1], breaks=seq(-0.5,1e6,50), xlim=c(-1,2500), las=1, xlab="", main="", ylab="")
-hist(Pairs_Sardine_5000_25_10[,2], breaks=seq(-0.5,1e6,50), xlim=c(-1,2500), las=1, xlab="", main="", ylab="")
+hist(Pairs_Sardine_5000_25_10[,1], breaks=seq(-0.5,1e6,50), xlim=c(-0.5,2500), las=1, xlab="", main="", ylab="")
+#hist(Pairs_Sardine_5000_25_10[,2], breaks=seq(-0.5,1e6,50), xlim=c(-0.5,2500), las=1, xlab="", main="", ylab="")
+hist(Pairs_Sardine_5000_25_10_HSPnoGGP, breaks=seq(-0.5,1e6,50), xlim=c(-0.5,2500), las=1, xlab="", main="", ylab="")
 
-hist(Pairs_Cod_5000_25_25[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,120), las=1, xlab="Parent-Offspring Pairs", main="")
-mtext(text="25yr", side=2, line=4.5, font=2)
-hist(Pairs_Cod_5000_25_25[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,120), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
+hist(Pairs_Cod_5000_25_20[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,120), las=1, xlab="Parent-Offspring Pairs", main="")
+mtext(text="20yr", side=2, line=4.5, font=2)
+#hist(Pairs_Cod_5000_25_20[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,120), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
+hist(Pairs_Cod_5000_25_20_HSPnoGGP, breaks=seq(-0.5,1e6,1), xlim=c(-0.5,120), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
 
-hist(Pairs_Flatfish_5000_25_25[,1], breaks=seq(-0.5,1e6,2e3), xlim=c(-1,3e5), las=1, xlab="Parent-Offspring Pairs", main="", ylab="")
-hist(Pairs_Flatfish_5000_25_25[,2], breaks=seq(-0.5,1e6,2e3), xlim=c(-1,3e5), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
+hist(Pairs_Flatfish_5000_25_20[,1], breaks=seq(-0.5,1e6,2e3), xlim=c(-0.5,3e5), las=1, xlab="Parent-Offspring Pairs", main="", ylab="")
+#hist(Pairs_Flatfish_5000_25_20[,2], breaks=seq(-0.5,1e6,2e3), xlim=c(-0.5,3e5), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
+hist(Pairs_Flatfish_5000_25_20_HSPnoGGP, breaks=seq(-0.5,1e6,2e3), xlim=c(-0.5,3e5), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
 
-hist(Pairs_Sardine_5000_25_25[,1], breaks=seq(-0.5,1e6,50), xlim=c(-1,2500), las=1, xlab="Parent-Offspring Pairs", main="", ylab="")
-hist(Pairs_Sardine_5000_25_25[,2], breaks=seq(-0.5,1e6,50), xlim=c(-1,2500), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
+hist(Pairs_Sardine_5000_25_20[,1], breaks=seq(-0.5,1e6,50), xlim=c(-0.5,2500), las=1, xlab="Parent-Offspring Pairs", main="", ylab="")
+#hist(Pairs_Sardine_5000_25_20[,2], breaks=seq(-0.5,1e6,50), xlim=c(-0.5,2500), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
+hist(Pairs_Sardine_5000_25_20_HSPnoGGP, breaks=seq(-0.5,1e6,50), xlim=c(-0.5,2500), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
 #dev.off()
 
 #Overlap histograms
@@ -662,65 +493,65 @@ hist(Pairs_Sardine_5000_25_10[,2], breaks=seq(-0.5,1e6,50), xlim=c(-1,2200), las
 hist(Pairs_Sardine_1000_25_10[,2], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0.8,0,0.2))
 hist(Pairs_Sardine_100_25_10[,2], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0,0.8,0.2))
 
-hist(Pairs_Cod_5000_25_25[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,100), las=1, xlab="Parent-Offspring Pairs", main="",col=rgb(0.8,0,0,0.2))
-hist(Pairs_Cod_1000_25_25[,1], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0.8,0,0.2))
-hist(Pairs_Cod_100_25_25[,1], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0,0.8,0.2))
-mtext(text="25yr", side=2, line=4.5, font=2)
-hist(Pairs_Cod_5000_25_25[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,100), las=1, xlab="Half-Sibling Pairs", main="", ylab="",col=rgb(0.8,0,0,0.2))
-hist(Pairs_Cod_1000_25_25[,2], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0.8,0,0.2))
-hist(Pairs_Cod_100_25_25[,2], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0,0.8,0.2))
+hist(Pairs_Cod_5000_25_20[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,100), las=1, xlab="Parent-Offspring Pairs", main="",col=rgb(0.8,0,0,0.2))
+hist(Pairs_Cod_1000_25_20[,1], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0.8,0,0.2))
+hist(Pairs_Cod_100_25_20[,1], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0,0.8,0.2))
+mtext(text="20yr", side=2, line=4.5, font=2)
+hist(Pairs_Cod_5000_25_20[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,100), las=1, xlab="Half-Sibling Pairs", main="", ylab="",col=rgb(0.8,0,0,0.2))
+hist(Pairs_Cod_1000_25_20[,2], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0.8,0,0.2))
+hist(Pairs_Cod_100_25_20[,2], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0,0.8,0.2))
 
-hist(Pairs_Flatfish_5000_25_25[,1], breaks=seq(-0.5,1e6,5e3), xlim=c(-1,2.5e5), las=1, xlab="Parent-Offspring Pairs", main="", ylab="",col=rgb(0.8,0,0,0.2))
-hist(Pairs_Flatfish_1000_25_25[,1], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0.8,0,0.2))
-hist(Pairs_Flatfish_100_25_25[,1], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0,0.8,0.2))
-hist(Pairs_Flatfish_5000_25_25[,2], breaks=seq(-0.5,1e6,5e3), xlim=c(-1,2.5e5), las=1, xlab="Half-Sibling Pairs", main="", ylab="",col=rgb(0.8,0,0,0.2))
-hist(Pairs_Flatfish_1000_25_25[,2], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0.8,0,0.2))
-hist(Pairs_Flatfish_100_25_25[,2], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0,0.8,0.2))
+hist(Pairs_Flatfish_5000_25_20[,1], breaks=seq(-0.5,1e6,5e3), xlim=c(-1,2.5e5), las=1, xlab="Parent-Offspring Pairs", main="", ylab="",col=rgb(0.8,0,0,0.2))
+hist(Pairs_Flatfish_1000_25_20[,1], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0.8,0,0.2))
+hist(Pairs_Flatfish_100_25_20[,1], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0,0.8,0.2))
+hist(Pairs_Flatfish_5000_25_20[,2], breaks=seq(-0.5,1e6,5e3), xlim=c(-1,2.5e5), las=1, xlab="Half-Sibling Pairs", main="", ylab="",col=rgb(0.8,0,0,0.2))
+hist(Pairs_Flatfish_1000_25_20[,2], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0.8,0,0.2))
+hist(Pairs_Flatfish_100_25_20[,2], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0,0.8,0.2))
 
-hist(Pairs_Sardine_5000_25_25[,1], breaks=seq(-0.5,1e6,50), xlim=c(-1,2200), las=1, xlab="Parent-Offspring Pairs", main="", ylab="",col=rgb(0.8,0,0,0.2))
-hist(Pairs_Sardine_1000_25_25[,1], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0.8,0,0.2))
-hist(Pairs_Sardine_100_25_25[,1], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0,0.8,0.2))
-hist(Pairs_Sardine_5000_25_25[,2], breaks=seq(-0.5,1e6,50), xlim=c(-1,2200), las=1, xlab="Half-Sibling Pairs", main="", ylab="",col=rgb(0.8,0,0,0.2))
-hist(Pairs_Sardine_1000_25_25[,2], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0.8,0,0.2))
-hist(Pairs_Sardine_100_25_25[,2], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0,0.8,0.2))
+hist(Pairs_Sardine_5000_25_20[,1], breaks=seq(-0.5,1e6,50), xlim=c(-1,2200), las=1, xlab="Parent-Offspring Pairs", main="", ylab="",col=rgb(0.8,0,0,0.2))
+hist(Pairs_Sardine_1000_25_20[,1], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0.8,0,0.2))
+hist(Pairs_Sardine_100_25_20[,1], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0,0.8,0.2))
+hist(Pairs_Sardine_5000_25_20[,2], breaks=seq(-0.5,1e6,50), xlim=c(-1,2200), las=1, xlab="Half-Sibling Pairs", main="", ylab="",col=rgb(0.8,0,0,0.2))
+hist(Pairs_Sardine_1000_25_20[,2], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0.8,0,0.2))
+hist(Pairs_Sardine_100_25_20[,2], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0,0.8,0.2))
 #dev.off()
 
-#Getting pairs Table, Tables is transposed in word
-c(mean(Pairs_Cod_100_25_5[,1]),sd(Pairs_Cod_100_25_5[,1]),mean(Pairs_Cod_100_25_5[,2]),sd(Pairs_Cod_100_25_5[,2]))
-c(mean(Pairs_Cod_1000_25_5[,1]),sd(Pairs_Cod_1000_25_5[,1]),mean(Pairs_Cod_1000_25_5[,2]),sd(Pairs_Cod_1000_25_5[,2]))
-c(mean(Pairs_Cod_5000_25_5[,1]),sd(Pairs_Cod_5000_25_5[,1]),mean(Pairs_Cod_5000_25_5[,2]),sd(Pairs_Cod_5000_25_5[,2]))
+#Getting pairs Table, 
+c(mean(Pairs_Cod_100_25_5[,1]),sd(Pairs_Cod_100_25_5[,1]),mean(Pairs_Cod_100_25_5_HSPnoGGP),sd(Pairs_Cod_100_25_5_HSPnoGGP))
+c(mean(Pairs_Cod_100_25_10[,1]),sd(Pairs_Cod_100_25_10[,1]),mean(Pairs_Cod_100_25_10_HSPnoGGP),sd(Pairs_Cod_100_25_10_HSPnoGGP))
+c(mean(Pairs_Cod_100_25_20[,1]),sd(Pairs_Cod_100_25_20[,1]),mean(Pairs_Cod_100_25_20_HSPnoGGP),sd(Pairs_Cod_100_25_20_HSPnoGGP))
 
-c(mean(Pairs_Cod_100_25_10[,1]),sd(Pairs_Cod_100_25_10[,1]),mean(Pairs_Cod_100_25_10[,2]),sd(Pairs_Cod_100_25_10[,2]))
-c(mean(Pairs_Cod_1000_25_10[,1]),sd(Pairs_Cod_1000_25_10[,1]),mean(Pairs_Cod_1000_25_10[,2]),sd(Pairs_Cod_1000_25_10[,2]))
-c(mean(Pairs_Cod_5000_25_10[,1]),sd(Pairs_Cod_5000_25_10[,1]),mean(Pairs_Cod_5000_25_10[,2]),sd(Pairs_Cod_5000_25_10[,2]))
+c(mean(Pairs_Cod_1000_25_5[,1]),sd(Pairs_Cod_1000_25_5[,1]),mean(Pairs_Cod_1000_25_5_HSPnoGGP),sd(Pairs_Cod_1000_25_5_HSPnoGGP))
+c(mean(Pairs_Cod_1000_25_10[,1]),sd(Pairs_Cod_1000_25_10[,1]),mean(Pairs_Cod_1000_25_10_HSPnoGGP),sd(Pairs_Cod_1000_25_10_HSPnoGGP))
+c(mean(Pairs_Cod_1000_25_20[,1]),sd(Pairs_Cod_1000_25_20[,1]),mean(Pairs_Cod_1000_25_20_HSPnoGGP),sd(Pairs_Cod_1000_25_20_HSPnoGGP))
 
-c(mean(Pairs_Cod_100_25_25[,1]),sd(Pairs_Cod_100_25_25[,1]),mean(Pairs_Cod_100_25_25[,2]),sd(Pairs_Cod_100_25_25[,2]))
-c(mean(Pairs_Cod_1000_25_25[,1]),sd(Pairs_Cod_1000_25_25[,1]),mean(Pairs_Cod_1000_25_25[,2]),sd(Pairs_Cod_1000_25_25[,2]))
-c(mean(Pairs_Cod_5000_25_25[,1]),sd(Pairs_Cod_5000_25_25[,1]),mean(Pairs_Cod_5000_25_25[,2]),sd(Pairs_Cod_5000_25_25[,2]))
+c(mean(Pairs_Cod_5000_25_5[,1]),sd(Pairs_Cod_5000_25_5[,1]),mean(Pairs_Cod_5000_25_5_HSPnoGGP),sd(Pairs_Cod_5000_25_5_HSPnoGGP))
+c(mean(Pairs_Cod_5000_25_10[,1]),sd(Pairs_Cod_5000_25_10[,1]),mean(Pairs_Cod_5000_25_10_HSPnoGGP),sd(Pairs_Cod_5000_25_10_HSPnoGGP))
+c(mean(Pairs_Cod_5000_25_20[,1]),sd(Pairs_Cod_5000_25_20[,1]),mean(Pairs_Cod_5000_25_20_HSPnoGGP),sd(Pairs_Cod_5000_25_20_HSPnoGGP))
 
-c(mean(Pairs_Flatfish_100_25_5[,1]),sd(Pairs_Flatfish_100_25_5[,1]),mean(Pairs_Flatfish_100_25_5[,2]),sd(Pairs_Flatfish_100_25_5[,2]))
-c(mean(Pairs_Flatfish_1000_25_5[,1]),sd(Pairs_Flatfish_1000_25_5[,1]),mean(Pairs_Flatfish_1000_25_5[,2]),sd(Pairs_Flatfish_1000_25_5[,2]))
-c(mean(Pairs_Flatfish_5000_25_5[,1]),sd(Pairs_Flatfish_5000_25_5[,1]),mean(Pairs_Flatfish_5000_25_5[,2]),sd(Pairs_Flatfish_5000_25_5[,2]))
+c(mean(Pairs_Flatfish_100_25_5[,1]),sd(Pairs_Flatfish_100_25_5[,1]),mean(Pairs_Flatfish_100_25_5_HSPnoGGP),sd(Pairs_Flatfish_100_25_5_HSPnoGGP))
+c(mean(Pairs_Flatfish_100_25_10[,1]),sd(Pairs_Flatfish_100_25_10[,1]),mean(Pairs_Flatfish_100_25_10_HSPnoGGP),sd(Pairs_Flatfish_100_25_10_HSPnoGGP))
+c(mean(Pairs_Flatfish_100_25_20[,1]),sd(Pairs_Flatfish_100_25_20[,1]),mean(Pairs_Flatfish_100_25_20_HSPnoGGP),sd(Pairs_Flatfish_100_25_20_HSPnoGGP))
 
-c(mean(Pairs_Flatfish_100_25_10[,1]),sd(Pairs_Flatfish_100_25_10[,1]),mean(Pairs_Flatfish_100_25_10[,2]),sd(Pairs_Flatfish_100_25_10[,2]))
-c(mean(Pairs_Flatfish_1000_25_10[,1]),sd(Pairs_Flatfish_1000_25_10[,1]),mean(Pairs_Flatfish_1000_25_10[,2]),sd(Pairs_Flatfish_1000_25_10[,2]))
-c(mean(Pairs_Flatfish_5000_25_10[,1]),sd(Pairs_Flatfish_5000_25_10[,1]),mean(Pairs_Flatfish_5000_25_10[,2]),sd(Pairs_Flatfish_5000_25_10[,2]))
+c(mean(Pairs_Flatfish_1000_25_5[,1]),sd(Pairs_Flatfish_1000_25_5[,1]),mean(Pairs_Flatfish_1000_25_5_HSPnoGGP),sd(Pairs_Flatfish_1000_25_5_HSPnoGGP))
+c(mean(Pairs_Flatfish_1000_25_10[,1]),sd(Pairs_Flatfish_1000_25_10[,1]),mean(Pairs_Flatfish_1000_25_10_HSPnoGGP),sd(Pairs_Flatfish_1000_25_10_HSPnoGGP))
+c(mean(Pairs_Flatfish_1000_25_20[,1]),sd(Pairs_Flatfish_1000_25_20[,1]),mean(Pairs_Flatfish_1000_25_20_HSPnoGGP),sd(Pairs_Flatfish_1000_25_20_HSPnoGGP))
 
-c(mean(Pairs_Flatfish_100_25_25[,1]),sd(Pairs_Flatfish_100_25_25[,1]),mean(Pairs_Flatfish_100_25_25[,2]),sd(Pairs_Flatfish_100_25_25[,2]))
-c(mean(Pairs_Flatfish_1000_25_25[,1]),sd(Pairs_Flatfish_1000_25_25[,1]),mean(Pairs_Flatfish_1000_25_25[,2]),sd(Pairs_Flatfish_1000_25_25[,2]))
-c(mean(Pairs_Flatfish_5000_25_25[,1]),sd(Pairs_Flatfish_5000_25_25[,1]),mean(Pairs_Flatfish_5000_25_25[,2]),sd(Pairs_Flatfish_5000_25_25[,2]))
+c(mean(Pairs_Flatfish_5000_25_5[,1]),sd(Pairs_Flatfish_5000_25_5[,1]),mean(Pairs_Flatfish_5000_25_5_HSPnoGGP),sd(Pairs_Flatfish_5000_25_5_HSPnoGGP))
+c(mean(Pairs_Flatfish_5000_25_10[,1]),sd(Pairs_Flatfish_5000_25_10[,1]),mean(Pairs_Flatfish_5000_25_10_HSPnoGGP),sd(Pairs_Flatfish_5000_25_10_HSPnoGGP))
+c(mean(Pairs_Flatfish_5000_25_20[,1]),sd(Pairs_Flatfish_5000_25_20[,1]),mean(Pairs_Flatfish_5000_25_20_HSPnoGGP),sd(Pairs_Flatfish_5000_25_20_HSPnoGGP))
 
-c(mean(Pairs_Sardine_100_25_5[,1]),sd(Pairs_Sardine_100_25_5[,1]),mean(Pairs_Sardine_100_25_5[,2]),sd(Pairs_Sardine_100_25_5[,2]))
-c(mean(Pairs_Sardine_1000_25_5[,1]),sd(Pairs_Sardine_1000_25_5[,1]),mean(Pairs_Sardine_1000_25_5[,2]),sd(Pairs_Sardine_1000_25_5[,2]))
-c(mean(Pairs_Sardine_5000_25_5[,1]),sd(Pairs_Sardine_5000_25_5[,1]),mean(Pairs_Sardine_5000_25_5[,2]),sd(Pairs_Sardine_5000_25_5[,2]))
+c(mean(Pairs_Sardine_100_25_5[,1]),sd(Pairs_Sardine_100_25_5[,1]),mean(Pairs_Sardine_100_25_5_HSPnoGGP),sd(Pairs_Sardine_100_25_5_HSPnoGGP))
+c(mean(Pairs_Sardine_100_25_10[,1]),sd(Pairs_Sardine_100_25_10[,1]),mean(Pairs_Sardine_100_25_10_HSPnoGGP),sd(Pairs_Sardine_100_25_10_HSPnoGGP))
+c(mean(Pairs_Sardine_100_25_20[,1]),sd(Pairs_Sardine_100_25_20[,1]),mean(Pairs_Sardine_100_25_20_HSPnoGGP),sd(Pairs_Sardine_100_25_20_HSPnoGGP))
 
-c(mean(Pairs_Sardine_100_25_10[,1]),sd(Pairs_Sardine_100_25_10[,1]),mean(Pairs_Sardine_100_25_10[,2]),sd(Pairs_Sardine_100_25_10[,2]))
-c(mean(Pairs_Sardine_1000_25_10[,1]),sd(Pairs_Sardine_1000_25_10[,1]),mean(Pairs_Sardine_1000_25_10[,2]),sd(Pairs_Sardine_1000_25_10[,2]))
-c(mean(Pairs_Sardine_5000_25_10[,1]),sd(Pairs_Sardine_5000_25_10[,1]),mean(Pairs_Sardine_5000_25_10[,2]),sd(Pairs_Sardine_5000_25_10[,2]))
+c(mean(Pairs_Sardine_1000_25_5[,1]),sd(Pairs_Sardine_1000_25_5[,1]),mean(Pairs_Sardine_1000_25_5_HSPnoGGP),sd(Pairs_Sardine_1000_25_5_HSPnoGGP))
+c(mean(Pairs_Sardine_1000_25_10[,1]),sd(Pairs_Sardine_1000_25_10[,1]),mean(Pairs_Sardine_1000_25_10_HSPnoGGP),sd(Pairs_Sardine_1000_25_10_HSPnoGGP))
+c(mean(Pairs_Sardine_1000_25_20[,1]),sd(Pairs_Sardine_1000_25_20[,1]),mean(Pairs_Sardine_1000_25_20_HSPnoGGP),sd(Pairs_Sardine_1000_25_20_HSPnoGGP))
 
-c(mean(Pairs_Sardine_100_25_25[,1]),sd(Pairs_Sardine_100_25_25[,1]),mean(Pairs_Sardine_100_25_25[,2]),sd(Pairs_Sardine_100_25_25[,2]))
-c(mean(Pairs_Sardine_1000_25_25[,1]),sd(Pairs_Sardine_1000_25_25[,1]),mean(Pairs_Sardine_1000_25_25[,2]),sd(Pairs_Sardine_1000_25_25[,2]))
-c(mean(Pairs_Sardine_5000_25_25[,1]),sd(Pairs_Sardine_5000_25_25[,1]),mean(Pairs_Sardine_5000_25_25[,2]),sd(Pairs_Sardine_5000_25_25[,2]))
+c(mean(Pairs_Sardine_5000_25_5[,1]),sd(Pairs_Sardine_5000_25_5[,1]),mean(Pairs_Sardine_5000_25_5_HSPnoGGP),sd(Pairs_Sardine_5000_25_5_HSPnoGGP))
+c(mean(Pairs_Sardine_5000_25_10[,1]),sd(Pairs_Sardine_5000_25_10[,1]),mean(Pairs_Sardine_5000_25_10_HSPnoGGP),sd(Pairs_Sardine_5000_25_10_HSPnoGGP))
+c(mean(Pairs_Sardine_5000_25_20[,1]),sd(Pairs_Sardine_5000_25_20[,1]),mean(Pairs_Sardine_5000_25_20_HSPnoGGP),sd(Pairs_Sardine_5000_25_20_HSPnoGGP))
 
 #Plots of Selectivity
 par(mfrow=c(3,1), mar=c(4,4,1,1), oma=c(2,2,1,1))
@@ -855,64 +686,6 @@ for(f in 1:3){
   }
 }
 
-# #N200 for 5yrs, sd index 0.25
-# res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N200_Ind25_5yrs_noCKMR.RData"))
-# res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N200_Ind25_5yrs_noCKMR.RData"))
-# res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N200_Ind25_5yrs_noCKMR.RData"))
-# 
-# Cod_wdat<-Cod_200_25_5
-# Flatfish_wdat<-Flatfish_200_25_5
-# Sardine_wdat<-Sardine_200_25_5
-# 
-# re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
-# re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     if(f==1){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
-#       
-#     }else if (f==2){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
-#       
-#     } else if (f==3){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
-#       
-#     }
-#   }
-# }
-# 
-# #Variance of relative error for point estimates
-# sd_RE_ssb_N200_Ind25_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
-# sd_RE_R0_N200_Ind25_5yrs_noCKMR<-apply(re_R0,2,sd)
-# sd_RE_M_N200_Ind25_5yrs_noCKMR<-apply(re_M,2,sd)
-# 
-# #variance of absolute relative error
-# sd_ARE_ssb_N200_Ind25_5yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
-# sd_ARE_R0_N200_Ind25_5yrs_noCKMR<-apply(abs(re_R0),2,sd)
-# sd_ARE_M_N200_Ind25_5yrs_noCKMR<-apply(abs(re_M),2,sd)
-# 
-# #Precision within sims
-# SD_ssb_N200_Ind25_5yrs_noCKMR<-CV_ssb_N200_Ind25_5yrs_noCKMR<-array(NA, dim=c(3,100,76)) 
-# SD_R0_N200_Ind25_5yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
-# SD_M_N200_Ind25_5yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     CV_ssb_N200_Ind25_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
-#     SD_ssb_N200_Ind25_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
-#     SD_R0_N200_Ind25_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
-#     SD_M_N200_Ind25_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
-#   }
-# }
-
 #N1000 for 5 yrs, sd index 0.25
 res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind25_5yrs_noCKMR.RData"))
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind25_5yrs_noCKMR.RData"))
@@ -970,64 +743,6 @@ for(f in 1:3){
     SD_M_N1000_Ind25_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
   }
 }
-
-# #N2000 for 5 yrs, sd index 0.25
-# res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N2000_Ind25_5yrs_noCKMR.RData"))
-# res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N2000_Ind25_5yrs_noCKMR.RData"))
-# res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N2000_Ind25_5yrs_noCKMR.RData"))
-# 
-# Cod_wdat<-Cod_2000_25_5
-# Flatfish_wdat<-Flatfish_2000_25_5
-# Sardine_wdat<-Sardine_2000_25_5
-# 
-# re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
-# re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     if(f==1){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
-#       
-#     }else if (f==2){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
-#       
-#     } else if (f==3){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
-#       
-#     }
-#   }
-# }
-# 
-# #Variance of relative error for point estimates
-# sd_RE_ssb_N2000_Ind25_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
-# sd_RE_R0_N2000_Ind25_5yrs_noCKMR<-apply(re_R0,2,sd)
-# sd_RE_M_N2000_Ind25_5yrs_noCKMR<-apply(re_M,2,sd)
-# 
-# #variance of absolute relative error
-# sd_ARE_ssb_N2000_Ind25_5yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
-# sd_ARE_R0_N2000_Ind25_5yrs_noCKMR<-apply(abs(re_R0),2,sd)
-# sd_ARE_M_N2000_Ind25_5yrs_noCKMR<-apply(abs(re_M),2,sd)
-# 
-# #Precision within sims
-# SD_ssb_N2000_Ind25_5yrs_noCKMR<-CV_ssb_N2000_Ind25_5yrs_noCKMR<-array(NA, dim=c(3,100,76)) 
-# SD_R0_N2000_Ind25_5yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
-# SD_M_N2000_Ind25_5yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     CV_ssb_N2000_Ind25_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
-#     SD_ssb_N2000_Ind25_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
-#     SD_R0_N2000_Ind25_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
-#     SD_M_N2000_Ind25_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
-#   }
-# }
 
 #N5000 for 5 yrs, sd index 0.25
 res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind25_5yrs_noCKMR.RData"))
@@ -1171,64 +886,6 @@ for(f in 1:3){
   }
 }
 
-# #N200 for 5 yrs, sd index 0.50
-# res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N200_Ind50_5yrs_noCKMR.RData"))
-# res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N200_Ind50_5yrs_noCKMR.RData"))
-# res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N200_Ind50_5yrs_noCKMR.RData"))
-# 
-# Cod_wdat<-Cod_200_50_5
-# Flatfish_wdat<-Flatfish_200_50_5
-# Sardine_wdat<-Sardine_200_50_5
-# 
-# re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
-# re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     if(f==1){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
-#       
-#     }else if (f==2){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
-#       
-#     } else if (f==3){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
-#       
-#     }
-#   }
-# }
-# 
-# #Variance of relative error for point estimates
-# sd_RE_ssb_N200_Ind50_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
-# sd_RE_R0_N200_Ind50_5yrs_noCKMR<-apply(re_R0,2,sd)
-# sd_RE_M_N200_Ind50_5yrs_noCKMR<-apply(re_M,2,sd)
-# 
-# #variance of absolute relative error
-# sd_ARE_ssb_N200_Ind50_5yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
-# sd_ARE_R0_N200_Ind50_5yrs_noCKMR<-apply(abs(re_R0),2,sd)
-# sd_ARE_M_N200_Ind50_5yrs_noCKMR<-apply(abs(re_M),2,sd)
-# 
-# #Precision within sims
-# SD_ssb_N200_Ind50_5yrs_noCKMR<-CV_ssb_N200_Ind50_5yrs_noCKMR<-array(NA, dim=c(3,100,76)) 
-# SD_R0_N200_Ind50_5yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
-# SD_M_N200_Ind50_5yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     CV_ssb_N200_Ind50_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
-#     SD_ssb_N200_Ind50_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
-#     SD_R0_N200_Ind50_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
-#     SD_M_N200_Ind50_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
-#   }
-# }
-
 #N1000 for 5 yrs, sd index 0.50
 res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind50_5yrs_noCKMR.RData"))
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind50_5yrs_noCKMR.RData"))
@@ -1286,64 +943,6 @@ for(f in 1:3){
     SD_M_N1000_Ind50_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
   }
 }
-
-# #N2000 for 5yrs, sd index 0.50
-# res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N2000_Ind50_5yrs_noCKMR.RData"))
-# res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N2000_Ind50_5yrs_noCKMR.RData"))
-# res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N2000_Ind50_5yrs_noCKMR.RData"))
-# 
-# Cod_wdat<-Cod_2000_50_5
-# Flatfish_wdat<-Flatfish_2000_50_5
-# Sardine_wdat<-Sardine_2000_50_5
-# 
-# re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
-# re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     if(f==1){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
-#       
-#     }else if (f==2){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
-#       
-#     } else if (f==3){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
-#       
-#     }
-#   }
-# }
-# 
-# #Variance of relative error for point estimates
-# sd_RE_ssb_N2000_Ind50_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
-# sd_RE_R0_N2000_Ind50_5yrs_noCKMR<-apply(re_R0,2,sd)
-# sd_RE_M_N2000_Ind50_5yrs_noCKMR<-apply(re_M,2,sd)
-# 
-# #variance of absolute relative error
-# sd_ARE_ssb_N2000_Ind50_5yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
-# sd_ARE_R0_N2000_Ind50_5yrs_noCKMR<-apply(abs(re_R0),2,sd)
-# sd_ARE_M_N2000_Ind50_5yrs_noCKMR<-apply(abs(re_M),2,sd)
-# 
-# #Precision within sims
-# SD_ssb_N2000_Ind50_5yrs_noCKMR<-CV_ssb_N2000_Ind50_5yrs_noCKMR<-array(NA, dim=c(3,100,76)) 
-# SD_R0_N2000_Ind50_5yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
-# SD_M_N2000_Ind50_5yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     CV_ssb_N2000_Ind50_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
-#     SD_ssb_N2000_Ind50_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
-#     SD_R0_N2000_Ind50_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
-#     SD_M_N2000_Ind50_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
-#   }
-# }
 
 #N5000 for 5 years, sd index 0.50
 res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind50_5yrs_noCKMR.RData"))
@@ -1491,64 +1090,6 @@ for(f in 1:3){
   }
 }
 
-# #N200 for 10yrs, sd index 0.25
-# res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N200_Ind25_10yrs_noCKMR.RData"))
-# res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N200_Ind25_10yrs_noCKMR.RData"))
-# res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N200_Ind25_10yrs_noCKMR.RData"))
-# 
-# Cod_wdat<-Cod_200_25_10
-# Flatfish_wdat<-Flatfish_200_25_10
-# Sardine_wdat<-Sardine_200_25_10
-# 
-# re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
-# re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     if(f==1){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
-#       
-#     }else if (f==2){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
-#       
-#     } else if (f==3){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
-#       
-#     }
-#   }
-# }
-# 
-# #Variance of relative error for point estimates
-# sd_RE_ssb_N200_Ind25_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
-# sd_RE_R0_N200_Ind25_10yrs_noCKMR<-apply(re_R0,2,sd)
-# sd_RE_M_N200_Ind25_10yrs_noCKMR<-apply(re_M,2,sd)
-# 
-# #variance of absolute relative error
-# sd_ARE_ssb_N200_Ind25_10yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
-# sd_ARE_R0_N200_Ind25_10yrs_noCKMR<-apply(abs(re_R0),2,sd)
-# sd_ARE_M_N200_Ind25_10yrs_noCKMR<-apply(abs(re_M),2,sd)
-# 
-# #Precision within sims
-# SD_ssb_N200_Ind25_10yrs_noCKMR<-CV_ssb_N200_Ind25_10yrs_noCKMR<-array(NA, dim=c(3,100,76)) 
-# SD_R0_N200_Ind25_10yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
-# SD_M_N200_Ind25_10yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     CV_ssb_N200_Ind25_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
-#     SD_ssb_N200_Ind25_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
-#     SD_R0_N200_Ind25_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
-#     SD_M_N200_Ind25_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
-#   }
-# }
-
 #N1000 for 10yrs, sd index 0.25
 res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind25_10yrs_noCKMR.RData"))
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind25_10yrs_noCKMR.RData"))
@@ -1606,64 +1147,6 @@ for(f in 1:3){
     SD_M_N1000_Ind25_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
   }
 }
-
-# #N2000 for 10 yrs, sd index 0.25
-# res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N2000_Ind25_10yrs_noCKMR.RData"))
-# res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N2000_Ind25_10yrs_noCKMR.RData"))
-# res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N2000_Ind25_10yrs_noCKMR.RData"))
-# 
-# Cod_wdat<-Cod_2000_25_10
-# Flatfish_wdat<-Flatfish_2000_25_10
-# Sardine_wdat<-Sardine_2000_25_10
-# 
-# re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
-# re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     if(f==1){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
-#       
-#     }else if (f==2){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
-#       
-#     } else if (f==3){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
-#       
-#     }
-#   }
-# }
-# 
-# #Variance of relative error for point estimates
-# sd_RE_ssb_N2000_Ind25_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
-# sd_RE_R0_N2000_Ind25_10yrs_noCKMR<-apply(re_R0,2,sd)
-# sd_RE_M_N2000_Ind25_10yrs_noCKMR<-apply(re_M,2,sd)
-# 
-# #variance of absolute relative error
-# sd_ARE_ssb_N2000_Ind25_10yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
-# sd_ARE_R0_N2000_Ind25_10yrs_noCKMR<-apply(abs(re_R0),2,sd)
-# sd_ARE_M_N2000_Ind25_10yrs_noCKMR<-apply(abs(re_M),2,sd)
-# 
-# #Precision within sims
-# SD_ssb_N2000_Ind25_10yrs_noCKMR<-CV_ssb_N2000_Ind25_10yrs_noCKMR<-array(NA, dim=c(3,100,76)) 
-# SD_R0_N2000_Ind25_10yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
-# SD_M_N2000_Ind25_10yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     CV_ssb_N2000_Ind25_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
-#     SD_ssb_N2000_Ind25_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
-#     SD_R0_N2000_Ind25_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
-#     SD_M_N2000_Ind25_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
-#   }
-# }
 
 #N5000 for 10yrs, sd index 0.25
 res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind25_10yrs_noCKMR.RData"))
@@ -1807,64 +1290,6 @@ for(f in 1:3){
   }
 }
 
-# #N200 for 10yrs, sd index 0.50
-# res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N200_Ind50_10yrs_noCKMR.RData"))
-# res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N200_Ind50_10yrs_noCKMR.RData"))
-# res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N200_Ind50_10yrs_noCKMR.RData"))
-# 
-# Cod_wdat<-Cod_200_50_10
-# Flatfish_wdat<-Flatfish_200_50_10
-# Sardine_wdat<-Sardine_200_50_10
-# 
-# re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
-# re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     if(f==1){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
-#       
-#     }else if (f==2){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
-#       
-#     } else if (f==3){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
-#       
-#     }
-#   }
-# }
-# 
-# #Variance of relative error for point estimates
-# sd_RE_ssb_N200_Ind50_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
-# sd_RE_R0_N200_Ind50_10yrs_noCKMR<-apply(re_R0,2,sd)
-# sd_RE_M_N200_Ind50_10yrs_noCKMR<-apply(re_M,2,sd)
-# 
-# #variance of absolute relative error
-# sd_ARE_ssb_N200_Ind50_10yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
-# sd_ARE_R0_N200_Ind50_10yrs_noCKMR<-apply(abs(re_R0),2,sd)
-# sd_ARE_M_N200_Ind50_10yrs_noCKMR<-apply(abs(re_M),2,sd)
-# 
-# #Precision within sims
-# SD_ssb_N200_Ind50_10yrs_noCKMR<-CV_ssb_N200_Ind50_10yrs_noCKMR<-array(NA, dim=c(3,100,76)) 
-# SD_R0_N200_Ind50_10yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
-# SD_M_N200_Ind50_10yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     CV_ssb_N200_Ind50_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
-#     SD_ssb_N200_Ind50_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
-#     SD_R0_N200_Ind50_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
-#     SD_M_N200_Ind50_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
-#   }
-# }
-
 #N1000 for 10yrs, sd index 0.50
 res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind50_10yrs_noCKMR.RData"))
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind50_10yrs_noCKMR.RData"))
@@ -1922,64 +1347,6 @@ for(f in 1:3){
     SD_M_N1000_Ind50_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
   }
 }
-
-# #N2000 for 10yrs, sd index 0.50
-# res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N2000_Ind50_10yrs_noCKMR.RData"))
-# res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N2000_Ind50_10yrs_noCKMR.RData"))
-# res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N2000_Ind50_10yrs_noCKMR.RData"))
-# 
-# Cod_wdat<-Cod_2000_50_10
-# Flatfish_wdat<-Flatfish_2000_50_10
-# Sardine_wdat<-Sardine_2000_50_10
-# 
-# re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
-# re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     if(f==1){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
-#       
-#     }else if (f==2){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
-#       
-#     } else if (f==3){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
-#       
-#     }
-#   }
-# }
-# 
-# #Variance of relative error for point estimates
-# sd_RE_ssb_N2000_Ind50_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
-# sd_RE_R0_N2000_Ind50_10yrs_noCKMR<-apply(re_R0,2,sd)
-# sd_RE_M_N2000_Ind50_10yrs_noCKMR<-apply(re_M,2,sd)
-# 
-# #variance of absolute relative error
-# sd_ARE_ssb_N2000_Ind50_10yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
-# sd_ARE_R0_N2000_Ind50_10yrs_noCKMR<-apply(abs(re_R0),2,sd)
-# sd_ARE_M_N2000_Ind50_10yrs_noCKMR<-apply(abs(re_M),2,sd)
-# 
-# #Precision within sims
-# SD_ssb_N2000_Ind50_10yrs_noCKMR<-CV_ssb_N2000_Ind50_10yrs_noCKMR<-array(NA, dim=c(3,100,76)) 
-# SD_R0_N2000_Ind50_10yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
-# SD_M_N2000_Ind50_10yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     CV_ssb_N2000_Ind50_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
-#     SD_ssb_N2000_Ind50_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
-#     SD_R0_N2000_Ind50_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
-#     SD_M_N2000_Ind50_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
-#   }
-# }
 
 #N5000 for 10yrs, sd index 0.50
 res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind50_10yrs_noCKMR.RData"))
@@ -2040,18 +1407,18 @@ for(f in 1:3){
 }
 
 #########
-#25 years
+#20 years
 #########
 
-#N100 for 25yrs, and index sd 0.25
+#N100 for 20yrs, and index sd 0.25
 res_list<-list()
-res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind25_25yrs_noCKMR.RData"))
-res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind25_25yrs_noCKMR.RData"))
-res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind25_25yrs_noCKMR.RData"))
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind25_20yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind25_20yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind25_20yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_100_25_25
-Flatfish_wdat<-Flatfish_100_25_25
-Sardine_wdat<-Sardine_100_25_25
+Cod_wdat<-Cod_100_25_20
+Flatfish_wdat<-Flatfish_100_25_20
+Sardine_wdat<-Sardine_100_25_20
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -2105,36 +1472,36 @@ boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
 #SD of relative error for point estimates
-sd_RE_ssb_N100_Ind25_25yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
-sd_RE_R0_N100_Ind25_25yrs_noCKMR<-apply(re_R0,2,sd)
-sd_RE_M_N100_Ind25_25yrs_noCKMR<-apply(re_M,2,sd)
+sd_RE_ssb_N100_Ind25_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
+sd_RE_R0_N100_Ind25_20yrs_noCKMR<-apply(re_R0,2,sd)
+sd_RE_M_N100_Ind25_20yrs_noCKMR<-apply(re_M,2,sd)
 
 #SD of absolute relative error
-sd_ARE_ssb_N100_Ind25_25yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
-sd_ARE_R0_N100_Ind25_25yrs_noCKMR<-apply(abs(re_R0),2,sd)
-sd_ARE_M_N100_Ind25_25yrs_noCKMR<-apply(abs(re_M),2,sd)
+sd_ARE_ssb_N100_Ind25_20yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
+sd_ARE_R0_N100_Ind25_20yrs_noCKMR<-apply(abs(re_R0),2,sd)
+sd_ARE_M_N100_Ind25_20yrs_noCKMR<-apply(abs(re_M),2,sd)
 
 #Precision within sims
-SD_ssb_N100_Ind25_25yrs_noCKMR<-CV_ssb_N100_Ind25_25yrs_noCKMR<-array(NA, dim=c(3,100,76)) 
-SD_R0_N100_Ind25_25yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
-SD_M_N100_Ind25_25yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
+SD_ssb_N100_Ind25_20yrs_noCKMR<-CV_ssb_N100_Ind25_20yrs_noCKMR<-array(NA, dim=c(3,100,76)) 
+SD_R0_N100_Ind25_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
+SD_M_N100_Ind25_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
-    CV_ssb_N100_Ind25_25yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
-    SD_ssb_N100_Ind25_25yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
-    SD_R0_N100_Ind25_25yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
-    SD_M_N100_Ind25_25yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
+    CV_ssb_N100_Ind25_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+    SD_ssb_N100_Ind25_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
+    SD_R0_N100_Ind25_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
+    SD_M_N100_Ind25_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
   }
 }
 
-#N1000 for 25yrs, sd index 0.25
-res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind25_25yrs_noCKMR.RData"))
-res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind25_25yrs_noCKMR.RData"))
-res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind25_25yrs_noCKMR.RData"))
+#N1000 for 20yrs, sd index 0.25
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind25_20yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind25_20yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind25_20yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_1000_25_25
-Flatfish_wdat<-Flatfish_1000_25_25
-Sardine_wdat<-Sardine_1000_25_25
+Cod_wdat<-Cod_1000_25_20
+Flatfish_wdat<-Flatfish_1000_25_20
+Sardine_wdat<-Sardine_1000_25_20
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -2163,36 +1530,36 @@ for(f in 1:3){
 }
 
 #SD of relative error for point estimates
-sd_RE_ssb_N1000_Ind25_25yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
-sd_RE_R0_N1000_Ind25_25yrs_noCKMR<-apply(re_R0,2,sd)
-sd_RE_M_N1000_Ind25_25yrs_noCKMR<-apply(re_M,2,sd)
+sd_RE_ssb_N1000_Ind25_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
+sd_RE_R0_N1000_Ind25_20yrs_noCKMR<-apply(re_R0,2,sd)
+sd_RE_M_N1000_Ind25_20yrs_noCKMR<-apply(re_M,2,sd)
 
 #SD of absolute relative error
-sd_ARE_ssb_N1000_Ind25_25yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
-sd_ARE_R0_N1000_Ind25_25yrs_noCKMR<-apply(abs(re_R0),2,sd)
-sd_ARE_M_N1000_Ind25_25yrs_noCKMR<-apply(abs(re_M),2,sd)
+sd_ARE_ssb_N1000_Ind25_20yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
+sd_ARE_R0_N1000_Ind25_20yrs_noCKMR<-apply(abs(re_R0),2,sd)
+sd_ARE_M_N1000_Ind25_20yrs_noCKMR<-apply(abs(re_M),2,sd)
 
 #Precision within sims
-SD_ssb_N1000_Ind25_25yrs_noCKMR<-CV_ssb_N1000_Ind25_25yrs_noCKMR<-array(NA, dim=c(3,100,76)) 
-SD_R0_N1000_Ind25_25yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
-SD_M_N1000_Ind25_25yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
+SD_ssb_N1000_Ind25_20yrs_noCKMR<-CV_ssb_N1000_Ind25_20yrs_noCKMR<-array(NA, dim=c(3,100,76)) 
+SD_R0_N1000_Ind25_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
+SD_M_N1000_Ind25_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
-    CV_ssb_N1000_Ind25_25yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
-    SD_ssb_N1000_Ind25_25yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
-    SD_R0_N1000_Ind25_25yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
-    SD_M_N1000_Ind25_25yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
+    CV_ssb_N1000_Ind25_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+    SD_ssb_N1000_Ind25_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
+    SD_R0_N1000_Ind25_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
+    SD_M_N1000_Ind25_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
   }
 }
 
-#N5000 for 25yrs, sd index 0.25
-res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind25_25yrs_noCKMR.RData"))
-res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind25_25yrs_noCKMR.RData"))
-res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind25_25yrs_noCKMR.RData"))
+#N5000 for 20yrs, sd index 0.25
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind25_20yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind25_20yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind25_20yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_5000_25_25
-Flatfish_wdat<-Flatfish_5000_25_25
-Sardine_wdat<-Sardine_5000_25_25
+Cod_wdat<-Cod_5000_25_20
+Flatfish_wdat<-Flatfish_5000_25_20
+Sardine_wdat<-Sardine_5000_25_20
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -2221,37 +1588,37 @@ for(f in 1:3){
 }
 
 #SD of relative error for point estimates
-sd_RE_ssb_N5000_Ind25_25yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
-sd_RE_R0_N5000_Ind25_25yrs_noCKMR<-apply(re_R0,2,sd)
-sd_RE_M_N5000_Ind25_25yrs_noCKMR<-apply(re_M,2,sd)
+sd_RE_ssb_N5000_Ind25_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
+sd_RE_R0_N5000_Ind25_20yrs_noCKMR<-apply(re_R0,2,sd)
+sd_RE_M_N5000_Ind25_20yrs_noCKMR<-apply(re_M,2,sd)
 
 #SD of absolute relative error
-sd_ARE_ssb_N5000_Ind25_25yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
-sd_ARE_R0_N5000_Ind25_25yrs_noCKMR<-apply(abs(re_R0),2,sd)
-sd_ARE_M_N5000_Ind25_25yrs_noCKMR<-apply(abs(re_M),2,sd)
+sd_ARE_ssb_N5000_Ind25_20yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
+sd_ARE_R0_N5000_Ind25_20yrs_noCKMR<-apply(abs(re_R0),2,sd)
+sd_ARE_M_N5000_Ind25_20yrs_noCKMR<-apply(abs(re_M),2,sd)
 
 #Precision within sims
-SD_ssb_N5000_Ind25_25yrs_noCKMR<-CV_ssb_N5000_Ind25_25yrs_noCKMR<-array(NA, dim=c(3,100,76)) 
-SD_R0_N5000_Ind25_25yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
-SD_M_N5000_Ind25_25yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
+SD_ssb_N5000_Ind25_20yrs_noCKMR<-CV_ssb_N5000_Ind25_20yrs_noCKMR<-array(NA, dim=c(3,100,76)) 
+SD_R0_N5000_Ind25_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
+SD_M_N5000_Ind25_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
-    CV_ssb_N5000_Ind25_25yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
-    SD_ssb_N5000_Ind25_25yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
-    SD_R0_N5000_Ind25_25yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
-    SD_M_N5000_Ind25_25yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
+    CV_ssb_N5000_Ind25_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+    SD_ssb_N5000_Ind25_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
+    SD_R0_N5000_Ind25_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
+    SD_M_N5000_Ind25_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
   }
 }
 
-#N100 for 25yrs and index sd 0.50
+#N100 for 20yrs and index sd 0.50
 res_list<-list()
-res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind50_25yrs_noCKMR.RData"))
-res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind50_25yrs_noCKMR.RData"))
-res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind50_25yrs_noCKMR.RData"))
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind50_20yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind50_20yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind50_20yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_100_50_25
-Flatfish_wdat<-Flatfish_100_50_25
-Sardine_wdat<-Sardine_100_50_25
+Cod_wdat<-Cod_100_50_20
+Flatfish_wdat<-Flatfish_100_50_20
+Sardine_wdat<-Sardine_100_50_20
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -2281,11 +1648,11 @@ for(f in 1:3){
 
 #SSB
 par(mfrow=c(3,3))
-boxplot(re_SSB[1,,], ylim=c(-0.50,0.50), las=1, main="Cod - N200, Index SD - 0.50, CKMR 25yrs", ylab="RE - SSB")
+boxplot(re_SSB[1,,], ylim=c(-0.50,0.50), las=1, main="Cod - N200, Index SD - 0.50, CKMR 20yrs", ylab="RE - SSB")
 abline(h=0)
-boxplot(re_SSB[2,,], ylim=c(-0.50,0.50), las=1, main="Flatfish - N200, Index SD - 0.50, CKMR 25yrs", ylab="RE - SSB")
+boxplot(re_SSB[2,,], ylim=c(-0.50,0.50), las=1, main="Flatfish - N200, Index SD - 0.50, CKMR 20yrs", ylab="RE - SSB")
 abline(h=0)
-boxplot(re_SSB[3,,], ylim=c(-0.50,0.50), las=1, main="Sardine - N200, Index SD - 0.50, CKMR 25yrs", ylab="RE - SSB")
+boxplot(re_SSB[3,,], ylim=c(-0.50,0.50), las=1, main="Sardine - N200, Index SD - 0.50, CKMR 20yrs", ylab="RE - SSB")
 abline(h=0)
 
 #R0
@@ -2305,36 +1672,36 @@ boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
 #SD of relative error for point estimates
-sd_RE_ssb_N100_Ind50_25yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
-sd_RE_R0_N100_Ind50_25yrs_noCKMR<-apply(re_R0,2,sd)
-sd_RE_M_N100_Ind50_25yrs_noCKMR<-apply(re_M,2,sd)
+sd_RE_ssb_N100_Ind50_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
+sd_RE_R0_N100_Ind50_20yrs_noCKMR<-apply(re_R0,2,sd)
+sd_RE_M_N100_Ind50_20yrs_noCKMR<-apply(re_M,2,sd)
 
 #SD of absolute relative error
-sd_ARE_ssb_N100_Ind50_25yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
-sd_ARE_R0_N100_Ind50_25yrs_noCKMR<-apply(abs(re_R0),2,sd)
-sd_ARE_M_N100_Ind50_25yrs_noCKMR<-apply(abs(re_M),2,sd)
+sd_ARE_ssb_N100_Ind50_20yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
+sd_ARE_R0_N100_Ind50_20yrs_noCKMR<-apply(abs(re_R0),2,sd)
+sd_ARE_M_N100_Ind50_20yrs_noCKMR<-apply(abs(re_M),2,sd)
 
 #Precision within sims
-SD_ssb_N100_Ind50_25yrs_noCKMR<-CV_ssb_N100_Ind50_25yrs_noCKMR<-array(NA, dim=c(3,100,76)) 
-SD_R0_N100_Ind50_25yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
-SD_M_N100_Ind50_25yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
+SD_ssb_N100_Ind50_20yrs_noCKMR<-CV_ssb_N100_Ind50_20yrs_noCKMR<-array(NA, dim=c(3,100,76)) 
+SD_R0_N100_Ind50_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
+SD_M_N100_Ind50_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
-    CV_ssb_N100_Ind50_25yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
-    SD_ssb_N100_Ind50_25yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
-    SD_R0_N100_Ind50_25yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
-    SD_M_N100_Ind50_25yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
+    CV_ssb_N100_Ind50_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+    SD_ssb_N100_Ind50_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
+    SD_R0_N100_Ind50_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
+    SD_M_N100_Ind50_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
   }
 }
 
-#N1000 for 25yrs, sd index 0.50
-res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind50_25yrs_noCKMR.RData"))
-res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind50_25yrs_noCKMR.RData"))
-res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind50_25yrs_noCKMR.RData"))
+#N1000 for 20yrs, sd index 0.50
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind50_20yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind50_20yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind50_20yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_1000_50_25
-Flatfish_wdat<-Flatfish_1000_50_25
-Sardine_wdat<-Sardine_1000_50_25
+Cod_wdat<-Cod_1000_50_20
+Flatfish_wdat<-Flatfish_1000_50_20
+Sardine_wdat<-Sardine_1000_50_20
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -2363,36 +1730,36 @@ for(f in 1:3){
 }
 
 #SD of relative error for point estimates
-sd_RE_ssb_N1000_Ind50_25yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
-sd_RE_R0_N1000_Ind50_25yrs_noCKMR<-apply(re_R0,2,sd)
-sd_RE_M_N1000_Ind50_25yrs_noCKMR<-apply(re_M,2,sd)
+sd_RE_ssb_N1000_Ind50_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
+sd_RE_R0_N1000_Ind50_20yrs_noCKMR<-apply(re_R0,2,sd)
+sd_RE_M_N1000_Ind50_20yrs_noCKMR<-apply(re_M,2,sd)
 
 #SD of absolute relative error
-sd_ARE_ssb_N1000_Ind50_25yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
-sd_ARE_R0_N1000_Ind50_25yrs_noCKMR<-apply(abs(re_R0),2,sd)
-sd_ARE_M_N1000_Ind50_25yrs_noCKMR<-apply(abs(re_M),2,sd)
+sd_ARE_ssb_N1000_Ind50_20yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
+sd_ARE_R0_N1000_Ind50_20yrs_noCKMR<-apply(abs(re_R0),2,sd)
+sd_ARE_M_N1000_Ind50_20yrs_noCKMR<-apply(abs(re_M),2,sd)
 
 #Precision within sims
-SD_ssb_N1000_Ind50_25yrs_noCKMR<-CV_ssb_N1000_Ind50_25yrs_noCKMR<-array(NA, dim=c(3,100,76)) 
-SD_R0_N1000_Ind50_25yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
-SD_M_N1000_Ind50_25yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
+SD_ssb_N1000_Ind50_20yrs_noCKMR<-CV_ssb_N1000_Ind50_20yrs_noCKMR<-array(NA, dim=c(3,100,76)) 
+SD_R0_N1000_Ind50_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
+SD_M_N1000_Ind50_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
-    CV_ssb_N1000_Ind50_25yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
-    SD_ssb_N1000_Ind50_25yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
-    SD_R0_N1000_Ind50_25yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
-    SD_M_N1000_Ind50_25yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
+    CV_ssb_N1000_Ind50_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+    SD_ssb_N1000_Ind50_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
+    SD_R0_N1000_Ind50_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
+    SD_M_N1000_Ind50_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
   }
 }
 
-#N5000 for 25yrs, sd index 0.50
-res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind50_25yrs_noCKMR.RData"))
-res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind50_25yrs_noCKMR.RData"))
-res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind50_25yrs_noCKMR.RData"))
+#N5000 for 20yrs, sd index 0.50
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind50_20yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind50_20yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind50_20yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_5000_50_25
-Flatfish_wdat<-Flatfish_5000_50_25
-Sardine_wdat<-Sardine_5000_50_25
+Cod_wdat<-Cod_5000_50_20
+Flatfish_wdat<-Flatfish_5000_50_20
+Sardine_wdat<-Sardine_5000_50_20
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -2421,25 +1788,25 @@ for(f in 1:3){
 }
 
 #SD of relative error for point estimates
-sd_RE_ssb_N5000_Ind50_25yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
-sd_RE_R0_N5000_Ind50_25yrs_noCKMR<-apply(re_R0,2,sd)
-sd_RE_M_N5000_Ind50_25yrs_noCKMR<-apply(re_M,2,sd)
+sd_RE_ssb_N5000_Ind50_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
+sd_RE_R0_N5000_Ind50_20yrs_noCKMR<-apply(re_R0,2,sd)
+sd_RE_M_N5000_Ind50_20yrs_noCKMR<-apply(re_M,2,sd)
 
 #SD of absolute relative error
-sd_ARE_ssb_N5000_Ind50_25yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
-sd_ARE_R0_N5000_Ind50_25yrs_noCKMR<-apply(abs(re_R0),2,sd)
-sd_ARE_M_N5000_Ind50_25yrs_noCKMR<-apply(abs(re_M),2,sd)
+sd_ARE_ssb_N5000_Ind50_20yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
+sd_ARE_R0_N5000_Ind50_20yrs_noCKMR<-apply(abs(re_R0),2,sd)
+sd_ARE_M_N5000_Ind50_20yrs_noCKMR<-apply(abs(re_M),2,sd)
 
 #Precision within sims
-SD_ssb_N5000_Ind50_25yrs_noCKMR<-CV_ssb_N5000_Ind50_25yrs_noCKMR<-array(NA, dim=c(3,100,76)) 
-SD_R0_N5000_Ind50_25yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
-SD_M_N5000_Ind50_25yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
+SD_ssb_N5000_Ind50_20yrs_noCKMR<-CV_ssb_N5000_Ind50_20yrs_noCKMR<-array(NA, dim=c(3,100,76)) 
+SD_R0_N5000_Ind50_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
+SD_M_N5000_Ind50_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
-    CV_ssb_N5000_Ind50_25yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
-    SD_ssb_N5000_Ind50_25yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
-    SD_R0_N5000_Ind50_25yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
-    SD_M_N5000_Ind50_25yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
+    CV_ssb_N5000_Ind50_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+    SD_ssb_N5000_Ind50_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
+    SD_R0_N5000_Ind50_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
+    SD_M_N5000_Ind50_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
   }
 }
 
@@ -2851,15 +2218,15 @@ for(f in 1:3){
   }
 }
 
-#N100 for 25yrs, No index
+#N100 for 20yrs, No index
 res_list<-list()
-res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_NoIndex_25yrs_noCKMR.RData"))
-res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_NoIndex_25yrs_noCKMR.RData"))
-res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_NoIndex_25yrs_noCKMR.RData"))
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_NoIndex_20yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_NoIndex_20yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_NoIndex_20yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_100_25_25
-Flatfish_wdat<-Flatfish_100_25_25
-Sardine_wdat<-Sardine_100_25_25
+Cod_wdat<-Cod_100_25_20
+Flatfish_wdat<-Flatfish_100_25_20
+Sardine_wdat<-Sardine_100_25_20
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -2910,36 +2277,36 @@ boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
 #SD of relative error for point estimates
-sd_RE_ssb_N100_NoIndex_25yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
-sd_RE_R0_N100_NoIndex_25yrs_noCKMR<-apply(re_R0,2,sd)
-sd_RE_M_N100_NoIndex_25yrs_noCKMR<-apply(re_M,2,sd)
+sd_RE_ssb_N100_NoIndex_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
+sd_RE_R0_N100_NoIndex_20yrs_noCKMR<-apply(re_R0,2,sd)
+sd_RE_M_N100_NoIndex_20yrs_noCKMR<-apply(re_M,2,sd)
 
 #SD of absolute relative error
-sd_ARE_ssb_N100_NoIndex_25yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
-sd_ARE_R0_N100_NoIndex_25yrs_noCKMR<-apply(abs(re_R0),2,sd)
-sd_ARE_M_N100_NoIndex_25yrs_noCKMR<-apply(abs(re_M),2,sd)
+sd_ARE_ssb_N100_NoIndex_20yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
+sd_ARE_R0_N100_NoIndex_20yrs_noCKMR<-apply(abs(re_R0),2,sd)
+sd_ARE_M_N100_NoIndex_20yrs_noCKMR<-apply(abs(re_M),2,sd)
 
 #Precision within sims
-SD_ssb_N100_NoIndex_25yrs_noCKMR<-CV_ssb_N100_NoIndex_25yrs_noCKMR<-array(NA, dim=c(3,100,76)) 
-SD_R0_N100_NoIndex_25yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
-SD_M_N100_NoIndex_25yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
+SD_ssb_N100_NoIndex_20yrs_noCKMR<-CV_ssb_N100_NoIndex_20yrs_noCKMR<-array(NA, dim=c(3,100,76)) 
+SD_R0_N100_NoIndex_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
+SD_M_N100_NoIndex_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
-    CV_ssb_N100_NoIndex_25yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
-    SD_ssb_N100_NoIndex_25yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
-    SD_R0_N100_NoIndex_25yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
-    SD_M_N100_NoIndex_25yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
+    CV_ssb_N100_NoIndex_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+    SD_ssb_N100_NoIndex_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
+    SD_R0_N100_NoIndex_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
+    SD_M_N100_NoIndex_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
   }
 }
 
-#N1000 for 25yrs, No Index
-res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_NoIndex_25yrs_noCKMR.RData"))
-res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_NoIndex_25yrs_noCKMR.RData"))
-res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_NoIndex_25yrs_noCKMR.RData"))
+#N1000 for 20yrs, No Index
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_NoIndex_20yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_NoIndex_20yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_NoIndex_20yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_1000_25_25
-Flatfish_wdat<-Flatfish_1000_25_25
-Sardine_wdat<-Sardine_1000_25_25
+Cod_wdat<-Cod_1000_25_20
+Flatfish_wdat<-Flatfish_1000_25_20
+Sardine_wdat<-Sardine_1000_25_20
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -2968,36 +2335,36 @@ for(f in 1:3){
 }
 
 #SD of relative error for point estimates
-sd_RE_ssb_N1000_NoIndex_25yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
-sd_RE_R0_N1000_NoIndex_25yrs_noCKMR<-apply(re_R0,2,sd)
-sd_RE_M_N1000_NoIndex_25yrs_noCKMR<-apply(re_M,2,sd)
+sd_RE_ssb_N1000_NoIndex_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
+sd_RE_R0_N1000_NoIndex_20yrs_noCKMR<-apply(re_R0,2,sd)
+sd_RE_M_N1000_NoIndex_20yrs_noCKMR<-apply(re_M,2,sd)
 
 #SD of absolute relative error
-sd_ARE_ssb_N1000_NoIndex_25yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
-sd_ARE_R0_N1000_NoIndex_25yrs_noCKMR<-apply(abs(re_R0),2,sd)
-sd_ARE_M_N1000_NoIndex_25yrs_noCKMR<-apply(abs(re_M),2,sd)
+sd_ARE_ssb_N1000_NoIndex_20yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
+sd_ARE_R0_N1000_NoIndex_20yrs_noCKMR<-apply(abs(re_R0),2,sd)
+sd_ARE_M_N1000_NoIndex_20yrs_noCKMR<-apply(abs(re_M),2,sd)
 
 #Precision within sims
-SD_ssb_N1000_NoIndex_25yrs_noCKMR<-CV_ssb_N1000_NoIndex_25yrs_noCKMR<-array(NA, dim=c(3,100,76)) 
-SD_R0_N1000_NoIndex_25yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
-SD_M_N1000_NoIndex_25yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
+SD_ssb_N1000_NoIndex_20yrs_noCKMR<-CV_ssb_N1000_NoIndex_20yrs_noCKMR<-array(NA, dim=c(3,100,76)) 
+SD_R0_N1000_NoIndex_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
+SD_M_N1000_NoIndex_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
-    CV_ssb_N1000_NoIndex_25yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
-    SD_ssb_N1000_NoIndex_25yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
-    SD_R0_N1000_NoIndex_25yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
-    SD_M_N1000_NoIndex_25yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
+    CV_ssb_N1000_NoIndex_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+    SD_ssb_N1000_NoIndex_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
+    SD_R0_N1000_NoIndex_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
+    SD_M_N1000_NoIndex_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
   }
 }
 
-#N5000 for 25yrs, No Index
-res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_NoIndex_25yrs_noCKMR.RData"))
-res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_NoIndex_25yrs_noCKMR.RData"))
-res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_NoIndex_25yrs_noCKMR.RData"))
+#N5000 for 20yrs, No Index
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_NoIndex_20yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_NoIndex_20yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_NoIndex_20yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_5000_25_25
-Flatfish_wdat<-Flatfish_5000_25_25
-Sardine_wdat<-Sardine_5000_25_25
+Cod_wdat<-Cod_5000_25_20
+Flatfish_wdat<-Flatfish_5000_25_20
+Sardine_wdat<-Sardine_5000_25_20
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -3026,25 +2393,25 @@ for(f in 1:3){
 }
 
 #SD of relative error for point estimates
-sd_RE_ssb_N5000_NoIndex_25yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
-sd_RE_R0_N5000_NoIndex_25yrs_noCKMR<-apply(re_R0,2,sd)
-sd_RE_M_N5000_NoIndex_25yrs_noCKMR<-apply(re_M,2,sd)
+sd_RE_ssb_N5000_NoIndex_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd)
+sd_RE_R0_N5000_NoIndex_20yrs_noCKMR<-apply(re_R0,2,sd)
+sd_RE_M_N5000_NoIndex_20yrs_noCKMR<-apply(re_M,2,sd)
 
 #SD of absolute relative error
-sd_ARE_ssb_N5000_NoIndex_25yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
-sd_ARE_R0_N5000_NoIndex_25yrs_noCKMR<-apply(abs(re_R0),2,sd)
-sd_ARE_M_N5000_NoIndex_25yrs_noCKMR<-apply(abs(re_M),2,sd)
+sd_ARE_ssb_N5000_NoIndex_20yrs_noCKMR<-apply(abs(re_SSB),c(1,3),sd)
+sd_ARE_R0_N5000_NoIndex_20yrs_noCKMR<-apply(abs(re_R0),2,sd)
+sd_ARE_M_N5000_NoIndex_20yrs_noCKMR<-apply(abs(re_M),2,sd)
 
 #Precision within sims
-SD_ssb_N5000_NoIndex_25yrs_noCKMR<-CV_ssb_N5000_NoIndex_25yrs_noCKMR<-array(NA, dim=c(3,100,76)) 
-SD_R0_N5000_NoIndex_25yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
-SD_M_N5000_NoIndex_25yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
+SD_ssb_N5000_NoIndex_20yrs_noCKMR<-CV_ssb_N5000_NoIndex_20yrs_noCKMR<-array(NA, dim=c(3,100,76)) 
+SD_R0_N5000_NoIndex_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
+SD_M_N5000_NoIndex_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
-    CV_ssb_N5000_NoIndex_25yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
-    SD_ssb_N5000_NoIndex_25yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
-    SD_R0_N5000_NoIndex_25yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
-    SD_M_N5000_NoIndex_25yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
+    CV_ssb_N5000_NoIndex_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+    SD_ssb_N5000_NoIndex_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
+    SD_R0_N5000_NoIndex_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
+    SD_M_N5000_NoIndex_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
   }
 }
 
@@ -3135,90 +2502,6 @@ SD_M_N100_Ind25_ckmrmultinom5<-matrix(NA, nrow=3, ncol=100)
    SD_M_N100_Ind25_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
   }
  }
-
-# #N200, 5yrs CKMR data, sd index 0.25
-# res_list<-list()
-# res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N200_Ind25_ckmrmultinom5.RData"))
-# res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N200_Ind25_ckmrmultinom5.RData"))
-# res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N200_Ind25_ckmrmultinom5.RData"))
-# 
-# load(paste0(wd,"/Cod_wdat_N200_Ind25_ckmrmultinom5_1.RData"))
-# load(paste0(wd,"/Flatfish_wdat_N200_Ind25_ckmrmultinom5_1.RData"))
-# load(paste0(wd,"/Sardine_wdat_N200_Ind25_ckmrmultinom5_1.RData"))
-# 
-# re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
-# re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     if(f==1){
-#         re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
-#         #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-#         re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-#         re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
-#       
-#     }else if (f==2){
-#         re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
-#         #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-#         re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-#         re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
-#       
-#     } else if (f==3){
-#         re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
-#         #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-#         re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-#         re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
-#       
-#     }
-#   }
-# }
-# 
-# #SSB
-# par(mfrow=c(3,3))
-# boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N200, Index SD - 0.25, CKMR 5yrs", ylab="RE - SSB")
-# abline(h=0)
-# boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N200, Index SD - 0.25, CKMR 5yrs", ylab="RE - SSB")
-# abline(h=0)
-# boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N200, Index SD - 0.25, CKMR 5yrs", ylab="RE - SSB")
-# abline(h=0)
-# 
-# #R0
-# boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
-# abline(h=0)
-# boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
-# abline(h=0)
-# boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
-# abline(h=0)
-# 
-# #M
-# boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
-# abline(h=0)
-# boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
-# abline(h=0)
-# boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
-# abline(h=0)
-# 
-# #Now SD of relative error
-# sd_RE_ssb_N200_Ind25_ckmrmultinom5<-apply(re_SSB,c(1,3),sd)
-# sd_RE_R0_N200_Ind25_ckmrmultinom5<-apply(re_R0,2,sd)
-# sd_RE_M_N200_Ind25_ckmrmultinom5<-apply(re_M,2,sd)
-# 
-# #SD of absolute relative error
-# sd_ARE_ssb_N200_Ind25_ckmrmultinom5<-apply(abs(re_SSB),c(1,3),sd)
-# sd_ARE_R0_N200_Ind25_ckmrmultinom5<-apply(abs(re_R0),2,sd)
-# sd_ARE_M_N200_Ind25_ckmrmultinom5<-apply(abs(re_M),2,sd)
-# 
-# #Precision within sims
-# SD_ssb_N200_Ind25_ckmrmultinom5<-CV_ssb_N200_Ind25_ckmrmultinom5<-array(NA, dim=c(3,100,76)) 
-# SD_R0_N200_Ind25_ckmrmultinom5<-matrix(NA, nrow=3, ncol=100)
-# SD_M_N200_Ind25_ckmrmultinom5<-matrix(NA, nrow=3, ncol=100)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     CV_ssb_N200_Ind25_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
-#     SD_ssb_N200_Ind25_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd
-#     SD_R0_N200_Ind25_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
-#     SD_M_N200_Ind25_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
-#   }
-# }
 
 #N1000, 5yrs CKMR data, sd index 0.25
 res_list<-list()
@@ -4144,510 +3427,510 @@ for(f in 1:3){
   }
 }
 
-#25yrs CKMR data
-# #N100, 25yrs CKMR data, sd index 0.25
-# res_list<-list()
-# res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind25_ckmrmultinom25.RData"))
-# res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind25_ckmrmultinom25.RData"))
-# res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind25_ckmrmultinom25.RData"))
-# 
-# load(paste0(wd,"/Cod_wdat_N100_Ind25_ckmrmultinom25_1.RData"))
-# load(paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmrmultinom25_1.RData"))
-# load(paste0(wd,"/Sardine_wdat_N100_Ind25_ckmrmultinom25_1.RData"))
-# 
-# re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
-# re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     if(f==1){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
-#       
-#     }else if (f==2){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
-#       
-#     } else if (f==3){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
-#       
-#     }
-#   }
-# }
-# 
-# #SSB
-# par(mfrow=c(3,3))
-# boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N100, Index SD - 0.25, CKMR 25yrs", ylab="RE - SSB")
-# abline(h=0)
-# boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N100, Index SD - 0.25, CKMR 25yrs", ylab="RE - SSB")
-# abline(h=0)
-# boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N100, Index SD - 0.25, CKMR 25yrs", ylab="RE - SSB")
-# abline(h=0)
-# 
-# #R0
-# boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
-# abline(h=0)
-# boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
-# abline(h=0)
-# boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
-# abline(h=0)
-# 
-# #M
-# boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
-# abline(h=0)
-# boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
-# abline(h=0)
-# boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
-# abline(h=0)
-# 
-# #SD of relative error for point estimates
-# sd_RE_ssb_N100_Ind25_ckmrmultinom25<-apply(re_SSB,c(1,3),sd)
-# sd_RE_R0_N100_Ind25_ckmrmultinom25<-apply(re_R0,2,sd)
-# sd_RE_M_N100_Ind25_ckmrmultinom25<-apply(re_M,2,sd)
-# 
-# #SD of absolute relative error
-# sd_ARE_ssb_N100_Ind25_ckmrmultinom25<-apply(abs(re_SSB),c(1,3),sd)
-# sd_ARE_R0_N100_Ind25_ckmrmultinom25<-apply(abs(re_R0),2,sd)
-# sd_ARE_M_N100_Ind25_ckmrmultinom25<-apply(abs(re_M),2,sd)
-# 
-# #Precision within sims
-# SD_ssb_N100_Ind25_ckmrmultinom25<-CV_ssb_N100_Ind25_ckmrmultinom25<-array(NA, dim=c(3,100,76)) 
-# SD_R0_N100_Ind25_ckmrmultinom25<-matrix(NA, nrow=3, ncol=100)
-# SD_M_N100_Ind25_ckmrmultinom25<-matrix(NA, nrow=3, ncol=100)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     CV_ssb_N100_Ind25_ckmrmultinom25[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
-#     SD_ssb_N100_Ind25_ckmrmultinom25[f,i,]<-res_list[[f]][[i]]$SD$sd
-#     SD_R0_N100_Ind25_ckmrmultinom25[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
-#     SD_M_N100_Ind25_ckmrmultinom25[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
-#   }
-# }
-# 
-# #N1000, 25yrs CKMR data, sd index 0.25
-# res_list<-list()
-# res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind25_ckmrmultinom25.RData"))
-# res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind25_ckmrmultinom25.RData"))
-# res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind25_ckmrmultinom25.RData"))
-# 
-# load(paste0(wd,"/Cod_wdat_N1000_Ind25_ckmrmultinom25_1.RData"))
-# load(paste0(wd,"/Flatfish_wdat_N1000_Ind25_ckmrmultinom25_1.RData"))
-# load(paste0(wd,"/Sardine_wdat_N1000_Ind25_ckmrmultinom25_1.RData"))
-# 
-# re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
-# re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     if(f==1){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
-#       
-#     }else if (f==2){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
-#       
-#     } else if (f==3){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
-#       
-#     }
-#   }
-# }
-# 
-# #SSB
-# par(mfrow=c(3,3))
-# boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N1000, Index SD - 0.25, CKMR 25yrs", ylab="RE - SSB")
-# abline(h=0)
-# boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N1000, Index SD - 0.25, CKMR 25yrs", ylab="RE - SSB")
-# abline(h=0)
-# boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N1000, Index SD - 0.25, CKMR 25yrs", ylab="RE - SSB")
-# abline(h=0)
-# 
-# #R0
-# boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
-# abline(h=0)
-# boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
-# abline(h=0)
-# boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
-# abline(h=0)
-# 
-# #M
-# boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
-# abline(h=0)
-# boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
-# abline(h=0)
-# boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
-# abline(h=0)
-# 
-# #SD of relative error for point estimates
-# sd_RE_ssb_N1000_Ind25_ckmrmultinom25<-apply(re_SSB,c(1,3),sd)
-# sd_RE_R0_N1000_Ind25_ckmrmultinom25<-apply(re_R0,2,sd)
-# sd_RE_M_N1000_Ind25_ckmrmultinom25<-apply(re_M,2,sd)
-# 
-# #SD of absolute relative error
-# sd_ARE_ssb_N1000_Ind25_ckmrmultinom25<-apply(abs(re_SSB),c(1,3),sd)
-# sd_ARE_R0_N1000_Ind25_ckmrmultinom25<-apply(abs(re_R0),2,sd)
-# sd_ARE_M_N1000_Ind25_ckmrmultinom25<-apply(abs(re_M),2,sd)
-# 
-# #Precision within sims
-# SD_ssb_N1000_Ind25_ckmrmultinom25<-CV_ssb_N1000_Ind25_ckmrmultinom25<-array(NA, dim=c(3,100,76)) 
-# SD_R0_N1000_Ind25_ckmrmultinom25<-matrix(NA, nrow=3, ncol=100)
-# SD_M_N1000_Ind25_ckmrmultinom25<-matrix(NA, nrow=3, ncol=100)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     CV_ssb_N1000_Ind25_ckmrmultinom25[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
-#     SD_ssb_N1000_Ind25_ckmrmultinom25[f,i,]<-res_list[[f]][[i]]$SD$sd
-#     SD_R0_N1000_Ind25_ckmrmultinom25[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
-#     SD_M_N1000_Ind25_ckmrmultinom25[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
-#   }
-# }
-# 
-# #N5000, 25yrs CKMR data, sd index 0.25
-# res_list<-list()
-# res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind25_ckmrmultinom25.RData"))
-# res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind25_ckmrmultinom25.RData"))
-# res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind25_ckmrmultinom25.RData"))
-# 
-# load(paste0(wd,"/Cod_wdat_N5000_Ind25_ckmrmultinom25_1.RData"))
-# load(paste0(wd,"/Flatfish_wdat_N5000_Ind25_ckmrmultinom25_1.RData"))
-# load(paste0(wd,"/Sardine_wdat_N5000_Ind25_ckmrmultinom25_1.RData"))
-# 
-# re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
-# re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     if(f==1){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
-#       
-#     }else if (f==2){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
-#       
-#     } else if (f==3){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
-#       
-#     }
-#   }
-# }
-# 
-# #SSB
-# par(mfrow=c(3,3))
-# boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N5000, Index SD - 0.25, CKMR 25yrs", ylab="RE - SSB")
-# abline(h=0)
-# boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N5000, Index SD - 0.25, CKMR 25yrs", ylab="RE - SSB")
-# abline(h=0)
-# boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N5000, Index SD - 0.25, CKMR 25yrs", ylab="RE - SSB")
-# abline(h=0)
-# 
-# #R0
-# boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
-# abline(h=0)
-# boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
-# abline(h=0)
-# boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
-# abline(h=0)
-# 
-# #M
-# boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
-# abline(h=0)
-# boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
-# abline(h=0)
-# boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
-# abline(h=0)
-# 
-# #SD of relative error for point estimates
-# sd_RE_ssb_N5000_Ind25_ckmrmultinom25<-apply(re_SSB,c(1,3),sd)
-# sd_RE_R0_N5000_Ind25_ckmrmultinom25<-apply(re_R0,2,sd)
-# sd_RE_M_N5000_Ind25_ckmrmultinom25<-apply(re_M,2,sd)
-# 
-# #SD of absolute relative error
-# sd_ARE_ssb_N5000_Ind25_ckmrmultinom25<-apply(abs(re_SSB),c(1,3),sd)
-# sd_ARE_R0_N5000_Ind25_ckmrmultinom25<-apply(abs(re_R0),2,sd)
-# sd_ARE_M_N5000_Ind25_ckmrmultinom25<-apply(abs(re_M),2,sd)
-# 
-# #Precision within sims
-# SD_ssb_N5000_Ind25_ckmrmultinom25<-CV_ssb_N5000_Ind25_ckmrmultinom25<-array(NA, dim=c(3,100,76)) 
-# SD_R0_N5000_Ind25_ckmrmultinom25<-matrix(NA, nrow=3, ncol=100)
-# SD_M_N5000_Ind25_ckmrmultinom25<-matrix(NA, nrow=3, ncol=100)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     CV_ssb_N5000_Ind25_ckmrmultinom25[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
-#     SD_ssb_N5000_Ind25_ckmrmultinom25[f,i,]<-res_list[[f]][[i]]$SD$sd
-#     SD_R0_N5000_Ind25_ckmrmultinom25[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
-#     SD_M_N5000_Ind25_ckmrmultinom25[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
-#   }
-# }
-# 
-# #N100, 25yrs CKMR data, sd index 0.50
-# res_list<-list()
-# res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind50_ckmrmultinom25.RData"))
-# res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind50_ckmrmultinom25.RData"))
-# res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind50_ckmrmultinom25.RData"))
-# 
-# load(paste0(wd,"/Cod_wdat_N100_Ind50_ckmrmultinom25_1.RData"))
-# load(paste0(wd,"/Flatfish_wdat_N100_Ind50_ckmrmultinom25_1.RData"))
-# load(paste0(wd,"/Sardine_wdat_N100_Ind50_ckmrmultinom25_1.RData"))
-# 
-# re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
-# re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     if(f==1){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
-#       
-#     }else if (f==2){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
-#       
-#     } else if (f==3){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
-#       
-#     }
-#   }
-# }
-# 
-# #SSB
-# par(mfrow=c(3,3))
-# boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N100, Index SD - 0.50, CKMR 25yrs", ylab="RE - SSB")
-# abline(h=0)
-# boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N100, Index SD - 0.50, CKMR 25yrs", ylab="RE - SSB")
-# abline(h=0)
-# boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N100, Index SD - 0.50, CKMR 25yrs", ylab="RE - SSB")
-# abline(h=0)
-# 
-# #R0
-# boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
-# abline(h=0)
-# boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
-# abline(h=0)
-# boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
-# abline(h=0)
-# 
-# #M
-# boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
-# abline(h=0)
-# boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
-# abline(h=0)
-# boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
-# abline(h=0)
-# 
-# #SD of relative error for point estimates
-# sd_RE_ssb_N100_Ind50_ckmrmultinom25<-apply(re_SSB,c(1,3),sd)
-# sd_RE_R0_N100_Ind50_ckmrmultinom25<-apply(re_R0,2,sd)
-# sd_RE_M_N100_Ind50_ckmrmultinom25<-apply(re_M,2,sd)
-# 
-# #SD of absolute relative error
-# sd_ARE_ssb_N100_Ind50_ckmrmultinom25<-apply(abs(re_SSB),c(1,3),sd)
-# sd_ARE_R0_N100_Ind50_ckmrmultinom25<-apply(abs(re_R0),2,sd)
-# sd_ARE_M_N100_Ind50_ckmrmultinom25<-apply(abs(re_M),2,sd)
-# 
-# #Precision within sims
-# SD_ssb_N100_Ind50_ckmrmultinom25<-CV_ssb_N100_Ind50_ckmrmultinom25<-array(NA, dim=c(3,100,76)) 
-# SD_R0_N100_Ind50_ckmrmultinom25<-matrix(NA, nrow=3, ncol=100)
-# SD_M_N100_Ind50_ckmrmultinom25<-matrix(NA, nrow=3, ncol=100)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     CV_ssb_N100_Ind50_ckmrmultinom25[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
-#     SD_ssb_N100_Ind50_ckmrmultinom25[f,i,]<-res_list[[f]][[i]]$SD$sd
-#     SD_R0_N100_Ind50_ckmrmultinom25[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
-#     SD_M_N100_Ind50_ckmrmultinom25[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
-#   }
-# }
-# 
-# #N1000, 25yrs CKMR data, sd index 0.50
-# res_list<-list()
-# res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind50_ckmrmultinom25.RData"))
-# res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind50_ckmrmultinom25.RData"))
-# res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind50_ckmrmultinom25.RData"))
-# 
-# load(paste0(wd,"/Cod_wdat_N1000_Ind50_ckmrmultinom25_1.RData"))
-# load(paste0(wd,"/Flatfish_wdat_N1000_Ind50_ckmrmultinom25_1.RData"))
-# load(paste0(wd,"/Sardine_wdat_N1000_Ind50_ckmrmultinom25_1.RData"))
-# 
-# re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
-# re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     if(f==1){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
-#       
-#     }else if (f==2){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
-#       
-#     } else if (f==3){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
-#       
-#     }
-#   }
-# }
-# 
-# #SSB
-# par(mfrow=c(3,3))
-# boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N1000, Index SD - 0.50, CKMR 25yrs", ylab="RE - SSB")
-# abline(h=0)
-# boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N1000, Index SD - 0.50, CKMR 25yrs", ylab="RE - SSB")
-# abline(h=0)
-# boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N1000, Index SD - 0.50, CKMR 25yrs", ylab="RE - SSB")
-# abline(h=0)
-# 
-# #R0
-# boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
-# abline(h=0)
-# boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
-# abline(h=0)
-# boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
-# abline(h=0)
-# 
-# #M
-# boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
-# abline(h=0)
-# boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
-# abline(h=0)
-# boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
-# abline(h=0)
-# 
-# #SD of relative error for point estimates
-# sd_RE_ssb_N1000_Ind50_ckmrmultinom25<-apply(re_SSB,c(1,3),sd)
-# sd_RE_R0_N1000_Ind50_ckmrmultinom25<-apply(re_R0,2,sd)
-# sd_RE_M_N1000_Ind50_ckmrmultinom25<-apply(re_M,2,sd)
-# 
-# #SD of absolute relative error
-# sd_ARE_ssb_N1000_Ind50_ckmrmultinom25<-apply(abs(re_SSB),c(1,3),sd)
-# sd_ARE_R0_N1000_Ind50_ckmrmultinom25<-apply(abs(re_R0),2,sd)
-# sd_ARE_M_N1000_Ind50_ckmrmultinom25<-apply(abs(re_M),2,sd)
-# 
-# #Precision within sims
-# SD_ssb_N1000_Ind50_ckmrmultinom25<-CV_ssb_N1000_Ind50_ckmrmultinom25<-array(NA, dim=c(3,100,76)) 
-# SD_R0_N1000_Ind50_ckmrmultinom25<-matrix(NA, nrow=3, ncol=100)
-# SD_M_N1000_Ind50_ckmrmultinom25<-matrix(NA, nrow=3, ncol=100)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     CV_ssb_N1000_Ind50_ckmrmultinom25[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
-#     SD_ssb_N1000_Ind50_ckmrmultinom25[f,i,]<-res_list[[f]][[i]]$SD$sd
-#     SD_R0_N1000_Ind50_ckmrmultinom25[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
-#     SD_M_N1000_Ind50_ckmrmultinom25[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
-#   }
-# }
-# 
-# #N5000, 25yrs CKMR data, sd index 0.50
-# res_list<-list()
-# res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind50_ckmrmultinom25.RData"))
-# res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind50_ckmrmultinom25.RData"))
-# res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind50_ckmrmultinom25.RData"))
-# 
-# load(paste0(wd,"/Cod_wdat_N5000_Ind50_ckmrmultinom25_1.RData"))
-# load(paste0(wd,"/Flatfish_wdat_N5000_Ind50_ckmrmultinom25_1.RData"))
-# load(paste0(wd,"/Sardine_wdat_N5000_Ind50_ckmrmultinom25_1.RData"))
-# 
-# re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
-# re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     if(f==1){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
-#       
-#     }else if (f==2){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
-#       
-#     } else if (f==3){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
-#       
-#     }
-#   }
-# }
-# 
-# #SSB
-# par(mfrow=c(3,3))
-# boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N5000, Index SD - 0.50, CKMR 25yrs", ylab="RE - SSB")
-# abline(h=0)
-# boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N5000, Index SD - 0.50, CKMR 25yrs", ylab="RE - SSB")
-# abline(h=0)
-# boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N5000, Index SD - 0.50, CKMR 25yrs", ylab="RE - SSB")
-# abline(h=0)
-# 
-# #R0
-# boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
-# abline(h=0)
-# boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
-# abline(h=0)
-# boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
-# abline(h=0)
-# 
-# #M
-# boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
-# abline(h=0)
-# boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
-# abline(h=0)
-# boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
-# abline(h=0)
-# 
-# #SD of relative error for point estimates
-# sd_RE_ssb_N5000_Ind50_ckmrmultinom25<-apply(re_SSB,c(1,3),sd)
-# sd_RE_R0_N5000_Ind50_ckmrmultinom25<-apply(re_R0,2,sd)
-# sd_RE_M_N5000_Ind50_ckmrmultinom25<-apply(re_M,2,sd)
-# 
-# #SD of absolute relative error
-# sd_ARE_ssb_N5000_Ind50_ckmrmultinom25<-apply(abs(re_SSB),c(1,3),sd)
-# sd_ARE_R0_N5000_Ind50_ckmrmultinom25<-apply(abs(re_R0),2,sd)
-# sd_ARE_M_N5000_Ind50_ckmrmultinom25<-apply(abs(re_M),2,sd)
-# 
-# #Precision within sims
-# SD_ssb_N5000_Ind50_ckmrmultinom25<-CV_ssb_N5000_Ind50_ckmrmultinom25<-array(NA, dim=c(3,100,76)) 
-# SD_R0_N5000_Ind50_ckmrmultinom25<-matrix(NA, nrow=3, ncol=100)
-# SD_M_N5000_Ind50_ckmrmultinom25<-matrix(NA, nrow=3, ncol=100)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     CV_ssb_N5000_Ind50_ckmrmultinom25[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
-#     SD_ssb_N5000_Ind50_ckmrmultinom25[f,i,]<-res_list[[f]][[i]]$SD$sd
-#     SD_R0_N5000_Ind50_ckmrmultinom25[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
-#     SD_M_N5000_Ind50_ckmrmultinom25[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
-#   }
-# }
+#20yrs CKMR data
+#N100, 20yrs CKMR data, sd index 0.25
+res_list<-list()
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind25_ckmrmultinom20.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind25_ckmrmultinom20.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind25_ckmrmultinom20.RData"))
+
+load(paste0(wd,"/Cod_wdat_N100_Ind25_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N100_Ind25_ckmrmultinom20_1.RData"))
+
+re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
+re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
+for(f in 1:3){
+  for (i in 1:100){
+    if(f==1){
+      re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+      #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+
+    }else if (f==2){
+      re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+      #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+
+    } else if (f==3){
+      re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+      #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+
+    }
+  }
+}
+
+#SSB
+par(mfrow=c(3,3))
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N100, Index SD - 0.25, CKMR 20yrs", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N100, Index SD - 0.25, CKMR 20yrs", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N100, Index SD - 0.25, CKMR 20yrs", ylab="RE - SSB")
+abline(h=0)
+
+#R0
+boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+
+#M
+boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+
+#SD of relative error for point estimates
+sd_RE_ssb_N100_Ind25_ckmrmultinom20<-apply(re_SSB,c(1,3),sd)
+sd_RE_R0_N100_Ind25_ckmrmultinom20<-apply(re_R0,2,sd)
+sd_RE_M_N100_Ind25_ckmrmultinom20<-apply(re_M,2,sd)
+
+#SD of absolute relative error
+sd_ARE_ssb_N100_Ind25_ckmrmultinom20<-apply(abs(re_SSB),c(1,3),sd)
+sd_ARE_R0_N100_Ind25_ckmrmultinom20<-apply(abs(re_R0),2,sd)
+sd_ARE_M_N100_Ind25_ckmrmultinom20<-apply(abs(re_M),2,sd)
+
+#Precision within sims
+SD_ssb_N100_Ind25_ckmrmultinom20<-CV_ssb_N100_Ind25_ckmrmultinom20<-array(NA, dim=c(3,100,76))
+SD_R0_N100_Ind25_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
+SD_M_N100_Ind25_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
+for(f in 1:3){
+  for (i in 1:100){
+    CV_ssb_N100_Ind25_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+    SD_ssb_N100_Ind25_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd
+    SD_R0_N100_Ind25_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
+    SD_M_N100_Ind25_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
+  }
+}
+
+#N1000, 20yrs CKMR data, sd index 0.25
+res_list<-list()
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind25_ckmrmultinom20.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind25_ckmrmultinom20.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind25_ckmrmultinom20.RData"))
+
+load(paste0(wd,"/Cod_wdat_N1000_Ind25_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N1000_Ind25_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N1000_Ind25_ckmrmultinom20_1.RData"))
+
+re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
+re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
+for(f in 1:3){
+  for (i in 1:100){
+    if(f==1){
+      re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+      #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+
+    }else if (f==2){
+      re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+      #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+
+    } else if (f==3){
+      re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+      #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+
+    }
+  }
+}
+
+#SSB
+par(mfrow=c(3,3))
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N1000, Index SD - 0.25, CKMR 20yrs", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N1000, Index SD - 0.25, CKMR 20yrs", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N1000, Index SD - 0.25, CKMR 20yrs", ylab="RE - SSB")
+abline(h=0)
+
+#R0
+boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+
+#M
+boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+
+#SD of relative error for point estimates
+sd_RE_ssb_N1000_Ind25_ckmrmultinom20<-apply(re_SSB,c(1,3),sd)
+sd_RE_R0_N1000_Ind25_ckmrmultinom20<-apply(re_R0,2,sd)
+sd_RE_M_N1000_Ind25_ckmrmultinom20<-apply(re_M,2,sd)
+
+#SD of absolute relative error
+sd_ARE_ssb_N1000_Ind25_ckmrmultinom20<-apply(abs(re_SSB),c(1,3),sd)
+sd_ARE_R0_N1000_Ind25_ckmrmultinom20<-apply(abs(re_R0),2,sd)
+sd_ARE_M_N1000_Ind25_ckmrmultinom20<-apply(abs(re_M),2,sd)
+
+#Precision within sims
+SD_ssb_N1000_Ind25_ckmrmultinom20<-CV_ssb_N1000_Ind25_ckmrmultinom20<-array(NA, dim=c(3,100,76))
+SD_R0_N1000_Ind25_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
+SD_M_N1000_Ind25_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
+for(f in 1:3){
+  for (i in 1:100){
+    CV_ssb_N1000_Ind25_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+    SD_ssb_N1000_Ind25_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd
+    SD_R0_N1000_Ind25_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
+    SD_M_N1000_Ind25_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
+  }
+}
+
+#N5000, 20yrs CKMR data, sd index 0.25
+res_list<-list()
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind25_ckmrmultinom20.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind25_ckmrmultinom20.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind25_ckmrmultinom20.RData"))
+
+load(paste0(wd,"/Cod_wdat_N5000_Ind25_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N5000_Ind25_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N5000_Ind25_ckmrmultinom20_1.RData"))
+
+re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
+re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
+for(f in 1:3){
+  for (i in 1:100){
+    if(f==1){
+      re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+      #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+
+    }else if (f==2){
+      re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+      #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+
+    } else if (f==3){
+      re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+      #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+
+    }
+  }
+}
+
+#SSB
+par(mfrow=c(3,3))
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N5000, Index SD - 0.25, CKMR 20yrs", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N5000, Index SD - 0.25, CKMR 20yrs", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N5000, Index SD - 0.25, CKMR 20yrs", ylab="RE - SSB")
+abline(h=0)
+
+#R0
+boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+
+#M
+boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+
+#SD of relative error for point estimates
+sd_RE_ssb_N5000_Ind25_ckmrmultinom20<-apply(re_SSB,c(1,3),sd)
+sd_RE_R0_N5000_Ind25_ckmrmultinom20<-apply(re_R0,2,sd)
+sd_RE_M_N5000_Ind25_ckmrmultinom20<-apply(re_M,2,sd)
+
+#SD of absolute relative error
+sd_ARE_ssb_N5000_Ind25_ckmrmultinom20<-apply(abs(re_SSB),c(1,3),sd)
+sd_ARE_R0_N5000_Ind25_ckmrmultinom20<-apply(abs(re_R0),2,sd)
+sd_ARE_M_N5000_Ind25_ckmrmultinom20<-apply(abs(re_M),2,sd)
+
+#Precision within sims
+SD_ssb_N5000_Ind25_ckmrmultinom20<-CV_ssb_N5000_Ind25_ckmrmultinom20<-array(NA, dim=c(3,100,76))
+SD_R0_N5000_Ind25_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
+SD_M_N5000_Ind25_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
+for(f in 1:3){
+  for (i in 1:100){
+    CV_ssb_N5000_Ind25_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+    SD_ssb_N5000_Ind25_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd
+    SD_R0_N5000_Ind25_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
+    SD_M_N5000_Ind25_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
+  }
+}
+
+#N100, 20yrs CKMR data, sd index 0.50
+res_list<-list()
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind50_ckmrmultinom20.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind50_ckmrmultinom20.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind50_ckmrmultinom20.RData"))
+
+load(paste0(wd,"/Cod_wdat_N100_Ind50_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N100_Ind50_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N100_Ind50_ckmrmultinom20_1.RData"))
+
+re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
+re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
+for(f in 1:3){
+  for (i in 1:100){
+    if(f==1){
+      re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+      #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+
+    }else if (f==2){
+      re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+      #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+
+    } else if (f==3){
+      re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+      #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+
+    }
+  }
+}
+
+#SSB
+par(mfrow=c(3,3))
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N100, Index SD - 0.50, CKMR 20yrs", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N100, Index SD - 0.50, CKMR 20yrs", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N100, Index SD - 0.50, CKMR 20yrs", ylab="RE - SSB")
+abline(h=0)
+
+#R0
+boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+
+#M
+boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+
+#SD of relative error for point estimates
+sd_RE_ssb_N100_Ind50_ckmrmultinom20<-apply(re_SSB,c(1,3),sd)
+sd_RE_R0_N100_Ind50_ckmrmultinom20<-apply(re_R0,2,sd)
+sd_RE_M_N100_Ind50_ckmrmultinom20<-apply(re_M,2,sd)
+
+#SD of absolute relative error
+sd_ARE_ssb_N100_Ind50_ckmrmultinom20<-apply(abs(re_SSB),c(1,3),sd)
+sd_ARE_R0_N100_Ind50_ckmrmultinom20<-apply(abs(re_R0),2,sd)
+sd_ARE_M_N100_Ind50_ckmrmultinom20<-apply(abs(re_M),2,sd)
+
+#Precision within sims
+SD_ssb_N100_Ind50_ckmrmultinom20<-CV_ssb_N100_Ind50_ckmrmultinom20<-array(NA, dim=c(3,100,76))
+SD_R0_N100_Ind50_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
+SD_M_N100_Ind50_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
+for(f in 1:3){
+  for (i in 1:100){
+    CV_ssb_N100_Ind50_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+    SD_ssb_N100_Ind50_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd
+    SD_R0_N100_Ind50_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
+    SD_M_N100_Ind50_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
+  }
+}
+
+#N1000, 20yrs CKMR data, sd index 0.50
+res_list<-list()
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind50_ckmrmultinom20.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind50_ckmrmultinom20.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind50_ckmrmultinom20.RData"))
+
+load(paste0(wd,"/Cod_wdat_N1000_Ind50_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N1000_Ind50_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N1000_Ind50_ckmrmultinom20_1.RData"))
+
+re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
+re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
+for(f in 1:3){
+  for (i in 1:100){
+    if(f==1){
+      re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+      #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+
+    }else if (f==2){
+      re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+      #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+
+    } else if (f==3){
+      re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+      #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+
+    }
+  }
+}
+
+#SSB
+par(mfrow=c(3,3))
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N1000, Index SD - 0.50, CKMR 20yrs", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N1000, Index SD - 0.50, CKMR 20yrs", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N1000, Index SD - 0.50, CKMR 20yrs", ylab="RE - SSB")
+abline(h=0)
+
+#R0
+boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+
+#M
+boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+
+#SD of relative error for point estimates
+sd_RE_ssb_N1000_Ind50_ckmrmultinom20<-apply(re_SSB,c(1,3),sd)
+sd_RE_R0_N1000_Ind50_ckmrmultinom20<-apply(re_R0,2,sd)
+sd_RE_M_N1000_Ind50_ckmrmultinom20<-apply(re_M,2,sd)
+
+#SD of absolute relative error
+sd_ARE_ssb_N1000_Ind50_ckmrmultinom20<-apply(abs(re_SSB),c(1,3),sd)
+sd_ARE_R0_N1000_Ind50_ckmrmultinom20<-apply(abs(re_R0),2,sd)
+sd_ARE_M_N1000_Ind50_ckmrmultinom20<-apply(abs(re_M),2,sd)
+
+#Precision within sims
+SD_ssb_N1000_Ind50_ckmrmultinom20<-CV_ssb_N1000_Ind50_ckmrmultinom20<-array(NA, dim=c(3,100,76))
+SD_R0_N1000_Ind50_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
+SD_M_N1000_Ind50_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
+for(f in 1:3){
+  for (i in 1:100){
+    CV_ssb_N1000_Ind50_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+    SD_ssb_N1000_Ind50_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd
+    SD_R0_N1000_Ind50_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
+    SD_M_N1000_Ind50_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
+  }
+}
+
+#N5000, 20yrs CKMR data, sd index 0.50
+res_list<-list()
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind50_ckmrmultinom20.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind50_ckmrmultinom20.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind50_ckmrmultinom20.RData"))
+
+load(paste0(wd,"/Cod_wdat_N5000_Ind50_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N5000_Ind50_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N5000_Ind50_ckmrmultinom20_1.RData"))
+
+re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
+re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
+for(f in 1:3){
+  for (i in 1:100){
+    if(f==1){
+      re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+      #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+
+    }else if (f==2){
+      re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+      #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+
+    } else if (f==3){
+      re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+      #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+
+    }
+  }
+}
+
+#SSB
+par(mfrow=c(3,3))
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N5000, Index SD - 0.50, CKMR 20yrs", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N5000, Index SD - 0.50, CKMR 20yrs", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N5000, Index SD - 0.50, CKMR 20yrs", ylab="RE - SSB")
+abline(h=0)
+
+#R0
+boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+
+#M
+boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+
+#SD of relative error for point estimates
+sd_RE_ssb_N5000_Ind50_ckmrmultinom20<-apply(re_SSB,c(1,3),sd)
+sd_RE_R0_N5000_Ind50_ckmrmultinom20<-apply(re_R0,2,sd)
+sd_RE_M_N5000_Ind50_ckmrmultinom20<-apply(re_M,2,sd)
+
+#SD of absolute relative error
+sd_ARE_ssb_N5000_Ind50_ckmrmultinom20<-apply(abs(re_SSB),c(1,3),sd)
+sd_ARE_R0_N5000_Ind50_ckmrmultinom20<-apply(abs(re_R0),2,sd)
+sd_ARE_M_N5000_Ind50_ckmrmultinom20<-apply(abs(re_M),2,sd)
+
+#Precision within sims
+SD_ssb_N5000_Ind50_ckmrmultinom20<-CV_ssb_N5000_Ind50_ckmrmultinom20<-array(NA, dim=c(3,100,76))
+SD_R0_N5000_Ind50_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
+SD_M_N5000_Ind50_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
+for(f in 1:3){
+  for (i in 1:100){
+    CV_ssb_N5000_Ind50_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+    SD_ssb_N5000_Ind50_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd
+    SD_R0_N5000_Ind50_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
+    SD_M_N5000_Ind50_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
+  }
+}
 
 #######################################
 #Models with NO INDEX but CKMR Data
@@ -5157,258 +4440,258 @@ for(f in 1:3){
   }
 }
 
-# #N100, 25yrs CKMR data, No Index
-# res_list<-list()
-# res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_NoIndex_ckmrmultinom25.RData"))
-# res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_NoIndex_ckmrmultinom25.RData"))
-# res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_NoIndex_ckmrmultinom25.RData"))
-# 
-# load(paste0(wd,"/Cod_wdat_N100_Ind25_ckmrmultinom25_1.RData"))
-# load(paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmrmultinom25_1.RData"))
-# load(paste0(wd,"/Sardine_wdat_N100_Ind25_ckmrmultinom25_1.RData"))
-# 
-# re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
-# re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     if(f==1){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
-#       
-#     }else if (f==2){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
-#       
-#     } else if (f==3){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
-#       
-#     }
-#   }
-# }
-# 
-# #SSB
-# par(mfrow=c(3,3))
-# boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N100, No Index, CKMR 25yrs", ylab="RE - SSB")
-# abline(h=0)
-# boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N100, No Index, CKMR 25yrs", ylab="RE - SSB")
-# abline(h=0)
-# boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N100, No Index, CKMR 25yrs", ylab="RE - SSB")
-# abline(h=0)
-# 
-# #R0
-# boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
-# abline(h=0)
-# boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
-# abline(h=0)
-# boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
-# abline(h=0)
-# 
-# #M
-# boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
-# abline(h=0)
-# boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
-# abline(h=0)
-# boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
-# abline(h=0)
-# 
-# #SD of relative error for point estimates
-# sd_RE_ssb_N100_NoIndex_ckmrmultinom25<-apply(re_SSB,c(1,3),sd)
-# sd_RE_R0_N100_NoIndex_ckmrmultinom25<-apply(re_R0,2,sd)
-# sd_RE_M_N100_NoIndex_ckmrmultinom25<-apply(re_M,2,sd)
-# 
-# #SD of absolute relative error
-# sd_ARE_ssb_N100_NoIndex_ckmrmultinom25<-apply(abs(re_SSB),c(1,3),sd)
-# sd_ARE_R0_N100_NoIndex_ckmrmultinom25<-apply(abs(re_R0),2,sd)
-# sd_ARE_M_N100_NoIndex_ckmrmultinom25<-apply(abs(re_M),2,sd)
-# 
-# #Precision within sims
-# SD_ssb_N100_NoIndex_ckmrmultinom25<-CV_ssb_N100_NoIndex_ckmrmultinom25<-array(NA, dim=c(3,100,76)) 
-# SD_R0_N100_NoIndex_ckmrmultinom25<-matrix(NA, nrow=3, ncol=100)
-# SD_M_N100_NoIndex_ckmrmultinom25<-matrix(NA, nrow=3, ncol=100)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     CV_ssb_N100_NoIndex_ckmrmultinom25[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
-#     SD_ssb_N100_NoIndex_ckmrmultinom25[f,i,]<-res_list[[f]][[i]]$SD$sd
-#     SD_R0_N100_NoIndex_ckmrmultinom25[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
-#     SD_M_N100_NoIndex_ckmrmultinom25[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
-#   }
-# }
-# 
-# #N1000, 25yrs CKMR data, No Index
-# res_list<-list()
-# res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_NoIndex_ckmrmultinom25.RData"))
-# res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_NoIndex_ckmrmultinom25.RData"))
-# res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_NoIndex_ckmrmultinom25.RData"))
-# 
-# load(paste0(wd,"/Cod_wdat_N1000_Ind25_ckmrmultinom25_1.RData"))
-# load(paste0(wd,"/Flatfish_wdat_N1000_Ind25_ckmrmultinom25_1.RData"))
-# load(paste0(wd,"/Sardine_wdat_N1000_Ind25_ckmrmultinom25_1.RData"))
-# 
-# re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
-# re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     if(f==1){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
-#       
-#     }else if (f==2){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
-#       
-#     } else if (f==3){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
-#       
-#     }
-#   }
-# }
-# 
-# #SSB
-# par(mfrow=c(3,3))
-# boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N1000, No Index, CKMR 25yrs", ylab="RE - SSB")
-# abline(h=0)
-# boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N1000, No Index, CKMR 25yrs", ylab="RE - SSB")
-# abline(h=0)
-# boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N1000, No Index, CKMR 25yrs", ylab="RE - SSB")
-# abline(h=0)
-# 
-# #R0
-# boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
-# abline(h=0)
-# boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
-# abline(h=0)
-# boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
-# abline(h=0)
-# 
-# #M
-# boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
-# abline(h=0)
-# boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
-# abline(h=0)
-# boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
-# abline(h=0)
-# 
-# #SD of relative error for point estimates
-# sd_RE_ssb_N1000_NoIndex_ckmrmultinom25<-apply(re_SSB,c(1,3),sd)
-# sd_RE_R0_N1000_NoIndex_ckmrmultinom25<-apply(re_R0,2,sd)
-# sd_RE_M_N1000_NoIndex_ckmrmultinom25<-apply(re_M,2,sd)
-# 
-# #SD of absolute relative error
-# sd_ARE_ssb_N1000_NoIndex_ckmrmultinom25<-apply(abs(re_SSB),c(1,3),sd)
-# sd_ARE_R0_N1000_NoIndex_ckmrmultinom25<-apply(abs(re_R0),2,sd)
-# sd_ARE_M_N1000_NoIndex_ckmrmultinom25<-apply(abs(re_M),2,sd)
-# 
-# #Precision within sims
-# SD_ssb_N1000_NoIndex_ckmrmultinom25<-CV_ssb_N1000_NoIndex_ckmrmultinom25<-array(NA, dim=c(3,100,76)) 
-# SD_R0_N1000_NoIndex_ckmrmultinom25<-matrix(NA, nrow=3, ncol=100)
-# SD_M_N1000_NoIndex_ckmrmultinom25<-matrix(NA, nrow=3, ncol=100)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     CV_ssb_N1000_NoIndex_ckmrmultinom25[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
-#     SD_ssb_N1000_NoIndex_ckmrmultinom25[f,i,]<-res_list[[f]][[i]]$SD$sd
-#     SD_R0_N1000_NoIndex_ckmrmultinom25[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
-#     SD_M_N1000_NoIndex_ckmrmultinom25[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
-#   }
-# }
-# 
-# #N5000, 25yrs CKMR data, No Index
-# res_list<-list()
-# res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_NoIndex_ckmrmultinom25.RData"))
-# res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_NoIndex_ckmrmultinom25.RData"))
-# res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_NoIndex_ckmrmultinom25.RData"))
-# 
-# load(paste0(wd,"/Cod_wdat_N5000_Ind25_ckmrmultinom25_1.RData"))
-# load(paste0(wd,"/Flatfish_wdat_N5000_Ind25_ckmrmultinom25_1.RData"))
-# load(paste0(wd,"/Sardine_wdat_N5000_Ind25_ckmrmultinom25_1.RData"))
-# 
-# re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
-# re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     if(f==1){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
-#       
-#     }else if (f==2){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
-#       
-#     } else if (f==3){
-#       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
-#       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-#       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-#       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
-#       
-#     }
-#   }
-# }
-# 
-# #SSB
-# par(mfrow=c(3,3))
-# boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N5000, No Index, CKMR 25yrs", ylab="RE - SSB")
-# abline(h=0)
-# boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N5000, No Index, CKMR 25yrs", ylab="RE - SSB")
-# abline(h=0)
-# boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N5000, No Index, CKMR 25yrs", ylab="RE - SSB")
-# abline(h=0)
-# 
-# #R0
-# boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
-# abline(h=0)
-# boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
-# abline(h=0)
-# boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
-# abline(h=0)
-# 
-# #M
-# boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
-# abline(h=0)
-# boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
-# abline(h=0)
-# boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
-# abline(h=0)
-# 
-# #SD of relative error for point estimates
-# sd_RE_ssb_N5000_NoIndex_ckmrmultinom25<-apply(re_SSB,c(1,3),sd)
-# sd_RE_R0_N5000_NoIndex_ckmrmultinom25<-apply(re_R0,2,sd)
-# sd_RE_M_N5000_NoIndex_ckmrmultinom25<-apply(re_M,2,sd)
-# 
-# #SD of absolute relative error
-# sd_ARE_ssb_N5000_NoIndex_ckmrmultinom25<-apply(abs(re_SSB),c(1,3),sd)
-# sd_ARE_R0_N5000_NoIndex_ckmrmultinom25<-apply(abs(re_R0),2,sd)
-# sd_ARE_M_N5000_NoIndex_ckmrmultinom25<-apply(abs(re_M),2,sd)
-# 
-# #Precision within sims
-# SD_ssb_N5000_NoIndex_ckmrmultinom25<-CV_ssb_N5000_NoIndex_ckmrmultinom25<-array(NA, dim=c(3,100,76)) 
-# SD_R0_N5000_NoIndex_ckmrmultinom25<-matrix(NA, nrow=3, ncol=100)
-# SD_M_N5000_NoIndex_ckmrmultinom25<-matrix(NA, nrow=3, ncol=100)
-# for(f in 1:3){
-#   for (i in 1:100){
-#     CV_ssb_N5000_NoIndex_ckmrmultinom25[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
-#     SD_ssb_N5000_NoIndex_ckmrmultinom25[f,i,]<-res_list[[f]][[i]]$SD$sd
-#     SD_R0_N5000_NoIndex_ckmrmultinom25[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
-#     SD_M_N5000_NoIndex_ckmrmultinom25[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
-#   }
-# }
-# 
+#N100, 20yrs CKMR data, No Index
+res_list<-list()
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_NoIndex_ckmrmultinom20.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_NoIndex_ckmrmultinom20.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_NoIndex_ckmrmultinom20.RData"))
+
+load(paste0(wd,"/Cod_wdat_N100_Ind25_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N100_Ind25_ckmrmultinom20_1.RData"))
+
+re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
+re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
+for(f in 1:3){
+  for (i in 1:100){
+    if(f==1){
+      re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+      #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+
+    }else if (f==2){
+      re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+      #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+
+    } else if (f==3){
+      re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+      #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+
+    }
+  }
+}
+
+#SSB
+par(mfrow=c(3,3))
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N100, No Index, CKMR 20yrs", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N100, No Index, CKMR 20yrs", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N100, No Index, CKMR 20yrs", ylab="RE - SSB")
+abline(h=0)
+
+#R0
+boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+
+#M
+boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+
+#SD of relative error for point estimates
+sd_RE_ssb_N100_NoIndex_ckmrmultinom20<-apply(re_SSB,c(1,3),sd)
+sd_RE_R0_N100_NoIndex_ckmrmultinom20<-apply(re_R0,2,sd)
+sd_RE_M_N100_NoIndex_ckmrmultinom20<-apply(re_M,2,sd)
+
+#SD of absolute relative error
+sd_ARE_ssb_N100_NoIndex_ckmrmultinom20<-apply(abs(re_SSB),c(1,3),sd)
+sd_ARE_R0_N100_NoIndex_ckmrmultinom20<-apply(abs(re_R0),2,sd)
+sd_ARE_M_N100_NoIndex_ckmrmultinom20<-apply(abs(re_M),2,sd)
+
+#Precision within sims
+SD_ssb_N100_NoIndex_ckmrmultinom20<-CV_ssb_N100_NoIndex_ckmrmultinom20<-array(NA, dim=c(3,100,76))
+SD_R0_N100_NoIndex_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
+SD_M_N100_NoIndex_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
+for(f in 1:3){
+  for (i in 1:100){
+    CV_ssb_N100_NoIndex_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+    SD_ssb_N100_NoIndex_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd
+    SD_R0_N100_NoIndex_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
+    SD_M_N100_NoIndex_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
+  }
+}
+
+#N1000, 20yrs CKMR data, No Index
+res_list<-list()
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_NoIndex_ckmrmultinom20.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_NoIndex_ckmrmultinom20.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_NoIndex_ckmrmultinom20.RData"))
+
+load(paste0(wd,"/Cod_wdat_N1000_Ind25_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N1000_Ind25_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N1000_Ind25_ckmrmultinom20_1.RData"))
+
+re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
+re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
+for(f in 1:3){
+  for (i in 1:100){
+    if(f==1){
+      re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+      #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+
+    }else if (f==2){
+      re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+      #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+
+    } else if (f==3){
+      re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+      #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+
+    }
+  }
+}
+
+#SSB
+par(mfrow=c(3,3))
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N1000, No Index, CKMR 20yrs", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N1000, No Index, CKMR 20yrs", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N1000, No Index, CKMR 20yrs", ylab="RE - SSB")
+abline(h=0)
+
+#R0
+boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+
+#M
+boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+
+#SD of relative error for point estimates
+sd_RE_ssb_N1000_NoIndex_ckmrmultinom20<-apply(re_SSB,c(1,3),sd)
+sd_RE_R0_N1000_NoIndex_ckmrmultinom20<-apply(re_R0,2,sd)
+sd_RE_M_N1000_NoIndex_ckmrmultinom20<-apply(re_M,2,sd)
+
+#SD of absolute relative error
+sd_ARE_ssb_N1000_NoIndex_ckmrmultinom20<-apply(abs(re_SSB),c(1,3),sd)
+sd_ARE_R0_N1000_NoIndex_ckmrmultinom20<-apply(abs(re_R0),2,sd)
+sd_ARE_M_N1000_NoIndex_ckmrmultinom20<-apply(abs(re_M),2,sd)
+
+#Precision within sims
+SD_ssb_N1000_NoIndex_ckmrmultinom20<-CV_ssb_N1000_NoIndex_ckmrmultinom20<-array(NA, dim=c(3,100,76))
+SD_R0_N1000_NoIndex_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
+SD_M_N1000_NoIndex_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
+for(f in 1:3){
+  for (i in 1:100){
+    CV_ssb_N1000_NoIndex_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+    SD_ssb_N1000_NoIndex_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd
+    SD_R0_N1000_NoIndex_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
+    SD_M_N1000_NoIndex_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
+  }
+}
+
+#N5000, 20yrs CKMR data, No Index
+res_list<-list()
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_NoIndex_ckmrmultinom20.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_NoIndex_ckmrmultinom20.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_NoIndex_ckmrmultinom20.RData"))
+
+load(paste0(wd,"/Cod_wdat_N5000_Ind25_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N5000_Ind25_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N5000_Ind25_ckmrmultinom20_1.RData"))
+
+re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
+re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
+for(f in 1:3){
+  for (i in 1:100){
+    if(f==1){
+      re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+      #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+
+    }else if (f==2){
+      re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+      #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+
+    } else if (f==3){
+      re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+      #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+
+    }
+  }
+}
+
+#SSB
+par(mfrow=c(3,3))
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N5000, No Index, CKMR 20yrs", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N5000, No Index, CKMR 20yrs", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N5000, No Index, CKMR 20yrs", ylab="RE - SSB")
+abline(h=0)
+
+#R0
+boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+
+#M
+boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+
+#SD of relative error for point estimates
+sd_RE_ssb_N5000_NoIndex_ckmrmultinom20<-apply(re_SSB,c(1,3),sd)
+sd_RE_R0_N5000_NoIndex_ckmrmultinom20<-apply(re_R0,2,sd)
+sd_RE_M_N5000_NoIndex_ckmrmultinom20<-apply(re_M,2,sd)
+
+#SD of absolute relative error
+sd_ARE_ssb_N5000_NoIndex_ckmrmultinom20<-apply(abs(re_SSB),c(1,3),sd)
+sd_ARE_R0_N5000_NoIndex_ckmrmultinom20<-apply(abs(re_R0),2,sd)
+sd_ARE_M_N5000_NoIndex_ckmrmultinom20<-apply(abs(re_M),2,sd)
+
+#Precision within sims
+SD_ssb_N5000_NoIndex_ckmrmultinom20<-CV_ssb_N5000_NoIndex_ckmrmultinom20<-array(NA, dim=c(3,100,76))
+SD_R0_N5000_NoIndex_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
+SD_M_N5000_NoIndex_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
+for(f in 1:3){
+  for (i in 1:100){
+    CV_ssb_N5000_NoIndex_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+    SD_ssb_N5000_NoIndex_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd
+    SD_R0_N5000_NoIndex_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
+    SD_M_N5000_NoIndex_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
+  }
+}
+
 
 #################################################
 #########################################
