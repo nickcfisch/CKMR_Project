@@ -281,7 +281,7 @@ for (i in 1:100){
 }
 
 #N100
-#tiff(paste0(wd,"CKMRPairs_N100_noGPP.tiff"), height=20, width=30, units='cm', compression="lzw", res=500)
+#tiff(paste0(wd,"/CKMRPairs_N100_noGPP.tiff"), height=20, width=30, units='cm', compression="lzw", res=500)
 par(mfrow=c(3,6), oma=c(2,2,1,1), mar=c(4,4,2.5,1))
 hist(Pairs_Cod_100_25_5[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="", main="")
 mtext(text="5yr", side=2, line=4.5, font=2)
@@ -333,7 +333,7 @@ hist(Pairs_Sardine_100_25_20_HSPnoGGP, breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), l
 #dev.off()
 
 #N1000
-#tiff(paste0(wd,"CKMRPairs_N1000_noGPP.tiff"), height=20, width=30, units='cm', compression="lzw", res=500)
+#tiff(paste0(wd,"/CKMRPairs_N1000_noGPP.tiff"), height=20, width=30, units='cm', compression="lzw", res=500)
 par(mfrow=c(3,6), oma=c(2,2,1,1), mar=c(4,4,2.5,1))
 hist(Pairs_Cod_1000_25_5[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,10), las=1, xlab="", main="")
 mtext(text="5yr", side=2, line=4.5, font=2)
@@ -385,7 +385,7 @@ hist(Pairs_Sardine_1000_25_20_HSPnoGGP, breaks=seq(-0.5,1e6,1), xlim=c(-0.5,100)
 #dev.off()
 
 #N5000
-#tiff(paste0(wd,"CKMRPairs_N5000_noGPP.tiff"), height=20, width=30, units='cm', compression="lzw", res=500)
+#tiff(paste0(wd,"/CKMRPairs_N5000_noGPP.tiff"), height=20, width=30, units='cm', compression="lzw", res=500)
 par(mfrow=c(3,6), oma=c(2,2,1,1), mar=c(4,4,2.5,1))
 hist(Pairs_Cod_5000_25_5[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,120), las=1, xlab="", main="")
 mtext(text="5yr", side=2, line=4.5, font=2)
@@ -438,7 +438,7 @@ hist(Pairs_Sardine_5000_25_20_HSPnoGGP, breaks=seq(-0.5,1e6,50), xlim=c(-0.5,250
 
 #Overlap histograms
 #N5000
-#tiff(paste0(wd,"CKMRPairs_Overlap.tiff"), height=20, width=30, units='cm', compression="lzw", res=500)
+#tiff(paste0(wd,"/CKMRPairs_Overlap.tiff"), height=20, width=30, units='cm', compression="lzw", res=500)
 par(mfrow=c(3,6), oma=c(2,2,1,1), mar=c(4,4,2.5,1))
 hist(Pairs_Cod_5000_25_5[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,100), las=1, xlab="", main="",col=rgb(0.8,0,0,0.2))
 hist(Pairs_Cod_1000_25_5[,1], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0.8,0,0.2))
