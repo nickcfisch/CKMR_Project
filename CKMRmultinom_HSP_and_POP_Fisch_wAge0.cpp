@@ -361,8 +361,10 @@ Type objective_function<Type>::operator() ()
 //Multinomial
   L2=Type(0);
   for(i=0;i<=lyear-1;i++){
-   for(j=fage;j<=lage;j++){
-    L2 += -1*(SS_fishery(i)*(obs_fishery_comp(i,j)*log(pred_fishery_comp(i,j))));     //Likelihood for age composition of fishery catch
+   if(SS_fishery(i)>0){   //Only run calcs if there is comp data
+    for(j=fage;j<=lage;j++){
+     L2 += -1*(SS_fishery(i)*(obs_fishery_comp(i,j)*log(pred_fishery_comp(i,j))));     //Likelihood for age composition of fishery catch
+    }
    }
   }
 

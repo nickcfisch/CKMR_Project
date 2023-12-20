@@ -126,7 +126,8 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
                    fyear_dat=26,
                    lyear_dat=100,
                    sd_catch=0.05,
-                   N_Comp_preCKMR=100,
+#                   N_Comp_preCKMR=100,
+                   N_Comp_preCKMR=c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30)),
                    N_Comp_CKMR=200,
                    q_index=0.0001,
                    sd_index=0.25,
@@ -461,7 +462,8 @@ lines(1:101,HPDinterval(as.mcmc(Sardine_Depl), prob=0.75)[,2],lty=3)
 #############################
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
-N_comp_preCKMR<-100
+#N_comp_preCKMR<-100
+N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
 N_comp_CKMR<-200
 sd_catch<-0.05
 sd_index<-0.5

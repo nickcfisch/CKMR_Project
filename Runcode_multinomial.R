@@ -11,7 +11,8 @@ wd<-"C:/Users/nfisch/Documents/GitHub/CKMR_Project/"
 #Ncomp 100, sdindex 0.25
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
-N_comp_preCKMR<-100
+#N_comp_preCKMR<-100
+N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
 N_comp_CKMR<-100
 sd_catch<-0.05
 sd_index<-0.25
@@ -37,7 +38,8 @@ save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N100_Ind25_ckmrmultinom20_1.RDa
 #Ncomp 100, sdindex 0.5
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
-N_comp_preCKMR<-100
+#N_comp_preCKMR<-100
+N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
 N_comp_CKMR<-100
 sd_catch<-0.05
 sd_index<-0.5
@@ -63,7 +65,8 @@ save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N100_Ind50_ckmrmultinom20_1.RDa
 #Ncomp 1000, sdindex 0.25
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
-N_comp_preCKMR<-100
+#N_comp_preCKMR<-100
+N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
 N_comp_CKMR<-1000
 sd_catch<-0.05
 sd_index<-0.25
@@ -89,7 +92,8 @@ save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N1000_Ind25_ckmrmultinom20_1.RD
 #Ncomp 1000, sdindex 0.5
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
-N_comp_preCKMR<-100
+#N_comp_preCKMR<-100
+N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
 N_comp_CKMR<-1000
 sd_catch<-0.05
 sd_index<-0.5
@@ -115,7 +119,8 @@ save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N1000_Ind50_ckmrmultinom20_1.RD
 #Ncomp 5000, sdindex 0.25
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
-N_comp_preCKMR<-100
+#N_comp_preCKMR<-100
+N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
 N_comp_CKMR<-5000
 sd_catch<-0.05
 sd_index<-0.25
@@ -141,7 +146,8 @@ save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N5000_Ind25_ckmrmultinom20_1.RD
 #Ncomp 5000, sdindex 0.5
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
-N_comp_preCKMR<-100
+#N_comp_preCKMR<-100
+N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
 N_comp_CKMR<-5000
 sd_catch<-0.05
 sd_index<-0.5
@@ -171,7 +177,8 @@ save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N5000_Ind50_ckmrmultinom20_1.RD
 #Ncomp 100, sdindex 0.25
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
-N_comp_preCKMR<-100
+#N_comp_preCKMR<-100
+N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
 N_comp_CKMR<-100
 sd_catch<-0.05
 sd_index<-0.25
@@ -197,7 +204,8 @@ save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N100_Ind25_ckmrmultinom10_1.RDa
 #Ncomp 100, sdindex 0.5
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
-N_comp_preCKMR<-100
+#N_comp_preCKMR<-100
+N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
 N_comp_CKMR<-100
 sd_catch<-0.05
 sd_index<-0.5
@@ -223,7 +231,8 @@ save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N100_Ind50_ckmrmultinom10_1.RDa
 #Ncomp 1000, sdindex 0.25
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
-N_comp_preCKMR<-100
+#N_comp_preCKMR<-100
+N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
 N_comp_CKMR<-1000
 sd_catch<-0.05
 sd_index<-0.25
@@ -249,7 +258,8 @@ save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N1000_Ind25_ckmrmultinom10_1.RD
 #Ncomp 1000, sdindex 0.5
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
-N_comp_preCKMR<-100
+#N_comp_preCKMR<-100
+N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
 N_comp_CKMR<-1000
 sd_catch<-0.05
 sd_index<-0.5
@@ -275,7 +285,8 @@ save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N1000_Ind50_ckmrmultinom10_1.RD
 #Ncomp 5000, sdindex 0.25
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
-N_comp_preCKMR<-100
+#N_comp_preCKMR<-100
+N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
 N_comp_CKMR<-5000
 sd_catch<-0.05
 sd_index<-0.25
@@ -301,7 +312,8 @@ save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N5000_Ind25_ckmrmultinom10_1.RD
 #Ncomp 5000, sdindex 0.5
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
-N_comp_preCKMR<-100
+#N_comp_preCKMR<-100
+N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
 N_comp_CKMR<-5000
 sd_catch<-0.05
 sd_index<-0.5
@@ -331,7 +343,8 @@ save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N5000_Ind50_ckmrmultinom10_1.RD
 #Ncomp 100, sdindex 0.25
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
-N_comp_preCKMR<-100
+#N_comp_preCKMR<-100
+N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
 N_comp_CKMR<-100
 sd_catch<-0.05
 sd_index<-0.25
@@ -357,7 +370,8 @@ save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N100_Ind25_ckmrmultinom5_1.RDat
 #Ncomp 100, sdindex 0.5
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
-N_comp_preCKMR<-100
+#N_comp_preCKMR<-100
+N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
 N_comp_CKMR<-100
 sd_catch<-0.05
 sd_index<-0.5
@@ -383,7 +397,8 @@ save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N100_Ind50_ckmrmultinom5_1.RDat
 #Ncomp 1000, sdindex 0.25
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
-N_comp_preCKMR<-100
+#N_comp_preCKMR<-100
+N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
 N_comp_CKMR<-1000
 sd_catch<-0.05
 sd_index<-0.25
@@ -409,7 +424,8 @@ save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N1000_Ind25_ckmrmultinom5_1.RDa
 #Ncomp 1000, sdindex 0.5
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
-N_comp_preCKMR<-100
+#N_comp_preCKMR<-100
+N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
 N_comp_CKMR<-1000
 sd_catch<-0.05
 sd_index<-0.5
@@ -435,7 +451,8 @@ save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N1000_Ind50_ckmrmultinom5_1.RDa
 #Ncomp 5000, sdindex 0.25
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
-N_comp_preCKMR<-100
+#N_comp_preCKMR<-100
+N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
 N_comp_CKMR<-5000
 sd_catch<-0.05
 sd_index<-0.25
@@ -461,7 +478,8 @@ save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N5000_Ind25_ckmrmultinom5_1.RDa
 #Ncomp 5000, sdindex 0.5
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
-N_comp_preCKMR<-100
+#N_comp_preCKMR<-100
+N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
 N_comp_CKMR<-5000
 sd_catch<-0.05
 sd_index<-0.5
