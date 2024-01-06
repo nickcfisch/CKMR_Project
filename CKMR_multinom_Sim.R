@@ -139,7 +139,7 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
   #Getting Data
   Obs_Catch<-Obs_Index<-NA
   Obs_Catch_Comp<-matrix(NA,nrow=length(fyear_dat:lyear_dat),ncol=length(OM$fage:OM$lage))
-  N_Comp<-c(rep(0,fyear_dat-1),rep(N_Comp_preCKMR,length(fyear_dat:(fyear_ckmr-1))),rep(N_Comp_CKMR,length(fyear_ckmr:lyear_ckmr)))
+  N_Comp<-c(rep(0,fyear_dat-1),N_Comp_preCKMR[1:length(fyear_dat:(fyear_ckmr-1))],rep(N_Comp_CKMR,length(fyear_ckmr:lyear_ckmr)))
   for (d in fyear_dat:lyear_dat){
     Obs_Catch[d-(fyear_dat-1)]<-rlnorm(1, meanlog=log(sum(OM$Caa[d,]*OM$Waa)), sdlog=sd_catch)
     Obs_Catch_Comp[d-(fyear_dat-1),]<-rmultinom(n=1,size=N_Comp[d], prob=OM$Caa[d,])
