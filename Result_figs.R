@@ -640,11 +640,11 @@ for(f in 1:3){
 
 #SSB
 par(mfrow=c(3,3))
-boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N100, Index SD - 0.25", ylab="RE - SSB")
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N100, Index SD - 0.25, No CKMR", ylab="RE - SSB")
 abline(h=0)
-boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N100, Index SD - 0.25", ylab="RE - SSB")
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N100, Index SD - 0.25, No CKMR", ylab="RE - SSB")
 abline(h=0)
-boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N100, Index SD - 0.25", ylab="RE - SSB")
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N100, Index SD - 0.25, No CKMR", ylab="RE - SSB")
 abline(h=0)
 
 #R0
@@ -721,6 +721,31 @@ for(f in 1:3){
   }
 }
 
+#SSB
+par(mfrow=c(3,3))
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N1000|5yrs, Index SD - 0.25, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N1000|5yrs, Index SD - 0.25, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N1000|5yrs, Index SD - 0.25, No CKMR", ylab="RE - SSB")
+abline(h=0)
+
+#R0
+boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+
+#M
+boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind25_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N1000_Ind25_5yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -778,6 +803,31 @@ for(f in 1:3){
     }
   }
 }
+
+#SSB
+par(mfrow=c(3,3))
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N5000|5yrs, Index SD - 0.25, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N5000|5yrs, Index SD - 0.25, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N5000|5yrs, Index SD - 0.25, No CKMR", ylab="RE - SSB")
+abline(h=0)
+
+#R0
+boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+
+#M
+boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind25_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -840,19 +890,19 @@ for(f in 1:3){
 
 #SSB
 par(mfrow=c(3,3))
-boxplot(re_SSB[1,,], ylim=c(-0.50,0.50), las=1, main="Cod - N200, Index SD - 0.50, CKMR 5yrs", ylab="RE - SSB")
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N100, Index SD - 0.50, No CKMR", ylab="RE - SSB")
 abline(h=0)
-boxplot(re_SSB[2,,], ylim=c(-0.50,0.50), las=1, main="Flatfish - N200, Index SD - 0.50, CKMR 5yrs", ylab="RE - SSB")
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N100, Index SD - 0.50, No CKMR", ylab="RE - SSB")
 abline(h=0)
-boxplot(re_SSB[3,,], ylim=c(-0.50,0.50), las=1, main="Sardine - N200, Index SD - 0.50, CKMR 5yrs", ylab="RE - SSB")
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N100, Index SD - 0.50, No CKMR", ylab="RE - SSB")
 abline(h=0)
 
 #R0
-boxplot(re_R0[,1], ylim=c(-0.50,0.50), las=1, main="", ylab="RE - R0")
+boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
 abline(h=0)
-boxplot(re_R0[,2], ylim=c(-0.50,0.50), las=1, main="", ylab="RE - R0")
+boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
 abline(h=0)
-boxplot(re_R0[,3], ylim=c(-0.50,0.50), las=1, main="", ylab="RE - R0")
+boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
 abline(h=0)
 
 #M
@@ -921,6 +971,31 @@ for(f in 1:3){
   }
 }
 
+#SSB
+par(mfrow=c(3,3))
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N1000|5yrs, Index SD - 0.50, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N1000|5yrs, Index SD - 0.50, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N1000|5yrs, Index SD - 0.50, No CKMR", ylab="RE - SSB")
+abline(h=0)
+
+#R0
+boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+
+#M
+boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind50_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N1000_Ind50_5yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -978,6 +1053,31 @@ for(f in 1:3){
     }
   }
 }
+
+#SSB
+par(mfrow=c(3,3))
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N5000|5yrs, Index SD - 0.50, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N5000|5yrs, Index SD - 0.50, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N5000|5yrs, Index SD - 0.50, No CKMR", ylab="RE - SSB")
+abline(h=0)
+
+#R0
+boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+
+#M
+boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind50_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -1044,11 +1144,11 @@ for(f in 1:3){
 
 #SSB
 par(mfrow=c(3,3))
-boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N100, Index SD - 0.25", ylab="RE - SSB")
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N100, Index SD - 0.25, No CKMR", ylab="RE - SSB")
 abline(h=0)
-boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N100, Index SD - 0.25", ylab="RE - SSB")
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N100, Index SD - 0.25, No CKMR", ylab="RE - SSB")
 abline(h=0)
-boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N100, Index SD - 0.25", ylab="RE - SSB")
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N100, Index SD - 0.25, No CKMR", ylab="RE - SSB")
 abline(h=0)
 
 #R0
@@ -1125,6 +1225,31 @@ for(f in 1:3){
   }
 }
 
+#SSB
+par(mfrow=c(3,3))
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N1000|10yrs, Index SD - 0.25, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N1000|10yrs, Index SD - 0.25, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N1000|10yrs, Index SD - 0.25, No CKMR", ylab="RE - SSB")
+abline(h=0)
+
+#R0
+boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+
+#M
+boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind25_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N1000_Ind25_10yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -1182,6 +1307,31 @@ for(f in 1:3){
     }
   }
 }
+
+#SSB
+par(mfrow=c(3,3))
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N5000|10yrs, Index SD - 0.25, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N5000|10yrs, Index SD - 0.25, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N5000|10yrs, Index SD - 0.25, No CKMR", ylab="RE - SSB")
+abline(h=0)
+
+#R0
+boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+
+#M
+boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind25_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -1244,19 +1394,19 @@ for(f in 1:3){
 
 #SSB
 par(mfrow=c(3,3))
-boxplot(re_SSB[1,,], ylim=c(-0.50,0.50), las=1, main="Cod - N200, Index SD - 0.50, CKMR 10yrs", ylab="RE - SSB")
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N100, Index SD - 0.50, No CKMR", ylab="RE - SSB")
 abline(h=0)
-boxplot(re_SSB[2,,], ylim=c(-0.50,0.50), las=1, main="Flatfish - N200, Index SD - 0.50, CKMR 10yrs", ylab="RE - SSB")
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N100, Index SD - 0.50, No CKMR", ylab="RE - SSB")
 abline(h=0)
-boxplot(re_SSB[3,,], ylim=c(-0.50,0.50), las=1, main="Sardine - N200, Index SD - 0.50, CKMR 10yrs", ylab="RE - SSB")
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N100, Index SD - 0.50, No CKMR", ylab="RE - SSB")
 abline(h=0)
 
 #R0
-boxplot(re_R0[,1], ylim=c(-0.50,0.50), las=1, main="", ylab="RE - R0")
+boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
 abline(h=0)
-boxplot(re_R0[,2], ylim=c(-0.50,0.50), las=1, main="", ylab="RE - R0")
+boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
 abline(h=0)
-boxplot(re_R0[,3], ylim=c(-0.50,0.50), las=1, main="", ylab="RE - R0")
+boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
 abline(h=0)
 
 #M
@@ -1325,6 +1475,31 @@ for(f in 1:3){
   }
 }
 
+#SSB
+par(mfrow=c(3,3))
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N1000|10yrs, Index SD - 0.50, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N1000|10yrs, Index SD - 0.50, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N1000|10yrs, Index SD - 0.50, No CKMR", ylab="RE - SSB")
+abline(h=0)
+
+#R0
+boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+
+#M
+boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind50_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N1000_Ind50_10yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -1382,6 +1557,31 @@ for(f in 1:3){
     }
   }
 }
+
+#SSB
+par(mfrow=c(3,3))
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N5000|10yrs, Index SD - 0.50, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N5000|10yrs, Index SD - 0.50, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N5000|10yrs, Index SD - 0.50, No CKMR", ylab="RE - SSB")
+abline(h=0)
+
+#R0
+boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+
+#M
+boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind50_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -1448,11 +1648,11 @@ for(f in 1:3){
 
 #SSB
 par(mfrow=c(3,3))
-boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N100, Index SD - 0.25", ylab="RE - SSB")
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N100, Index SD - 0.25, No CKMR", ylab="RE - SSB")
 abline(h=0)
-boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N100, Index SD - 0.25", ylab="RE - SSB")
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N100, Index SD - 0.25, No CKMR", ylab="RE - SSB")
 abline(h=0)
-boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N100, Index SD - 0.25", ylab="RE - SSB")
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N100, Index SD - 0.25, No CKMR", ylab="RE - SSB")
 abline(h=0)
 
 #R0
@@ -1529,6 +1729,31 @@ for(f in 1:3){
   }
 }
 
+#SSB
+par(mfrow=c(3,3))
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N1000|20yrs, Index SD - 0.25, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N1000|20yrs, Index SD - 0.25, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N1000|20yrs, Index SD - 0.25, No CKMR", ylab="RE - SSB")
+abline(h=0)
+
+#R0
+boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+
+#M
+boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind25_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N1000_Ind25_20yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -1586,6 +1811,31 @@ for(f in 1:3){
     }
   }
 }
+
+#SSB
+par(mfrow=c(3,3))
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N5000|20yrs, Index SD - 0.25, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N5000|20yrs, Index SD - 0.25, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N5000|20yrs, Index SD - 0.25, No CKMR", ylab="RE - SSB")
+abline(h=0)
+
+#R0
+boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+
+#M
+boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind25_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -1648,19 +1898,19 @@ for(f in 1:3){
 
 #SSB
 par(mfrow=c(3,3))
-boxplot(re_SSB[1,,], ylim=c(-0.50,0.50), las=1, main="Cod - N200, Index SD - 0.50, CKMR 20yrs", ylab="RE - SSB")
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N100, Index SD - 0.50, No CKMR", ylab="RE - SSB")
 abline(h=0)
-boxplot(re_SSB[2,,], ylim=c(-0.50,0.50), las=1, main="Flatfish - N200, Index SD - 0.50, CKMR 20yrs", ylab="RE - SSB")
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N100, Index SD - 0.50, No CKMR", ylab="RE - SSB")
 abline(h=0)
-boxplot(re_SSB[3,,], ylim=c(-0.50,0.50), las=1, main="Sardine - N200, Index SD - 0.50, CKMR 20yrs", ylab="RE - SSB")
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N100, Index SD - 0.50, No CKMR", ylab="RE - SSB")
 abline(h=0)
 
 #R0
-boxplot(re_R0[,1], ylim=c(-0.50,0.50), las=1, main="", ylab="RE - R0")
+boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
 abline(h=0)
-boxplot(re_R0[,2], ylim=c(-0.50,0.50), las=1, main="", ylab="RE - R0")
+boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
 abline(h=0)
-boxplot(re_R0[,3], ylim=c(-0.50,0.50), las=1, main="", ylab="RE - R0")
+boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
 abline(h=0)
 
 #M
@@ -1729,6 +1979,31 @@ for(f in 1:3){
   }
 }
 
+#SSB
+par(mfrow=c(3,3))
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N1000|20yrs, Index SD - 0.50, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N1000|20yrs, Index SD - 0.50, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N1000|20yrs, Index SD - 0.50, No CKMR", ylab="RE - SSB")
+abline(h=0)
+
+#R0
+boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+
+#M
+boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind50_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N1000_Ind50_20yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -1786,6 +2061,31 @@ for(f in 1:3){
     }
   }
 }
+
+#SSB
+par(mfrow=c(3,3))
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N5000|20yrs, Index SD - 0.50, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N5000|20yrs, Index SD - 0.50, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N5000|20yrs, Index SD - 0.50, No CKMR", ylab="RE - SSB")
+abline(h=0)
+
+#R0
+boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+
+#M
+boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind50_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -1852,11 +2152,11 @@ for(f in 1:3){
 
 #SSB
 par(mfrow=c(3,3))
-boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N100, No Index", ylab="RE - SSB")
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N100, No Index, No CKMR", ylab="RE - SSB")
 abline(h=0)
-boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N100, No Index", ylab="RE - SSB")
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N100, No Index, No CKMR", ylab="RE - SSB")
 abline(h=0)
-boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N100, No Index", ylab="RE - SSB")
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N100, No Index, No CKMR", ylab="RE - SSB")
 abline(h=0)
 
 #R0
@@ -1933,6 +2233,30 @@ for(f in 1:3){
   }
 }
 
+par(mfrow=c(3,3))
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N1000|5yrs, No Index, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N1000|5yrs, No Index, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N1000|5yrs, No Index, No CKMR", ylab="RE - SSB")
+abline(h=0)
+
+#R0
+boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+
+#M
+boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_NoIndex_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N1000_NoIndex_5yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -1990,6 +2314,30 @@ for(f in 1:3){
     }
   }
 }
+
+par(mfrow=c(3,3))
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N5000|5yrs, No Index, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N5000|5yrs, No Index, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N5000|5yrs, No Index, No CKMR", ylab="RE - SSB")
+abline(h=0)
+
+#R0
+boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+
+#M
+boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_NoIndex_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -2056,11 +2404,11 @@ for(f in 1:3){
 
 #SSB
 par(mfrow=c(3,3))
-boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N100, No Index", ylab="RE - SSB")
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N100, No Index, No CKMR", ylab="RE - SSB")
 abline(h=0)
-boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N100, No Index", ylab="RE - SSB")
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N100, No Index, No CKMR", ylab="RE - SSB")
 abline(h=0)
-boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N100, No Index", ylab="RE - SSB")
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N100, No Index, No CKMR", ylab="RE - SSB")
 abline(h=0)
 
 #R0
@@ -2137,6 +2485,31 @@ for(f in 1:3){
   }
 }
 
+#SSB
+par(mfrow=c(3,3))
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N1000|10yrs, No Index, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N1000|10yrs, No Index, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N1000|10yrs, No Index, No CKMR", ylab="RE - SSB")
+abline(h=0)
+
+#R0
+boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+
+#M
+boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_NoIndex_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N1000_NoIndex_10yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -2194,6 +2567,31 @@ for(f in 1:3){
     }
   }
 }
+
+#SSB
+par(mfrow=c(3,3))
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N5000|10yrs, No Index, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N5000|10yrs, No Index, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N5000|10yrs, No Index, No CKMR", ylab="RE - SSB")
+abline(h=0)
+
+#R0
+boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+
+#M
+boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_NoIndex_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -2253,11 +2651,11 @@ for(f in 1:3){
 
 #SSB
 par(mfrow=c(3,3))
-boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N100, No Index", ylab="RE - SSB")
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N100, No Index, No CKMR", ylab="RE - SSB")
 abline(h=0)
-boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N100, No Index", ylab="RE - SSB")
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N100, No Index, No CKMR", ylab="RE - SSB")
 abline(h=0)
-boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N100, No Index", ylab="RE - SSB")
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N100, No Index, No CKMR", ylab="RE - SSB")
 abline(h=0)
 
 #R0
@@ -2334,6 +2732,31 @@ for(f in 1:3){
   }
 }
 
+#SSB
+par(mfrow=c(3,3))
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N1000|20yrs, No Index, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N1000|20yrs, No Index, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N1000|20yrs, No Index, No CKMR", ylab="RE - SSB")
+abline(h=0)
+
+#R0
+boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+
+#M
+boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_NoIndex_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N1000_NoIndex_20yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -2391,6 +2814,31 @@ for(f in 1:3){
     }
   }
 }
+
+#SSB
+par(mfrow=c(3,3))
+boxplot(re_SSB[1,,], ylim=c(-0.25,0.25), las=1, main="Cod - N5000|20yrs, No Index, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[2,,], ylim=c(-0.25,0.25), las=1, main="Flatfish - N5000|20yrs, No Index, No CKMR", ylab="RE - SSB")
+abline(h=0)
+boxplot(re_SSB[3,,], ylim=c(-0.25,0.25), las=1, main="Sardine - N5000|20yrs, No Index, No CKMR", ylab="RE - SSB")
+abline(h=0)
+
+#R0
+boxplot(re_R0[,1], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,2], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+boxplot(re_R0[,3], ylim=c(-0.25,0.25), las=1, main="", ylab="RE - R0")
+abline(h=0)
+
+#M
+boxplot(re_M[,1], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
+boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
+abline(h=0)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_NoIndex_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
