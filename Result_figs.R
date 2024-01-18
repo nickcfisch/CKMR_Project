@@ -3,7 +3,7 @@
 #Looking at Kinship results
 ####################################################
 
-#wd<-"C:/Users/nfisch/Documents/GitHub/CKMR_Project/"
+#wd<-"C:/Users/fischn/Documents/GitHub/CKMR_Project/"
 
 #Ncomp 100, sdindex 0.25, ckmr 5 years
 load(paste0(wd,"/Cod_wdat_N100_Ind25_ckmrmultinom5_1.RData"))
@@ -663,6 +663,11 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
+#Relative error for point estimates
+RE_ssb_N100_Ind25_5yrs_noCKMR<-re_SSB
+RE_R0_N100_Ind25_5yrs_noCKMR<-re_R0
+RE_M_N100_Ind25_5yrs_noCKMR<-re_M
+
 #SD of relative error for point estimates
 sd_RE_ssb_N100_Ind25_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N100_Ind25_5yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -746,6 +751,11 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
+#Relative error for point estimates
+RE_ssb_N1000_Ind25_5yrs_noCKMR<-re_SSB
+RE_R0_N1000_Ind25_5yrs_noCKMR<-re_R0
+RE_M_N1000_Ind25_5yrs_noCKMR<-re_M
+
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind25_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N1000_Ind25_5yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -828,6 +838,11 @@ boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
+
+#Relative error for point estimates
+RE_ssb_N5000_Ind25_5yrs_noCKMR<-re_SSB
+RE_R0_N5000_Ind25_5yrs_noCKMR<-re_R0
+RE_M_N5000_Ind25_5yrs_noCKMR<-re_M
 
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind25_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -913,6 +928,11 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
+#Relative error for point estimates
+RE_ssb_N100_Ind50_5yrs_noCKMR<-re_SSB
+RE_R0_N100_Ind50_5yrs_noCKMR<-re_R0
+RE_M_N100_Ind50_5yrs_noCKMR<-re_M
+
 #SD of relative error for point estimates
 sd_RE_ssb_N100_Ind50_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N100_Ind50_5yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -996,6 +1016,11 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
+#Relative error for point estimates
+RE_ssb_N1000_Ind50_5yrs_noCKMR<-re_SSB
+RE_R0_N1000_Ind50_5yrs_noCKMR<-re_R0
+RE_M_N1000_Ind50_5yrs_noCKMR<-re_M
+
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind50_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N1000_Ind50_5yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -1078,6 +1103,11 @@ boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
+
+#Relative error for point estimates
+RE_ssb_N5000_Ind50_5yrs_noCKMR<-re_SSB
+RE_R0_N5000_Ind50_5yrs_noCKMR<-re_R0
+RE_M_N5000_Ind50_5yrs_noCKMR<-re_M
 
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind50_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -1167,6 +1197,11 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
+#Relative error for point estimates
+RE_ssb_N100_Ind25_10yrs_noCKMR<-re_SSB
+RE_R0_N100_Ind25_10yrs_noCKMR<-re_R0
+RE_M_N100_Ind25_10yrs_noCKMR<-re_M
+
 #SD of relative error for point estimates
 sd_RE_ssb_N100_Ind25_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N100_Ind25_10yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -1250,6 +1285,11 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
+#Relative error for point estimates
+RE_ssb_N1000_Ind25_10yrs_noCKMR<-re_SSB
+RE_R0_N1000_Ind25_10yrs_noCKMR<-re_R0
+RE_M_N1000_Ind25_10yrs_noCKMR<-re_M
+
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind25_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N1000_Ind25_10yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -1332,6 +1372,11 @@ boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
+
+#Relative error for point estimates
+RE_ssb_N5000_Ind25_10yrs_noCKMR<-re_SSB
+RE_R0_N5000_Ind25_10yrs_noCKMR<-re_R0
+RE_M_N5000_Ind25_10yrs_noCKMR<-re_M
 
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind25_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -1417,6 +1462,11 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
+#Relative error for point estimates
+RE_ssb_N100_Ind50_10yrs_noCKMR<-re_SSB
+RE_R0_N100_Ind50_10yrs_noCKMR<-re_R0
+RE_M_N100_Ind50_10yrs_noCKMR<-re_M
+
 #SD of relative error for point estimates
 sd_RE_ssb_N100_Ind50_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N100_Ind50_10yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -1500,6 +1550,11 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
+#Relative error for point estimates
+RE_ssb_N1000_Ind50_10yrs_noCKMR<-re_SSB
+RE_R0_N1000_Ind50_10yrs_noCKMR<-re_R0
+RE_M_N1000_Ind50_10yrs_noCKMR<-re_M
+
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind50_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N1000_Ind50_10yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -1582,6 +1637,11 @@ boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
+
+#Relative error for point estimates
+RE_ssb_N5000_Ind50_10yrs_noCKMR<-re_SSB
+RE_R0_N5000_Ind50_10yrs_noCKMR<-re_R0
+RE_M_N5000_Ind50_10yrs_noCKMR<-re_M
 
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind50_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -1671,6 +1731,11 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
+#Relative error for point estimates
+RE_ssb_N100_Ind25_20yrs_noCKMR<-re_SSB
+RE_R0_N100_Ind25_20yrs_noCKMR<-re_R0
+RE_M_N100_Ind25_20yrs_noCKMR<-re_M
+
 #SD of relative error for point estimates
 sd_RE_ssb_N100_Ind25_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N100_Ind25_20yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -1754,6 +1819,11 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
+#Relative error for point estimates
+RE_ssb_N1000_Ind25_20yrs_noCKMR<-re_SSB
+RE_R0_N1000_Ind25_20yrs_noCKMR<-re_R0
+RE_M_N1000_Ind25_20yrs_noCKMR<-re_M
+
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind25_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N1000_Ind25_20yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -1836,6 +1906,11 @@ boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
+
+#Relative error for point estimates
+RE_ssb_N5000_Ind25_20yrs_noCKMR<-re_SSB
+RE_R0_N5000_Ind25_20yrs_noCKMR<-re_R0
+RE_M_N5000_Ind25_20yrs_noCKMR<-re_M
 
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind25_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -1921,6 +1996,11 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
+#Relative error for point estimates
+RE_ssb_N100_Ind50_20yrs_noCKMR<-re_SSB
+RE_R0_N100_Ind50_20yrs_noCKMR<-re_R0
+RE_M_N100_Ind50_20yrs_noCKMR<-re_M
+
 #SD of relative error for point estimates
 sd_RE_ssb_N100_Ind50_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N100_Ind50_20yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -2004,6 +2084,11 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
+#Relative error for point estimates
+RE_ssb_N1000_Ind50_20yrs_noCKMR<-re_SSB
+RE_R0_N1000_Ind50_20yrs_noCKMR<-re_R0
+RE_M_N1000_Ind50_20yrs_noCKMR<-re_M
+
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind50_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N1000_Ind50_20yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -2086,6 +2171,11 @@ boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
+
+#Relative error for point estimates
+RE_ssb_N5000_Ind50_20yrs_noCKMR<-re_SSB
+RE_R0_N5000_Ind50_20yrs_noCKMR<-re_R0
+RE_M_N5000_Ind50_20yrs_noCKMR<-re_M
 
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind50_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -2175,6 +2265,11 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
+#Relative error for point estimates
+RE_ssb_N100_NoIndex_5yrs_noCKMR<-re_SSB
+RE_R0_N100_NoIndex_5yrs_noCKMR<-re_R0
+RE_M_N100_NoIndex_5yrs_noCKMR<-re_M
+
 #SD of relative error for point estimates
 sd_RE_ssb_N100_NoIndex_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N100_NoIndex_5yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -2257,6 +2352,11 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
+#Relative error for point estimates
+RE_ssb_N1000_NoIndex_5yrs_noCKMR<-re_SSB
+RE_R0_N1000_NoIndex_5yrs_noCKMR<-re_R0
+RE_M_N1000_NoIndex_5yrs_noCKMR<-re_M
+
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_NoIndex_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N1000_NoIndex_5yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -2338,6 +2438,11 @@ boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
+
+#Relative error for point estimates
+RE_ssb_N5000_NoIndex_5yrs_noCKMR<-re_SSB
+RE_R0_N5000_NoIndex_5yrs_noCKMR<-re_R0
+RE_M_N5000_NoIndex_5yrs_noCKMR<-re_M
 
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_NoIndex_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -2427,6 +2532,11 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
+#Relative error for point estimates
+RE_ssb_N100_NoIndex_10yrs_noCKMR<-re_SSB
+RE_R0_N100_NoIndex_10yrs_noCKMR<-re_R0
+RE_M_N100_NoIndex_10yrs_noCKMR<-re_M
+
 #SD of relative error for point estimates
 sd_RE_ssb_N100_NoIndex_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N100_NoIndex_10yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -2509,6 +2619,11 @@ boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
+
+#Relative error for point estimates
+RE_ssb_N1000_NoIndex_10yrs_noCKMR<-re_SSB
+RE_R0_N1000_NoIndex_10yrs_noCKMR<-re_R0
+RE_M_N1000_NoIndex_10yrs_noCKMR<-re_M
 
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_NoIndex_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -2593,6 +2708,11 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
+#Relative error for point estimates
+RE_ssb_N5000_NoIndex_10yrs_noCKMR<-re_SSB
+RE_R0_N5000_NoIndex_10yrs_noCKMR<-re_R0
+RE_M_N5000_NoIndex_10yrs_noCKMR<-re_M
+
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_NoIndex_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N5000_NoIndex_10yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -2673,6 +2793,11 @@ boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
+
+#Relative error for point estimates
+RE_ssb_N100_NoIndex_20yrs_noCKMR<-re_SSB
+RE_R0_N100_NoIndex_20yrs_noCKMR<-re_R0
+RE_M_N100_NoIndex_20yrs_noCKMR<-re_M
 
 #SD of relative error for point estimates
 sd_RE_ssb_N100_NoIndex_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -2757,6 +2882,11 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
+#Relative error for point estimates
+RE_ssb_N1000_NoIndex_20yrs_noCKMR<-re_SSB
+RE_R0_N1000_NoIndex_20yrs_noCKMR<-re_R0
+RE_M_N1000_NoIndex_20yrs_noCKMR<-re_M
+
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_NoIndex_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N1000_NoIndex_20yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -2839,6 +2969,11 @@ boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
+
+#Relative error for point estimates
+RE_ssb_N5000_NoIndex_20yrs_noCKMR<-re_SSB
+RE_R0_N5000_NoIndex_20yrs_noCKMR<-re_R0
+RE_M_N5000_NoIndex_20yrs_noCKMR<-re_M
 
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_NoIndex_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -2928,6 +3063,11 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
+#Relative error for point estimates
+RE_ssb_N100_Ind25_ckmrmultinom5<-re_SSB
+RE_R0_N100_Ind25_ckmrmultinom5<-re_R0
+RE_M_N100_Ind25_ckmrmultinom5<-re_M
+
 #SD of relative error for point estimates
 sd_RE_ssb_N100_Ind25_ckmrmultinom5<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N100_Ind25_ckmrmultinom5<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -3011,6 +3151,11 @@ boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
+
+#Relative error for point estimates
+RE_ssb_N1000_Ind25_ckmrmultinom5<-re_SSB
+RE_R0_N1000_Ind25_ckmrmultinom5<-re_R0
+RE_M_N1000_Ind25_ckmrmultinom5<-re_M
 
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind25_ckmrmultinom5<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -3096,6 +3241,11 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
+#Relative error for point estimates
+RE_ssb_N5000_Ind25_ckmrmultinom5<-re_SSB
+RE_R0_N5000_Ind25_ckmrmultinom5<-re_R0
+RE_M_N5000_Ind25_ckmrmultinom5<-re_M
+
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind25_ckmrmultinom5<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N5000_Ind25_ckmrmultinom5<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -3179,6 +3329,11 @@ boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
+
+#Relative error for point estimates
+RE_ssb_N100_Ind50_ckmrmultinom5<-re_SSB
+RE_R0_N100_Ind50_ckmrmultinom5<-re_R0
+RE_M_N100_Ind50_ckmrmultinom5<-re_M
 
 #SD of relative error for point estimates
 sd_RE_ssb_N100_Ind50_ckmrmultinom5<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -3264,6 +3419,11 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
+#Relative error for point estimates
+RE_ssb_N1000_Ind50_ckmrmultinom5<-re_SSB
+RE_R0_N1000_Ind50_ckmrmultinom5<-re_R0
+RE_M_N1000_Ind50_ckmrmultinom5<-re_M
+
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind50_ckmrmultinom5<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N1000_Ind50_ckmrmultinom5<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -3347,6 +3507,11 @@ boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
+
+#Relative error for point estimates
+RE_ssb_N5000_Ind50_ckmrmultinom5<-re_SSB
+RE_R0_N5000_Ind50_ckmrmultinom5<-re_R0
+RE_M_N5000_Ind50_ckmrmultinom5<-re_M
 
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind50_ckmrmultinom5<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -3432,6 +3597,11 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
+#Relative error for point estimates
+RE_ssb_N100_Ind25_ckmrmultinom10<-re_SSB
+RE_R0_N100_Ind25_ckmrmultinom10<-re_R0
+RE_M_N100_Ind25_ckmrmultinom10<-re_M
+
 #SD of relative error for point estimates
 sd_RE_ssb_N100_Ind25_ckmrmultinom10<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N100_Ind25_ckmrmultinom10<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -3515,6 +3685,11 @@ boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
+
+#Relative error for point estimates
+RE_ssb_N1000_Ind25_ckmrmultinom10<-re_SSB
+RE_R0_N1000_Ind25_ckmrmultinom10<-re_R0
+RE_M_N1000_Ind25_ckmrmultinom10<-re_M
 
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind25_ckmrmultinom10<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -3603,6 +3778,11 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
+#Relative error for point estimates
+RE_ssb_N5000_Ind25_ckmrmultinom10<-re_SSB
+RE_R0_N5000_Ind25_ckmrmultinom10<-re_R0
+RE_M_N5000_Ind25_ckmrmultinom10<-re_M
+
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind25_ckmrmultinom10<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N5000_Ind25_ckmrmultinom10<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -3689,6 +3869,11 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
+#Relative error for point estimates
+RE_ssb_N100_Ind50_ckmrmultinom10<-re_SSB
+RE_R0_N100_Ind50_ckmrmultinom10<-re_R0
+RE_M_N100_Ind50_ckmrmultinom10<-re_M
+
 #SD of relative error for point estimates
 sd_RE_ssb_N100_Ind50_ckmrmultinom10<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N100_Ind50_ckmrmultinom10<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -3772,6 +3957,11 @@ boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
+
+#Relative error for point estimates
+RE_ssb_N1000_Ind50_ckmrmultinom10<-re_SSB
+RE_R0_N1000_Ind50_ckmrmultinom10<-re_R0
+RE_M_N1000_Ind50_ckmrmultinom10<-re_M
 
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind50_ckmrmultinom10<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -3860,6 +4050,11 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
+#Relative error for point estimates
+RE_ssb_N5000_Ind50_ckmrmultinom10<-re_SSB
+RE_R0_N5000_Ind50_ckmrmultinom10<-re_R0
+RE_M_N5000_Ind50_ckmrmultinom10<-re_M
+
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind50_ckmrmultinom10<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N5000_Ind50_ckmrmultinom10<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -3947,6 +4142,11 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
+#Relative error for point estimates
+RE_ssb_N100_Ind25_ckmrmultinom20<-re_SSB
+RE_R0_N100_Ind25_ckmrmultinom20<-re_R0
+RE_M_N100_Ind25_ckmrmultinom20<-re_M
+
 #SD of relative error for point estimates
 sd_RE_ssb_N100_Ind25_ckmrmultinom20<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N100_Ind25_ckmrmultinom20<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -4030,6 +4230,11 @@ boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
+
+#Relative error for point estimates
+RE_ssb_N1000_Ind25_ckmrmultinom20<-re_SSB
+RE_R0_N1000_Ind25_ckmrmultinom20<-re_R0
+RE_M_N1000_Ind25_ckmrmultinom20<-re_M
 
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind25_ckmrmultinom20<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -4118,6 +4323,11 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
+#Relative error for point estimates
+RE_ssb_N5000_Ind25_ckmrmultinom20<-re_SSB
+RE_R0_N5000_Ind25_ckmrmultinom20<-re_R0
+RE_M_N5000_Ind25_ckmrmultinom20<-re_M
+
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind25_ckmrmultinom20<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N5000_Ind25_ckmrmultinom20<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -4204,6 +4414,11 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
+#Relative error for point estimates
+RE_ssb_N100_Ind50_ckmrmultinom20<-re_SSB
+RE_R0_N100_Ind50_ckmrmultinom20<-re_R0
+RE_M_N100_Ind50_ckmrmultinom20<-re_M
+
 #SD of relative error for point estimates
 sd_RE_ssb_N100_Ind50_ckmrmultinom20<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N100_Ind50_ckmrmultinom20<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -4287,6 +4502,11 @@ boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
+
+#Relative error for point estimates
+RE_ssb_N1000_Ind50_ckmrmultinom20<-re_SSB
+RE_R0_N1000_Ind50_ckmrmultinom20<-re_R0
+RE_M_N1000_Ind50_ckmrmultinom20<-re_M
 
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind50_ckmrmultinom20<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -4374,6 +4594,11 @@ boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
+
+#Relative error for point estimates
+RE_ssb_N5000_Ind50_ckmrmultinom20<-re_SSB
+RE_R0_N5000_Ind50_ckmrmultinom20<-re_R0
+RE_M_N5000_Ind50_ckmrmultinom20<-re_M
 
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind50_ckmrmultinom20<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -4465,6 +4690,11 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
+#Relative error for point estimates
+RE_ssb_N100_NoIndex_ckmrmultinom5<-re_SSB
+RE_R0_N100_NoIndex_ckmrmultinom5<-re_R0
+RE_M_N100_NoIndex_ckmrmultinom5<-re_M
+
 #SD of relative error for point estimates
 sd_RE_ssb_N100_NoIndex_ckmrmultinom5<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N100_NoIndex_ckmrmultinom5<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -4548,6 +4778,11 @@ boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
+
+#Relative error for point estimates
+RE_ssb_N1000_NoIndex_ckmrmultinom5<-re_SSB
+RE_R0_N1000_NoIndex_ckmrmultinom5<-re_R0
+RE_M_N1000_NoIndex_ckmrmultinom5<-re_M
 
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_NoIndex_ckmrmultinom5<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -4633,6 +4868,11 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
+#Relative error for point estimates
+RE_ssb_N5000_NoIndex_ckmrmultinom5<-re_SSB
+RE_R0_N5000_NoIndex_ckmrmultinom5<-re_R0
+RE_M_N5000_NoIndex_ckmrmultinom5<-re_M
+
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_NoIndex_ckmrmultinom5<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N5000_NoIndex_ckmrmultinom5<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -4717,6 +4957,11 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
+#Relative error for point estimates
+RE_ssb_N100_NoIndex_ckmrmultinom10<-re_SSB
+RE_R0_N100_NoIndex_ckmrmultinom10<-re_R0
+RE_M_N100_NoIndex_ckmrmultinom10<-re_M
+
 #SD of relative error for point estimates
 sd_RE_ssb_N100_NoIndex_ckmrmultinom10<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N100_NoIndex_ckmrmultinom10<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -4800,6 +5045,11 @@ boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
+
+#Relative error for point estimates
+RE_ssb_N1000_NoIndex_ckmrmultinom10<-re_SSB
+RE_R0_N1000_NoIndex_ckmrmultinom10<-re_R0
+RE_M_N1000_NoIndex_ckmrmultinom10<-re_M
 
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_NoIndex_ckmrmultinom10<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -4888,10 +5138,15 @@ abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 
+#Relative error for point estimates
+RE_ssb_N5000_NoIndex_ckmrmultinom10<-re_SSB
+RE_R0_N5000_NoIndex_ckmrmultinom10<-re_R0
+RE_M_N5000_NoIndex_ckmrmultinom10<-re_M
+
 #SD of relative error for point estimates
-sd_RE_ssb_N5000_NoIndex_ckmrmultinom10<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
-sd_RE_R0_N5000_NoIndex_ckmrmultinom10<-apply(re_R0,2,sd, na.rm=TRUE)
-sd_RE_M_N5000_NoIndex_ckmrmultinom10<-apply(re_M,2,sd, na.rm=TRUE)
+sd_RE_ssb_N5000_NoIndex_ckmrmultinom10<-apply(re_SSB[,-c(1:2),],c(1,3),sd, na.rm=TRUE)
+sd_RE_R0_N5000_NoIndex_ckmrmultinom10<-apply(re_R0[-c(1:2),],2,sd, na.rm=TRUE)
+sd_RE_M_N5000_NoIndex_ckmrmultinom10<-apply(re_M[-c(1:2),],2,sd, na.rm=TRUE)
 
 #SD of absolute relative error
 sd_ARE_ssb_N5000_NoIndex_ckmrmultinom10<-apply(abs(re_SSB),c(1,3),sd, na.rm=TRUE)
@@ -4973,6 +5228,11 @@ boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
+
+#Relative error for point estimates
+RE_ssb_N100_NoIndex_ckmrmultinom20<-re_SSB
+RE_R0_N100_NoIndex_ckmrmultinom20<-re_R0
+RE_M_N100_NoIndex_ckmrmultinom20<-re_M
 
 #SD of relative error for point estimates
 sd_RE_ssb_N100_NoIndex_ckmrmultinom20<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -5057,6 +5317,11 @@ boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
+
+#Relative error for point estimates
+RE_ssb_N1000_NoIndex_ckmrmultinom20<-re_SSB
+RE_R0_N1000_NoIndex_ckmrmultinom20<-re_R0
+RE_M_N1000_NoIndex_ckmrmultinom20<-re_M
 
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_NoIndex_ckmrmultinom20<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -5144,6 +5409,11 @@ boxplot(re_M[,2], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
 boxplot(re_M[,3], ylim=c(-0.1,0.1), las=1, main="", ylab="RE - M")
 abline(h=0)
+
+#Relative error for point estimates
+RE_ssb_N5000_NoIndex_ckmrmultinom20<-re_SSB
+RE_R0_N5000_NoIndex_ckmrmultinom20<-re_R0
+RE_M_N5000_NoIndex_ckmrmultinom20<-re_M
 
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_NoIndex_ckmrmultinom20<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -6146,7 +6416,7 @@ par(mfcol=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
 plot(sd_ARE_ssb_N100_NoIndex_ckmrmultinom5[1,]/sd_ARE_ssb_N100_NoIndex_5yrs_noCKMR[1,], pch=16, ylim=c(0.75,1.25), las=1, ylab="", main="Cod - N100")
 points(sd_ARE_ssb_N100_NoIndex_ckmrmultinom10[1,]/sd_ARE_ssb_N100_NoIndex_10yrs_noCKMR[1,], pch=16, col=3)
 points(sd_ARE_ssb_N100_NoIndex_ckmrmultinom20[1,]/sd_ARE_ssb_N100_NoIndex_20yrs_noCKMR[1,], pch=16, col=4)
-plot(sd_ARE_ssb_N100_NoIndex_ckmrmultinom5[2,]/sd_ARE_ssb_N100_NoIndex_5yrs_noCKMR[2,], pch=16, ylim=c(0,1.25), las=1, ylab="SD SSB ARE, ARElative to NO CKMR", main="Flatfish - N100")
+plot(sd_ARE_ssb_N100_NoIndex_ckmrmultinom5[2,]/sd_ARE_ssb_N100_NoIndex_5yrs_noCKMR[2,], pch=16, ylim=c(0,1.25), las=1, ylab="SD SSB ARE, Relative to NO CKMR", main="Flatfish - N100")
 points(sd_ARE_ssb_N100_NoIndex_ckmrmultinom10[2,]/sd_ARE_ssb_N100_NoIndex_10yrs_noCKMR[2,], pch=16, col=3)
 points(sd_ARE_ssb_N100_NoIndex_ckmrmultinom20[2,]/sd_ARE_ssb_N100_NoIndex_20yrs_noCKMR[2,], pch=16, col=4)
 plot(sd_ARE_ssb_N100_NoIndex_ckmrmultinom5[3,]/sd_ARE_ssb_N100_NoIndex_5yrs_noCKMR[3,], pch=16, ylim=c(0.3,1.25), las=1, ylab="", main="Sardine - N100")
@@ -6179,7 +6449,7 @@ par(mfcol=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
 plot(sd_ARE_ssb_N100_Ind50_ckmrmultinom5[1,]/sd_ARE_ssb_N100_Ind50_5yrs_noCKMR[1,], pch=16, ylim=c(0.75,1.25), las=1, ylab="", main="Cod - N100")
 points(sd_ARE_ssb_N100_Ind50_ckmrmultinom10[1,]/sd_ARE_ssb_N100_Ind50_10yrs_noCKMR[1,], pch=16, col=3)
 points(sd_ARE_ssb_N100_Ind50_ckmrmultinom20[1,]/sd_ARE_ssb_N100_Ind50_20yrs_noCKMR[1,], pch=16, col=4)
-plot(sd_ARE_ssb_N100_Ind50_ckmrmultinom5[2,]/sd_ARE_ssb_N100_Ind50_5yrs_noCKMR[2,], pch=16, ylim=c(0,1.25), las=1, ylab="SD SSB ARE, ARElative to NO CKMR", main="Flatfish - N100")
+plot(sd_ARE_ssb_N100_Ind50_ckmrmultinom5[2,]/sd_ARE_ssb_N100_Ind50_5yrs_noCKMR[2,], pch=16, ylim=c(0,1.25), las=1, ylab="SD SSB ARE, Relative to NO CKMR", main="Flatfish - N100")
 points(sd_ARE_ssb_N100_Ind50_ckmrmultinom10[2,]/sd_ARE_ssb_N100_Ind50_10yrs_noCKMR[2,], pch=16, col=3)
 points(sd_ARE_ssb_N100_Ind50_ckmrmultinom20[2,]/sd_ARE_ssb_N100_Ind50_20yrs_noCKMR[2,], pch=16, col=4)
 plot(sd_ARE_ssb_N100_Ind50_ckmrmultinom5[3,]/sd_ARE_ssb_N100_Ind50_5yrs_noCKMR[3,], pch=16, ylim=c(0.3,1.25), las=1, ylab="", main="Sardine - N100")
@@ -6212,7 +6482,7 @@ par(mfcol=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
 plot(sd_ARE_ssb_N100_Ind25_ckmrmultinom5[1,]/sd_ARE_ssb_N100_Ind25_5yrs_noCKMR[1,], pch=16, ylim=c(0.75,1.25), las=1, ylab="", main="Cod - N100")
 points(sd_ARE_ssb_N100_Ind25_ckmrmultinom10[1,]/sd_ARE_ssb_N100_Ind25_10yrs_noCKMR[1,], pch=16, col=3)
 points(sd_ARE_ssb_N100_Ind25_ckmrmultinom20[1,]/sd_ARE_ssb_N100_Ind25_20yrs_noCKMR[1,], pch=16, col=4)
-plot(sd_ARE_ssb_N100_Ind25_ckmrmultinom5[2,]/sd_ARE_ssb_N100_Ind25_5yrs_noCKMR[2,], pch=16, ylim=c(0,1.25), las=1, ylab="SD SSB ARE, ARElative to NO CKMR", main="Flatfish - N100")
+plot(sd_ARE_ssb_N100_Ind25_ckmrmultinom5[2,]/sd_ARE_ssb_N100_Ind25_5yrs_noCKMR[2,], pch=16, ylim=c(0,1.25), las=1, ylab="SD SSB ARE, Relative to NO CKMR", main="Flatfish - N100")
 points(sd_ARE_ssb_N100_Ind25_ckmrmultinom10[2,]/sd_ARE_ssb_N100_Ind25_10yrs_noCKMR[2,], pch=16, col=3)
 points(sd_ARE_ssb_N100_Ind25_ckmrmultinom20[2,]/sd_ARE_ssb_N100_Ind25_20yrs_noCKMR[2,], pch=16, col=4)
 plot(sd_ARE_ssb_N100_Ind25_ckmrmultinom5[3,]/sd_ARE_ssb_N100_Ind25_5yrs_noCKMR[3,], pch=16, ylim=c(0.3,1.25), las=1, ylab="", main="Sardine - N100")
