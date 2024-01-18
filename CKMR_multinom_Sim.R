@@ -5,7 +5,7 @@
 #Population Simulations for each Life-history type
 #####################################################
 
-#wd<-"C:/Users/nfisch/Documents/GitHub/CKMR_Project"
+#wd<-"C:/Users/fischn/Documents/GitHub/CKMR_Project"
 
 #Still need to save population output
 SimPop<-function(seed=1,
@@ -126,7 +126,6 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
                    fyear_dat=26,
                    lyear_dat=100,
                    sd_catch=0.05,
-#                   N_Comp_preCKMR=100,
                    N_Comp_preCKMR=c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30)),
                    N_Comp_CKMR=200,
                    q_index=0.0001,
@@ -392,70 +391,59 @@ for (s in 1:Nsim){
 #save(Flatfish_runs, file=paste0(wd,"/Flatfish_Base.RData"))
 #save(Sardine_runs, file=paste0(wd,"/Sardine_Base.RData"))
 
-par(mfrow=c(1,3))
-plot(1:101,Cod_runs[[1]]$SSB/Cod_runs[[1]]$SSB0, ylim=c(0,2.75), las=1, xlab="Year", ylab="SSB/SSB0", main="Cod", type="l", col="grey50")
+#SSB plots
+par(mfrow=c(3,3), oma=c(3,2,1,1), mar=c(2,4,1,1))
+plot(1:101,rowSums(t(t(Cod_runs[[1]]$Naa)*Cod_runs[[1]]$Mat)), ylim=c(0,8e8), las=1, xlab="", ylab="", main="Cod", type="l", col="grey50", xaxt="n")
+mtext(text="Spawning Abundance",side=2, line=4)
+for(s in 2:Nsim){  lines(1:101,rowSums(t(t(Cod_runs[[s]]$Naa)*Cod_runs[[s]]$Mat)), col="grey50")}
+plot(1:101,rowSums(t(t(Flatfish_runs[[1]]$Naa)*Flatfish_runs[[1]]$Mat)), ylim=c(0,2.5e5), las=1, xlab="", ylab="", main="Flatfish", type="l", col="grey50", xaxt="n")
+for(s in 2:Nsim){  lines(1:101,rowSums(t(t(Flatfish_runs[[s]]$Naa)*Flatfish_runs[[s]]$Mat)), col="grey50")}
+plot(1:101,rowSums(t(t(Sardine_runs[[1]]$Naa)*Sardine_runs[[1]]$Mat)), ylim=c(0,4e7), las=1, xlab="", ylab="", main="Sardine", type="l", col="grey50", xaxt="n")
+for(s in 2:Nsim){  lines(1:101,rowSums(t(t(Sardine_runs[[s]]$Naa)*Sardine_runs[[s]]$Mat)), col="grey50")}
+#Now Depletion
+plot(1:101,Cod_runs[[1]]$SSB/Cod_runs[[1]]$SSB0, ylim=c(0,2.75), las=1, xlab="", ylab="", main="", type="l", col="grey50", xaxt="n")
+mtext(text="SSB/SSB0",side=2, line=4)
 Cod_Depl<-matrix(NA, nrow=Nsim,ncol=101)
 Cod_Depl[1,]<-Cod_runs[[1]]$SSB/Cod_runs[[1]]$SSB0
 for(s in 2:Nsim){
   Cod_Depl[s,]<-Cod_runs[[s]]$SSB/Cod_runs[[s]]$SSB0
   lines(1:101,Cod_runs[[s]]$SSB/Cod_runs[[s]]$SSB0, col="grey50")
 }
-plot(1:101,Flatfish_runs[[1]]$SSB/Flatfish_runs[[1]]$SSB0, ylim=c(0,2.75), las=1, xlab="Year", ylab="SSB/SSB0", main="Flatfish", type="l", col="grey50")
+plot(1:101,Flatfish_runs[[1]]$SSB/Flatfish_runs[[1]]$SSB0, ylim=c(0,2.75), las=1, xlab="", ylab="", main="", type="l", col="grey50", xaxt="n")
 Flatfish_Depl<-matrix(NA, nrow=Nsim,ncol=101)
 Flatfish_Depl[1,]<-Flatfish_runs[[1]]$SSB/Flatfish_runs[[1]]$SSB0
 for(s in 2:Nsim){
   Flatfish_Depl[s,]<-Flatfish_runs[[s]]$SSB/Flatfish_runs[[s]]$SSB0
   lines(1:101,Flatfish_runs[[s]]$SSB/Flatfish_runs[[s]]$SSB0, col="grey50")
 }
-plot(1:101,Sardine_runs[[1]]$SSB/Sardine_runs[[1]]$SSB0, ylim=c(0,2.75), las=1, xlab="Year", ylab="SSB/SSB0", main="Sardine", type="l", col="grey50")
+plot(1:101,Sardine_runs[[1]]$SSB/Sardine_runs[[1]]$SSB0, ylim=c(0,2.75), las=1, xlab="", ylab="", main="", type="l", col="grey50", xaxt="n")
 Sardine_Depl<-matrix(NA, nrow=Nsim,ncol=101)
 Sardine_Depl[1,]<-Sardine_runs[[1]]$SSB/Sardine_runs[[1]]$SSB0
 for(s in 2:Nsim){
   Sardine_Depl[s,]<-Sardine_runs[[s]]$SSB/Sardine_runs[[s]]$SSB0
   lines(1:101,Sardine_runs[[s]]$SSB/Sardine_runs[[s]]$SSB0, col="grey50")
 }
-
 #Ok looking at some CIs of the intervals
-par(mfrow=c(1,3))
-plot(1:101,apply(Cod_Depl,2,quantile,probs=0.975), type="l", lty=2, ylim=c(0,2), las=1, xlab="Year", ylab="SSB/SSB0", main="Cod")
+plot(1:101,apply(Cod_Depl,2,quantile,probs=0.975), type="l", lty=2, ylim=c(0,2), las=1, xlab="", ylab="", main="")
+mtext(text="SSB/SSB0",side=2, line=4)
 lines(1:101,apply(Cod_Depl,2,median),lty=1)
 lines(1:101,apply(Cod_Depl,2,quantile,probs=0.025),lty=2)
 lines(1:101,apply(Cod_Depl,2,quantile,probs=0.875),lty=3)
 lines(1:101,apply(Cod_Depl,2,quantile,probs=0.125),lty=3)
 
-plot(1:101,apply(Flatfish_Depl,2,quantile,probs=0.975), type="l", lty=2, ylim=c(0,2), las=1, xlab="Year", ylab="SSB/SSB0", main="Flatfish")
+plot(1:101,apply(Flatfish_Depl,2,quantile,probs=0.975), type="l", lty=2, ylim=c(0,2), las=1, xlab="", ylab="", main="")
+mtext(text="Year",side=1, line=3)
 lines(1:101,apply(Flatfish_Depl,2,median),lty=1)
 lines(1:101,apply(Flatfish_Depl,2,quantile,probs=0.025),lty=2)
 lines(1:101,apply(Flatfish_Depl,2,quantile,probs=0.875),lty=3)
 lines(1:101,apply(Flatfish_Depl,2,quantile,probs=0.125),lty=3)
 legend("top", c("Median","Inner 75%","Inner 95%"), lwd=1, lty=c(1,3,2))
 
-plot(1:101,apply(Sardine_Depl,2,quantile,probs=0.975), type="l", lty=2, ylim=c(0,2), las=1, xlab="Year", ylab="SSB/SSB0", main="Sardine")
+plot(1:101,apply(Sardine_Depl,2,quantile,probs=0.975), type="l", lty=2, ylim=c(0,2), las=1, xlab="", ylab="", main="")
 lines(1:101,apply(Sardine_Depl,2,median),lty=1)
 lines(1:101,apply(Sardine_Depl,2,quantile,probs=0.025),lty=2)
 lines(1:101,apply(Sardine_Depl,2,quantile,probs=0.875),lty=3)
 lines(1:101,apply(Sardine_Depl,2,quantile,probs=0.125),lty=3)
-
-#Using HPDs
-library(coda)
-par(mfrow=c(1,3))
-plot(1:101,HPDinterval(as.mcmc(Cod_Depl), prob=0.95)[,1], type="l", lty=2, ylim=c(0,2), las=1, xlab="Year", ylab="SSB/SSB0", main="Cod")
-lines(1:101,apply(Cod_Depl,2,median),lty=1)
-lines(1:101,HPDinterval(as.mcmc(Cod_Depl), prob=0.95)[,2],lty=2)
-lines(1:101,HPDinterval(as.mcmc(Cod_Depl), prob=0.75)[,1],lty=3)
-lines(1:101,HPDinterval(as.mcmc(Cod_Depl), prob=0.75)[,2],lty=3)
-
-plot(1:101,HPDinterval(as.mcmc(Flatfish_Depl), prob=0.95)[,1], type="l", lty=2, ylim=c(0,2), las=1, xlab="Year", ylab="SSB/SSB0", main="Flatfish")
-lines(1:101,apply(Flatfish_Depl,2,median),lty=1)
-lines(1:101,HPDinterval(as.mcmc(Flatfish_Depl), prob=0.95)[,2],lty=2)
-lines(1:101,HPDinterval(as.mcmc(Flatfish_Depl), prob=0.75)[,1],lty=3)
-lines(1:101,HPDinterval(as.mcmc(Flatfish_Depl), prob=0.75)[,2],lty=3)
-
-plot(1:101,HPDinterval(as.mcmc(Sardine_Depl), prob=0.95)[,1], type="l", lty=2, ylim=c(0,2), las=1, xlab="Year", ylab="SSB/SSB0", main="Sardine")
-lines(1:101,apply(Sardine_Depl,2,median),lty=1)
-lines(1:101,HPDinterval(as.mcmc(Sardine_Depl), prob=0.95)[,2],lty=2)
-lines(1:101,HPDinterval(as.mcmc(Sardine_Depl), prob=0.75)[,1],lty=3)
-lines(1:101,HPDinterval(as.mcmc(Sardine_Depl), prob=0.75)[,2],lty=3)
 
 #############################
 #Getting Data from OMs
