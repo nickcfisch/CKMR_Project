@@ -2,7 +2,7 @@
 #Run Code
 
 #devtools::install_github("kaskr/TMB_contrib_R/TMBhelper")
-wd<-"C:/Users/nfisch/Documents/GitHub/CKMR_Project/"
+wd<-"C:/Users/fischn/Documents/GitHub/CKMR_Project/"
 
 ########################
 #CKMR 20 Years
@@ -506,9 +506,9 @@ save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N5000_Ind50_ckmrmultinom5_1.RDa
 #TMB SCAAs fit to Fishery data without CKMR (Base models)
 #############################################################
 
-load(paste0(wd,"/Cod_wdat_N200_Ind25_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N200_Ind25_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N200_Ind25_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Cod_wdat_N100_Ind25_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N100_Ind25_ckmrmultinom20_1.RData"))
 
 Cod_OM<-Cod_wdat
 Flatfish_OM<-Flatfish_wdat
@@ -590,17 +590,17 @@ for (Q in 1:3){  #Running through the life history types
   }
 }
 
-saveRDS(res_list[[1]], file=paste0(wd,"/SCAAfit_Cod_N200_Ind20.RData"))
-saveRDS(res_list[[2]], file=paste0(wd,"/SCAAfit_Flatfish_N200_Ind20.RData"))
-saveRDS(res_list[[3]], file=paste0(wd,"/SCAAfit_Sardine_N200_Ind20.RData"))
+saveRDS(res_list[[1]], file=paste0(wd,"/SCAAfit_Cod_N100_Ind25_20yrs_noCKMR.RData"))
+saveRDS(res_list[[2]], file=paste0(wd,"/SCAAfit_Flatfish_N100_Ind25_20yrs_noCKMR.RData"))
+saveRDS(res_list[[3]], file=paste0(wd,"/SCAAfit_Sardine_N100_Ind25_20yrs_noCKMR.RData"))
 
 #############################################################
 #TMB SCAAs fit to Fishery data without CKMR (Base models)
 #############################################################
 
-load(paste0(wd,"/Cod_wdat_N200_Ind50_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N200_Ind50_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N200_Ind50_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Cod_wdat_N100_Ind50_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N100_Ind50_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N100_Ind50_ckmrmultinom20_1.RData"))
 
 Cod_OM<-Cod_wdat
 Flatfish_OM<-Flatfish_wdat
@@ -682,9 +682,9 @@ for (Q in 1:3){  #Running through the life history types
   }
 }
 
-saveRDS(res_list[[1]], file=paste0(wd,"/SCAAfit_Cod_N200_Ind50.RData"))
-saveRDS(res_list[[2]], file=paste0(wd,"/SCAAfit_Flatfish_N200_Ind50.RData"))
-saveRDS(res_list[[3]], file=paste0(wd,"/SCAAfit_Sardine_N200_Ind50.RData"))
+saveRDS(res_list[[1]], file=paste0(wd,"/SCAAfit_Cod_N100_Ind50_20yrs_noCKMR.RData"))
+saveRDS(res_list[[2]], file=paste0(wd,"/SCAAfit_Flatfish_N100_Ind50_20yrs_noCKMR.RData"))
+saveRDS(res_list[[3]], file=paste0(wd,"/SCAAfit_Sardine_N100_Ind50_20yrs_noCKMR.RData"))
 
 
 #############################################################
@@ -775,9 +775,9 @@ for (Q in 1:3){  #Running through the life history types
   }
 }
 
-saveRDS(res_list[[1]], file=paste0(wd,"/SCAAfit_Cod_N1000_Ind25.RData"))
-saveRDS(res_list[[2]], file=paste0(wd,"/SCAAfit_Flatfish_N1000_Ind25.RData"))
-saveRDS(res_list[[3]], file=paste0(wd,"/SCAAfit_Sardine_N1000_Ind25.RData"))
+saveRDS(res_list[[1]], file=paste0(wd,"/SCAAfit_Cod_N1000_Ind25_20yrs_noCKMR.RData"))
+saveRDS(res_list[[2]], file=paste0(wd,"/SCAAfit_Flatfish_N1000_Ind25_20yrs_noCKMR.RData"))
+saveRDS(res_list[[3]], file=paste0(wd,"/SCAAfit_Sardine_N1000_Ind25_20yrs_noCKMR.RData"))
 
 #############################################################
 #TMB SCAAs fit to Fishery data without CKMR (Base models)
@@ -867,9 +867,9 @@ for (Q in 1:3){  #Running through the life history types
   }
 }
 
-saveRDS(res_list[[1]], file=paste0(wd,"/SCAAfit_Cod_N1000_Ind50.RData"))
-saveRDS(res_list[[2]], file=paste0(wd,"/SCAAfit_Flatfish_N1000_Ind50.RData"))
-saveRDS(res_list[[3]], file=paste0(wd,"/SCAAfit_Sardine_N1000_Ind50.RData"))
+saveRDS(res_list[[1]], file=paste0(wd,"/SCAAfit_Cod_N1000_Ind50_20yrs_noCKMR.RData"))
+saveRDS(res_list[[2]], file=paste0(wd,"/SCAAfit_Flatfish_N1000_Ind50_20yrs_noCKMR.RData"))
+saveRDS(res_list[[3]], file=paste0(wd,"/SCAAfit_Sardine_N1000_Ind50_20yrs_noCKMR.RData"))
 
 ###############################################
 ######################################
