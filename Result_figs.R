@@ -668,6 +668,16 @@ RE_ssb_N100_Ind25_5yrs_noCKMR<-re_SSB
 RE_R0_N100_Ind25_5yrs_noCKMR<-re_R0
 RE_M_N100_Ind25_5yrs_noCKMR<-re_M
 
+#Interquartile Range of relative errors
+IQR_RE_ssb_N100_Ind25_5yrs_noCKMR<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N100_Ind25_5yrs_noCKMR<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N100_Ind25_5yrs_noCKMR<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N100_Ind25_5yrs_noCKMR<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N100_Ind25_5yrs_noCKMR<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N100_Ind25_5yrs_noCKMR<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N100_Ind25_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N100_Ind25_5yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -756,6 +766,16 @@ RE_ssb_N1000_Ind25_5yrs_noCKMR<-re_SSB
 RE_R0_N1000_Ind25_5yrs_noCKMR<-re_R0
 RE_M_N1000_Ind25_5yrs_noCKMR<-re_M
 
+#Interquartile Range of relative errors
+IQR_RE_ssb_N1000_Ind25_5yrs_noCKMR<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N1000_Ind25_5yrs_noCKMR<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N1000_Ind25_5yrs_noCKMR<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N1000_Ind25_5yrs_noCKMR<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N1000_Ind25_5yrs_noCKMR<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N1000_Ind25_5yrs_noCKMR<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind25_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N1000_Ind25_5yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -843,6 +863,16 @@ abline(h=0)
 RE_ssb_N5000_Ind25_5yrs_noCKMR<-re_SSB
 RE_R0_N5000_Ind25_5yrs_noCKMR<-re_R0
 RE_M_N5000_Ind25_5yrs_noCKMR<-re_M
+
+#Interquartile Range of relative errors
+IQR_RE_ssb_N5000_Ind25_5yrs_noCKMR<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N5000_Ind25_5yrs_noCKMR<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N5000_Ind25_5yrs_noCKMR<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N5000_Ind25_5yrs_noCKMR<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N5000_Ind25_5yrs_noCKMR<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N5000_Ind25_5yrs_noCKMR<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind25_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -933,6 +963,16 @@ RE_ssb_N100_Ind50_5yrs_noCKMR<-re_SSB
 RE_R0_N100_Ind50_5yrs_noCKMR<-re_R0
 RE_M_N100_Ind50_5yrs_noCKMR<-re_M
 
+#Interquartile Range of relative errors
+IQR_RE_ssb_N100_Ind50_5yrs_noCKMR<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N100_Ind50_5yrs_noCKMR<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N100_Ind50_5yrs_noCKMR<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N100_Ind50_5yrs_noCKMR<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N100_Ind50_5yrs_noCKMR<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N100_Ind50_5yrs_noCKMR<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N100_Ind50_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N100_Ind50_5yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -1021,6 +1061,16 @@ RE_ssb_N1000_Ind50_5yrs_noCKMR<-re_SSB
 RE_R0_N1000_Ind50_5yrs_noCKMR<-re_R0
 RE_M_N1000_Ind50_5yrs_noCKMR<-re_M
 
+#Interquartile Range of relative errors
+IQR_RE_ssb_N1000_Ind50_5yrs_noCKMR<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N1000_Ind50_5yrs_noCKMR<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N1000_Ind50_5yrs_noCKMR<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N1000_Ind50_5yrs_noCKMR<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N1000_Ind50_5yrs_noCKMR<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N1000_Ind50_5yrs_noCKMR<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind50_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N1000_Ind50_5yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -1108,6 +1158,16 @@ abline(h=0)
 RE_ssb_N5000_Ind50_5yrs_noCKMR<-re_SSB
 RE_R0_N5000_Ind50_5yrs_noCKMR<-re_R0
 RE_M_N5000_Ind50_5yrs_noCKMR<-re_M
+
+#Interquartile Range of relative errors
+IQR_RE_ssb_N5000_Ind50_5yrs_noCKMR<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N5000_Ind50_5yrs_noCKMR<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N5000_Ind50_5yrs_noCKMR<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N5000_Ind50_5yrs_noCKMR<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N5000_Ind50_5yrs_noCKMR<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N5000_Ind50_5yrs_noCKMR<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind50_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -1202,6 +1262,16 @@ RE_ssb_N100_Ind25_10yrs_noCKMR<-re_SSB
 RE_R0_N100_Ind25_10yrs_noCKMR<-re_R0
 RE_M_N100_Ind25_10yrs_noCKMR<-re_M
 
+#Interquartile Range of relative errors
+IQR_RE_ssb_N100_Ind25_10yrs_noCKMR<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N100_Ind25_10yrs_noCKMR<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N100_Ind25_10yrs_noCKMR<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N100_Ind25_10yrs_noCKMR<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N100_Ind25_10yrs_noCKMR<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N100_Ind25_10yrs_noCKMR<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N100_Ind25_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N100_Ind25_10yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -1290,6 +1360,16 @@ RE_ssb_N1000_Ind25_10yrs_noCKMR<-re_SSB
 RE_R0_N1000_Ind25_10yrs_noCKMR<-re_R0
 RE_M_N1000_Ind25_10yrs_noCKMR<-re_M
 
+#Interquartile Range of relative errors
+IQR_RE_ssb_N1000_Ind25_10yrs_noCKMR<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N1000_Ind25_10yrs_noCKMR<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N1000_Ind25_10yrs_noCKMR<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N1000_Ind25_10yrs_noCKMR<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N1000_Ind25_10yrs_noCKMR<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N1000_Ind25_10yrs_noCKMR<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind25_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N1000_Ind25_10yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -1377,6 +1457,16 @@ abline(h=0)
 RE_ssb_N5000_Ind25_10yrs_noCKMR<-re_SSB
 RE_R0_N5000_Ind25_10yrs_noCKMR<-re_R0
 RE_M_N5000_Ind25_10yrs_noCKMR<-re_M
+
+#Interquartile Range of relative errors
+IQR_RE_ssb_N5000_Ind25_10yrs_noCKMR<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N5000_Ind25_10yrs_noCKMR<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N5000_Ind25_10yrs_noCKMR<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N5000_Ind25_10yrs_noCKMR<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N5000_Ind25_10yrs_noCKMR<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N5000_Ind25_10yrs_noCKMR<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind25_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -1467,6 +1557,16 @@ RE_ssb_N100_Ind50_10yrs_noCKMR<-re_SSB
 RE_R0_N100_Ind50_10yrs_noCKMR<-re_R0
 RE_M_N100_Ind50_10yrs_noCKMR<-re_M
 
+#Interquartile Range of relative errors
+IQR_RE_ssb_N100_Ind50_10yrs_noCKMR<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N100_Ind50_10yrs_noCKMR<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N100_Ind50_10yrs_noCKMR<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N100_Ind50_10yrs_noCKMR<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N100_Ind50_10yrs_noCKMR<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N100_Ind50_10yrs_noCKMR<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N100_Ind50_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N100_Ind50_10yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -1555,6 +1655,16 @@ RE_ssb_N1000_Ind50_10yrs_noCKMR<-re_SSB
 RE_R0_N1000_Ind50_10yrs_noCKMR<-re_R0
 RE_M_N1000_Ind50_10yrs_noCKMR<-re_M
 
+#Interquartile Range of relative errors
+IQR_RE_ssb_N1000_Ind50_10yrs_noCKMR<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N1000_Ind50_10yrs_noCKMR<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N1000_Ind50_10yrs_noCKMR<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N1000_Ind50_10yrs_noCKMR<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N1000_Ind50_10yrs_noCKMR<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N1000_Ind50_10yrs_noCKMR<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind50_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N1000_Ind50_10yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -1642,6 +1752,16 @@ abline(h=0)
 RE_ssb_N5000_Ind50_10yrs_noCKMR<-re_SSB
 RE_R0_N5000_Ind50_10yrs_noCKMR<-re_R0
 RE_M_N5000_Ind50_10yrs_noCKMR<-re_M
+
+#Interquartile Range of relative errors
+IQR_RE_ssb_N5000_Ind50_10yrs_noCKMR<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N5000_Ind50_10yrs_noCKMR<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N5000_Ind50_10yrs_noCKMR<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N5000_Ind50_10yrs_noCKMR<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N5000_Ind50_10yrs_noCKMR<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N5000_Ind50_10yrs_noCKMR<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind50_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -1736,6 +1856,16 @@ RE_ssb_N100_Ind25_20yrs_noCKMR<-re_SSB
 RE_R0_N100_Ind25_20yrs_noCKMR<-re_R0
 RE_M_N100_Ind25_20yrs_noCKMR<-re_M
 
+#Interquartile Range of relative errors
+IQR_RE_ssb_N100_Ind25_20yrs_noCKMR<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N100_Ind25_20yrs_noCKMR<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N100_Ind25_20yrs_noCKMR<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N100_Ind25_20yrs_noCKMR<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N100_Ind25_20yrs_noCKMR<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N100_Ind25_20yrs_noCKMR<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N100_Ind25_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N100_Ind25_20yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -1824,6 +1954,16 @@ RE_ssb_N1000_Ind25_20yrs_noCKMR<-re_SSB
 RE_R0_N1000_Ind25_20yrs_noCKMR<-re_R0
 RE_M_N1000_Ind25_20yrs_noCKMR<-re_M
 
+#Interquartile Range of relative errors
+IQR_RE_ssb_N1000_Ind25_20yrs_noCKMR<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N1000_Ind25_20yrs_noCKMR<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N1000_Ind25_20yrs_noCKMR<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N1000_Ind25_20yrs_noCKMR<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N1000_Ind25_20yrs_noCKMR<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N1000_Ind25_20yrs_noCKMR<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind25_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N1000_Ind25_20yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -1911,6 +2051,16 @@ abline(h=0)
 RE_ssb_N5000_Ind25_20yrs_noCKMR<-re_SSB
 RE_R0_N5000_Ind25_20yrs_noCKMR<-re_R0
 RE_M_N5000_Ind25_20yrs_noCKMR<-re_M
+
+#Interquartile Range of relative errors
+IQR_RE_ssb_N5000_Ind25_20yrs_noCKMR<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N5000_Ind25_20yrs_noCKMR<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N5000_Ind25_20yrs_noCKMR<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N5000_Ind25_20yrs_noCKMR<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N5000_Ind25_20yrs_noCKMR<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N5000_Ind25_20yrs_noCKMR<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind25_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -2001,6 +2151,16 @@ RE_ssb_N100_Ind50_20yrs_noCKMR<-re_SSB
 RE_R0_N100_Ind50_20yrs_noCKMR<-re_R0
 RE_M_N100_Ind50_20yrs_noCKMR<-re_M
 
+#Interquartile Range of relative errors
+IQR_RE_ssb_N100_Ind50_20yrs_noCKMR<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N100_Ind50_20yrs_noCKMR<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N100_Ind50_20yrs_noCKMR<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N100_Ind50_20yrs_noCKMR<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N100_Ind50_20yrs_noCKMR<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N100_Ind50_20yrs_noCKMR<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N100_Ind50_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N100_Ind50_20yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -2089,6 +2249,16 @@ RE_ssb_N1000_Ind50_20yrs_noCKMR<-re_SSB
 RE_R0_N1000_Ind50_20yrs_noCKMR<-re_R0
 RE_M_N1000_Ind50_20yrs_noCKMR<-re_M
 
+#Interquartile Range of relative errors
+IQR_RE_ssb_N1000_Ind50_20yrs_noCKMR<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N1000_Ind50_20yrs_noCKMR<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N1000_Ind50_20yrs_noCKMR<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N1000_Ind50_20yrs_noCKMR<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N1000_Ind50_20yrs_noCKMR<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N1000_Ind50_20yrs_noCKMR<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind50_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N1000_Ind50_20yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -2176,6 +2346,16 @@ abline(h=0)
 RE_ssb_N5000_Ind50_20yrs_noCKMR<-re_SSB
 RE_R0_N5000_Ind50_20yrs_noCKMR<-re_R0
 RE_M_N5000_Ind50_20yrs_noCKMR<-re_M
+
+#Interquartile Range of relative errors
+IQR_RE_ssb_N5000_Ind50_20yrs_noCKMR<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N5000_Ind50_20yrs_noCKMR<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N5000_Ind50_20yrs_noCKMR<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N5000_Ind50_20yrs_noCKMR<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N5000_Ind50_20yrs_noCKMR<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N5000_Ind50_20yrs_noCKMR<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind50_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -2270,6 +2450,16 @@ RE_ssb_N100_NoIndex_5yrs_noCKMR<-re_SSB
 RE_R0_N100_NoIndex_5yrs_noCKMR<-re_R0
 RE_M_N100_NoIndex_5yrs_noCKMR<-re_M
 
+#Interquartile Range of relative errors
+IQR_RE_ssb_N100_NoIndex_5yrs_noCKMR<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N100_NoIndex_5yrs_noCKMR<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N100_NoIndex_5yrs_noCKMR<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N100_NoIndex_5yrs_noCKMR<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N100_NoIndex_5yrs_noCKMR<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N100_NoIndex_5yrs_noCKMR<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N100_NoIndex_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N100_NoIndex_5yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -2357,6 +2547,16 @@ RE_ssb_N1000_NoIndex_5yrs_noCKMR<-re_SSB
 RE_R0_N1000_NoIndex_5yrs_noCKMR<-re_R0
 RE_M_N1000_NoIndex_5yrs_noCKMR<-re_M
 
+#Interquartile Range of relative errors
+IQR_RE_ssb_N1000_NoIndex_5yrs_noCKMR<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N1000_NoIndex_5yrs_noCKMR<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N1000_NoIndex_5yrs_noCKMR<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N1000_NoIndex_5yrs_noCKMR<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N1000_NoIndex_5yrs_noCKMR<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N1000_NoIndex_5yrs_noCKMR<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_NoIndex_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N1000_NoIndex_5yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -2443,6 +2643,16 @@ abline(h=0)
 RE_ssb_N5000_NoIndex_5yrs_noCKMR<-re_SSB
 RE_R0_N5000_NoIndex_5yrs_noCKMR<-re_R0
 RE_M_N5000_NoIndex_5yrs_noCKMR<-re_M
+
+#Interquartile Range of relative errors
+IQR_RE_ssb_N5000_NoIndex_5yrs_noCKMR<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N5000_NoIndex_5yrs_noCKMR<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N5000_NoIndex_5yrs_noCKMR<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N5000_NoIndex_5yrs_noCKMR<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N5000_NoIndex_5yrs_noCKMR<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N5000_NoIndex_5yrs_noCKMR<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_NoIndex_5yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -2537,6 +2747,16 @@ RE_ssb_N100_NoIndex_10yrs_noCKMR<-re_SSB
 RE_R0_N100_NoIndex_10yrs_noCKMR<-re_R0
 RE_M_N100_NoIndex_10yrs_noCKMR<-re_M
 
+#Interquartile Range of relative errors
+IQR_RE_ssb_N100_NoIndex_10yrs_noCKMR<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N100_NoIndex_10yrs_noCKMR<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N100_NoIndex_10yrs_noCKMR<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N100_NoIndex_10yrs_noCKMR<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N100_NoIndex_10yrs_noCKMR<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N100_NoIndex_10yrs_noCKMR<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N100_NoIndex_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N100_NoIndex_10yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -2624,6 +2844,16 @@ abline(h=0)
 RE_ssb_N1000_NoIndex_10yrs_noCKMR<-re_SSB
 RE_R0_N1000_NoIndex_10yrs_noCKMR<-re_R0
 RE_M_N1000_NoIndex_10yrs_noCKMR<-re_M
+
+#Interquartile Range of relative errors
+IQR_RE_ssb_N1000_NoIndex_10yrs_noCKMR<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N1000_NoIndex_10yrs_noCKMR<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N1000_NoIndex_10yrs_noCKMR<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N1000_NoIndex_10yrs_noCKMR<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N1000_NoIndex_10yrs_noCKMR<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N1000_NoIndex_10yrs_noCKMR<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_NoIndex_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -2713,6 +2943,16 @@ RE_ssb_N5000_NoIndex_10yrs_noCKMR<-re_SSB
 RE_R0_N5000_NoIndex_10yrs_noCKMR<-re_R0
 RE_M_N5000_NoIndex_10yrs_noCKMR<-re_M
 
+#Interquartile Range of relative errors
+IQR_RE_ssb_N5000_NoIndex_10yrs_noCKMR<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N5000_NoIndex_10yrs_noCKMR<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N5000_NoIndex_10yrs_noCKMR<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N5000_NoIndex_10yrs_noCKMR<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N5000_NoIndex_10yrs_noCKMR<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N5000_NoIndex_10yrs_noCKMR<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_NoIndex_10yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N5000_NoIndex_10yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -2798,6 +3038,16 @@ abline(h=0)
 RE_ssb_N100_NoIndex_20yrs_noCKMR<-re_SSB
 RE_R0_N100_NoIndex_20yrs_noCKMR<-re_R0
 RE_M_N100_NoIndex_20yrs_noCKMR<-re_M
+
+#Interquartile Range of relative errors
+IQR_RE_ssb_N100_NoIndex_20yrs_noCKMR<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N100_NoIndex_20yrs_noCKMR<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N100_NoIndex_20yrs_noCKMR<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N100_NoIndex_20yrs_noCKMR<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N100_NoIndex_20yrs_noCKMR<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N100_NoIndex_20yrs_noCKMR<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N100_NoIndex_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -2887,6 +3137,16 @@ RE_ssb_N1000_NoIndex_20yrs_noCKMR<-re_SSB
 RE_R0_N1000_NoIndex_20yrs_noCKMR<-re_R0
 RE_M_N1000_NoIndex_20yrs_noCKMR<-re_M
 
+#Interquartile Range of relative errors
+IQR_RE_ssb_N1000_NoIndex_20yrs_noCKMR<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N1000_NoIndex_20yrs_noCKMR<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N1000_NoIndex_20yrs_noCKMR<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N1000_NoIndex_20yrs_noCKMR<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N1000_NoIndex_20yrs_noCKMR<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N1000_NoIndex_20yrs_noCKMR<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_NoIndex_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N1000_NoIndex_20yrs_noCKMR<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -2974,6 +3234,16 @@ abline(h=0)
 RE_ssb_N5000_NoIndex_20yrs_noCKMR<-re_SSB
 RE_R0_N5000_NoIndex_20yrs_noCKMR<-re_R0
 RE_M_N5000_NoIndex_20yrs_noCKMR<-re_M
+
+#Interquartile Range of relative errors
+IQR_RE_ssb_N5000_NoIndex_20yrs_noCKMR<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N5000_NoIndex_20yrs_noCKMR<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N5000_NoIndex_20yrs_noCKMR<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N5000_NoIndex_20yrs_noCKMR<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N5000_NoIndex_20yrs_noCKMR<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N5000_NoIndex_20yrs_noCKMR<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_NoIndex_20yrs_noCKMR<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -3068,6 +3338,16 @@ RE_ssb_N100_Ind25_ckmrmultinom5<-re_SSB
 RE_R0_N100_Ind25_ckmrmultinom5<-re_R0
 RE_M_N100_Ind25_ckmrmultinom5<-re_M
 
+#Interquartile Range of relative errors
+IQR_RE_ssb_N100_Ind25_ckmrmultinom5<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N100_Ind25_ckmrmultinom5<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N100_Ind25_ckmrmultinom5<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N100_Ind25_ckmrmultinom5<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N100_Ind25_ckmrmultinom5<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N100_Ind25_ckmrmultinom5<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N100_Ind25_ckmrmultinom5<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N100_Ind25_ckmrmultinom5<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -3156,6 +3436,16 @@ abline(h=0)
 RE_ssb_N1000_Ind25_ckmrmultinom5<-re_SSB
 RE_R0_N1000_Ind25_ckmrmultinom5<-re_R0
 RE_M_N1000_Ind25_ckmrmultinom5<-re_M
+
+#Interquartile Range of relative errors
+IQR_RE_ssb_N1000_Ind25_ckmrmultinom5<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N1000_Ind25_ckmrmultinom5<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N1000_Ind25_ckmrmultinom5<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N1000_Ind25_ckmrmultinom5<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N1000_Ind25_ckmrmultinom5<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N1000_Ind25_ckmrmultinom5<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind25_ckmrmultinom5<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -3246,6 +3536,16 @@ RE_ssb_N5000_Ind25_ckmrmultinom5<-re_SSB
 RE_R0_N5000_Ind25_ckmrmultinom5<-re_R0
 RE_M_N5000_Ind25_ckmrmultinom5<-re_M
 
+#Interquartile Range of relative errors
+IQR_RE_ssb_N5000_Ind25_ckmrmultinom5<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N5000_Ind25_ckmrmultinom5<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N5000_Ind25_ckmrmultinom5<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N5000_Ind25_ckmrmultinom5<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N5000_Ind25_ckmrmultinom5<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N5000_Ind25_ckmrmultinom5<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind25_ckmrmultinom5<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N5000_Ind25_ckmrmultinom5<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -3334,6 +3634,16 @@ abline(h=0)
 RE_ssb_N100_Ind50_ckmrmultinom5<-re_SSB
 RE_R0_N100_Ind50_ckmrmultinom5<-re_R0
 RE_M_N100_Ind50_ckmrmultinom5<-re_M
+
+#Interquartile Range of relative errors
+IQR_RE_ssb_N100_Ind50_ckmrmultinom5<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N100_Ind50_ckmrmultinom5<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N100_Ind50_ckmrmultinom5<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N100_Ind50_ckmrmultinom5<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N100_Ind50_ckmrmultinom5<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N100_Ind50_ckmrmultinom5<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N100_Ind50_ckmrmultinom5<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -3424,6 +3734,16 @@ RE_ssb_N1000_Ind50_ckmrmultinom5<-re_SSB
 RE_R0_N1000_Ind50_ckmrmultinom5<-re_R0
 RE_M_N1000_Ind50_ckmrmultinom5<-re_M
 
+#Interquartile Range of relative errors
+IQR_RE_ssb_N1000_Ind50_ckmrmultinom5<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N1000_Ind50_ckmrmultinom5<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N1000_Ind50_ckmrmultinom5<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N1000_Ind50_ckmrmultinom5<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N1000_Ind50_ckmrmultinom5<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N1000_Ind50_ckmrmultinom5<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind50_ckmrmultinom5<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N1000_Ind50_ckmrmultinom5<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -3512,6 +3832,16 @@ abline(h=0)
 RE_ssb_N5000_Ind50_ckmrmultinom5<-re_SSB
 RE_R0_N5000_Ind50_ckmrmultinom5<-re_R0
 RE_M_N5000_Ind50_ckmrmultinom5<-re_M
+
+#Interquartile Range of relative errors
+IQR_RE_ssb_N5000_Ind50_ckmrmultinom5<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N5000_Ind50_ckmrmultinom5<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N5000_Ind50_ckmrmultinom5<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N5000_Ind50_ckmrmultinom5<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N5000_Ind50_ckmrmultinom5<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N5000_Ind50_ckmrmultinom5<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind50_ckmrmultinom5<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -3602,6 +3932,16 @@ RE_ssb_N100_Ind25_ckmrmultinom10<-re_SSB
 RE_R0_N100_Ind25_ckmrmultinom10<-re_R0
 RE_M_N100_Ind25_ckmrmultinom10<-re_M
 
+#Interquartile Range of relative errors
+IQR_RE_ssb_N100_Ind25_ckmrmultinom10<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N100_Ind25_ckmrmultinom10<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N100_Ind25_ckmrmultinom10<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N100_Ind25_ckmrmultinom10<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N100_Ind25_ckmrmultinom10<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N100_Ind25_ckmrmultinom10<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N100_Ind25_ckmrmultinom10<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N100_Ind25_ckmrmultinom10<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -3690,6 +4030,16 @@ abline(h=0)
 RE_ssb_N1000_Ind25_ckmrmultinom10<-re_SSB
 RE_R0_N1000_Ind25_ckmrmultinom10<-re_R0
 RE_M_N1000_Ind25_ckmrmultinom10<-re_M
+
+#Interquartile Range of relative errors
+IQR_RE_ssb_N1000_Ind25_ckmrmultinom10<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N1000_Ind25_ckmrmultinom10<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N1000_Ind25_ckmrmultinom10<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N1000_Ind25_ckmrmultinom10<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N1000_Ind25_ckmrmultinom10<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N1000_Ind25_ckmrmultinom10<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind25_ckmrmultinom10<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -3783,6 +4133,16 @@ RE_ssb_N5000_Ind25_ckmrmultinom10<-re_SSB
 RE_R0_N5000_Ind25_ckmrmultinom10<-re_R0
 RE_M_N5000_Ind25_ckmrmultinom10<-re_M
 
+#Interquartile Range of relative errors
+IQR_RE_ssb_N5000_Ind25_ckmrmultinom10<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N5000_Ind25_ckmrmultinom10<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N5000_Ind25_ckmrmultinom10<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N5000_Ind25_ckmrmultinom10<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N5000_Ind25_ckmrmultinom10<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N5000_Ind25_ckmrmultinom10<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind25_ckmrmultinom10<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N5000_Ind25_ckmrmultinom10<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -3874,6 +4234,16 @@ RE_ssb_N100_Ind50_ckmrmultinom10<-re_SSB
 RE_R0_N100_Ind50_ckmrmultinom10<-re_R0
 RE_M_N100_Ind50_ckmrmultinom10<-re_M
 
+#Interquartile Range of relative errors
+IQR_RE_ssb_N100_Ind50_ckmrmultinom10<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N100_Ind50_ckmrmultinom10<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N100_Ind50_ckmrmultinom10<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N100_Ind50_ckmrmultinom10<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N100_Ind50_ckmrmultinom10<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N100_Ind50_ckmrmultinom10<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N100_Ind50_ckmrmultinom10<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N100_Ind50_ckmrmultinom10<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -3962,6 +4332,16 @@ abline(h=0)
 RE_ssb_N1000_Ind50_ckmrmultinom10<-re_SSB
 RE_R0_N1000_Ind50_ckmrmultinom10<-re_R0
 RE_M_N1000_Ind50_ckmrmultinom10<-re_M
+
+#Interquartile Range of relative errors
+IQR_RE_ssb_N1000_Ind50_ckmrmultinom10<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N1000_Ind50_ckmrmultinom10<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N1000_Ind50_ckmrmultinom10<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N1000_Ind50_ckmrmultinom10<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N1000_Ind50_ckmrmultinom10<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N1000_Ind50_ckmrmultinom10<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind50_ckmrmultinom10<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -4055,6 +4435,16 @@ RE_ssb_N5000_Ind50_ckmrmultinom10<-re_SSB
 RE_R0_N5000_Ind50_ckmrmultinom10<-re_R0
 RE_M_N5000_Ind50_ckmrmultinom10<-re_M
 
+#Interquartile Range of relative errors
+IQR_RE_ssb_N5000_Ind50_ckmrmultinom10<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N5000_Ind50_ckmrmultinom10<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N5000_Ind50_ckmrmultinom10<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N5000_Ind50_ckmrmultinom10<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N5000_Ind50_ckmrmultinom10<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N5000_Ind50_ckmrmultinom10<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind50_ckmrmultinom10<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N5000_Ind50_ckmrmultinom10<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -4147,6 +4537,16 @@ RE_ssb_N100_Ind25_ckmrmultinom20<-re_SSB
 RE_R0_N100_Ind25_ckmrmultinom20<-re_R0
 RE_M_N100_Ind25_ckmrmultinom20<-re_M
 
+#Interquartile Range of relative errors
+IQR_RE_ssb_N100_Ind25_ckmrmultinom20<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N100_Ind25_ckmrmultinom20<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N100_Ind25_ckmrmultinom20<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N100_Ind25_ckmrmultinom20<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N100_Ind25_ckmrmultinom20<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N100_Ind25_ckmrmultinom20<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N100_Ind25_ckmrmultinom20<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N100_Ind25_ckmrmultinom20<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -4235,6 +4635,16 @@ abline(h=0)
 RE_ssb_N1000_Ind25_ckmrmultinom20<-re_SSB
 RE_R0_N1000_Ind25_ckmrmultinom20<-re_R0
 RE_M_N1000_Ind25_ckmrmultinom20<-re_M
+
+#Interquartile Range of relative errors
+IQR_RE_ssb_N1000_Ind25_ckmrmultinom20<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N1000_Ind25_ckmrmultinom20<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N1000_Ind25_ckmrmultinom20<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N1000_Ind25_ckmrmultinom20<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N1000_Ind25_ckmrmultinom20<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N1000_Ind25_ckmrmultinom20<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind25_ckmrmultinom20<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -4328,6 +4738,16 @@ RE_ssb_N5000_Ind25_ckmrmultinom20<-re_SSB
 RE_R0_N5000_Ind25_ckmrmultinom20<-re_R0
 RE_M_N5000_Ind25_ckmrmultinom20<-re_M
 
+#Interquartile Range of relative errors
+IQR_RE_ssb_N5000_Ind25_ckmrmultinom20<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N5000_Ind25_ckmrmultinom20<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N5000_Ind25_ckmrmultinom20<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N5000_Ind25_ckmrmultinom20<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N5000_Ind25_ckmrmultinom20<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N5000_Ind25_ckmrmultinom20<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind25_ckmrmultinom20<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N5000_Ind25_ckmrmultinom20<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -4419,6 +4839,16 @@ RE_ssb_N100_Ind50_ckmrmultinom20<-re_SSB
 RE_R0_N100_Ind50_ckmrmultinom20<-re_R0
 RE_M_N100_Ind50_ckmrmultinom20<-re_M
 
+#Interquartile Range of relative errors
+IQR_RE_ssb_N100_Ind50_ckmrmultinom20<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N100_Ind50_ckmrmultinom20<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N100_Ind50_ckmrmultinom20<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N100_Ind50_ckmrmultinom20<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N100_Ind50_ckmrmultinom20<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N100_Ind50_ckmrmultinom20<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N100_Ind50_ckmrmultinom20<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N100_Ind50_ckmrmultinom20<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -4507,6 +4937,16 @@ abline(h=0)
 RE_ssb_N1000_Ind50_ckmrmultinom20<-re_SSB
 RE_R0_N1000_Ind50_ckmrmultinom20<-re_R0
 RE_M_N1000_Ind50_ckmrmultinom20<-re_M
+
+#Interquartile Range of relative errors
+IQR_RE_ssb_N1000_Ind50_ckmrmultinom20<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N1000_Ind50_ckmrmultinom20<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N1000_Ind50_ckmrmultinom20<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N1000_Ind50_ckmrmultinom20<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N1000_Ind50_ckmrmultinom20<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N1000_Ind50_ckmrmultinom20<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_Ind50_ckmrmultinom20<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -4599,6 +5039,16 @@ abline(h=0)
 RE_ssb_N5000_Ind50_ckmrmultinom20<-re_SSB
 RE_R0_N5000_Ind50_ckmrmultinom20<-re_R0
 RE_M_N5000_Ind50_ckmrmultinom20<-re_M
+
+#Interquartile Range of relative errors
+IQR_RE_ssb_N5000_Ind50_ckmrmultinom20<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N5000_Ind50_ckmrmultinom20<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N5000_Ind50_ckmrmultinom20<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N5000_Ind50_ckmrmultinom20<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N5000_Ind50_ckmrmultinom20<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N5000_Ind50_ckmrmultinom20<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_Ind50_ckmrmultinom20<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -4695,6 +5145,16 @@ RE_ssb_N100_NoIndex_ckmrmultinom5<-re_SSB
 RE_R0_N100_NoIndex_ckmrmultinom5<-re_R0
 RE_M_N100_NoIndex_ckmrmultinom5<-re_M
 
+#Interquartile Range of relative errors
+IQR_RE_ssb_N100_NoIndex_ckmrmultinom5<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N100_NoIndex_ckmrmultinom5<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N100_NoIndex_ckmrmultinom5<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N100_NoIndex_ckmrmultinom5<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N100_NoIndex_ckmrmultinom5<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N100_NoIndex_ckmrmultinom5<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N100_NoIndex_ckmrmultinom5<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N100_NoIndex_ckmrmultinom5<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -4783,6 +5243,16 @@ abline(h=0)
 RE_ssb_N1000_NoIndex_ckmrmultinom5<-re_SSB
 RE_R0_N1000_NoIndex_ckmrmultinom5<-re_R0
 RE_M_N1000_NoIndex_ckmrmultinom5<-re_M
+
+#Interquartile Range of relative errors
+IQR_RE_ssb_N1000_NoIndex_ckmrmultinom5<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N1000_NoIndex_ckmrmultinom5<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N1000_NoIndex_ckmrmultinom5<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N1000_NoIndex_ckmrmultinom5<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N1000_NoIndex_ckmrmultinom5<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N1000_NoIndex_ckmrmultinom5<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_NoIndex_ckmrmultinom5<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -4873,6 +5343,16 @@ RE_ssb_N5000_NoIndex_ckmrmultinom5<-re_SSB
 RE_R0_N5000_NoIndex_ckmrmultinom5<-re_R0
 RE_M_N5000_NoIndex_ckmrmultinom5<-re_M
 
+#Interquartile Range of relative errors
+IQR_RE_ssb_N5000_NoIndex_ckmrmultinom5<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N5000_NoIndex_ckmrmultinom5<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N5000_NoIndex_ckmrmultinom5<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N5000_NoIndex_ckmrmultinom5<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N5000_NoIndex_ckmrmultinom5<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N5000_NoIndex_ckmrmultinom5<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_NoIndex_ckmrmultinom5<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N5000_NoIndex_ckmrmultinom5<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -4962,6 +5442,16 @@ RE_ssb_N100_NoIndex_ckmrmultinom10<-re_SSB
 RE_R0_N100_NoIndex_ckmrmultinom10<-re_R0
 RE_M_N100_NoIndex_ckmrmultinom10<-re_M
 
+#Interquartile Range of relative errors
+IQR_RE_ssb_N100_NoIndex_ckmrmultinom10<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N100_NoIndex_ckmrmultinom10<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N100_NoIndex_ckmrmultinom10<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N100_NoIndex_ckmrmultinom10<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N100_NoIndex_ckmrmultinom10<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N100_NoIndex_ckmrmultinom10<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
+
 #SD of relative error for point estimates
 sd_RE_ssb_N100_NoIndex_ckmrmultinom10<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
 sd_RE_R0_N100_NoIndex_ckmrmultinom10<-apply(re_R0,2,sd, na.rm=TRUE)
@@ -5050,6 +5540,16 @@ abline(h=0)
 RE_ssb_N1000_NoIndex_ckmrmultinom10<-re_SSB
 RE_R0_N1000_NoIndex_ckmrmultinom10<-re_R0
 RE_M_N1000_NoIndex_ckmrmultinom10<-re_M
+
+#Interquartile Range of relative errors
+IQR_RE_ssb_N1000_NoIndex_ckmrmultinom10<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N1000_NoIndex_ckmrmultinom10<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N1000_NoIndex_ckmrmultinom10<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N1000_NoIndex_ckmrmultinom10<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N1000_NoIndex_ckmrmultinom10<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N1000_NoIndex_ckmrmultinom10<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_NoIndex_ckmrmultinom10<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -5143,10 +5643,20 @@ RE_ssb_N5000_NoIndex_ckmrmultinom10<-re_SSB
 RE_R0_N5000_NoIndex_ckmrmultinom10<-re_R0
 RE_M_N5000_NoIndex_ckmrmultinom10<-re_M
 
+#Interquartile Range of relative errors
+IQR_RE_ssb_N5000_NoIndex_ckmrmultinom10<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N5000_NoIndex_ckmrmultinom10<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N5000_NoIndex_ckmrmultinom10<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N5000_NoIndex_ckmrmultinom10<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N5000_NoIndex_ckmrmultinom10<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N5000_NoIndex_ckmrmultinom10<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
+
 #SD of relative error for point estimates
-sd_RE_ssb_N5000_NoIndex_ckmrmultinom10<-apply(re_SSB[,-c(1:2),],c(1,3),sd, na.rm=TRUE)
-sd_RE_R0_N5000_NoIndex_ckmrmultinom10<-apply(re_R0[-c(1:2),],2,sd, na.rm=TRUE)
-sd_RE_M_N5000_NoIndex_ckmrmultinom10<-apply(re_M[-c(1:2),],2,sd, na.rm=TRUE)
+sd_RE_ssb_N5000_NoIndex_ckmrmultinom10<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
+sd_RE_R0_N5000_NoIndex_ckmrmultinom10<-apply(re_R0,2,sd, na.rm=TRUE)
+sd_RE_M_N5000_NoIndex_ckmrmultinom10<-apply(re_M,2,sd, na.rm=TRUE)
 
 #SD of absolute relative error
 sd_ARE_ssb_N5000_NoIndex_ckmrmultinom10<-apply(abs(re_SSB),c(1,3),sd, na.rm=TRUE)
@@ -5233,6 +5743,16 @@ abline(h=0)
 RE_ssb_N100_NoIndex_ckmrmultinom20<-re_SSB
 RE_R0_N100_NoIndex_ckmrmultinom20<-re_R0
 RE_M_N100_NoIndex_ckmrmultinom20<-re_M
+
+#Interquartile Range of relative errors
+IQR_RE_ssb_N100_NoIndex_ckmrmultinom20<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N100_NoIndex_ckmrmultinom20<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N100_NoIndex_ckmrmultinom20<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N100_NoIndex_ckmrmultinom20<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N100_NoIndex_ckmrmultinom20<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N100_NoIndex_ckmrmultinom20<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N100_NoIndex_ckmrmultinom20<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -5322,6 +5842,16 @@ abline(h=0)
 RE_ssb_N1000_NoIndex_ckmrmultinom20<-re_SSB
 RE_R0_N1000_NoIndex_ckmrmultinom20<-re_R0
 RE_M_N1000_NoIndex_ckmrmultinom20<-re_M
+
+#Interquartile Range of relative errors
+IQR_RE_ssb_N1000_NoIndex_ckmrmultinom20<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N1000_NoIndex_ckmrmultinom20<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N1000_NoIndex_ckmrmultinom20<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N1000_NoIndex_ckmrmultinom20<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N1000_NoIndex_ckmrmultinom20<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N1000_NoIndex_ckmrmultinom20<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N1000_NoIndex_ckmrmultinom20<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -5414,6 +5944,16 @@ abline(h=0)
 RE_ssb_N5000_NoIndex_ckmrmultinom20<-re_SSB
 RE_R0_N5000_NoIndex_ckmrmultinom20<-re_R0
 RE_M_N5000_NoIndex_ckmrmultinom20<-re_M
+
+#Interquartile Range of relative errors
+IQR_RE_ssb_N5000_NoIndex_ckmrmultinom20<-apply(re_SSB,c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(re_SSB,c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_R0_N5000_NoIndex_ckmrmultinom20<-apply(re_R0,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_R0,2,quantile,probs=0.25, na.rm=TRUE)
+IQR_RE_M_N5000_NoIndex_ckmrmultinom20<-apply(re_M,2,quantile,probs=0.75, na.rm=TRUE)-apply(re_M,2,quantile,probs=0.25, na.rm=TRUE)
+
+#Interquartile Range of absolute relative errors
+IQR_ARE_ssb_N5000_NoIndex_ckmrmultinom20<-apply(abs(re_SSB),c(1,3),quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_SSB),c(1,3),quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_R0_N5000_NoIndex_ckmrmultinom20<-apply(abs(re_R0),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_R0),2,quantile,probs=0.25, na.rm=TRUE)
+IQR_ARE_M_N5000_NoIndex_ckmrmultinom20<-apply(abs(re_M),2,quantile,probs=0.75, na.rm=TRUE)-apply(abs(re_M),2,quantile,probs=0.25, na.rm=TRUE)
 
 #SD of relative error for point estimates
 sd_RE_ssb_N5000_NoIndex_ckmrmultinom20<-apply(re_SSB,c(1,3),sd, na.rm=TRUE)
@@ -6227,6 +6767,108 @@ plot(sd_RE_ssb_N5000_Ind25_ckmrmultinom5[3,]/sd_RE_ssb_N5000_Ind25_5yrs_noCKMR[3
 points(sd_RE_ssb_N5000_Ind25_ckmrmultinom10[3,]/sd_RE_ssb_N5000_Ind25_10yrs_noCKMR[3,], pch=16, col=3)
 points(sd_RE_ssb_N5000_Ind25_ckmrmultinom20[3,]/sd_RE_ssb_N5000_Ind25_20yrs_noCKMR[3,], pch=16, col=4)
 
+#####
+#IQR
+#####
+#No index
+par(mfcol=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
+plot(IQR_RE_ssb_N100_NoIndex_ckmrmultinom5[1,]/IQR_RE_ssb_N100_NoIndex_5yrs_noCKMR[1,], pch=16, ylim=c(0.8,1.35), las=1, ylab="", main="Cod - N100")
+points(IQR_RE_ssb_N100_NoIndex_ckmrmultinom10[1,]/IQR_RE_ssb_N100_NoIndex_10yrs_noCKMR[1,], pch=16, col=3)
+points(IQR_RE_ssb_N100_NoIndex_ckmrmultinom20[1,]/IQR_RE_ssb_N100_NoIndex_20yrs_noCKMR[1,], pch=16, col=4)
+plot(IQR_RE_ssb_N100_NoIndex_ckmrmultinom5[2,]/IQR_RE_ssb_N100_NoIndex_5yrs_noCKMR[2,], pch=16, ylim=c(0,1.35), las=1, ylab="IQR SSB RE, relative to NO CKMR", main="Flatfish - N100")
+points(IQR_RE_ssb_N100_NoIndex_ckmrmultinom10[2,]/IQR_RE_ssb_N100_NoIndex_10yrs_noCKMR[2,], pch=16, col=3)
+points(IQR_RE_ssb_N100_NoIndex_ckmrmultinom20[2,]/IQR_RE_ssb_N100_NoIndex_20yrs_noCKMR[2,], pch=16, col=4)
+plot(IQR_RE_ssb_N100_NoIndex_ckmrmultinom5[3,]/IQR_RE_ssb_N100_NoIndex_5yrs_noCKMR[3,], pch=16, ylim=c(0.4,1.35), las=1, ylab="", main="Sardine - N100")
+points(IQR_RE_ssb_N100_NoIndex_ckmrmultinom10[3,]/IQR_RE_ssb_N100_NoIndex_10yrs_noCKMR[3,], pch=16, col=3)
+points(IQR_RE_ssb_N100_NoIndex_ckmrmultinom20[3,]/IQR_RE_ssb_N100_NoIndex_20yrs_noCKMR[3,], pch=16, col=4)
+
+plot(IQR_RE_ssb_N1000_NoIndex_ckmrmultinom5[1,]/IQR_RE_ssb_N1000_NoIndex_5yrs_noCKMR[1,], pch=16, ylim=c(0.8,1.35), las=1, ylab="", main="No Index,  Cod - N1000")
+points(IQR_RE_ssb_N1000_NoIndex_ckmrmultinom10[1,]/IQR_RE_ssb_N1000_NoIndex_10yrs_noCKMR[1,], pch=16, col=3)
+points(IQR_RE_ssb_N1000_NoIndex_ckmrmultinom20[1,]/IQR_RE_ssb_N1000_NoIndex_20yrs_noCKMR[1,], pch=16, col=4)
+legend("top", c("CKMR 5 years","CKMR 10 years","CKMR 20 years"), col=c(1,3,4), pch=16)
+plot(IQR_RE_ssb_N1000_NoIndex_ckmrmultinom5[2,]/IQR_RE_ssb_N1000_NoIndex_5yrs_noCKMR[2,], pch=16, ylim=c(0,1.35), las=1, ylab="", main="Flatfish - N1000")
+points(IQR_RE_ssb_N1000_NoIndex_ckmrmultinom10[2,]/IQR_RE_ssb_N1000_NoIndex_10yrs_noCKMR[2,], pch=16, col=3)
+points(IQR_RE_ssb_N1000_NoIndex_ckmrmultinom20[2,]/IQR_RE_ssb_N1000_NoIndex_20yrs_noCKMR[2,], pch=16, col=4)
+plot(IQR_RE_ssb_N1000_NoIndex_ckmrmultinom5[3,]/IQR_RE_ssb_N1000_NoIndex_5yrs_noCKMR[3,], pch=16, ylim=c(0.4,1.35), las=1, ylab="", main="Sardine - N1000")
+points(IQR_RE_ssb_N1000_NoIndex_ckmrmultinom10[3,]/IQR_RE_ssb_N1000_NoIndex_10yrs_noCKMR[3,], pch=16, col=3)
+points(IQR_RE_ssb_N1000_NoIndex_ckmrmultinom20[3,]/IQR_RE_ssb_N1000_NoIndex_20yrs_noCKMR[3,], pch=16, col=4)
+
+plot(IQR_RE_ssb_N5000_NoIndex_ckmrmultinom5[1,]/IQR_RE_ssb_N5000_NoIndex_5yrs_noCKMR[1,], pch=16, ylim=c(0.8,1.35), las=1, ylab="", main="Cod - N5000")
+points(IQR_RE_ssb_N5000_NoIndex_ckmrmultinom10[1,]/IQR_RE_ssb_N5000_NoIndex_10yrs_noCKMR[1,], pch=16, col=3)
+points(IQR_RE_ssb_N5000_NoIndex_ckmrmultinom20[1,]/IQR_RE_ssb_N5000_NoIndex_20yrs_noCKMR[1,], pch=16, col=4)
+plot(IQR_RE_ssb_N5000_NoIndex_ckmrmultinom5[2,]/IQR_RE_ssb_N5000_NoIndex_5yrs_noCKMR[2,], pch=16, ylim=c(0,1.35), las=1, ylab="", main="Flatfish - N5000")
+points(IQR_RE_ssb_N5000_NoIndex_ckmrmultinom10[2,]/IQR_RE_ssb_N5000_NoIndex_10yrs_noCKMR[2,], pch=16, col=3)
+points(IQR_RE_ssb_N5000_NoIndex_ckmrmultinom20[2,]/IQR_RE_ssb_N5000_NoIndex_20yrs_noCKMR[2,], pch=16, col=4)
+plot(IQR_RE_ssb_N5000_NoIndex_ckmrmultinom5[3,]/IQR_RE_ssb_N5000_NoIndex_5yrs_noCKMR[3,], pch=16, ylim=c(0.4,1.35), las=1, ylab="", main="Sardine - N5000")
+points(IQR_RE_ssb_N5000_NoIndex_ckmrmultinom10[3,]/IQR_RE_ssb_N5000_NoIndex_10yrs_noCKMR[3,], pch=16, col=3)
+points(IQR_RE_ssb_N5000_NoIndex_ckmrmultinom20[3,]/IQR_RE_ssb_N5000_NoIndex_20yrs_noCKMR[3,], pch=16, col=4)
+
+#Index 0.50
+par(mfcol=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
+plot(IQR_RE_ssb_N100_Ind50_ckmrmultinom5[1,]/IQR_RE_ssb_N100_Ind50_5yrs_noCKMR[1,], pch=16, ylim=c(0.8,1.35), las=1, ylab="", main="Cod - N100")
+points(IQR_RE_ssb_N100_Ind50_ckmrmultinom10[1,]/IQR_RE_ssb_N100_Ind50_10yrs_noCKMR[1,], pch=16, col=3)
+points(IQR_RE_ssb_N100_Ind50_ckmrmultinom20[1,]/IQR_RE_ssb_N100_Ind50_20yrs_noCKMR[1,], pch=16, col=4)
+plot(IQR_RE_ssb_N100_Ind50_ckmrmultinom5[2,]/IQR_RE_ssb_N100_Ind50_5yrs_noCKMR[2,], pch=16, ylim=c(0,1.35), las=1, ylab="IQR SSB RE, relative to NO CKMR", main="Flatfish - N100")
+points(IQR_RE_ssb_N100_Ind50_ckmrmultinom10[2,]/IQR_RE_ssb_N100_Ind50_10yrs_noCKMR[2,], pch=16, col=3)
+points(IQR_RE_ssb_N100_Ind50_ckmrmultinom20[2,]/IQR_RE_ssb_N100_Ind50_20yrs_noCKMR[2,], pch=16, col=4)
+plot(IQR_RE_ssb_N100_Ind50_ckmrmultinom5[3,]/IQR_RE_ssb_N100_Ind50_5yrs_noCKMR[3,], pch=16, ylim=c(0.4,1.35), las=1, ylab="", main="Sardine - N100")
+points(IQR_RE_ssb_N100_Ind50_ckmrmultinom10[3,]/IQR_RE_ssb_N100_Ind50_10yrs_noCKMR[3,], pch=16, col=3)
+points(IQR_RE_ssb_N100_Ind50_ckmrmultinom20[3,]/IQR_RE_ssb_N100_Ind50_20yrs_noCKMR[3,], pch=16, col=4)
+
+plot(IQR_RE_ssb_N1000_Ind50_ckmrmultinom5[1,]/IQR_RE_ssb_N1000_Ind50_5yrs_noCKMR[1,], pch=16, ylim=c(0.8,1.35), las=1, ylab="", main="Index 0.50,  Cod - N1000")
+points(IQR_RE_ssb_N1000_Ind50_ckmrmultinom10[1,]/IQR_RE_ssb_N1000_Ind50_10yrs_noCKMR[1,], pch=16, col=3)
+points(IQR_RE_ssb_N1000_Ind50_ckmrmultinom20[1,]/IQR_RE_ssb_N1000_Ind50_20yrs_noCKMR[1,], pch=16, col=4)
+legend("top", c("CKMR 5 years","CKMR 10 years","CKMR 20 years"), col=c(1,3,4), pch=16)
+plot(IQR_RE_ssb_N1000_Ind50_ckmrmultinom5[2,]/IQR_RE_ssb_N1000_Ind50_5yrs_noCKMR[2,], pch=16, ylim=c(0,1.35), las=1, ylab="", main="Flatfish - N1000")
+points(IQR_RE_ssb_N1000_Ind50_ckmrmultinom10[2,]/IQR_RE_ssb_N1000_Ind50_10yrs_noCKMR[2,], pch=16, col=3)
+points(IQR_RE_ssb_N1000_Ind50_ckmrmultinom20[2,]/IQR_RE_ssb_N1000_Ind50_20yrs_noCKMR[2,], pch=16, col=4)
+plot(IQR_RE_ssb_N1000_Ind50_ckmrmultinom5[3,]/IQR_RE_ssb_N1000_Ind50_5yrs_noCKMR[3,], pch=16, ylim=c(0.4,1.35), las=1, ylab="", main="Sardine - N1000")
+points(IQR_RE_ssb_N1000_Ind50_ckmrmultinom10[3,]/IQR_RE_ssb_N1000_Ind50_10yrs_noCKMR[3,], pch=16, col=3)
+points(IQR_RE_ssb_N1000_Ind50_ckmrmultinom20[3,]/IQR_RE_ssb_N1000_Ind50_20yrs_noCKMR[3,], pch=16, col=4)
+
+plot(IQR_RE_ssb_N5000_Ind50_ckmrmultinom5[1,]/IQR_RE_ssb_N5000_Ind50_5yrs_noCKMR[1,], pch=16, ylim=c(0.8,1.35), las=1, ylab="", main="Cod - N5000")
+points(IQR_RE_ssb_N5000_Ind50_ckmrmultinom10[1,]/IQR_RE_ssb_N5000_Ind50_10yrs_noCKMR[1,], pch=16, col=3)
+points(IQR_RE_ssb_N5000_Ind50_ckmrmultinom20[1,]/IQR_RE_ssb_N5000_Ind50_20yrs_noCKMR[1,], pch=16, col=4)
+plot(IQR_RE_ssb_N5000_Ind50_ckmrmultinom5[2,]/IQR_RE_ssb_N5000_Ind50_5yrs_noCKMR[2,], pch=16, ylim=c(0,1.35), las=1, ylab="", main="Flatfish - N5000")
+points(IQR_RE_ssb_N5000_Ind50_ckmrmultinom10[2,]/IQR_RE_ssb_N5000_Ind50_10yrs_noCKMR[2,], pch=16, col=3)
+points(IQR_RE_ssb_N5000_Ind50_ckmrmultinom20[2,]/IQR_RE_ssb_N5000_Ind50_20yrs_noCKMR[2,], pch=16, col=4)
+plot(IQR_RE_ssb_N5000_Ind50_ckmrmultinom5[3,]/IQR_RE_ssb_N5000_Ind50_5yrs_noCKMR[3,], pch=16, ylim=c(0.4,1.35), las=1, ylab="", main="Sardine - N5000")
+points(IQR_RE_ssb_N5000_Ind50_ckmrmultinom10[3,]/IQR_RE_ssb_N5000_Ind50_10yrs_noCKMR[3,], pch=16, col=3)
+points(IQR_RE_ssb_N5000_Ind50_ckmrmultinom20[3,]/IQR_RE_ssb_N5000_Ind50_20yrs_noCKMR[3,], pch=16, col=4)
+
+#Index 0.25
+par(mfcol=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
+plot(IQR_RE_ssb_N100_Ind25_ckmrmultinom5[1,]/IQR_RE_ssb_N100_Ind25_5yrs_noCKMR[1,], pch=16, ylim=c(0.8,1.35), las=1, ylab="", main="Cod - N100")
+points(IQR_RE_ssb_N100_Ind25_ckmrmultinom10[1,]/IQR_RE_ssb_N100_Ind25_10yrs_noCKMR[1,], pch=16, col=3)
+points(IQR_RE_ssb_N100_Ind25_ckmrmultinom20[1,]/IQR_RE_ssb_N100_Ind25_20yrs_noCKMR[1,], pch=16, col=4)
+plot(IQR_RE_ssb_N100_Ind25_ckmrmultinom5[2,]/IQR_RE_ssb_N100_Ind25_5yrs_noCKMR[2,], pch=16, ylim=c(0,1.35), las=1, ylab="IQR SSB RE, relative to NO CKMR", main="Flatfish - N100")
+points(IQR_RE_ssb_N100_Ind25_ckmrmultinom10[2,]/IQR_RE_ssb_N100_Ind25_10yrs_noCKMR[2,], pch=16, col=3)
+points(IQR_RE_ssb_N100_Ind25_ckmrmultinom20[2,]/IQR_RE_ssb_N100_Ind25_20yrs_noCKMR[2,], pch=16, col=4)
+plot(IQR_RE_ssb_N100_Ind25_ckmrmultinom5[3,]/IQR_RE_ssb_N100_Ind25_5yrs_noCKMR[3,], pch=16, ylim=c(0.4,1.35), las=1, ylab="", main="Sardine - N100")
+points(IQR_RE_ssb_N100_Ind25_ckmrmultinom10[3,]/IQR_RE_ssb_N100_Ind25_10yrs_noCKMR[3,], pch=16, col=3)
+points(IQR_RE_ssb_N100_Ind25_ckmrmultinom20[3,]/IQR_RE_ssb_N100_Ind25_20yrs_noCKMR[3,], pch=16, col=4)
+
+plot(IQR_RE_ssb_N1000_Ind25_ckmrmultinom5[1,]/IQR_RE_ssb_N1000_Ind25_5yrs_noCKMR[1,], pch=16, ylim=c(0.8,1.35), las=1, ylab="", main="Index 0.25,  Cod - N1000")
+points(IQR_RE_ssb_N1000_Ind25_ckmrmultinom10[1,]/IQR_RE_ssb_N1000_Ind25_10yrs_noCKMR[1,], pch=16, col=3)
+points(IQR_RE_ssb_N1000_Ind25_ckmrmultinom20[1,]/IQR_RE_ssb_N1000_Ind25_20yrs_noCKMR[1,], pch=16, col=4)
+legend("top", c("CKMR 5 years","CKMR 10 years","CKMR 20 years"), col=c(1,3,4), pch=16)
+plot(IQR_RE_ssb_N1000_Ind25_ckmrmultinom5[2,]/IQR_RE_ssb_N1000_Ind25_5yrs_noCKMR[2,], pch=16, ylim=c(0,1.35), las=1, ylab="", main="Flatfish - N1000")
+points(IQR_RE_ssb_N1000_Ind25_ckmrmultinom10[2,]/IQR_RE_ssb_N1000_Ind25_10yrs_noCKMR[2,], pch=16, col=3)
+points(IQR_RE_ssb_N1000_Ind25_ckmrmultinom20[2,]/IQR_RE_ssb_N1000_Ind25_20yrs_noCKMR[2,], pch=16, col=4)
+plot(IQR_RE_ssb_N1000_Ind25_ckmrmultinom5[3,]/IQR_RE_ssb_N1000_Ind25_5yrs_noCKMR[3,], pch=16, ylim=c(0.4,1.35), las=1, ylab="", main="Sardine - N1000")
+points(IQR_RE_ssb_N1000_Ind25_ckmrmultinom10[3,]/IQR_RE_ssb_N1000_Ind25_10yrs_noCKMR[3,], pch=16, col=3)
+points(IQR_RE_ssb_N1000_Ind25_ckmrmultinom20[3,]/IQR_RE_ssb_N1000_Ind25_20yrs_noCKMR[3,], pch=16, col=4)
+
+plot(IQR_RE_ssb_N5000_Ind25_ckmrmultinom5[1,]/IQR_RE_ssb_N5000_Ind25_5yrs_noCKMR[1,], pch=16, ylim=c(0.8,1.35), las=1, ylab="", main="Cod - N5000")
+points(IQR_RE_ssb_N5000_Ind25_ckmrmultinom10[1,]/IQR_RE_ssb_N5000_Ind25_10yrs_noCKMR[1,], pch=16, col=3)
+points(IQR_RE_ssb_N5000_Ind25_ckmrmultinom20[1,]/IQR_RE_ssb_N5000_Ind25_20yrs_noCKMR[1,], pch=16, col=4)
+plot(IQR_RE_ssb_N5000_Ind25_ckmrmultinom5[2,]/IQR_RE_ssb_N5000_Ind25_5yrs_noCKMR[2,], pch=16, ylim=c(0,1.35), las=1, ylab="", main="Flatfish - N5000")
+points(IQR_RE_ssb_N5000_Ind25_ckmrmultinom10[2,]/IQR_RE_ssb_N5000_Ind25_10yrs_noCKMR[2,], pch=16, col=3)
+points(IQR_RE_ssb_N5000_Ind25_ckmrmultinom20[2,]/IQR_RE_ssb_N5000_Ind25_20yrs_noCKMR[2,], pch=16, col=4)
+plot(IQR_RE_ssb_N5000_Ind25_ckmrmultinom5[3,]/IQR_RE_ssb_N5000_Ind25_5yrs_noCKMR[3,], pch=16, ylim=c(0.4,1.35), las=1, ylab="", main="Sardine - N5000")
+points(IQR_RE_ssb_N5000_Ind25_ckmrmultinom10[3,]/IQR_RE_ssb_N5000_Ind25_10yrs_noCKMR[3,], pch=16, col=3)
+points(IQR_RE_ssb_N5000_Ind25_ckmrmultinom20[3,]/IQR_RE_ssb_N5000_Ind25_20yrs_noCKMR[3,], pch=16, col=4)
+
 ##############
 #SD ARE
 ##############
@@ -6719,6 +7361,88 @@ points(1:3,sd_ARE_R0_N5000_Ind25_ckmrmultinom10/sd_ARE_R0_N5000_Ind25_10yrs_noCK
 points(1:3,sd_ARE_R0_N5000_Ind25_ckmrmultinom20/sd_ARE_R0_N5000_Ind25_20yrs_noCKMR, pch=16, col=4)
 axis(side=1, at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
 
+#########
+#IQR
+#########
+#No Index
+par(mfrow=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
+plot(seq(0.9,2.9,1),IQR_RE_R0_N100_NoIndex_ckmrmultinom5/IQR_RE_R0_N100_NoIndex_5yrs_noCKMR, ylim=c(0.25,1.2), las=1, ylab="IQR RE log(R0), relative to NO CKMR", xaxt="n", pch=16, main="N100", xlab="",xlim=c(0.75,3.25), cex=1.25)
+points(1:3,IQR_RE_R0_N100_NoIndex_ckmrmultinom10/IQR_RE_R0_N100_NoIndex_10yrs_noCKMR, pch=16, col=3, cex=1.25)
+points(seq(1.1,3.1,1),IQR_RE_R0_N100_NoIndex_ckmrmultinom20/IQR_RE_R0_N100_NoIndex_20yrs_noCKMR, pch=16, col=4, cex=1.25)
+plot(seq(0.9,2.9,1),IQR_RE_R0_N1000_NoIndex_ckmrmultinom5/IQR_RE_R0_N1000_NoIndex_5yrs_noCKMR, ylim=c(0.25,1.2), las=1, ylab="", xaxt="n", pch=16, main="No Index,  N1000", xlab="",xlim=c(0.75,3.25), cex=1.25)
+legend("top", c("CKMR 5yrs", "CKMR 10yrs","CKMR 20yrs"), col=c(1,3,4), pch=16)
+points(1:3,IQR_RE_R0_N1000_NoIndex_ckmrmultinom10/IQR_RE_R0_N1000_NoIndex_10yrs_noCKMR, pch=16, col=3, cex=1.25)
+points(seq(1.1,3.1,1),IQR_RE_R0_N1000_NoIndex_ckmrmultinom20/IQR_RE_R0_N1000_NoIndex_20yrs_noCKMR, pch=16, col=4, cex=1.25)
+plot(seq(0.9,2.9,1),IQR_RE_R0_N5000_NoIndex_ckmrmultinom5/IQR_RE_R0_N5000_NoIndex_5yrs_noCKMR, ylim=c(0.25,1.2), las=1, ylab="", xaxt="n", pch=16, main="N5000", xlab="",xlim=c(0.75,3.25), cex=1.25)
+points(1:3,IQR_RE_R0_N5000_NoIndex_ckmrmultinom10/IQR_RE_R0_N5000_NoIndex_10yrs_noCKMR, pch=16, col=3, cex=1.25)
+points(seq(1.1,3.1,1),IQR_RE_R0_N5000_NoIndex_ckmrmultinom20/IQR_RE_R0_N5000_NoIndex_20yrs_noCKMR, pch=16, col=4, cex=1.25)
+
+#Index 0.50
+plot(seq(0.9,2.9,1),IQR_RE_R0_N100_Ind50_ckmrmultinom5/IQR_RE_R0_N100_Ind50_5yrs_noCKMR, ylim=c(0.25,1.2), las=1, ylab="IQR RE log(R0), relative to NO CKMR", xaxt="n", pch=16, main="N100", xlab="",xlim=c(0.75,3.25), cex=1.25)
+points(1:3,IQR_RE_R0_N100_Ind50_ckmrmultinom10/IQR_RE_R0_N100_Ind50_10yrs_noCKMR, pch=16, col=3, cex=1.25)
+points(seq(1.1,3.1,1),IQR_RE_R0_N100_Ind50_ckmrmultinom20/IQR_RE_R0_N100_Ind50_20yrs_noCKMR, pch=16, col=4, cex=1.25)
+plot(seq(0.9,2.9,1),IQR_RE_R0_N1000_Ind50_ckmrmultinom5/IQR_RE_R0_N1000_Ind50_5yrs_noCKMR, ylim=c(0.25,1.2), las=1, ylab="", xaxt="n", pch=16, main="Index 0.5,  N1000", xlab="",xlim=c(0.75,3.25), cex=1.25)
+points(1:3,IQR_RE_R0_N1000_Ind50_ckmrmultinom10/IQR_RE_R0_N1000_Ind50_10yrs_noCKMR, pch=16, col=3, cex=1.25)
+points(seq(1.1,3.1,1),IQR_RE_R0_N1000_Ind50_ckmrmultinom20/IQR_RE_R0_N1000_Ind50_20yrs_noCKMR, pch=16, col=4, cex=1.25)
+plot(seq(0.9,2.9,1),IQR_RE_R0_N5000_Ind50_ckmrmultinom5/IQR_RE_R0_N5000_Ind50_5yrs_noCKMR, ylim=c(0.25,1.2), las=1, ylab="", xaxt="n", pch=16, main="N5000", xlab="",xlim=c(0.75,3.25), cex=1.25)
+points(1:3,IQR_RE_R0_N5000_Ind50_ckmrmultinom10/IQR_RE_R0_N5000_Ind50_10yrs_noCKMR, pch=16, col=3, cex=1.25)
+points(seq(1.1,3.1,1),IQR_RE_R0_N5000_Ind50_ckmrmultinom20/IQR_RE_R0_N5000_Ind50_20yrs_noCKMR, pch=16, col=4, cex=1.25)
+
+#Index 0.25
+plot(seq(0.9,2.9,1),IQR_RE_R0_N100_Ind25_ckmrmultinom5/IQR_RE_R0_N100_Ind25_5yrs_noCKMR, ylim=c(0.25,1.2), las=1, ylab="IQR RE log(R0), relative to NO CKMR", xaxt="n", pch=16, main="N100", xlab="",xlim=c(0.75,3.25), cex=1.25)
+axis(side=1, at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+points(1:3,IQR_RE_R0_N100_Ind25_ckmrmultinom10/IQR_RE_R0_N100_Ind25_10yrs_noCKMR, pch=16, col=3, cex=1.25)
+points(seq(1.1,3.1,1),IQR_RE_R0_N100_Ind25_ckmrmultinom20/IQR_RE_R0_N100_Ind25_20yrs_noCKMR, pch=16, col=4, cex=1.25)
+plot(seq(0.9,2.9,1),IQR_RE_R0_N1000_Ind25_ckmrmultinom5/IQR_RE_R0_N1000_Ind25_5yrs_noCKMR, ylim=c(0.25,1.2), las=1, ylab="", xaxt="n", pch=16, main="Index 0.25,  N1000", xlab="",xlim=c(0.75,3.25), cex=1.25)
+axis(side=1, at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+points(1:3,IQR_RE_R0_N1000_Ind25_ckmrmultinom10/IQR_RE_R0_N1000_Ind25_10yrs_noCKMR, pch=16, col=3, cex=1.25)
+points(seq(1.1,3.1,1),IQR_RE_R0_N1000_Ind25_ckmrmultinom20/IQR_RE_R0_N1000_Ind25_20yrs_noCKMR, pch=16, col=4, cex=1.25)
+plot(seq(0.9,2.9,1),IQR_RE_R0_N5000_Ind25_ckmrmultinom5/IQR_RE_R0_N5000_Ind25_5yrs_noCKMR, ylim=c(0.25,1.2), las=1, ylab="", xaxt="n", pch=16, main="N5000", xlab="",xlim=c(0.75,3.25), cex=1.25)
+axis(side=1, at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+points(1:3,IQR_RE_R0_N5000_Ind25_ckmrmultinom10/IQR_RE_R0_N5000_Ind25_10yrs_noCKMR, pch=16, col=3, cex=1.25)
+points(seq(1.1,3.1,1),IQR_RE_R0_N5000_Ind25_ckmrmultinom20/IQR_RE_R0_N5000_Ind25_20yrs_noCKMR, pch=16, col=4, cex=1.25)
+
+##########
+#IQR ARE
+##########
+#No Index
+par(mfrow=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
+plot(seq(0.9,2.9,1),IQR_ARE_R0_N100_NoIndex_ckmrmultinom5/IQR_ARE_R0_N100_NoIndex_5yrs_noCKMR, ylim=c(0.25,1.2), las=1, ylab="IQR ARE log(R0), ARElative to NO CKMR", xaxt="n", pch=16, main="N100", xlab="",xlim=c(0.75,3.25), cex=1.25)
+points(1:3,IQR_ARE_R0_N100_NoIndex_ckmrmultinom10/IQR_ARE_R0_N100_NoIndex_10yrs_noCKMR, pch=16, col=3, cex=1.25)
+points(seq(1.1,3.1,1),IQR_ARE_R0_N100_NoIndex_ckmrmultinom20/IQR_ARE_R0_N100_NoIndex_20yrs_noCKMR, pch=16, col=4, cex=1.25)
+plot(seq(0.9,2.9,1),IQR_ARE_R0_N1000_NoIndex_ckmrmultinom5/IQR_ARE_R0_N1000_NoIndex_5yrs_noCKMR, ylim=c(0.25,1.2), las=1, ylab="", xaxt="n", pch=16, main="No Index,  N1000", xlab="",xlim=c(0.75,3.25), cex=1.25)
+legend("top", c("CKMR 5yrs", "CKMR 10yrs","CKMR 20yrs"), col=c(1,3,4), pch=16)
+points(1:3,IQR_ARE_R0_N1000_NoIndex_ckmrmultinom10/IQR_ARE_R0_N1000_NoIndex_10yrs_noCKMR, pch=16, col=3, cex=1.25)
+points(seq(1.1,3.1,1),IQR_ARE_R0_N1000_NoIndex_ckmrmultinom20/IQR_ARE_R0_N1000_NoIndex_20yrs_noCKMR, pch=16, col=4, cex=1.25)
+plot(seq(0.9,2.9,1),IQR_ARE_R0_N5000_NoIndex_ckmrmultinom5/IQR_ARE_R0_N5000_NoIndex_5yrs_noCKMR, ylim=c(0.25,1.2), las=1, ylab="", xaxt="n", pch=16, main="N5000", xlab="",xlim=c(0.75,3.25), cex=1.25)
+points(1:3,IQR_ARE_R0_N5000_NoIndex_ckmrmultinom10/IQR_ARE_R0_N5000_NoIndex_10yrs_noCKMR, pch=16, col=3, cex=1.25)
+points(seq(1.1,3.1,1),IQR_ARE_R0_N5000_NoIndex_ckmrmultinom20/IQR_ARE_R0_N5000_NoIndex_20yrs_noCKMR, pch=16, col=4, cex=1.25)
+
+#Index 0.50
+plot(seq(0.9,2.9,1),IQR_ARE_R0_N100_Ind50_ckmrmultinom5/IQR_ARE_R0_N100_Ind50_5yrs_noCKMR, ylim=c(0.25,1.2), las=1, ylab="IQR ARE log(R0), ARElative to NO CKMR", xaxt="n", pch=16, main="N100", xlab="",xlim=c(0.75,3.25), cex=1.25)
+points(1:3,IQR_ARE_R0_N100_Ind50_ckmrmultinom10/IQR_ARE_R0_N100_Ind50_10yrs_noCKMR, pch=16, col=3, cex=1.25)
+points(seq(1.1,3.1,1),IQR_ARE_R0_N100_Ind50_ckmrmultinom20/IQR_ARE_R0_N100_Ind50_20yrs_noCKMR, pch=16, col=4, cex=1.25)
+plot(seq(0.9,2.9,1),IQR_ARE_R0_N1000_Ind50_ckmrmultinom5/IQR_ARE_R0_N1000_Ind50_5yrs_noCKMR, ylim=c(0.25,1.2), las=1, ylab="", xaxt="n", pch=16, main="Index 0.5,  N1000", xlab="",xlim=c(0.75,3.25), cex=1.25)
+points(1:3,IQR_ARE_R0_N1000_Ind50_ckmrmultinom10/IQR_ARE_R0_N1000_Ind50_10yrs_noCKMR, pch=16, col=3, cex=1.25)
+points(seq(1.1,3.1,1),IQR_ARE_R0_N1000_Ind50_ckmrmultinom20/IQR_ARE_R0_N1000_Ind50_20yrs_noCKMR, pch=16, col=4, cex=1.25)
+plot(seq(0.9,2.9,1),IQR_ARE_R0_N5000_Ind50_ckmrmultinom5/IQR_ARE_R0_N5000_Ind50_5yrs_noCKMR, ylim=c(0.25,1.2), las=1, ylab="", xaxt="n", pch=16, main="N5000", xlab="",xlim=c(0.75,3.25), cex=1.25)
+points(1:3,IQR_ARE_R0_N5000_Ind50_ckmrmultinom10/IQR_ARE_R0_N5000_Ind50_10yrs_noCKMR, pch=16, col=3, cex=1.25)
+points(seq(1.1,3.1,1),IQR_ARE_R0_N5000_Ind50_ckmrmultinom20/IQR_ARE_R0_N5000_Ind50_20yrs_noCKMR, pch=16, col=4, cex=1.25)
+
+#Index 0.25
+plot(seq(0.9,2.9,1),IQR_ARE_R0_N100_Ind25_ckmrmultinom5/IQR_ARE_R0_N100_Ind25_5yrs_noCKMR, ylim=c(0.25,1.2), las=1, ylab="IQR ARE log(R0), ARElative to NO CKMR", xaxt="n", pch=16, main="N100", xlab="",xlim=c(0.75,3.25), cex=1.25)
+axis(side=1, at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+points(1:3,IQR_ARE_R0_N100_Ind25_ckmrmultinom10/IQR_ARE_R0_N100_Ind25_10yrs_noCKMR, pch=16, col=3, cex=1.25)
+points(seq(1.1,3.1,1),IQR_ARE_R0_N100_Ind25_ckmrmultinom20/IQR_ARE_R0_N100_Ind25_20yrs_noCKMR, pch=16, col=4, cex=1.25)
+plot(seq(0.9,2.9,1),IQR_ARE_R0_N1000_Ind25_ckmrmultinom5/IQR_ARE_R0_N1000_Ind25_5yrs_noCKMR, ylim=c(0.25,1.2), las=1, ylab="", xaxt="n", pch=16, main="Index 0.25,  N1000", xlab="",xlim=c(0.75,3.25), cex=1.25)
+axis(side=1, at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+points(1:3,IQR_ARE_R0_N1000_Ind25_ckmrmultinom10/IQR_ARE_R0_N1000_Ind25_10yrs_noCKMR, pch=16, col=3, cex=1.25)
+points(seq(1.1,3.1,1),IQR_ARE_R0_N1000_Ind25_ckmrmultinom20/IQR_ARE_R0_N1000_Ind25_20yrs_noCKMR, pch=16, col=4, cex=1.25)
+plot(seq(0.9,2.9,1),IQR_ARE_R0_N5000_Ind25_ckmrmultinom5/IQR_ARE_R0_N5000_Ind25_5yrs_noCKMR, ylim=c(0.25,1.2), las=1, ylab="", xaxt="n", pch=16, main="N5000", xlab="",xlim=c(0.75,3.25), cex=1.25)
+axis(side=1, at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+points(1:3,IQR_ARE_R0_N5000_Ind25_ckmrmultinom10/IQR_ARE_R0_N5000_Ind25_10yrs_noCKMR, pch=16, col=3, cex=1.25)
+points(seq(1.1,3.1,1),IQR_ARE_R0_N5000_Ind25_ckmrmultinom20/IQR_ARE_R0_N5000_Ind25_20yrs_noCKMR, pch=16, col=4, cex=1.25)
+
 #M sd of relative error between sims 
 #No Index
 par(mfrow=c(2,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
@@ -6933,4 +7657,88 @@ plot(1:3,sd_ARE_M_N5000_Ind25_ckmrmultinom5/sd_ARE_M_N5000_Ind25_5yrs_noCKMR, yl
 points(1:3,sd_ARE_M_N5000_Ind25_ckmrmultinom10/sd_ARE_M_N5000_Ind25_10yrs_noCKMR, pch=16, col=3)
 points(1:3,sd_ARE_M_N5000_Ind25_ckmrmultinom20/sd_ARE_M_N5000_Ind25_20yrs_noCKMR, pch=16, col=4)
 axis(side=1, at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+
+##########
+#IQR
+##########
+#No Index
+par(mfrow=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
+plot(seq(0.9,2.9,1),IQR_RE_M_N100_NoIndex_ckmrmultinom5/IQR_RE_M_N100_NoIndex_5yrs_noCKMR, ylim=c(0.1,1.2), las=1, ylab="IQR RE log(M), relative to NO CKMR", xaxt="n", pch=16, main="N100", xlab="",xlim=c(0.75,3.25),cex=1.25)
+points(1:3,IQR_RE_M_N100_NoIndex_ckmrmultinom10/IQR_RE_M_N100_NoIndex_10yrs_noCKMR, pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),IQR_RE_M_N100_NoIndex_ckmrmultinom20/IQR_RE_M_N100_NoIndex_20yrs_noCKMR, pch=16, col=4,cex=1.25)
+plot(seq(0.9,2.9,1),IQR_RE_M_N1000_NoIndex_ckmrmultinom5/IQR_RE_M_N1000_NoIndex_5yrs_noCKMR, ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="No Index,  N1000", xlab="",xlim=c(0.75,3.25),cex=1.25)
+legend("top", c("CKMR 5yrs", "CKMR 10yrs", "CKMR 20yrs"), col=c(1,3,4), pch=16)
+points(1:3,IQR_RE_M_N1000_NoIndex_ckmrmultinom10/IQR_RE_M_N1000_NoIndex_10yrs_noCKMR, pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),IQR_RE_M_N1000_NoIndex_ckmrmultinom20/IQR_RE_M_N1000_NoIndex_20yrs_noCKMR, pch=16, col=4,cex=1.25)
+plot(seq(0.9,2.9,1),IQR_RE_M_N5000_NoIndex_ckmrmultinom5/IQR_RE_M_N5000_NoIndex_5yrs_noCKMR, ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="N5000", xlab="",xlim=c(0.75,3.25),cex=1.25)
+points(1:3,IQR_RE_M_N5000_NoIndex_ckmrmultinom10/IQR_RE_M_N5000_NoIndex_10yrs_noCKMR, pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),IQR_RE_M_N5000_NoIndex_ckmrmultinom20/IQR_RE_M_N5000_NoIndex_20yrs_noCKMR, pch=16, col=4,cex=1.25)
+
+#Index 0.50
+plot(seq(0.9,2.9,1),IQR_RE_M_N100_Ind50_ckmrmultinom5/IQR_RE_M_N100_Ind50_5yrs_noCKMR, ylim=c(0.1,1.2), las=1, ylab="IQR RE log(M), relative to NO CKMR", xaxt="n", pch=16, main="N100", xlab="",xlim=c(0.75,3.25),cex=1.25)
+points(1:3,IQR_RE_M_N100_Ind50_ckmrmultinom10/IQR_RE_M_N100_Ind50_10yrs_noCKMR, pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),IQR_RE_M_N100_Ind50_ckmrmultinom20/IQR_RE_M_N100_Ind50_20yrs_noCKMR, pch=16, col=4,cex=1.25)
+plot(seq(0.9,2.9,1),IQR_RE_M_N1000_Ind50_ckmrmultinom5/IQR_RE_M_N1000_Ind50_5yrs_noCKMR, ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="Index 0.50,  N1000", xlab="",xlim=c(0.75,3.25),cex=1.25)
+points(1:3,IQR_RE_M_N1000_Ind50_ckmrmultinom10/IQR_RE_M_N1000_Ind50_10yrs_noCKMR, pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),IQR_RE_M_N1000_Ind50_ckmrmultinom20/IQR_RE_M_N1000_Ind50_20yrs_noCKMR, pch=16, col=4,cex=1.25)
+plot(seq(0.9,2.9,1),IQR_RE_M_N5000_Ind50_ckmrmultinom5/IQR_RE_M_N5000_Ind50_5yrs_noCKMR, ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="N5000", xlab="",xlim=c(0.75,3.25),cex=1.25)
+points(1:3,IQR_RE_M_N5000_Ind50_ckmrmultinom10/IQR_RE_M_N5000_Ind50_10yrs_noCKMR, pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),IQR_RE_M_N5000_Ind50_ckmrmultinom20/IQR_RE_M_N5000_Ind50_20yrs_noCKMR, pch=16, col=4,cex=1.25)
+
+#Index 0.25
+plot(seq(0.9,2.9,1),IQR_RE_M_N100_Ind25_ckmrmultinom5/IQR_RE_M_N100_Ind25_5yrs_noCKMR, ylim=c(0.1,1.2), las=1, ylab="IQR RE log(M), relative to NO CKMR", xaxt="n", pch=16, main="N100", xlab="",xlim=c(0.75,3.25),cex=1.25)
+axis(side=1, at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+points(1:3,IQR_RE_M_N100_Ind25_ckmrmultinom10/IQR_RE_M_N100_Ind25_10yrs_noCKMR, pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),IQR_RE_M_N100_Ind25_ckmrmultinom20/IQR_RE_M_N100_Ind25_20yrs_noCKMR, pch=16, col=4,cex=1.25)
+plot(seq(0.9,2.9,1),IQR_RE_M_N1000_Ind25_ckmrmultinom5/IQR_RE_M_N1000_Ind25_5yrs_noCKMR, ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="Index 0.25,  N1000", xlab="",xlim=c(0.75,3.25),cex=1.25)
+axis(side=1, at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+points(1:3,IQR_RE_M_N1000_Ind25_ckmrmultinom10/IQR_RE_M_N1000_Ind25_10yrs_noCKMR, pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),IQR_RE_M_N1000_Ind25_ckmrmultinom20/IQR_RE_M_N1000_Ind25_20yrs_noCKMR, pch=16, col=4,cex=1.25)
+plot(seq(0.9,2.9,1),IQR_RE_M_N5000_Ind25_ckmrmultinom5/IQR_RE_M_N5000_Ind25_5yrs_noCKMR, ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="N5000", xlab="",xlim=c(0.75,3.25),cex=1.25)
+axis(side=1, at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+points(1:3,IQR_RE_M_N5000_Ind25_ckmrmultinom10/IQR_RE_M_N5000_Ind25_10yrs_noCKMR, pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),IQR_RE_M_N5000_Ind25_ckmrmultinom20/IQR_RE_M_N5000_Ind25_20yrs_noCKMR, pch=16, col=4,cex=1.25)
+
+###########
+#IQR ARE
+###########
+#NO Index
+par(mfrow=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
+plot(seq(0.9,2.9,1),IQR_ARE_M_N100_NoIndex_ckmrmultinom5/IQR_ARE_M_N100_NoIndex_5yrs_noCKMR, ylim=c(0.1,1.2), las=1, ylab="IQR ARE log(M), ARElative to NO CKMR", xaxt="n", pch=16, main="N100", xlab="",xlim=c(0.75,3.25),cex=1.25)
+points(1:3,IQR_ARE_M_N100_NoIndex_ckmrmultinom10/IQR_ARE_M_N100_NoIndex_10yrs_noCKMR, pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),IQR_ARE_M_N100_NoIndex_ckmrmultinom20/IQR_ARE_M_N100_NoIndex_20yrs_noCKMR, pch=16, col=4,cex=1.25)
+plot(seq(0.9,2.9,1),IQR_ARE_M_N1000_NoIndex_ckmrmultinom5/IQR_ARE_M_N1000_NoIndex_5yrs_noCKMR, ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="No Index,  N1000", xlab="",xlim=c(0.75,3.25),cex=1.25)
+legend("top", c("CKMR 5yrs", "CKMR 10yrs", "CKMR 20yrs"), col=c(1,3,4), pch=16)
+points(1:3,IQR_ARE_M_N1000_NoIndex_ckmrmultinom10/IQR_ARE_M_N1000_NoIndex_10yrs_noCKMR, pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),IQR_ARE_M_N1000_NoIndex_ckmrmultinom20/IQR_ARE_M_N1000_NoIndex_20yrs_noCKMR, pch=16, col=4,cex=1.25)
+plot(seq(0.9,2.9,1),IQR_ARE_M_N5000_NoIndex_ckmrmultinom5/IQR_ARE_M_N5000_NoIndex_5yrs_noCKMR, ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="N5000", xlab="",xlim=c(0.75,3.25),cex=1.25)
+points(1:3,IQR_ARE_M_N5000_NoIndex_ckmrmultinom10/IQR_ARE_M_N5000_NoIndex_10yrs_noCKMR, pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),IQR_ARE_M_N5000_NoIndex_ckmrmultinom20/IQR_ARE_M_N5000_NoIndex_20yrs_noCKMR, pch=16, col=4,cex=1.25)
+
+#Index 0.50
+plot(seq(0.9,2.9,1),IQR_ARE_M_N100_Ind50_ckmrmultinom5/IQR_ARE_M_N100_Ind50_5yrs_noCKMR, ylim=c(0.1,1.2), las=1, ylab="IQR ARE log(M), ARElative to NO CKMR", xaxt="n", pch=16, main="N100", xlab="",xlim=c(0.75,3.25),cex=1.25)
+points(1:3,IQR_ARE_M_N100_Ind50_ckmrmultinom10/IQR_ARE_M_N100_Ind50_10yrs_noCKMR, pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),IQR_ARE_M_N100_Ind50_ckmrmultinom20/IQR_ARE_M_N100_Ind50_20yrs_noCKMR, pch=16, col=4,cex=1.25)
+plot(seq(0.9,2.9,1),IQR_ARE_M_N1000_Ind50_ckmrmultinom5/IQR_ARE_M_N1000_Ind50_5yrs_noCKMR, ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="Index 0.50,  N1000", xlab="",xlim=c(0.75,3.25),cex=1.25)
+points(1:3,IQR_ARE_M_N1000_Ind50_ckmrmultinom10/IQR_ARE_M_N1000_Ind50_10yrs_noCKMR, pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),IQR_ARE_M_N1000_Ind50_ckmrmultinom20/IQR_ARE_M_N1000_Ind50_20yrs_noCKMR, pch=16, col=4,cex=1.25)
+plot(seq(0.9,2.9,1),IQR_ARE_M_N5000_Ind50_ckmrmultinom5/IQR_ARE_M_N5000_Ind50_5yrs_noCKMR, ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="N5000", xlab="",xlim=c(0.75,3.25),cex=1.25)
+points(1:3,IQR_ARE_M_N5000_Ind50_ckmrmultinom10/IQR_ARE_M_N5000_Ind50_10yrs_noCKMR, pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),IQR_ARE_M_N5000_Ind50_ckmrmultinom20/IQR_ARE_M_N5000_Ind50_20yrs_noCKMR, pch=16, col=4,cex=1.25)
+
+#Index 0.25
+plot(seq(0.9,2.9,1),IQR_ARE_M_N100_Ind25_ckmrmultinom5/IQR_ARE_M_N100_Ind25_5yrs_noCKMR, ylim=c(0.1,1.2), las=1, ylab="IQR ARE log(M), ARElative to NO CKMR", xaxt="n", pch=16, main="N100", xlab="",xlim=c(0.75,3.25),cex=1.25)
+axis(side=1, at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+points(1:3,IQR_ARE_M_N100_Ind25_ckmrmultinom10/IQR_ARE_M_N100_Ind25_10yrs_noCKMR, pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),IQR_ARE_M_N100_Ind25_ckmrmultinom20/IQR_ARE_M_N100_Ind25_20yrs_noCKMR, pch=16, col=4,cex=1.25)
+plot(seq(0.9,2.9,1),IQR_ARE_M_N1000_Ind25_ckmrmultinom5/IQR_ARE_M_N1000_Ind25_5yrs_noCKMR, ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="Index 0.25,  N1000", xlab="",xlim=c(0.75,3.25),cex=1.25)
+axis(side=1, at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+points(1:3,IQR_ARE_M_N1000_Ind25_ckmrmultinom10/IQR_ARE_M_N1000_Ind25_10yrs_noCKMR, pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),IQR_ARE_M_N1000_Ind25_ckmrmultinom20/IQR_ARE_M_N1000_Ind25_20yrs_noCKMR, pch=16, col=4,cex=1.25)
+plot(seq(0.9,2.9,1),IQR_ARE_M_N5000_Ind25_ckmrmultinom5/IQR_ARE_M_N5000_Ind25_5yrs_noCKMR, ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="N5000", xlab="",xlim=c(0.75,3.25),cex=1.25)
+axis(side=1, at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+points(1:3,IQR_ARE_M_N5000_Ind25_ckmrmultinom10/IQR_ARE_M_N5000_Ind25_10yrs_noCKMR, pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),IQR_ARE_M_N5000_Ind25_ckmrmultinom20/IQR_ARE_M_N5000_Ind25_20yrs_noCKMR, pch=16, col=4,cex=1.25)
+
+
 
