@@ -7361,9 +7361,9 @@ points(1:3,sd_ARE_R0_N5000_Ind25_ckmrmultinom10/sd_ARE_R0_N5000_Ind25_10yrs_noCK
 points(1:3,sd_ARE_R0_N5000_Ind25_ckmrmultinom20/sd_ARE_R0_N5000_Ind25_20yrs_noCKMR, pch=16, col=4)
 axis(side=1, at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
 
-#########
-#IQR
-#########
+##################
+#IQR RE
+##################
 #No Index
 par(mfrow=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
 plot(seq(0.9,2.9,1),IQR_RE_R0_N100_NoIndex_ckmrmultinom5/IQR_RE_R0_N100_NoIndex_5yrs_noCKMR, ylim=c(0.25,1.2), las=1, ylab="IQR RE log(R0), relative to NO CKMR", xaxt="n", pch=16, main="N100", xlab="",xlim=c(0.75,3.25), cex=1.25)
@@ -7739,6 +7739,391 @@ plot(seq(0.9,2.9,1),IQR_ARE_M_N5000_Ind25_ckmrmultinom5/IQR_ARE_M_N5000_Ind25_5y
 axis(side=1, at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
 points(1:3,IQR_ARE_M_N5000_Ind25_ckmrmultinom10/IQR_ARE_M_N5000_Ind25_10yrs_noCKMR, pch=16, col=3,cex=1.25)
 points(seq(1.1,3.1,1),IQR_ARE_M_N5000_Ind25_ckmrmultinom20/IQR_ARE_M_N5000_Ind25_20yrs_noCKMR, pch=16, col=4,cex=1.25)
+
+#Looking at median ARE of SSB compared to no ckmr
+#No Index
+par(mfrow=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
+plot(1:76,apply(abs(RE_ssb_N100_NoIndex_ckmrmultinom5),c(1,3),median)[1,]/apply(abs(RE_ssb_N100_NoIndex_5yrs_noCKMR),c(1,3),median)[1,], pch=16, las=1, ylim=c(0.1,1.35), ylab="", xlab="", main="Cod, N=100",xaxt="n")
+points(1:76,apply(abs(RE_ssb_N100_NoIndex_ckmrmultinom10),c(1,3),median)[1,]/apply(abs(RE_ssb_N100_NoIndex_10yrs_noCKMR),c(1,3),median)[1,], pch=16, col=3)
+points(1:76,apply(abs(RE_ssb_N100_NoIndex_ckmrmultinom20),c(1,3),median)[1,]/apply(abs(RE_ssb_N100_NoIndex_20yrs_noCKMR),c(1,3),median)[1,], pch=16, col=4)
+
+plot(1:76,apply(abs(RE_ssb_N100_NoIndex_ckmrmultinom5),c(1,3),median)[2,]/apply(abs(RE_ssb_N100_NoIndex_5yrs_noCKMR),c(1,3),median)[2,], pch=16, las=1, ylim=c(0.1,1.35), ylab="", xlab="", main="Flatfish, N=100",xaxt="n")
+points(1:76,apply(abs(RE_ssb_N100_NoIndex_ckmrmultinom10),c(1,3),median)[2,]/apply(abs(RE_ssb_N100_NoIndex_10yrs_noCKMR),c(1,3),median)[2,], pch=16, col=3)
+points(1:76,apply(abs(RE_ssb_N100_NoIndex_ckmrmultinom20),c(1,3),median)[2,]/apply(abs(RE_ssb_N100_NoIndex_20yrs_noCKMR),c(1,3),median)[2,], pch=16, col=4)
+
+plot(1:76,apply(abs(RE_ssb_N100_NoIndex_ckmrmultinom5),c(1,3),median)[3,]/apply(abs(RE_ssb_N100_NoIndex_5yrs_noCKMR),c(1,3),median)[3,], pch=16, las=1, ylim=c(0.1,1.35), ylab="", xlab="", main="Sardine, N=100",xaxt="n")
+points(1:76,apply(abs(RE_ssb_N100_NoIndex_ckmrmultinom10),c(1,3),median)[3,]/apply(abs(RE_ssb_N100_NoIndex_10yrs_noCKMR),c(1,3),median)[3,], pch=16, col=3)
+points(1:76,apply(abs(RE_ssb_N100_NoIndex_ckmrmultinom20),c(1,3),median)[3,]/apply(abs(RE_ssb_N100_NoIndex_20yrs_noCKMR),c(1,3),median)[3,], pch=16, col=4)
+
+plot(1:76,apply(abs(RE_ssb_N1000_NoIndex_ckmrmultinom5),c(1,3),median)[1,]/apply(abs(RE_ssb_N1000_NoIndex_5yrs_noCKMR),c(1,3),median)[1,], pch=16, las=1, ylim=c(0.1,1.35), ylab="Median ARE / No CKMR", xlab="", main="N=1000",xaxt="n")
+points(1:76,apply(abs(RE_ssb_N1000_NoIndex_ckmrmultinom10),c(1,3),median)[1,]/apply(abs(RE_ssb_N1000_NoIndex_10yrs_noCKMR),c(1,3),median)[1,], pch=16, col=3)
+points(1:76,apply(abs(RE_ssb_N1000_NoIndex_ckmrmultinom20),c(1,3),median)[1,]/apply(abs(RE_ssb_N1000_NoIndex_20yrs_noCKMR),c(1,3),median)[1,], pch=16, col=4)
+
+plot(1:76,apply(abs(RE_ssb_N1000_NoIndex_ckmrmultinom5),c(1,3),median)[2,]/apply(abs(RE_ssb_N1000_NoIndex_5yrs_noCKMR),c(1,3),median)[2,], pch=16, las=1, ylim=c(0.1,1.35), ylab="", xlab="", main="N=1000",xaxt="n")
+points(1:76,apply(abs(RE_ssb_N1000_NoIndex_ckmrmultinom10),c(1,3),median)[2,]/apply(abs(RE_ssb_N1000_NoIndex_10yrs_noCKMR),c(1,3),median)[2,], pch=16, col=3)
+points(1:76,apply(abs(RE_ssb_N1000_NoIndex_ckmrmultinom20),c(1,3),median)[2,]/apply(abs(RE_ssb_N1000_NoIndex_20yrs_noCKMR),c(1,3),median)[2,], pch=16, col=4)
+
+plot(1:76,apply(abs(RE_ssb_N1000_NoIndex_ckmrmultinom5),c(1,3),median)[3,]/apply(abs(RE_ssb_N1000_NoIndex_5yrs_noCKMR),c(1,3),median)[3,], pch=16, las=1, ylim=c(0.1,1.35), ylab="", xlab="", main="N=1000",xaxt="n")
+points(1:76,apply(abs(RE_ssb_N1000_NoIndex_ckmrmultinom10),c(1,3),median)[3,]/apply(abs(RE_ssb_N1000_NoIndex_10yrs_noCKMR),c(1,3),median)[3,], pch=16, col=3)
+points(1:76,apply(abs(RE_ssb_N1000_NoIndex_ckmrmultinom20),c(1,3),median)[3,]/apply(abs(RE_ssb_N1000_NoIndex_20yrs_noCKMR),c(1,3),median)[3,], pch=16, col=4)
+
+plot(1:76,apply(abs(RE_ssb_N5000_NoIndex_ckmrmultinom5),c(1,3),median)[1,]/apply(abs(RE_ssb_N5000_NoIndex_5yrs_noCKMR),c(1,3),median)[1,], pch=16, las=1, ylim=c(0.1,1.35), ylab="", xlab="", main="N=5000")
+points(1:76,apply(abs(RE_ssb_N5000_NoIndex_ckmrmultinom10),c(1,3),median)[1,]/apply(abs(RE_ssb_N5000_NoIndex_10yrs_noCKMR),c(1,3),median)[1,], pch=16, col=3)
+points(1:76,apply(abs(RE_ssb_N5000_NoIndex_ckmrmultinom20),c(1,3),median)[1,]/apply(abs(RE_ssb_N5000_NoIndex_20yrs_noCKMR),c(1,3),median)[1,], pch=16, col=4)
+
+plot(1:76,apply(abs(RE_ssb_N5000_NoIndex_ckmrmultinom5),c(1,3),median)[2,]/apply(abs(RE_ssb_N5000_NoIndex_5yrs_noCKMR),c(1,3),median)[2,], pch=16, las=1, ylim=c(0.1,1.35), ylab="", xlab="Year", main="N=5000")
+points(1:76,apply(abs(RE_ssb_N5000_NoIndex_ckmrmultinom10),c(1,3),median)[2,]/apply(abs(RE_ssb_N5000_NoIndex_10yrs_noCKMR),c(1,3),median)[2,], pch=16, col=3)
+points(1:76,apply(abs(RE_ssb_N5000_NoIndex_ckmrmultinom20),c(1,3),median)[2,]/apply(abs(RE_ssb_N5000_NoIndex_20yrs_noCKMR),c(1,3),median)[2,], pch=16, col=4)
+
+plot(1:76,apply(abs(RE_ssb_N5000_NoIndex_ckmrmultinom5),c(1,3),median)[3,]/apply(abs(RE_ssb_N5000_NoIndex_5yrs_noCKMR),c(1,3),median)[3,], pch=16, las=1, ylim=c(0.1,1.35), ylab="", xlab="", main="N=5000")
+points(1:76,apply(abs(RE_ssb_N5000_NoIndex_ckmrmultinom10),c(1,3),median)[3,]/apply(abs(RE_ssb_N5000_NoIndex_10yrs_noCKMR),c(1,3),median)[3,], pch=16, col=3)
+points(1:76,apply(abs(RE_ssb_N5000_NoIndex_ckmrmultinom20),c(1,3),median)[3,]/apply(abs(RE_ssb_N5000_NoIndex_20yrs_noCKMR),c(1,3),median)[3,], pch=16, col=4)
+
+#Index 0.50
+par(mfrow=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
+plot(1:76,apply(abs(RE_ssb_N100_Ind50_ckmrmultinom5),c(1,3),median)[1,]/apply(abs(RE_ssb_N100_Ind50_5yrs_noCKMR),c(1,3),median)[1,], pch=16, las=1, ylim=c(0.1,1.35), ylab="", xlab="", main="Cod, N=100",xaxt="n")
+points(1:76,apply(abs(RE_ssb_N100_Ind50_ckmrmultinom10),c(1,3),median)[1,]/apply(abs(RE_ssb_N100_Ind50_10yrs_noCKMR),c(1,3),median)[1,], pch=16, col=3)
+points(1:76,apply(abs(RE_ssb_N100_Ind50_ckmrmultinom20),c(1,3),median)[1,]/apply(abs(RE_ssb_N100_Ind50_20yrs_noCKMR),c(1,3),median)[1,], pch=16, col=4)
+
+plot(1:76,apply(abs(RE_ssb_N100_Ind50_ckmrmultinom5),c(1,3),median)[2,]/apply(abs(RE_ssb_N100_Ind50_5yrs_noCKMR),c(1,3),median)[2,], pch=16, las=1, ylim=c(0.1,1.35), ylab="", xlab="", main="Flatfish, N=100",xaxt="n")
+points(1:76,apply(abs(RE_ssb_N100_Ind50_ckmrmultinom10),c(1,3),median)[2,]/apply(abs(RE_ssb_N100_Ind50_10yrs_noCKMR),c(1,3),median)[2,], pch=16, col=3)
+points(1:76,apply(abs(RE_ssb_N100_Ind50_ckmrmultinom20),c(1,3),median)[2,]/apply(abs(RE_ssb_N100_Ind50_20yrs_noCKMR),c(1,3),median)[2,], pch=16, col=4)
+
+plot(1:76,apply(abs(RE_ssb_N100_Ind50_ckmrmultinom5),c(1,3),median)[3,]/apply(abs(RE_ssb_N100_Ind50_5yrs_noCKMR),c(1,3),median)[3,], pch=16, las=1, ylim=c(0.1,1.35), ylab="", xlab="", main="Sardine, N=100",xaxt="n")
+points(1:76,apply(abs(RE_ssb_N100_Ind50_ckmrmultinom10),c(1,3),median)[3,]/apply(abs(RE_ssb_N100_Ind50_10yrs_noCKMR),c(1,3),median)[3,], pch=16, col=3)
+points(1:76,apply(abs(RE_ssb_N100_Ind50_ckmrmultinom20),c(1,3),median)[3,]/apply(abs(RE_ssb_N100_Ind50_20yrs_noCKMR),c(1,3),median)[3,], pch=16, col=4)
+
+plot(1:76,apply(abs(RE_ssb_N1000_Ind50_ckmrmultinom5),c(1,3),median)[1,]/apply(abs(RE_ssb_N1000_Ind50_5yrs_noCKMR),c(1,3),median)[1,], pch=16, las=1, ylim=c(0.1,1.35), ylab="Median ARE / No CKMR", xlab="", main="N=1000",xaxt="n")
+points(1:76,apply(abs(RE_ssb_N1000_Ind50_ckmrmultinom10),c(1,3),median)[1,]/apply(abs(RE_ssb_N1000_Ind50_10yrs_noCKMR),c(1,3),median)[1,], pch=16, col=3)
+points(1:76,apply(abs(RE_ssb_N1000_Ind50_ckmrmultinom20),c(1,3),median)[1,]/apply(abs(RE_ssb_N1000_Ind50_20yrs_noCKMR),c(1,3),median)[1,], pch=16, col=4)
+
+plot(1:76,apply(abs(RE_ssb_N1000_Ind50_ckmrmultinom5),c(1,3),median)[2,]/apply(abs(RE_ssb_N1000_Ind50_5yrs_noCKMR),c(1,3),median)[2,], pch=16, las=1, ylim=c(0.1,1.35), ylab="", xlab="", main="N=1000",xaxt="n")
+points(1:76,apply(abs(RE_ssb_N1000_Ind50_ckmrmultinom10),c(1,3),median)[2,]/apply(abs(RE_ssb_N1000_Ind50_10yrs_noCKMR),c(1,3),median)[2,], pch=16, col=3)
+points(1:76,apply(abs(RE_ssb_N1000_Ind50_ckmrmultinom20),c(1,3),median)[2,]/apply(abs(RE_ssb_N1000_Ind50_20yrs_noCKMR),c(1,3),median)[2,], pch=16, col=4)
+
+plot(1:76,apply(abs(RE_ssb_N1000_Ind50_ckmrmultinom5),c(1,3),median)[3,]/apply(abs(RE_ssb_N1000_Ind50_5yrs_noCKMR),c(1,3),median)[3,], pch=16, las=1, ylim=c(0.1,1.35), ylab="", xlab="", main="N=1000",xaxt="n")
+points(1:76,apply(abs(RE_ssb_N1000_Ind50_ckmrmultinom10),c(1,3),median)[3,]/apply(abs(RE_ssb_N1000_Ind50_10yrs_noCKMR),c(1,3),median)[3,], pch=16, col=3)
+points(1:76,apply(abs(RE_ssb_N1000_Ind50_ckmrmultinom20),c(1,3),median)[3,]/apply(abs(RE_ssb_N1000_Ind50_20yrs_noCKMR),c(1,3),median)[3,], pch=16, col=4)
+
+plot(1:76,apply(abs(RE_ssb_N5000_Ind50_ckmrmultinom5),c(1,3),median)[1,]/apply(abs(RE_ssb_N5000_Ind50_5yrs_noCKMR),c(1,3),median)[1,], pch=16, las=1, ylim=c(0.1,1.35), ylab="", xlab="", main="N=5000")
+points(1:76,apply(abs(RE_ssb_N5000_Ind50_ckmrmultinom10),c(1,3),median)[1,]/apply(abs(RE_ssb_N5000_Ind50_10yrs_noCKMR),c(1,3),median)[1,], pch=16, col=3)
+points(1:76,apply(abs(RE_ssb_N5000_Ind50_ckmrmultinom20),c(1,3),median)[1,]/apply(abs(RE_ssb_N5000_Ind50_20yrs_noCKMR),c(1,3),median)[1,], pch=16, col=4)
+
+plot(1:76,apply(abs(RE_ssb_N5000_Ind50_ckmrmultinom5),c(1,3),median)[2,]/apply(abs(RE_ssb_N5000_Ind50_5yrs_noCKMR),c(1,3),median)[2,], pch=16, las=1, ylim=c(0.1,1.35), ylab="", xlab="Year", main="N=5000")
+points(1:76,apply(abs(RE_ssb_N5000_Ind50_ckmrmultinom10),c(1,3),median)[2,]/apply(abs(RE_ssb_N5000_Ind50_10yrs_noCKMR),c(1,3),median)[2,], pch=16, col=3)
+points(1:76,apply(abs(RE_ssb_N5000_Ind50_ckmrmultinom20),c(1,3),median)[2,]/apply(abs(RE_ssb_N5000_Ind50_20yrs_noCKMR),c(1,3),median)[2,], pch=16, col=4)
+
+plot(1:76,apply(abs(RE_ssb_N5000_Ind50_ckmrmultinom5),c(1,3),median)[3,]/apply(abs(RE_ssb_N5000_Ind50_5yrs_noCKMR),c(1,3),median)[3,], pch=16, las=1, ylim=c(0.1,1.35), ylab="", xlab="", main="N=5000")
+points(1:76,apply(abs(RE_ssb_N5000_Ind50_ckmrmultinom10),c(1,3),median)[3,]/apply(abs(RE_ssb_N5000_Ind50_10yrs_noCKMR),c(1,3),median)[3,], pch=16, col=3)
+points(1:76,apply(abs(RE_ssb_N5000_Ind50_ckmrmultinom20),c(1,3),median)[3,]/apply(abs(RE_ssb_N5000_Ind50_20yrs_noCKMR),c(1,3),median)[3,], pch=16, col=4)
+
+#Index 0.25
+par(mfrow=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
+plot(1:76,apply(abs(RE_ssb_N100_Ind25_ckmrmultinom5),c(1,3),median)[1,]/apply(abs(RE_ssb_N100_Ind25_5yrs_noCKMR),c(1,3),median)[1,], pch=16, las=1, ylim=c(0.1,1.35), ylab="", xlab="", main="Cod, N=100",xaxt="n")
+points(1:76,apply(abs(RE_ssb_N100_Ind25_ckmrmultinom10),c(1,3),median)[1,]/apply(abs(RE_ssb_N100_Ind25_10yrs_noCKMR),c(1,3),median)[1,], pch=16, col=3)
+points(1:76,apply(abs(RE_ssb_N100_Ind25_ckmrmultinom20),c(1,3),median)[1,]/apply(abs(RE_ssb_N100_Ind25_20yrs_noCKMR),c(1,3),median)[1,], pch=16, col=4)
+
+plot(1:76,apply(abs(RE_ssb_N100_Ind25_ckmrmultinom5),c(1,3),median)[2,]/apply(abs(RE_ssb_N100_Ind25_5yrs_noCKMR),c(1,3),median)[2,], pch=16, las=1, ylim=c(0.1,1.35), ylab="", xlab="", main="Flatfish, N=100",xaxt="n")
+points(1:76,apply(abs(RE_ssb_N100_Ind25_ckmrmultinom10),c(1,3),median)[2,]/apply(abs(RE_ssb_N100_Ind25_10yrs_noCKMR),c(1,3),median)[2,], pch=16, col=3)
+points(1:76,apply(abs(RE_ssb_N100_Ind25_ckmrmultinom20),c(1,3),median)[2,]/apply(abs(RE_ssb_N100_Ind25_20yrs_noCKMR),c(1,3),median)[2,], pch=16, col=4)
+
+plot(1:76,apply(abs(RE_ssb_N100_Ind25_ckmrmultinom5),c(1,3),median)[3,]/apply(abs(RE_ssb_N100_Ind25_5yrs_noCKMR),c(1,3),median)[3,], pch=16, las=1, ylim=c(0.1,1.35), ylab="", xlab="", main="Sardine, N=100",xaxt="n")
+points(1:76,apply(abs(RE_ssb_N100_Ind25_ckmrmultinom10),c(1,3),median)[3,]/apply(abs(RE_ssb_N100_Ind25_10yrs_noCKMR),c(1,3),median)[3,], pch=16, col=3)
+points(1:76,apply(abs(RE_ssb_N100_Ind25_ckmrmultinom20),c(1,3),median)[3,]/apply(abs(RE_ssb_N100_Ind25_20yrs_noCKMR),c(1,3),median)[3,], pch=16, col=4)
+
+plot(1:76,apply(abs(RE_ssb_N1000_Ind25_ckmrmultinom5),c(1,3),median)[1,]/apply(abs(RE_ssb_N1000_Ind25_5yrs_noCKMR),c(1,3),median)[1,], pch=16, las=1, ylim=c(0.1,1.35), ylab="Median ARE / No CKMR", xlab="", main="N=1000",xaxt="n")
+points(1:76,apply(abs(RE_ssb_N1000_Ind25_ckmrmultinom10),c(1,3),median)[1,]/apply(abs(RE_ssb_N1000_Ind25_10yrs_noCKMR),c(1,3),median)[1,], pch=16, col=3)
+points(1:76,apply(abs(RE_ssb_N1000_Ind25_ckmrmultinom20),c(1,3),median)[1,]/apply(abs(RE_ssb_N1000_Ind25_20yrs_noCKMR),c(1,3),median)[1,], pch=16, col=4)
+
+plot(1:76,apply(abs(RE_ssb_N1000_Ind25_ckmrmultinom5),c(1,3),median)[2,]/apply(abs(RE_ssb_N1000_Ind25_5yrs_noCKMR),c(1,3),median)[2,], pch=16, las=1, ylim=c(0.1,1.35), ylab="", xlab="", main="N=1000",xaxt="n")
+points(1:76,apply(abs(RE_ssb_N1000_Ind25_ckmrmultinom10),c(1,3),median)[2,]/apply(abs(RE_ssb_N1000_Ind25_10yrs_noCKMR),c(1,3),median)[2,], pch=16, col=3)
+points(1:76,apply(abs(RE_ssb_N1000_Ind25_ckmrmultinom20),c(1,3),median)[2,]/apply(abs(RE_ssb_N1000_Ind25_20yrs_noCKMR),c(1,3),median)[2,], pch=16, col=4)
+
+plot(1:76,apply(abs(RE_ssb_N1000_Ind25_ckmrmultinom5),c(1,3),median)[3,]/apply(abs(RE_ssb_N1000_Ind25_5yrs_noCKMR),c(1,3),median)[3,], pch=16, las=1, ylim=c(0.1,1.35), ylab="", xlab="", main="N=1000",xaxt="n")
+points(1:76,apply(abs(RE_ssb_N1000_Ind25_ckmrmultinom10),c(1,3),median)[3,]/apply(abs(RE_ssb_N1000_Ind25_10yrs_noCKMR),c(1,3),median)[3,], pch=16, col=3)
+points(1:76,apply(abs(RE_ssb_N1000_Ind25_ckmrmultinom20),c(1,3),median)[3,]/apply(abs(RE_ssb_N1000_Ind25_20yrs_noCKMR),c(1,3),median)[3,], pch=16, col=4)
+
+plot(1:76,apply(abs(RE_ssb_N5000_Ind25_ckmrmultinom5),c(1,3),median)[1,]/apply(abs(RE_ssb_N5000_Ind25_5yrs_noCKMR),c(1,3),median)[1,], pch=16, las=1, ylim=c(0.1,1.35), ylab="", xlab="", main="N=5000")
+points(1:76,apply(abs(RE_ssb_N5000_Ind25_ckmrmultinom10),c(1,3),median)[1,]/apply(abs(RE_ssb_N5000_Ind25_10yrs_noCKMR),c(1,3),median)[1,], pch=16, col=3)
+points(1:76,apply(abs(RE_ssb_N5000_Ind25_ckmrmultinom20),c(1,3),median)[1,]/apply(abs(RE_ssb_N5000_Ind25_20yrs_noCKMR),c(1,3),median)[1,], pch=16, col=4)
+
+plot(1:76,apply(abs(RE_ssb_N5000_Ind25_ckmrmultinom5),c(1,3),median)[2,]/apply(abs(RE_ssb_N5000_Ind25_5yrs_noCKMR),c(1,3),median)[2,], pch=16, las=1, ylim=c(0.1,1.35), ylab="", xlab="Year", main="N=5000")
+points(1:76,apply(abs(RE_ssb_N5000_Ind25_ckmrmultinom10),c(1,3),median)[2,]/apply(abs(RE_ssb_N5000_Ind25_10yrs_noCKMR),c(1,3),median)[2,], pch=16, col=3)
+points(1:76,apply(abs(RE_ssb_N5000_Ind25_ckmrmultinom20),c(1,3),median)[2,]/apply(abs(RE_ssb_N5000_Ind25_20yrs_noCKMR),c(1,3),median)[2,], pch=16, col=4)
+
+plot(1:76,apply(abs(RE_ssb_N5000_Ind25_ckmrmultinom5),c(1,3),median)[3,]/apply(abs(RE_ssb_N5000_Ind25_5yrs_noCKMR),c(1,3),median)[3,], pch=16, las=1, ylim=c(0.1,1.35), ylab="", xlab="", main="N=5000")
+points(1:76,apply(abs(RE_ssb_N5000_Ind25_ckmrmultinom10),c(1,3),median)[3,]/apply(abs(RE_ssb_N5000_Ind25_10yrs_noCKMR),c(1,3),median)[3,], pch=16, col=3)
+points(1:76,apply(abs(RE_ssb_N5000_Ind25_ckmrmultinom20),c(1,3),median)[3,]/apply(abs(RE_ssb_N5000_Ind25_20yrs_noCKMR),c(1,3),median)[3,], pch=16, col=4)
+
+#M Median ARE, relative to no ckmr
+#No Index
+par(mfrow=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
+plot(seq(0.9,2.9,1),apply(abs(RE_M_N100_NoIndex_ckmrmultinom5),2,median)/apply(abs(RE_M_N100_NoIndex_5yrs_noCKMR),2,median), ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="N100", xlab="",xlim=c(0.75,3.25),cex=1.25)
+points(1:3,apply(abs(RE_M_N100_NoIndex_ckmrmultinom10),2,median)/apply(abs(RE_M_N100_NoIndex_10yrs_noCKMR),2,median), pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_M_N100_NoIndex_ckmrmultinom20),2,median)/apply(abs(RE_M_N100_NoIndex_20yrs_noCKMR),2,median), pch=16, col=4,cex=1.25)
+plot(seq(0.9,2.9,1),apply(abs(RE_M_N1000_NoIndex_ckmrmultinom5),2,median)/apply(abs(RE_M_N1000_NoIndex_5yrs_noCKMR),2,median), ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="No Index,  N1000", xlab="",xlim=c(0.75,3.25),cex=1.25)
+legend("top", c("CKMR 5yrs", "CKMR 10yrs", "CKMR 20yrs"), col=c(1,3,4), pch=16)
+points(1:3,apply(abs(RE_M_N1000_NoIndex_ckmrmultinom10),2,median)/apply(abs(RE_M_N1000_NoIndex_10yrs_noCKMR),2,median), pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_M_N1000_NoIndex_ckmrmultinom20),2,median)/apply(abs(RE_M_N1000_NoIndex_20yrs_noCKMR),2,median), pch=16, col=4,cex=1.25)
+plot(seq(0.9,2.9,1),apply(abs(RE_M_N5000_NoIndex_ckmrmultinom5),2,median)/apply(abs(RE_M_N5000_NoIndex_5yrs_noCKMR),2,median), ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="N5000", xlab="",xlim=c(0.75,3.25),cex=1.25)
+points(1:3,apply(abs(RE_M_N5000_NoIndex_ckmrmultinom10),2,median)/apply(abs(RE_M_N5000_NoIndex_10yrs_noCKMR),2,median), pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_M_N5000_NoIndex_ckmrmultinom20),2,median)/apply(abs(RE_M_N5000_NoIndex_20yrs_noCKMR),2,median), pch=16, col=4,cex=1.25)
+
+#Index 0.50
+plot(seq(0.9,2.9,1),apply(abs(RE_M_N100_Ind50_ckmrmultinom5),2,median)/apply(abs(RE_M_N100_Ind50_5yrs_noCKMR),2,median), ylim=c(0.1,1.2), las=1, ylab="Median ARE log(M), Relative to NO CKMR", xaxt="n", pch=16, main="N100", xlab="",xlim=c(0.75,3.25),cex=1.25)
+points(1:3,apply(abs(RE_M_N100_Ind50_ckmrmultinom10),2,median)/apply(abs(RE_M_N100_Ind50_10yrs_noCKMR),2,median), pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_M_N100_Ind50_ckmrmultinom20),2,median)/apply(abs(RE_M_N100_Ind50_20yrs_noCKMR),2,median), pch=16, col=4,cex=1.25)
+plot(seq(0.9,2.9,1),apply(abs(RE_M_N1000_Ind50_ckmrmultinom5),2,median)/apply(abs(RE_M_N1000_Ind50_5yrs_noCKMR),2,median), ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="Index 0.5,  N1000", xlab="",xlim=c(0.75,3.25),cex=1.25)
+points(1:3,apply(abs(RE_M_N1000_Ind50_ckmrmultinom10),2,median)/apply(abs(RE_M_N1000_Ind50_10yrs_noCKMR),2,median), pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_M_N1000_Ind50_ckmrmultinom20),2,median)/apply(abs(RE_M_N1000_Ind50_20yrs_noCKMR),2,median), pch=16, col=4,cex=1.25)
+plot(seq(0.9,2.9,1),apply(abs(RE_M_N5000_Ind50_ckmrmultinom5),2,median)/apply(abs(RE_M_N5000_Ind50_5yrs_noCKMR),2,median), ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="N5000", xlab="",xlim=c(0.75,3.25),cex=1.25)
+points(1:3,apply(abs(RE_M_N5000_Ind50_ckmrmultinom10),2,median)/apply(abs(RE_M_N5000_Ind50_10yrs_noCKMR),2,median), pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_M_N5000_Ind50_ckmrmultinom20),2,median)/apply(abs(RE_M_N5000_Ind50_20yrs_noCKMR),2,median), pch=16, col=4,cex=1.25)
+
+#Index 0.25
+plot(seq(0.9,2.9,1),apply(abs(RE_M_N100_Ind25_ckmrmultinom5),2,median)/apply(abs(RE_M_N100_Ind25_5yrs_noCKMR),2,median), ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="N100", xlab="",xlim=c(0.75,3.25),cex=1.25)
+axis(side=1, at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+points(1:3,apply(abs(RE_M_N100_Ind25_ckmrmultinom10),2,median)/apply(abs(RE_M_N100_Ind25_10yrs_noCKMR),2,median), pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_M_N100_Ind25_ckmrmultinom20),2,median)/apply(abs(RE_M_N100_Ind25_20yrs_noCKMR),2,median), pch=16, col=4,cex=1.25)
+plot(seq(0.9,2.9,1),apply(abs(RE_M_N1000_Ind25_ckmrmultinom5),2,median)/apply(abs(RE_M_N1000_Ind25_5yrs_noCKMR),2,median), ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="Index 0.25,  N1000", xlab="",xlim=c(0.75,3.25),cex=1.25)
+axis(side=1, at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+points(1:3,apply(abs(RE_M_N1000_Ind25_ckmrmultinom10),2,median)/apply(abs(RE_M_N1000_Ind25_10yrs_noCKMR),2,median), pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_M_N1000_Ind25_ckmrmultinom20),2,median)/apply(abs(RE_M_N1000_Ind25_20yrs_noCKMR),2,median), pch=16, col=4,cex=1.25)
+plot(seq(0.9,2.9,1),apply(abs(RE_M_N5000_Ind25_ckmrmultinom5),2,median)/apply(abs(RE_M_N5000_Ind25_5yrs_noCKMR),2,median), ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="N5000", xlab="",xlim=c(0.75,3.25),cex=1.25)
+axis(side=1, at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+points(1:3,apply(abs(RE_M_N5000_Ind25_ckmrmultinom10),2,median)/apply(abs(RE_M_N5000_Ind25_10yrs_noCKMR),2,median), pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_M_N5000_Ind25_ckmrmultinom20),2,median)/apply(abs(RE_M_N5000_Ind25_20yrs_noCKMR),2,median), pch=16, col=4,cex=1.25)
+
+#R0 Median ARE, relative to no ckmr
+#No Index
+par(mfrow=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
+plot(seq(0.9,2.9,1),apply(abs(RE_R0_N100_NoIndex_ckmrmultinom5),2,median)/apply(abs(RE_R0_N100_NoIndex_5yrs_noCKMR),2,median), ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="N100", xlab="",xlim=c(0.75,3.25),cex=1.25)
+points(1:3,apply(abs(RE_R0_N100_NoIndex_ckmrmultinom10),2,median)/apply(abs(RE_R0_N100_NoIndex_10yrs_noCKMR),2,median), pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_R0_N100_NoIndex_ckmrmultinom20),2,median)/apply(abs(RE_R0_N100_NoIndex_20yrs_noCKMR),2,median), pch=16, col=4,cex=1.25)
+plot(seq(0.9,2.9,1),apply(abs(RE_R0_N1000_NoIndex_ckmrmultinom5),2,median)/apply(abs(RE_R0_N1000_NoIndex_5yrs_noCKMR),2,median), ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="No Index,  N1000", xlab="",xlim=c(0.75,3.25),cex=1.25)
+legend("top", c("CKMR 5yrs", "CKMR 10yrs", "CKMR 20yrs"), col=c(1,3,4), pch=16)
+points(1:3,apply(abs(RE_R0_N1000_NoIndex_ckmrmultinom10),2,median)/apply(abs(RE_R0_N1000_NoIndex_10yrs_noCKMR),2,median), pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_R0_N1000_NoIndex_ckmrmultinom20),2,median)/apply(abs(RE_R0_N1000_NoIndex_20yrs_noCKMR),2,median), pch=16, col=4,cex=1.25)
+plot(seq(0.9,2.9,1),apply(abs(RE_R0_N5000_NoIndex_ckmrmultinom5),2,median)/apply(abs(RE_R0_N5000_NoIndex_5yrs_noCKMR),2,median), ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="N5000", xlab="",xlim=c(0.75,3.25),cex=1.25)
+points(1:3,apply(abs(RE_R0_N5000_NoIndex_ckmrmultinom10),2,median)/apply(abs(RE_R0_N5000_NoIndex_10yrs_noCKMR),2,median), pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_R0_N5000_NoIndex_ckmrmultinom20),2,median)/apply(abs(RE_R0_N5000_NoIndex_20yrs_noCKMR),2,median), pch=16, col=4,cex=1.25)
+
+#Index 0.50
+plot(seq(0.9,2.9,1),apply(abs(RE_R0_N100_Ind50_ckmrmultinom5),2,median)/apply(abs(RE_R0_N100_Ind50_5yrs_noCKMR),2,median), ylim=c(0.1,1.2), las=1, ylab="Median ARE log(R0), Relative to NO CKMR", xaxt="n", pch=16, main="N100", xlab="",xlim=c(0.75,3.25),cex=1.25)
+points(1:3,apply(abs(RE_R0_N100_Ind50_ckmrmultinom10),2,median)/apply(abs(RE_R0_N100_Ind50_10yrs_noCKMR),2,median), pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_R0_N100_Ind50_ckmrmultinom20),2,median)/apply(abs(RE_R0_N100_Ind50_20yrs_noCKMR),2,median), pch=16, col=4,cex=1.25)
+plot(seq(0.9,2.9,1),apply(abs(RE_R0_N1000_Ind50_ckmrmultinom5),2,median)/apply(abs(RE_R0_N1000_Ind50_5yrs_noCKMR),2,median), ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="Index 0.5,  N1000", xlab="",xlim=c(0.75,3.25),cex=1.25)
+points(1:3,apply(abs(RE_R0_N1000_Ind50_ckmrmultinom10),2,median)/apply(abs(RE_R0_N1000_Ind50_10yrs_noCKMR),2,median), pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_R0_N1000_Ind50_ckmrmultinom20),2,median)/apply(abs(RE_R0_N1000_Ind50_20yrs_noCKMR),2,median), pch=16, col=4,cex=1.25)
+plot(seq(0.9,2.9,1),apply(abs(RE_R0_N5000_Ind50_ckmrmultinom5),2,median)/apply(abs(RE_R0_N5000_Ind50_5yrs_noCKMR),2,median), ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="N5000", xlab="",xlim=c(0.75,3.25),cex=1.25)
+points(1:3,apply(abs(RE_R0_N5000_Ind50_ckmrmultinom10),2,median)/apply(abs(RE_R0_N5000_Ind50_10yrs_noCKMR),2,median), pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_R0_N5000_Ind50_ckmrmultinom20),2,median)/apply(abs(RE_R0_N5000_Ind50_20yrs_noCKMR),2,median), pch=16, col=4,cex=1.25)
+
+#Index 0.25
+plot(seq(0.9,2.9,1),apply(abs(RE_R0_N100_Ind25_ckmrmultinom5),2,median)/apply(abs(RE_R0_N100_Ind25_5yrs_noCKMR),2,median), ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="N100", xlab="",xlim=c(0.75,3.25),cex=1.25)
+axis(side=1, at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+points(1:3,apply(abs(RE_R0_N100_Ind25_ckmrmultinom10),2,median)/apply(abs(RE_R0_N100_Ind25_10yrs_noCKMR),2,median), pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_R0_N100_Ind25_ckmrmultinom20),2,median)/apply(abs(RE_R0_N100_Ind25_20yrs_noCKMR),2,median), pch=16, col=4,cex=1.25)
+plot(seq(0.9,2.9,1),apply(abs(RE_R0_N1000_Ind25_ckmrmultinom5),2,median)/apply(abs(RE_R0_N1000_Ind25_5yrs_noCKMR),2,median), ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="Index 0.25,  N1000", xlab="",xlim=c(0.75,3.25),cex=1.25)
+axis(side=1, at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+points(1:3,apply(abs(RE_R0_N1000_Ind25_ckmrmultinom10),2,median)/apply(abs(RE_R0_N1000_Ind25_10yrs_noCKMR),2,median), pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_R0_N1000_Ind25_ckmrmultinom20),2,median)/apply(abs(RE_R0_N1000_Ind25_20yrs_noCKMR),2,median), pch=16, col=4,cex=1.25)
+plot(seq(0.9,2.9,1),apply(abs(RE_R0_N5000_Ind25_ckmrmultinom5),2,median)/apply(abs(RE_R0_N5000_Ind25_5yrs_noCKMR),2,median), ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="N5000", xlab="",xlim=c(0.75,3.25),cex=1.25)
+axis(side=1, at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+points(1:3,apply(abs(RE_R0_N5000_Ind25_ckmrmultinom10),2,median)/apply(abs(RE_R0_N5000_Ind25_10yrs_noCKMR),2,median), pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_R0_N5000_Ind25_ckmrmultinom20),2,median)/apply(abs(RE_R0_N5000_Ind25_20yrs_noCKMR),2,median), pch=16, col=4,cex=1.25)
+
+#########################
+#New plots
+#########################
+
+#No Index
+par(mfcol=c(3,3), mar=c(3,4,1,1), oma=c(2,2,1,1))
+#SSB
+plot(1:76,apply(abs(RE_ssb_N100_NoIndex_ckmrmultinom5),c(1,3),median)[1,]/apply(abs(RE_ssb_N100_NoIndex_5yrs_noCKMR),c(1,3),median)[1,], pch=16, las=1, ylim=c(0.1,1.35), ylab="", xlab="", main="",xaxt="n", xlim=c(0,250))
+points(1:76,apply(abs(RE_ssb_N100_NoIndex_ckmrmultinom10),c(1,3),median)[1,]/apply(abs(RE_ssb_N100_NoIndex_10yrs_noCKMR),c(1,3),median)[1,], pch=16, col=3)
+points(1:76,apply(abs(RE_ssb_N100_NoIndex_ckmrmultinom20),c(1,3),median)[1,]/apply(abs(RE_ssb_N100_NoIndex_20yrs_noCKMR),c(1,3),median)[1,], pch=16, col=4)
+
+points(86:161,apply(abs(RE_ssb_N100_NoIndex_ckmrmultinom5),c(1,3),median)[2,]/apply(abs(RE_ssb_N100_NoIndex_5yrs_noCKMR),c(1,3),median)[2,], pch=16)
+points(86:161,apply(abs(RE_ssb_N100_NoIndex_ckmrmultinom10),c(1,3),median)[2,]/apply(abs(RE_ssb_N100_NoIndex_10yrs_noCKMR),c(1,3),median)[2,], pch=16, col=3)
+points(86:161,apply(abs(RE_ssb_N100_NoIndex_ckmrmultinom20),c(1,3),median)[2,]/apply(abs(RE_ssb_N100_NoIndex_20yrs_noCKMR),c(1,3),median)[2,], pch=16, col=4)
+
+points(171:246,apply(abs(RE_ssb_N100_NoIndex_ckmrmultinom5),c(1,3),median)[3,]/apply(abs(RE_ssb_N100_NoIndex_5yrs_noCKMR),c(1,3),median)[3,], pch=16)
+points(171:246,apply(abs(RE_ssb_N100_NoIndex_ckmrmultinom10),c(1,3),median)[3,]/apply(abs(RE_ssb_N100_NoIndex_10yrs_noCKMR),c(1,3),median)[3,], pch=16, col=3)
+points(171:246,apply(abs(RE_ssb_N100_NoIndex_ckmrmultinom20),c(1,3),median)[3,]/apply(abs(RE_ssb_N100_NoIndex_20yrs_noCKMR),c(1,3),median)[3,], pch=16, col=4)
+
+points(1:76,apply(abs(RE_ssb_N1000_NoIndex_ckmrmultinom5),c(1,3),median)[1,]/apply(abs(RE_ssb_N1000_NoIndex_5yrs_noCKMR),c(1,3),median)[1,], pch=15)
+points(1:76,apply(abs(RE_ssb_N1000_NoIndex_ckmrmultinom10),c(1,3),median)[1,]/apply(abs(RE_ssb_N1000_NoIndex_10yrs_noCKMR),c(1,3),median)[1,], pch=15, col=3)
+points(1:76,apply(abs(RE_ssb_N1000_NoIndex_ckmrmultinom20),c(1,3),median)[1,]/apply(abs(RE_ssb_N1000_NoIndex_20yrs_noCKMR),c(1,3),median)[1,], pch=15, col=4)
+
+points(86:161,apply(abs(RE_ssb_N1000_NoIndex_ckmrmultinom5),c(1,3),median)[2,]/apply(abs(RE_ssb_N1000_NoIndex_5yrs_noCKMR),c(1,3),median)[2,], pch=15)
+points(86:161,apply(abs(RE_ssb_N1000_NoIndex_ckmrmultinom10),c(1,3),median)[2,]/apply(abs(RE_ssb_N1000_NoIndex_10yrs_noCKMR),c(1,3),median)[2,], pch=15, col=3)
+points(86:161,apply(abs(RE_ssb_N1000_NoIndex_ckmrmultinom20),c(1,3),median)[2,]/apply(abs(RE_ssb_N1000_NoIndex_20yrs_noCKMR),c(1,3),median)[2,], pch=15, col=4)
+
+points(171:246,apply(abs(RE_ssb_N1000_NoIndex_ckmrmultinom5),c(1,3),median)[3,]/apply(abs(RE_ssb_N1000_NoIndex_5yrs_noCKMR),c(1,3),median)[3,], pch=15)
+points(171:246,apply(abs(RE_ssb_N1000_NoIndex_ckmrmultinom10),c(1,3),median)[3,]/apply(abs(RE_ssb_N1000_NoIndex_10yrs_noCKMR),c(1,3),median)[3,], pch=15, col=3)
+points(171:246,apply(abs(RE_ssb_N1000_NoIndex_ckmrmultinom20),c(1,3),median)[3,]/apply(abs(RE_ssb_N1000_NoIndex_20yrs_noCKMR),c(1,3),median)[3,], pch=15, col=4)
+
+points(1:76,apply(abs(RE_ssb_N5000_NoIndex_ckmrmultinom5),c(1,3),median)[1,]/apply(abs(RE_ssb_N5000_NoIndex_5yrs_noCKMR),c(1,3),median)[1,], pch=17)
+points(1:76,apply(abs(RE_ssb_N5000_NoIndex_ckmrmultinom10),c(1,3),median)[1,]/apply(abs(RE_ssb_N5000_NoIndex_10yrs_noCKMR),c(1,3),median)[1,], pch=17, col=3)
+points(1:76,apply(abs(RE_ssb_N5000_NoIndex_ckmrmultinom20),c(1,3),median)[1,]/apply(abs(RE_ssb_N5000_NoIndex_20yrs_noCKMR),c(1,3),median)[1,], pch=17, col=4)
+
+points(86:161,apply(abs(RE_ssb_N5000_NoIndex_ckmrmultinom5),c(1,3),median)[2,]/apply(abs(RE_ssb_N5000_NoIndex_5yrs_noCKMR),c(1,3),median)[2,], pch=17)
+points(86:161,apply(abs(RE_ssb_N5000_NoIndex_ckmrmultinom10),c(1,3),median)[2,]/apply(abs(RE_ssb_N5000_NoIndex_10yrs_noCKMR),c(1,3),median)[2,], pch=17, col=3)
+points(86:161,apply(abs(RE_ssb_N5000_NoIndex_ckmrmultinom20),c(1,3),median)[2,]/apply(abs(RE_ssb_N5000_NoIndex_20yrs_noCKMR),c(1,3),median)[2,], pch=17, col=4)
+
+points(171:246,apply(abs(RE_ssb_N5000_NoIndex_ckmrmultinom5),c(1,3),median)[3,]/apply(abs(RE_ssb_N5000_NoIndex_5yrs_noCKMR),c(1,3),median)[3,], pch=17)
+points(171:246,apply(abs(RE_ssb_N5000_NoIndex_ckmrmultinom10),c(1,3),median)[3,]/apply(abs(RE_ssb_N5000_NoIndex_10yrs_noCKMR),c(1,3),median)[3,], pch=17, col=3)
+points(171:246,apply(abs(RE_ssb_N5000_NoIndex_ckmrmultinom20),c(1,3),median)[3,]/apply(abs(RE_ssb_N5000_NoIndex_20yrs_noCKMR),c(1,3),median)[3,], pch=17, col=4)
+
+#Index 0.50
+plot(1:76,apply(abs(RE_ssb_N100_Ind50_ckmrmultinom5),c(1,3),median)[1,]/apply(abs(RE_ssb_N100_Ind50_5yrs_noCKMR),c(1,3),median)[1,], pch=16, las=1, ylim=c(0.1,1.35), ylab="", xlab="", main="",xaxt="n", xlim=c(0,250))
+points(1:76,apply(abs(RE_ssb_N100_Ind50_ckmrmultinom10),c(1,3),median)[1,]/apply(abs(RE_ssb_N100_Ind50_10yrs_noCKMR),c(1,3),median)[1,], pch=16, col=3)
+points(1:76,apply(abs(RE_ssb_N100_Ind50_ckmrmultinom20),c(1,3),median)[1,]/apply(abs(RE_ssb_N100_Ind50_20yrs_noCKMR),c(1,3),median)[1,], pch=16, col=4)
+
+points(86:161,apply(abs(RE_ssb_N100_Ind50_ckmrmultinom5),c(1,3),median)[2,]/apply(abs(RE_ssb_N100_Ind50_5yrs_noCKMR),c(1,3),median)[2,], pch=16)
+points(86:161,apply(abs(RE_ssb_N100_Ind50_ckmrmultinom10),c(1,3),median)[2,]/apply(abs(RE_ssb_N100_Ind50_10yrs_noCKMR),c(1,3),median)[2,], pch=16, col=3)
+points(86:161,apply(abs(RE_ssb_N100_Ind50_ckmrmultinom20),c(1,3),median)[2,]/apply(abs(RE_ssb_N100_Ind50_20yrs_noCKMR),c(1,3),median)[2,], pch=16, col=4)
+
+points(171:246,apply(abs(RE_ssb_N100_Ind50_ckmrmultinom5),c(1,3),median)[3,]/apply(abs(RE_ssb_N100_Ind50_5yrs_noCKMR),c(1,3),median)[3,], pch=16)
+points(171:246,apply(abs(RE_ssb_N100_Ind50_ckmrmultinom10),c(1,3),median)[3,]/apply(abs(RE_ssb_N100_Ind50_10yrs_noCKMR),c(1,3),median)[3,], pch=16, col=3)
+points(171:246,apply(abs(RE_ssb_N100_Ind50_ckmrmultinom20),c(1,3),median)[3,]/apply(abs(RE_ssb_N100_Ind50_20yrs_noCKMR),c(1,3),median)[3,], pch=16, col=4)
+
+points(1:76,apply(abs(RE_ssb_N1000_Ind50_ckmrmultinom5),c(1,3),median)[1,]/apply(abs(RE_ssb_N1000_Ind50_5yrs_noCKMR),c(1,3),median)[1,], pch=15)
+points(1:76,apply(abs(RE_ssb_N1000_Ind50_ckmrmultinom10),c(1,3),median)[1,]/apply(abs(RE_ssb_N1000_Ind50_10yrs_noCKMR),c(1,3),median)[1,], pch=15, col=3)
+points(1:76,apply(abs(RE_ssb_N1000_Ind50_ckmrmultinom20),c(1,3),median)[1,]/apply(abs(RE_ssb_N1000_Ind50_20yrs_noCKMR),c(1,3),median)[1,], pch=15, col=4)
+
+points(86:161,apply(abs(RE_ssb_N1000_Ind50_ckmrmultinom5),c(1,3),median)[2,]/apply(abs(RE_ssb_N1000_Ind50_5yrs_noCKMR),c(1,3),median)[2,], pch=15)
+points(86:161,apply(abs(RE_ssb_N1000_Ind50_ckmrmultinom10),c(1,3),median)[2,]/apply(abs(RE_ssb_N1000_Ind50_10yrs_noCKMR),c(1,3),median)[2,], pch=15, col=3)
+points(86:161,apply(abs(RE_ssb_N1000_Ind50_ckmrmultinom20),c(1,3),median)[2,]/apply(abs(RE_ssb_N1000_Ind50_20yrs_noCKMR),c(1,3),median)[2,], pch=15, col=4)
+
+points(171:246,apply(abs(RE_ssb_N1000_Ind50_ckmrmultinom5),c(1,3),median)[3,]/apply(abs(RE_ssb_N1000_Ind50_5yrs_noCKMR),c(1,3),median)[3,], pch=15)
+points(171:246,apply(abs(RE_ssb_N1000_Ind50_ckmrmultinom10),c(1,3),median)[3,]/apply(abs(RE_ssb_N1000_Ind50_10yrs_noCKMR),c(1,3),median)[3,], pch=15, col=3)
+points(171:246,apply(abs(RE_ssb_N1000_Ind50_ckmrmultinom20),c(1,3),median)[3,]/apply(abs(RE_ssb_N1000_Ind50_20yrs_noCKMR),c(1,3),median)[3,], pch=15, col=4)
+
+points(1:76,apply(abs(RE_ssb_N5000_Ind50_ckmrmultinom5),c(1,3),median)[1,]/apply(abs(RE_ssb_N5000_Ind50_5yrs_noCKMR),c(1,3),median)[1,], pch=17)
+points(1:76,apply(abs(RE_ssb_N5000_Ind50_ckmrmultinom10),c(1,3),median)[1,]/apply(abs(RE_ssb_N5000_Ind50_10yrs_noCKMR),c(1,3),median)[1,], pch=17, col=3)
+points(1:76,apply(abs(RE_ssb_N5000_Ind50_ckmrmultinom20),c(1,3),median)[1,]/apply(abs(RE_ssb_N5000_Ind50_20yrs_noCKMR),c(1,3),median)[1,], pch=17, col=4)
+
+points(86:161,apply(abs(RE_ssb_N5000_Ind50_ckmrmultinom5),c(1,3),median)[2,]/apply(abs(RE_ssb_N5000_Ind50_5yrs_noCKMR),c(1,3),median)[2,], pch=17)
+points(86:161,apply(abs(RE_ssb_N5000_Ind50_ckmrmultinom10),c(1,3),median)[2,]/apply(abs(RE_ssb_N5000_Ind50_10yrs_noCKMR),c(1,3),median)[2,], pch=17, col=3)
+points(86:161,apply(abs(RE_ssb_N5000_Ind50_ckmrmultinom20),c(1,3),median)[2,]/apply(abs(RE_ssb_N5000_Ind50_20yrs_noCKMR),c(1,3),median)[2,], pch=17, col=4)
+
+points(171:246,apply(abs(RE_ssb_N5000_Ind50_ckmrmultinom5),c(1,3),median)[3,]/apply(abs(RE_ssb_N5000_Ind50_5yrs_noCKMR),c(1,3),median)[3,], pch=17)
+points(171:246,apply(abs(RE_ssb_N5000_Ind50_ckmrmultinom10),c(1,3),median)[3,]/apply(abs(RE_ssb_N5000_Ind50_10yrs_noCKMR),c(1,3),median)[3,], pch=17, col=3)
+points(171:246,apply(abs(RE_ssb_N5000_Ind50_ckmrmultinom20),c(1,3),median)[3,]/apply(abs(RE_ssb_N5000_Ind50_20yrs_noCKMR),c(1,3),median)[3,], pch=17, col=4)
+
+#Index 0.25
+plot(1:76,apply(abs(RE_ssb_N100_Ind25_ckmrmultinom5),c(1,3),median)[1,]/apply(abs(RE_ssb_N100_Ind25_5yrs_noCKMR),c(1,3),median)[1,], pch=16, las=1, ylim=c(0.1,1.35), ylab="", xlab="", main="",xaxt="n", xlim=c(0,250))
+axis(side=1, at=c(40,127,211), labels=c("Cod", "Flatfish", "Sardine"))
+points(1:76,apply(abs(RE_ssb_N100_Ind25_ckmrmultinom10),c(1,3),median)[1,]/apply(abs(RE_ssb_N100_Ind25_10yrs_noCKMR),c(1,3),median)[1,], pch=16, col=3)
+points(1:76,apply(abs(RE_ssb_N100_Ind25_ckmrmultinom20),c(1,3),median)[1,]/apply(abs(RE_ssb_N100_Ind25_20yrs_noCKMR),c(1,3),median)[1,], pch=16, col=4)
+
+points(86:161,apply(abs(RE_ssb_N100_Ind25_ckmrmultinom5),c(1,3),median)[2,]/apply(abs(RE_ssb_N100_Ind25_5yrs_noCKMR),c(1,3),median)[2,], pch=16)
+points(86:161,apply(abs(RE_ssb_N100_Ind25_ckmrmultinom10),c(1,3),median)[2,]/apply(abs(RE_ssb_N100_Ind25_10yrs_noCKMR),c(1,3),median)[2,], pch=16, col=3)
+points(86:161,apply(abs(RE_ssb_N100_Ind25_ckmrmultinom20),c(1,3),median)[2,]/apply(abs(RE_ssb_N100_Ind25_20yrs_noCKMR),c(1,3),median)[2,], pch=16, col=4)
+
+points(171:246,apply(abs(RE_ssb_N100_Ind25_ckmrmultinom5),c(1,3),median)[3,]/apply(abs(RE_ssb_N100_Ind25_5yrs_noCKMR),c(1,3),median)[3,], pch=16)
+points(171:246,apply(abs(RE_ssb_N100_Ind25_ckmrmultinom10),c(1,3),median)[3,]/apply(abs(RE_ssb_N100_Ind25_10yrs_noCKMR),c(1,3),median)[3,], pch=16, col=3)
+points(171:246,apply(abs(RE_ssb_N100_Ind25_ckmrmultinom20),c(1,3),median)[3,]/apply(abs(RE_ssb_N100_Ind25_20yrs_noCKMR),c(1,3),median)[3,], pch=16, col=4)
+
+points(1:76,apply(abs(RE_ssb_N1000_Ind25_ckmrmultinom5),c(1,3),median)[1,]/apply(abs(RE_ssb_N1000_Ind25_5yrs_noCKMR),c(1,3),median)[1,], pch=15)
+points(1:76,apply(abs(RE_ssb_N1000_Ind25_ckmrmultinom10),c(1,3),median)[1,]/apply(abs(RE_ssb_N1000_Ind25_10yrs_noCKMR),c(1,3),median)[1,], pch=15, col=3)
+points(1:76,apply(abs(RE_ssb_N1000_Ind25_ckmrmultinom20),c(1,3),median)[1,]/apply(abs(RE_ssb_N1000_Ind25_20yrs_noCKMR),c(1,3),median)[1,], pch=15, col=4)
+
+points(86:161,apply(abs(RE_ssb_N1000_Ind25_ckmrmultinom5),c(1,3),median)[2,]/apply(abs(RE_ssb_N1000_Ind25_5yrs_noCKMR),c(1,3),median)[2,], pch=15)
+points(86:161,apply(abs(RE_ssb_N1000_Ind25_ckmrmultinom10),c(1,3),median)[2,]/apply(abs(RE_ssb_N1000_Ind25_10yrs_noCKMR),c(1,3),median)[2,], pch=15, col=3)
+points(86:161,apply(abs(RE_ssb_N1000_Ind25_ckmrmultinom20),c(1,3),median)[2,]/apply(abs(RE_ssb_N1000_Ind25_20yrs_noCKMR),c(1,3),median)[2,], pch=15, col=4)
+
+points(171:246,apply(abs(RE_ssb_N1000_Ind25_ckmrmultinom5),c(1,3),median)[3,]/apply(abs(RE_ssb_N1000_Ind25_5yrs_noCKMR),c(1,3),median)[3,], pch=15)
+points(171:246,apply(abs(RE_ssb_N1000_Ind25_ckmrmultinom10),c(1,3),median)[3,]/apply(abs(RE_ssb_N1000_Ind25_10yrs_noCKMR),c(1,3),median)[3,], pch=15, col=3)
+points(171:246,apply(abs(RE_ssb_N1000_Ind25_ckmrmultinom20),c(1,3),median)[3,]/apply(abs(RE_ssb_N1000_Ind25_20yrs_noCKMR),c(1,3),median)[3,], pch=15, col=4)
+
+points(1:76,apply(abs(RE_ssb_N5000_Ind25_ckmrmultinom5),c(1,3),median)[1,]/apply(abs(RE_ssb_N5000_Ind25_5yrs_noCKMR),c(1,3),median)[1,], pch=17)
+points(1:76,apply(abs(RE_ssb_N5000_Ind25_ckmrmultinom10),c(1,3),median)[1,]/apply(abs(RE_ssb_N5000_Ind25_10yrs_noCKMR),c(1,3),median)[1,], pch=17, col=3)
+points(1:76,apply(abs(RE_ssb_N5000_Ind25_ckmrmultinom20),c(1,3),median)[1,]/apply(abs(RE_ssb_N5000_Ind25_20yrs_noCKMR),c(1,3),median)[1,], pch=17, col=4)
+
+points(86:161,apply(abs(RE_ssb_N5000_Ind25_ckmrmultinom5),c(1,3),median)[2,]/apply(abs(RE_ssb_N5000_Ind25_5yrs_noCKMR),c(1,3),median)[2,], pch=17)
+points(86:161,apply(abs(RE_ssb_N5000_Ind25_ckmrmultinom10),c(1,3),median)[2,]/apply(abs(RE_ssb_N5000_Ind25_10yrs_noCKMR),c(1,3),median)[2,], pch=17, col=3)
+points(86:161,apply(abs(RE_ssb_N5000_Ind25_ckmrmultinom20),c(1,3),median)[2,]/apply(abs(RE_ssb_N5000_Ind25_20yrs_noCKMR),c(1,3),median)[2,], pch=17, col=4)
+
+points(171:246,apply(abs(RE_ssb_N5000_Ind25_ckmrmultinom5),c(1,3),median)[3,]/apply(abs(RE_ssb_N5000_Ind25_5yrs_noCKMR),c(1,3),median)[3,], pch=17)
+points(171:246,apply(abs(RE_ssb_N5000_Ind25_ckmrmultinom10),c(1,3),median)[3,]/apply(abs(RE_ssb_N5000_Ind25_10yrs_noCKMR),c(1,3),median)[3,], pch=17, col=3)
+points(171:246,apply(abs(RE_ssb_N5000_Ind25_ckmrmultinom20),c(1,3),median)[3,]/apply(abs(RE_ssb_N5000_Ind25_20yrs_noCKMR),c(1,3),median)[3,], pch=17, col=4)
+
+#M
+#No Index
+plot(seq(0.9,2.9,1),apply(abs(RE_M_N100_NoIndex_ckmrmultinom5),2,median)/apply(abs(RE_M_N100_NoIndex_5yrs_noCKMR),2,median), ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="No Index", xlab="",xlim=c(0.75,3.25),cex=1.25)
+legend("bottomleft", c("CKMR 5yrs", "CKMR 10yrs", "CKMR 20yrs","N100", "N1000", "N5000"), col=c(1,3,4,1,1,1), pch=c(16,16,16,16,15,17), bty="n", ncol=2)
+points(1:3,apply(abs(RE_M_N100_NoIndex_ckmrmultinom10),2,median)/apply(abs(RE_M_N100_NoIndex_10yrs_noCKMR),2,median), pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_M_N100_NoIndex_ckmrmultinom20),2,median)/apply(abs(RE_M_N100_NoIndex_20yrs_noCKMR),2,median), pch=16, col=4,cex=1.25)
+points(seq(0.9,2.9,1),apply(abs(RE_M_N1000_NoIndex_ckmrmultinom5),2,median)/apply(abs(RE_M_N1000_NoIndex_5yrs_noCKMR),2,median), pch=15, cex=1.25)
+points(1:3,apply(abs(RE_M_N1000_NoIndex_ckmrmultinom10),2,median)/apply(abs(RE_M_N1000_NoIndex_10yrs_noCKMR),2,median), pch=15, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_M_N1000_NoIndex_ckmrmultinom20),2,median)/apply(abs(RE_M_N1000_NoIndex_20yrs_noCKMR),2,median), pch=15, col=4,cex=1.25)
+points(seq(0.9,2.9,1),apply(abs(RE_M_N5000_NoIndex_ckmrmultinom5),2,median)/apply(abs(RE_M_N5000_NoIndex_5yrs_noCKMR),2,median), pch=17, cex=1.25)
+points(1:3,apply(abs(RE_M_N5000_NoIndex_ckmrmultinom10),2,median)/apply(abs(RE_M_N5000_NoIndex_10yrs_noCKMR),2,median), pch=17, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_M_N5000_NoIndex_ckmrmultinom20),2,median)/apply(abs(RE_M_N5000_NoIndex_20yrs_noCKMR),2,median), pch=17, col=4,cex=1.25)
+
+#Index 0.50
+plot(seq(0.9,2.9,1),apply(abs(RE_M_N100_Ind50_ckmrmultinom5),2,median)/apply(abs(RE_M_N100_Ind50_5yrs_noCKMR),2,median), ylim=c(0.1,1.2), las=1, ylab="Median ARE log(M), Relative to NO CKMR", xaxt="n", pch=16, main="Index 0.5", xlab="",xlim=c(0.75,3.25),cex=1.25)
+points(1:3,apply(abs(RE_M_N100_Ind50_ckmrmultinom10),2,median)/apply(abs(RE_M_N100_Ind50_10yrs_noCKMR),2,median), pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_M_N100_Ind50_ckmrmultinom20),2,median)/apply(abs(RE_M_N100_Ind50_20yrs_noCKMR),2,median), pch=16, col=4,cex=1.25)
+points(seq(0.9,2.9,1),apply(abs(RE_M_N1000_Ind50_ckmrmultinom5),2,median)/apply(abs(RE_M_N1000_Ind50_5yrs_noCKMR),2,median), pch=15, cex=1.25)
+points(1:3,apply(abs(RE_M_N1000_Ind50_ckmrmultinom10),2,median)/apply(abs(RE_M_N1000_Ind50_10yrs_noCKMR),2,median), pch=15, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_M_N1000_Ind50_ckmrmultinom20),2,median)/apply(abs(RE_M_N1000_Ind50_20yrs_noCKMR),2,median), pch=15, col=4,cex=1.25)
+points(seq(0.9,2.9,1),apply(abs(RE_M_N5000_Ind50_ckmrmultinom5),2,median)/apply(abs(RE_M_N5000_Ind50_5yrs_noCKMR),2,median), pch=17, cex=1.25)
+points(1:3,apply(abs(RE_M_N5000_Ind50_ckmrmultinom10),2,median)/apply(abs(RE_M_N5000_Ind50_10yrs_noCKMR),2,median), pch=17, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_M_N5000_Ind50_ckmrmultinom20),2,median)/apply(abs(RE_M_N5000_Ind50_20yrs_noCKMR),2,median), pch=17, col=4,cex=1.25)
+
+#Index 0.25
+plot(seq(0.9,2.9,1),apply(abs(RE_M_N100_Ind25_ckmrmultinom5),2,median)/apply(abs(RE_M_N100_Ind25_5yrs_noCKMR),2,median), ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="Index 0.25", xlab="",xlim=c(0.75,3.25),cex=1.25)
+axis(side=1, at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+points(1:3,apply(abs(RE_M_N100_Ind25_ckmrmultinom10),2,median)/apply(abs(RE_M_N100_Ind25_10yrs_noCKMR),2,median), pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_M_N100_Ind25_ckmrmultinom20),2,median)/apply(abs(RE_M_N100_Ind25_20yrs_noCKMR),2,median), pch=16, col=4,cex=1.25)
+points(seq(0.9,2.9,1),apply(abs(RE_M_N1000_Ind25_ckmrmultinom5),2,median)/apply(abs(RE_M_N1000_Ind25_5yrs_noCKMR),2,median), pch=15, cex=1.25)
+points(1:3,apply(abs(RE_M_N1000_Ind25_ckmrmultinom10),2,median)/apply(abs(RE_M_N1000_Ind25_10yrs_noCKMR),2,median), pch=15, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_M_N1000_Ind25_ckmrmultinom20),2,median)/apply(abs(RE_M_N1000_Ind25_20yrs_noCKMR),2,median), pch=15, col=4,cex=1.25)
+points(seq(0.9,2.9,1),apply(abs(RE_M_N5000_Ind25_ckmrmultinom5),2,median)/apply(abs(RE_M_N5000_Ind25_5yrs_noCKMR),2,median), pch=17, cex=1.25)
+points(1:3,apply(abs(RE_M_N5000_Ind25_ckmrmultinom10),2,median)/apply(abs(RE_M_N5000_Ind25_10yrs_noCKMR),2,median), pch=17, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_M_N5000_Ind25_ckmrmultinom20),2,median)/apply(abs(RE_M_N5000_Ind25_20yrs_noCKMR),2,median), pch=17, col=4,cex=1.25)
+
+#R0
+#No index
+plot(seq(0.9,2.9,1),apply(abs(RE_R0_N100_NoIndex_ckmrmultinom5),2,median)/apply(abs(RE_R0_N100_NoIndex_5yrs_noCKMR),2,median), ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="", xlab="",xlim=c(0.75,3.25),cex=1.25)
+points(1:3,apply(abs(RE_R0_N100_NoIndex_ckmrmultinom10),2,median)/apply(abs(RE_R0_N100_NoIndex_10yrs_noCKMR),2,median), pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_R0_N100_NoIndex_ckmrmultinom20),2,median)/apply(abs(RE_R0_N100_NoIndex_20yrs_noCKMR),2,median), pch=16, col=4,cex=1.25)
+points(seq(0.9,2.9,1),apply(abs(RE_R0_N1000_NoIndex_ckmrmultinom5),2,median)/apply(abs(RE_R0_N1000_NoIndex_5yrs_noCKMR),2,median), pch=15, cex=1.25)
+points(1:3,apply(abs(RE_R0_N1000_NoIndex_ckmrmultinom10),2,median)/apply(abs(RE_R0_N1000_NoIndex_10yrs_noCKMR),2,median), pch=15, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_R0_N1000_NoIndex_ckmrmultinom20),2,median)/apply(abs(RE_R0_N1000_NoIndex_20yrs_noCKMR),2,median), pch=15, col=4,cex=1.25)
+points(seq(0.9,2.9,1),apply(abs(RE_R0_N5000_NoIndex_ckmrmultinom5),2,median)/apply(abs(RE_R0_N5000_NoIndex_5yrs_noCKMR),2,median), pch=17, cex=1.25)
+points(1:3,apply(abs(RE_R0_N5000_NoIndex_ckmrmultinom10),2,median)/apply(abs(RE_R0_N5000_NoIndex_10yrs_noCKMR),2,median), pch=17, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_R0_N5000_NoIndex_ckmrmultinom20),2,median)/apply(abs(RE_R0_N5000_NoIndex_20yrs_noCKMR),2,median), pch=17, col=4,cex=1.25)
+
+#Index 0.50
+plot(seq(0.9,2.9,1),apply(abs(RE_R0_N100_Ind50_ckmrmultinom5),2,median)/apply(abs(RE_R0_N100_Ind50_5yrs_noCKMR),2,median), ylim=c(0.1,1.2), las=1, ylab="Median ARE log(R0), Relative to NO CKMR", xaxt="n", pch=16, main="", xlab="",xlim=c(0.75,3.25),cex=1.25)
+points(1:3,apply(abs(RE_R0_N100_Ind50_ckmrmultinom10),2,median)/apply(abs(RE_R0_N100_Ind50_10yrs_noCKMR),2,median), pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_R0_N100_Ind50_ckmrmultinom20),2,median)/apply(abs(RE_R0_N100_Ind50_20yrs_noCKMR),2,median), pch=16, col=4,cex=1.25)
+points(seq(0.9,2.9,1),apply(abs(RE_R0_N1000_Ind50_ckmrmultinom5),2,median)/apply(abs(RE_R0_N1000_Ind50_5yrs_noCKMR),2,median), pch=15, cex=1.25)
+points(1:3,apply(abs(RE_R0_N1000_Ind50_ckmrmultinom10),2,median)/apply(abs(RE_R0_N1000_Ind50_10yrs_noCKMR),2,median), pch=15, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_R0_N1000_Ind50_ckmrmultinom20),2,median)/apply(abs(RE_R0_N1000_Ind50_20yrs_noCKMR),2,median), pch=15, col=4,cex=1.25)
+points(seq(0.9,2.9,1),apply(abs(RE_R0_N5000_Ind50_ckmrmultinom5),2,median)/apply(abs(RE_R0_N5000_Ind50_5yrs_noCKMR),2,median), pch=17, cex=1.25)
+points(1:3,apply(abs(RE_R0_N5000_Ind50_ckmrmultinom10),2,median)/apply(abs(RE_R0_N5000_Ind50_10yrs_noCKMR),2,median), pch=17, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_R0_N5000_Ind50_ckmrmultinom20),2,median)/apply(abs(RE_R0_N5000_Ind50_20yrs_noCKMR),2,median), pch=17, col=4,cex=1.25)
+
+#Index 0.25
+plot(seq(0.9,2.9,1),apply(abs(RE_R0_N100_Ind25_ckmrmultinom5),2,median)/apply(abs(RE_R0_N100_Ind25_5yrs_noCKMR),2,median), ylim=c(0.1,1.2), las=1, ylab="", xaxt="n", pch=16, main="", xlab="",xlim=c(0.75,3.25),cex=1.25)
+axis(side=1, at=1:3, labels=c("Cod", "Flatfish", "Sardine"))
+points(1:3,apply(abs(RE_R0_N100_Ind25_ckmrmultinom10),2,median)/apply(abs(RE_R0_N100_Ind25_10yrs_noCKMR),2,median), pch=16, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_R0_N100_Ind25_ckmrmultinom20),2,median)/apply(abs(RE_R0_N100_Ind25_20yrs_noCKMR),2,median), pch=16, col=4,cex=1.25)
+points(seq(0.9,2.9,1),apply(abs(RE_R0_N1000_Ind25_ckmrmultinom5),2,median)/apply(abs(RE_R0_N1000_Ind25_5yrs_noCKMR),2,median), pch=15, cex=1.25)
+points(1:3,apply(abs(RE_R0_N1000_Ind25_ckmrmultinom10),2,median)/apply(abs(RE_R0_N1000_Ind25_10yrs_noCKMR),2,median), pch=15, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_R0_N1000_Ind25_ckmrmultinom20),2,median)/apply(abs(RE_R0_N1000_Ind25_20yrs_noCKMR),2,median), pch=15, col=4,cex=1.25)
+points(seq(0.9,2.9,1),apply(abs(RE_R0_N5000_Ind25_ckmrmultinom5),2,median)/apply(abs(RE_R0_N5000_Ind25_5yrs_noCKMR),2,median), pch=17, cex=1.25)
+points(1:3,apply(abs(RE_R0_N5000_Ind25_ckmrmultinom10),2,median)/apply(abs(RE_R0_N5000_Ind25_10yrs_noCKMR),2,median), pch=17, col=3,cex=1.25)
+points(seq(1.1,3.1,1),apply(abs(RE_R0_N5000_Ind25_ckmrmultinom20),2,median)/apply(abs(RE_R0_N5000_Ind25_20yrs_noCKMR),2,median), pch=17, col=4,cex=1.25)
+
+
+
 
 
 
