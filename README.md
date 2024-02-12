@@ -6,7 +6,7 @@ CKMR_multinom_Sim.R - Population simulation operating sampling models.
 
 Runcode_multinomial.R - Code that runs operating and sampling models, and some examples for a subset of assessment models. 
 
-Results_figs.R - code associated with extracting results and plotting
+Results_figs.R - Code associated with extracting results and plotting
 
 misc.R - some miscellaneous plots
 
