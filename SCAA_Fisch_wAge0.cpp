@@ -49,6 +49,8 @@ Type objective_function<Type>::operator() ()
   DATA_INTEGER(Lamda_Comp);    
   DATA_INTEGER(Lamda_Index);    
 
+  DATA_MATRIX(AE_mat);              //Ageing Error Matrix (given true age i, what is the probability that you will be coded age j)
+
   //II. PARAMETER DECLARATION
   //---------------------------------------------------------------------------------------------
   PARAMETER(log_M);          //M scalar for Lorenzen M
@@ -94,6 +96,7 @@ Type objective_function<Type>::operator() ()
 
   matrix<Type> pred_caa(years.size(),ages.size());           //Predicted fishery catch at age
   matrix<Type> pred_fishery_comp(years.size(),ages.size());  //Predicted age composition from the fishery catch
+  matrix<Type> pred_fishery_comp_wAE(years.size(),ages.size()); //Predicted age composition from the fishery catch, with ageing error applied
   vector<Type> pred_harv(years.size());                      //Predicted Harvest weight (kg), (fyear,lyear) 
 
   vector<Type> pred_index(years.size());                    //Predicted index, (fyear,lyear)
@@ -169,8 +172,8 @@ Type objective_function<Type>::operator() ()
   
   //Abundance at age in the first year
   for(j=fage+1;j<=lage;j++){
-//   N(fyear-1,j)=R0*lxo(j);          //set abundance in the fist year f
-   N(fyear-1,j)=R0*exp(log_recruit_devs_init(fabs(j-(lage)))-0.5*pow(sd_rec,2))*lxo(j);          //set abundance in the fist year f
+//   N(fyear-1,j)=R0*lxo(j);          //set abundance in the fist year 
+   N(fyear-1,j)=R0*exp(log_recruit_devs_init(abs(j-(lage)))-0.5*pow(sd_rec,2))*lxo(j);          //set abundance in the fist year 
   }
 //  N(fyear-1,fage)=R0*exp(log_rec_devs(0));     //Filling in initial year recruitment
   N(fyear-1,fage)=R0*exp(log_rec_devs(0)-0.5*pow(sd_rec,2));     //Filling in initial year recruitment
@@ -204,6 +207,8 @@ Type objective_function<Type>::operator() ()
    pred_fishery_comp.row(i)=pred_caa.row(i)/(pred_caa.row(i).sum());  //calculating predicted catch age composition
   }
 
+  pred_fishery_comp_wAE=pred_fishery_comp*AE_mat;
+
 /////////////////////////
 //Objective function
 /////////////////////////
@@ -222,7 +227,7 @@ Type objective_function<Type>::operator() ()
   for(i=0;i<=lyear-1;i++){
    if(SS_fishery(i)>0){   //Only run calcs if there is comp data
     for(j=fage;j<=lage;j++){
-     L2 += -1*(SS_fishery(i)*(obs_fishery_comp(i,j)*log(pred_fishery_comp(i,j))));     //Likelihood for age composition of fishery catch
+     L2 += -1*(SS_fishery(i)*(obs_fishery_comp(i,j)*log(pred_fishery_comp_wAE(i,j))));     //Likelihood for age composition of fishery catch
     }
    }
   }
@@ -268,6 +273,7 @@ Type objective_function<Type>::operator() ()
   REPORT(pred_index);
   REPORT(obs_index);
   REPORT(pred_fishery_comp);
+  REPORT(pred_fishery_comp_wAE);
   REPORT(obs_fishery_comp);
 
   REPORT(L1);
