@@ -48,12 +48,15 @@ Type objective_function<Type>::operator() ()
   
 //CKMR data
   DATA_IVECTOR(coded_born_year_old); 
-  DATA_IVECTOR(coded_age_diff);
+  DATA_IVECTOR(coded_age_diff);   //Difference in the born years (not necessarily age difference because they die when sampled)
   DATA_VECTOR(n_ckmr);
   DATA_VECTOR(k_ckmr_hsp); 
   DATA_IVECTOR(coded_born_year_young); 
   DATA_VECTOR(k_ckmr_pop); 
   DATA_IVECTOR(samp_year_coded_old); 
+
+  DATA_IVECTOR(coded_age_one); 
+  DATA_IVECTOR(coded_age_two); 
  //Year of first born, age difference, number of replicates, number of successes for HSP, year of second born (or juves birth), number of successes for POP, and sampling year of older indv
 
   DATA_INTEGER(Lamda_Harvest);    //Whether to use data sources or not
@@ -62,7 +65,8 @@ Type objective_function<Type>::operator() ()
   DATA_INTEGER(Lamda_CKMR);    
 
   DATA_MATRIX(AE_mat);              //Ageing Error Matrix (given true age i, what is the probability that you will be coded age j)
-  DATA_MATRIX(AE_mat_rev);          //Reverse Ageing Error Matrix (given coded age i, what is the probability that you are true age j)
+  
+  DATA_SCALAR(pi_nu);               //False negative retention probability
 
   //II. PARAMETER DECLARATION
   //---------------------------------------------------------------------------------------------
@@ -127,11 +131,11 @@ Type objective_function<Type>::operator() ()
   Type L3;
   Type L4;
 
-  Type P_obs_xz;
-  int age_diff;
-  int born_year_old; 
-  int born_year_young; 
-  int theo_samp_year_old;
+  Type P_obs_xz=0;
+  int age_diff=0;
+  int born_year_old=0; 
+  int born_year_young=0; 
+  int theo_samp_year_old=0;
 
   int i; 
   int j; 
@@ -144,7 +148,7 @@ Type objective_function<Type>::operator() ()
   vector<Type> HSP_prob(n_ckmr.size());
   matrix<Type> surv_prob(n_ckmr.size(),ages.size());
   vector<Type> POP_prob(n_ckmr.size());
-  
+    
   Type NLL = 0;
   Type NPRAND = 0;
   Type JNLL = 0;
@@ -242,30 +246,35 @@ Type objective_function<Type>::operator() ()
 ///////////////////////////////////////////
   L4=Type(0);  
 // - 1s are for TMB indexing which starts at zero
-  for(i=0;i<=n_ckmr.size()-1;i++){        
-   for(x=0;x<=lage;x++){  //Loops through possible ages for ageing error. x is the possible age of the coded younger individual
+  for(i=0;i<=n_ckmr.size()-1;i++){       
+//  coded_born_year_young(i)+coded_age_one(i) is the sample year of coded younger, -1 is needed for TMB year indexing	
+   for(x=0;x<=lage;x++){  //Loops through possible ages for ageing error. x is the possible age of the coded younger individual   
+    if(AE_mat(x,coded_age_one(i))>0.001){
 	for(z=0;z<=lage;z++){  //^   z is possible age of the coded older individual
-	
-  //For ageing error, need the probability of the true age of younger (given coded age) AND of the true age of older (given coded age) 
-    //roundabout way of getting AE_mat_rev(younger_coded_age,x) and (older_coded_age,z)
-    P_obs_xz = AE_mat_rev(samp_year_coded_old(i)-coded_born_year_old(i)-coded_age_diff(i),x)*AE_mat_rev(samp_year_coded_old(i)-coded_born_year_old(i),z);
-//  P_obs_xz = AE_mat_rev(coded_age_younger(i),x)*AE_mat_rev(coded_age_older(i),z);
+     if(AE_mat(z,coded_age_two(i))>0.001){
 
-//now need new variables (age_diff, born_year_young, etc) for younger age x, and older age z. 
-  age_diff = abs(z-x) ;
-  if(z>x){  //if z is greater than x, then the born year of the theoretical older invidual is the sampled year of the coded older indv - theoretical age of the older indv
+  //For ageing error, need the probability of the true age of younger (given coded age) AND of the true age of older (given coded age)
+  P_obs_xz = pred_fishery_comp(coded_born_year_young(i)+coded_age_one(i)-1,x)*AE_mat(x,coded_age_one(i)) * pred_fishery_comp(samp_year_coded_old(i)-1,z)*AE_mat(coded_age_two(i),z);
+
+//now need new variables (age_diff, born_year_young, etc) for true age of coded younger x, and coded older z. 
+
+// (coded_born_year_young(i)+coded_age_one(i)-x) born year of younger individual, given true age
+// (samp_year_coded_old(i)-z)                    born year of older individual, given true age
+  if( (samp_year_coded_old(i)-z) < (coded_born_year_young(i)+coded_age_one(i)-x) ){  //if born year of the theoretical older invidual is less than the born year of the theoretical younger borns birth
+   age_diff = (coded_born_year_young(i)+coded_age_one(i)-x) - (samp_year_coded_old(i)-z); //Difference in the born years of the true-aged indv (not the age difference)
    born_year_old = samp_year_coded_old(i)-z; 
    born_year_young = born_year_old+age_diff; //and the born year of the theoretical younger indv is the born year of the theoretical older indv + the age difference
    theo_samp_year_old = samp_year_coded_old(i);  //the sample year of the older individual for the lower calculations is the sample year of the coded older indv 
   }
-  if(z<x){  //ok now what if your coded ages are super wrong the the coded younger is actually older than the coded older... 
+  if( (samp_year_coded_old(i)-z) > (coded_born_year_young(i)+coded_age_one(i)-x) ){  //ok now what if your coded ages are super wrong the the coded younger is actually older than the coded older... (born year of older is greater)
+   age_diff = (samp_year_coded_old(i)-z) - (coded_born_year_young(i)+coded_age_one(i)-x); //Difference in the born years of the true-aged indv (not the age difference)
    born_year_young = samp_year_coded_old(i)-z; //sample_year_old is now the sample year of the younger, so the born year of the younger is sample year of younger - z (which is now age of younger)
    born_year_old = born_year_young-age_diff; //then the born year of the theoretical older invidual is the born year of younger - the age difference
    //the sample year of the older individual for the lower calculations in this case is the sample year of the younger from the data, or the born year of the coded younger indv(now coded older) + the coded age of younger 
-   theo_samp_year_old = coded_born_year_young(i)+(samp_year_coded_old(i)-coded_born_year_old(i)-coded_age_diff(i));  
+   theo_samp_year_old = coded_born_year_young(i)+coded_age_one(i);  
   }
   
-   if(age_diff > 0){ //Hypothetical age difference has to be greater than zero
+   if(age_diff > 0){ //Hypothetical born difference has to be greater than zero
 
   //Specifying dimensions of the vector of matrices
    matrix<Type> surv_prob_aa(age_diff,lage+age_diff);
@@ -356,17 +365,17 @@ Type objective_function<Type>::operator() ()
 	POP_prob(i) += Type(0);
    }
    
-   }}}  //closing ageing error loops
+   }}}}}  //closing ageing error loops, and if loops
 //////////////////////////////////////////// 
 //Multinomial Likelihood for CKMR calcs
 ////////////////////////////////////////////  
 
 //Code in GPPs
-     L4 += -1*(n_ckmr(i)*((n_ckmr(i)-(k_ckmr_hsp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-(HSP_prob(i)+POP_prob(i)))); //Prob of no match
-     L4 += -1*(n_ckmr(i)*((k_ckmr_hsp(i)/n_ckmr(i))*log(HSP_prob(i))));    //Prob of HSP
+     L4 += -1*(n_ckmr(i)*((n_ckmr(i)-(k_ckmr_hsp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-(HSP_prob(i)*pi_nu+POP_prob(i)))); //Prob of no match
+     L4 += -1*(n_ckmr(i)*((k_ckmr_hsp(i)/n_ckmr(i))*log(HSP_prob(i)*pi_nu)));  //Prob of HSP, including the false negative retention probability
      L4 += -1*(n_ckmr(i)*((k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i))));    //Prob of POP
       //Alternative = Sample size * sum ( Prob of no match + Prob of HSP + Prob of POP ) 
-//     L4 += -1*( n_ckmr(i) * ( ((n_ckmr(i)-(k_ckmr_hsp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-(HSP_prob(i)+POP_prob(i))) + (k_ckmr_hsp(i)/n_ckmr(i))*log(HSP_prob(i)) + (k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i))) ); 
+//     L4 += -1*( n_ckmr(i) * ( ((n_ckmr(i)-(k_ckmr_hsp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-(HSP_prob(i)*pi_nu+POP_prob(i))) + (k_ckmr_hsp(i)/n_ckmr(i))*log(HSP_prob(i)*pi_nu) + (k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i))) ); 
   }
 
 /////////////////////////
