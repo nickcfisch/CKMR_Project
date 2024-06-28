@@ -284,15 +284,18 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
    if(collapsed_pairs$true_age_diff[i]>0){ #Your true age difference has to be > 0
     #Ok so the fecundity based on the age of the potential parent / (0.5 * the total reproductive output of the population at the time of juves birth )
     if(collapsed_pairs$true_born_year.young[i]>0){  #if not in unfished territory
-      collapsed_pairs$prob_POP[i]<- 2*(OM$Mat[collapsed_pairs$true_age_diff[i]]*OM$Waa[collapsed_pairs$true_age_diff[i]] / sum( OM$Naa[collapsed_pairs$true_born_year.young[i],]*OM$Mat*OM$Waa ))
+      collapsed_pairs$prob_POP[i]<- 2*(OM$Mat[collapsed_pairs$true_age_diff[i]+1]*OM$Waa[collapsed_pairs$true_age_diff[i]+1] / sum( OM$Naa[collapsed_pairs$true_born_year.young[i],]*OM$Mat*OM$Waa ))
     } else if(collapsed_pairs$true_born_year.young[i]<1){
-      collapsed_pairs$prob_POP[i]<- 2*(OM$Mat[collapsed_pairs$true_age_diff[i]]*OM$Waa[collapsed_pairs$true_age_diff[i]] / sum( OM$N0aa*OM$Mat*OM$Waa ))
+      collapsed_pairs$prob_POP[i]<- 2*(OM$Mat[collapsed_pairs$true_age_diff[i]+1]*OM$Waa[collapsed_pairs$true_age_diff[i]+1] / sum( OM$N0aa*OM$Mat*OM$Waa ))
     }
    }
   }#Don't need to consider plus group calcs bc max age diff will be 25
+
+  #if the sample year of the older is the same year as born year of younger, multiply by 50%
+  collapsed_pairs$prob_POP<-ifelse(collapsed_pairs$samp_year.old == collapsed_pairs$true_born_year.young,0.5*collapsed_pairs$prob_POP,collapsed_pairs$prob_POP)    
   
-  # A potential parent has to have been sampled after the year of youngs birth, because sampling is lethal 
-  collapsed_pairs$prob_POP<-ifelse(collapsed_pairs$samp_year.old > collapsed_pairs$true_born_year.young,collapsed_pairs$prob_POP,0)    
+  # A potential parent has to have been sampled after or on the year of youngs birth, because sampling is lethal 
+  collapsed_pairs$prob_POP<-ifelse(collapsed_pairs$samp_year.old >= collapsed_pairs$true_born_year.young,collapsed_pairs$prob_POP,0)    
   
   ####################################
   #Now GGP Probabilities
@@ -300,61 +303,111 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
   #Now for loop through the samples
   collapsed_pairs$prob_GGP<-0
   for (i in 1:nrow(collapsed_pairs)){
-    
-    if(collapsed_pairs$true_age_diff[i]>0 & collapsed_pairs$samp_year.old[i] > collapsed_pairs$true_born_year.young[i]){ #Your true age difference has to be > 0, and you have to have been sampled after the birth of younger indv
+    #Your true age difference has to be > 0, and you have to have been sampled after the birth of younger indv
+    if(collapsed_pairs$true_age_diff[i]>0 & collapsed_pairs$samp_year.old[i] > collapsed_pairs$true_born_year.young[i]){ 
       for (k in 0:OM$lage){  #Looping through potential ages of potential parent 
         #sample year of older must be greater than birth year of the parent 
-        if(collapsed_pairs$samp_year.old[i]>(collapsed_pairs$true_born_year.young[i]-k)){#sample year of older must be greater than birth year of the parent
+        if(collapsed_pairs$samp_year.old[i]>(collapsed_pairs$true_born_year.young[i]-k)){
           #age of grandparent at year of parents birth must be positive 
-       if(((collapsed_pairs$true_born_year.young[i]-k)-(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i])) > 0 & ((collapsed_pairs$true_born_year.young[i]-k)-(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i])) < (OM$lage+1)){ #if we're not in plus group, and age of grandparent at year of parents birth must be positive 
-        
-        if((collapsed_pairs$true_born_year.young[i]-k)>0 & collapsed_pairs$true_born_year.young[i]>0){  #if not in unfished territory
-          
-        #P(GGP)=2 * sum over parent ages (Naa[birth year of younger,age of potential parent] * Fec[age of potential parent at time of youngers birth]/SSB[birth year of younger] * Fec[age of grandparent at time of parents birth]/(0.5*SSB[year of potential parents birth]) )
-          #So the birth year of the potential parent of the younger is the birth year of younger - age of parent at time of youngers birth
-          #The age of the grandparent at the time of the parents birth is the birth year of the parent - the birth year of the grandparent
-          collapsed_pairs$prob_GGP[i]<- collapsed_pairs$prob_GGP[i] +
-            OM$Naa[collapsed_pairs$true_born_year.young[i],k+1] *
-            ((OM$Mat[k+1]*OM$Waa[k+1])/sum(OM$Naa[collapsed_pairs$true_born_year.young[i],]*OM$Mat*OM$Waa)) *
-            ((OM$Mat[(collapsed_pairs$true_born_year.young[i]-k)-(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i])+1]*OM$Waa[(collapsed_pairs$true_born_year.young[i]-k)-(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i])+1])/(0.5*sum(OM$Naa[collapsed_pairs$true_born_year.young[i]-k,]*OM$Mat*OM$Waa)))
-
-         } else if((collapsed_pairs$true_born_year.young[i]-k)<1 & collapsed_pairs$true_born_year.young[i]>0){  #if in unfished territory
-        collapsed_pairs$prob_GGP[i]<- collapsed_pairs$prob_GGP[i] +
-          OM$Naa[collapsed_pairs$true_born_year.young[i],k+1] *
-          ((OM$Mat[k+1]*OM$Waa[k+1])/sum(OM$Naa[collapsed_pairs$true_born_year.young[i],]*OM$Mat*OM$Waa)) *
-          ((OM$Mat[(collapsed_pairs$true_born_year.young[i]-k)-(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i])+1]*OM$Waa[(collapsed_pairs$true_born_year.young[i]-k)-(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i])+1])/(0.5*sum(OM$N0aa*OM$Mat*OM$Waa)))
-
-         } else if((collapsed_pairs$true_born_year.young[i]-k)<1 & collapsed_pairs$true_born_year.young[i]<1){  #if in unfished territory
-        collapsed_pairs$prob_GGP[i]<- collapsed_pairs$prob_GGP[i] +
-          OM$N0aa[,k+1] *
-          ((OM$Mat[k+1]*OM$Waa[k+1])/sum(OM$N0aa*OM$Mat*OM$Waa)) *
-          ((OM$Mat[(collapsed_pairs$true_born_year.young[i]-k)-(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i])+1]*OM$Waa[(collapsed_pairs$true_born_year.young[i]-k)-(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i])+1])/(0.5*sum(OM$N0aa*OM$Mat*OM$Waa)))
-      }
-         
-        #Now if we are in plus group territory. Same calcs just plus group
-      } else if(((collapsed_pairs$true_born_year.young[i]-k)-(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i])) > OM$lage){
-        if((collapsed_pairs$true_born_year.young[i]-k)>0 & collapsed_pairs$true_born_year.young[i]>0){  #if not in unfished territory
-          collapsed_pairs$prob_GGP[i]<- collapsed_pairs$prob_GGP[i] +
-            OM$Naa[collapsed_pairs$true_born_year.young[i],k+1] *
-            ((OM$Mat[k+1]*OM$Waa[k+1])/sum(OM$Naa[collapsed_pairs$true_born_year.young[i],]*OM$Mat*OM$Waa)) *
-            ((OM$Mat[OM$lage+1]*OM$Waa[OM$lage+1])/(0.5*sum(OM$Naa[collapsed_pairs$true_born_year.young[i]-k,]*OM$Mat*OM$Waa)))
-        } else if((collapsed_pairs$true_born_year.young[i]-k)<1 & collapsed_pairs$true_born_year.young[i]>0){  #if in unfished territory
-          collapsed_pairs$prob_GGP[i]<- collapsed_pairs$prob_GGP[i] +
-            OM$Naa[collapsed_pairs$true_born_year.young[i],k+1] *
-            ((OM$Mat[k+1]*OM$Waa[k+1])/sum(OM$Naa[collapsed_pairs$true_born_year.young[i],]*OM$Mat*OM$Waa)) *
-            ((OM$Mat[OM$lage+1]*OM$Waa[OM$lage+1])/(0.5*sum(OM$N0aa*OM$Mat*OM$Waa)))
-          
-        } else if((collapsed_pairs$true_born_year.young[i]-k)<1 & collapsed_pairs$true_born_year.young[i]<1){  #if in unfished territory
-          collapsed_pairs$prob_GGP[i]<- collapsed_pairs$prob_GGP[i] +
-            OM$N0aa[,k+1] *
-            ((OM$Mat[k+1]*OM$Waa[k+1])/sum(OM$N0aa*OM$Mat*OM$Waa)) *
-            ((OM$Mat[OM$lage+1]*OM$Waa[OM$lage+1])/(0.5*sum(OM$N0aa*OM$Mat*OM$Waa)))
+          if(((collapsed_pairs$true_born_year.young[i]-k)-(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i])) > 0 & ((collapsed_pairs$true_born_year.young[i]-k)-(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i])) < (OM$lage+1)){ #if we're not in plus group, and age of grandparent at year of parents birth must be positive 
+            
+            if((collapsed_pairs$true_born_year.young[i]-k)>0 & collapsed_pairs$true_born_year.young[i]>0){  #if not in unfished territory
+              
+              #P(GGP)=2 * sum over parent ages (Naa[birth year of younger,age of potential parent] * Fec[age of potential parent at time of youngers birth]/SSB[birth year of younger] * Fec[age of grandparent at time of parents birth]/(0.5*SSB[year of potential parents birth]) )
+              #So the birth year of the potential parent of the younger is the birth year of younger - age of parent at time of youngers birth
+              #The age of the grandparent at the time of the parents birth is the birth year of the parent - the birth year of the grandparent
+              collapsed_pairs$prob_GGP[i]<- collapsed_pairs$prob_GGP[i] +
+                OM$Naa[collapsed_pairs$true_born_year.young[i],k+1] *
+                ((OM$Mat[k+1]*OM$Waa[k+1])/sum(OM$Naa[collapsed_pairs$true_born_year.young[i],]*OM$Mat*OM$Waa)) *
+                ((OM$Mat[(collapsed_pairs$true_born_year.young[i]-k)-(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i])+1]*OM$Waa[(collapsed_pairs$true_born_year.young[i]-k)-(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i])+1])/(0.5*sum(OM$Naa[collapsed_pairs$true_born_year.young[i]-k,]*OM$Mat*OM$Waa)))
+              
+            } else if((collapsed_pairs$true_born_year.young[i]-k)<1 & collapsed_pairs$true_born_year.young[i]>0){  #if in unfished territory
+              collapsed_pairs$prob_GGP[i]<- collapsed_pairs$prob_GGP[i] +
+                OM$Naa[collapsed_pairs$true_born_year.young[i],k+1] *
+                ((OM$Mat[k+1]*OM$Waa[k+1])/sum(OM$Naa[collapsed_pairs$true_born_year.young[i],]*OM$Mat*OM$Waa)) *
+                ((OM$Mat[(collapsed_pairs$true_born_year.young[i]-k)-(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i])+1]*OM$Waa[(collapsed_pairs$true_born_year.young[i]-k)-(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i])+1])/(0.5*sum(OM$N0aa*OM$Mat*OM$Waa)))
+              
+            } else if((collapsed_pairs$true_born_year.young[i]-k)<1 & collapsed_pairs$true_born_year.young[i]<1){  #if in unfished territory
+              collapsed_pairs$prob_GGP[i]<- collapsed_pairs$prob_GGP[i] +
+                OM$N0aa[,k+1] *
+                ((OM$Mat[k+1]*OM$Waa[k+1])/sum(OM$N0aa*OM$Mat*OM$Waa)) *
+                ((OM$Mat[(collapsed_pairs$true_born_year.young[i]-k)-(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i])+1]*OM$Waa[(collapsed_pairs$true_born_year.young[i]-k)-(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i])+1])/(0.5*sum(OM$N0aa*OM$Mat*OM$Waa)))
+            }
+            
+            #Now if we are in plus group territory. Same calcs just plus group
+          } else if(((collapsed_pairs$true_born_year.young[i]-k)-(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i])) > OM$lage){
+            if((collapsed_pairs$true_born_year.young[i]-k)>0 & collapsed_pairs$true_born_year.young[i]>0){  #if not in unfished territory
+              collapsed_pairs$prob_GGP[i]<- collapsed_pairs$prob_GGP[i] +
+                OM$Naa[collapsed_pairs$true_born_year.young[i],k+1] *
+                ((OM$Mat[k+1]*OM$Waa[k+1])/sum(OM$Naa[collapsed_pairs$true_born_year.young[i],]*OM$Mat*OM$Waa)) *
+                ((OM$Mat[OM$lage+1]*OM$Waa[OM$lage+1])/(0.5*sum(OM$Naa[collapsed_pairs$true_born_year.young[i]-k,]*OM$Mat*OM$Waa)))
+            } else if((collapsed_pairs$true_born_year.young[i]-k)<1 & collapsed_pairs$true_born_year.young[i]>0){  #if in unfished territory
+              collapsed_pairs$prob_GGP[i]<- collapsed_pairs$prob_GGP[i] +
+                OM$Naa[collapsed_pairs$true_born_year.young[i],k+1] *
+                ((OM$Mat[k+1]*OM$Waa[k+1])/sum(OM$Naa[collapsed_pairs$true_born_year.young[i],]*OM$Mat*OM$Waa)) *
+                ((OM$Mat[OM$lage+1]*OM$Waa[OM$lage+1])/(0.5*sum(OM$N0aa*OM$Mat*OM$Waa)))
+              
+            } else if((collapsed_pairs$true_born_year.young[i]-k)<1 & collapsed_pairs$true_born_year.young[i]<1){  #if in unfished territory
+              collapsed_pairs$prob_GGP[i]<- collapsed_pairs$prob_GGP[i] +
+                OM$N0aa[,k+1] *
+                ((OM$Mat[k+1]*OM$Waa[k+1])/sum(OM$N0aa*OM$Mat*OM$Waa)) *
+                ((OM$Mat[OM$lage+1]*OM$Waa[OM$lage+1])/(0.5*sum(OM$N0aa*OM$Mat*OM$Waa)))
+            }
+            
+          }
         }
-         
+  #######Instead if the sample year of older is equal to the birth year of the parent 
+        if(collapsed_pairs$samp_year.old[i]==(collapsed_pairs$true_born_year.young[i]-k)){
+          #age of grandparent at year of parents birth must be positive 
+          if(((collapsed_pairs$true_born_year.young[i]-k)-(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i])) > 0 & ((collapsed_pairs$true_born_year.young[i]-k)-(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i])) < (OM$lage+1)){ #if we're not in plus group, and age of grandparent at year of parents birth must be positive 
+            
+            if((collapsed_pairs$true_born_year.young[i]-k)>0 & collapsed_pairs$true_born_year.young[i]>0){  #if not in unfished territory
+              
+              #P(GGP)=2 * sum over parent ages (Naa[birth year of younger,age of potential parent] * Fec[age of potential parent at time of youngers birth]/SSB[birth year of younger] * Fec[age of grandparent at time of parents birth]/(0.5*SSB[year of potential parents birth]) )
+              #So the birth year of the potential parent of the younger is the birth year of younger - age of parent at time of youngers birth
+              #The age of the grandparent at the time of the parents birth is the birth year of the parent - the birth year of the grandparent
+              collapsed_pairs$prob_GGP[i]<- 0.5*( collapsed_pairs$prob_GGP[i] +
+                OM$Naa[collapsed_pairs$true_born_year.young[i],k+1] *
+                ((OM$Mat[k+1]*OM$Waa[k+1])/sum(OM$Naa[collapsed_pairs$true_born_year.young[i],]*OM$Mat*OM$Waa)) *
+                ((OM$Mat[(collapsed_pairs$true_born_year.young[i]-k)-(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i])+1]*OM$Waa[(collapsed_pairs$true_born_year.young[i]-k)-(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i])+1])/(0.5*sum(OM$Naa[collapsed_pairs$true_born_year.young[i]-k,]*OM$Mat*OM$Waa))) )
+              
+            } else if((collapsed_pairs$true_born_year.young[i]-k)<1 & collapsed_pairs$true_born_year.young[i]>0){  #if in unfished territory
+              collapsed_pairs$prob_GGP[i]<- 0.5*( collapsed_pairs$prob_GGP[i] +
+                OM$Naa[collapsed_pairs$true_born_year.young[i],k+1] *
+                ((OM$Mat[k+1]*OM$Waa[k+1])/sum(OM$Naa[collapsed_pairs$true_born_year.young[i],]*OM$Mat*OM$Waa)) *
+                ((OM$Mat[(collapsed_pairs$true_born_year.young[i]-k)-(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i])+1]*OM$Waa[(collapsed_pairs$true_born_year.young[i]-k)-(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i])+1])/(0.5*sum(OM$N0aa*OM$Mat*OM$Waa))) )
+              
+            } else if((collapsed_pairs$true_born_year.young[i]-k)<1 & collapsed_pairs$true_born_year.young[i]<1){  #if in unfished territory
+              collapsed_pairs$prob_GGP[i]<- 0.5*( collapsed_pairs$prob_GGP[i] +
+                OM$N0aa[,k+1] *
+                ((OM$Mat[k+1]*OM$Waa[k+1])/sum(OM$N0aa*OM$Mat*OM$Waa)) *
+                ((OM$Mat[(collapsed_pairs$true_born_year.young[i]-k)-(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i])+1]*OM$Waa[(collapsed_pairs$true_born_year.young[i]-k)-(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i])+1])/(0.5*sum(OM$N0aa*OM$Mat*OM$Waa))) )
+            }
+            
+            #Now if we are in plus group territory. Same calcs just plus group
+          } else if(((collapsed_pairs$true_born_year.young[i]-k)-(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i])) > OM$lage){
+            if((collapsed_pairs$true_born_year.young[i]-k)>0 & collapsed_pairs$true_born_year.young[i]>0){  #if not in unfished territory
+              collapsed_pairs$prob_GGP[i]<- 0.5*( collapsed_pairs$prob_GGP[i] +
+                OM$Naa[collapsed_pairs$true_born_year.young[i],k+1] *
+                ((OM$Mat[k+1]*OM$Waa[k+1])/sum(OM$Naa[collapsed_pairs$true_born_year.young[i],]*OM$Mat*OM$Waa)) *
+                ((OM$Mat[OM$lage+1]*OM$Waa[OM$lage+1])/(0.5*sum(OM$Naa[collapsed_pairs$true_born_year.young[i]-k,]*OM$Mat*OM$Waa))) )
+            } else if((collapsed_pairs$true_born_year.young[i]-k)<1 & collapsed_pairs$true_born_year.young[i]>0){  #if in unfished territory
+              collapsed_pairs$prob_GGP[i]<- 0.5*( collapsed_pairs$prob_GGP[i] +
+                OM$Naa[collapsed_pairs$true_born_year.young[i],k+1] *
+                ((OM$Mat[k+1]*OM$Waa[k+1])/sum(OM$Naa[collapsed_pairs$true_born_year.young[i],]*OM$Mat*OM$Waa)) *
+                ((OM$Mat[OM$lage+1]*OM$Waa[OM$lage+1])/(0.5*sum(OM$N0aa*OM$Mat*OM$Waa))) )
+              
+            } else if((collapsed_pairs$true_born_year.young[i]-k)<1 & collapsed_pairs$true_born_year.young[i]<1){  #if in unfished territory
+              collapsed_pairs$prob_GGP[i]<- 0.5*( collapsed_pairs$prob_GGP[i] +
+                OM$N0aa[,k+1] *
+                ((OM$Mat[k+1]*OM$Waa[k+1])/sum(OM$N0aa*OM$Mat*OM$Waa)) *
+                ((OM$Mat[OM$lage+1]*OM$Waa[OM$lage+1])/(0.5*sum(OM$N0aa*OM$Mat*OM$Waa))) )
+            }
+            
+          }
+        }
       }
-     }
     }
-   }
   }
   
   #Multiplying by two for the probability of MGGP or PGGP
@@ -362,16 +415,16 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
   
   collapsed_pairs$n_UP<-collapsed_pairs$n_HSPorGGP<-collapsed_pairs$n_POP<-NA
   for (m in 1:nrow(collapsed_pairs)){
-   collapsed_pairs[m,c("n_UP","n_HSPorGPP","n_POP")]<-t(rmultinom(1, size=collapsed_pairs$times[m], prob=c(1-((collapsed_pairs$HSP_prob[m]+collapsed_pairs$prob_GGP[m])*pi_nu+collapsed_pairs$prob_POP[m]),(collapsed_pairs$HSP_prob[m]+collapsed_pairs$prob_GGP[m])*pi_nu,collapsed_pairs$prob_POP[m])))
+   collapsed_pairs[m,c("n_UP","n_HSPorGGP","n_POP")]<-t(rmultinom(1, size=collapsed_pairs$times[m], prob=c(1-((collapsed_pairs$HSP_prob[m]+collapsed_pairs$prob_GGP[m])*pi_nu+collapsed_pairs$prob_POP[m]),(collapsed_pairs$HSP_prob[m]+collapsed_pairs$prob_GGP[m])*pi_nu,collapsed_pairs$prob_POP[m])))
   }
   
   #ordering the counts by coded year born and then the coded age difference (for data purposes)
   collapsed_pairs<-collapsed_pairs[order(collapsed_pairs$coded_born_year.young,collapsed_pairs$coded_age_diff,collapsed_pairs$true_born_year.young,collapsed_pairs$true_age_diff),] 
   
-  collapsed_data<-aggregate.data.frame(x=collapsed_pairs[,c("times", "n_UP", "n_HSPorGPP","n_POP")], by=list(collapsed_pairs$coded_born_year.young,collapsed_pairs$coded_age_diff,collapsed_pairs$samp_year.old,collapsed_pairs$coded_age.young,collapsed_pairs$coded_age.old), FUN=sum)
-  colnames(collapsed_data)<-c("coded_born_year.young", "coded_age_diff","samp_year.old","coded_age.young","coded_age.old","times", "n_UP", "n_HSPorGPP","n_POP")
+  collapsed_data<-aggregate.data.frame(x=collapsed_pairs[,c("times", "n_UP", "n_HSPorGGP","n_POP")], by=list(collapsed_pairs$coded_born_year.young,collapsed_pairs$coded_age_diff,collapsed_pairs$samp_year.old,collapsed_pairs$coded_age.young,collapsed_pairs$coded_age.old), FUN=sum)
+  colnames(collapsed_data)<-c("coded_born_year.young", "coded_age_diff","samp_year.old","coded_age.young","coded_age.old","times", "n_UP", "n_HSPorGGP","n_POP")
   
-  sim_vals <- list(samples = samples, pairs=pairs, pair_counts = collapsed_pairs, pair_data = collapsed_data[,c("coded_born_year.young", "coded_age_diff", "samp_year.old","coded_age.young","coded_age.old","n_UP", "n_HSPorGPP","n_POP","times")])
+  sim_vals <- list(samples = samples, pairs=pairs, pair_counts = collapsed_pairs, pair_data = collapsed_data[,c("coded_born_year.young", "coded_age_diff", "samp_year.old","coded_age.young","coded_age.old","n_UP", "n_HSPorGGP","n_POP","times")])
     
   return(list(OM=OM,dat_seed=dat_seed,sd_catch=sd_catch,N_Comp_preCKMR=N_Comp_preCKMR,N_Comp_CKMR=N_Comp_CKMR,q_index=q_index,sd_index=sd_index,fyear_dat=fyear_dat,lyear_dat=lyear_dat,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AE_mat,
               pair_counts=sim_vals$pair_counts,
@@ -382,7 +435,7 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
               born_year_old=sim_vals$pair_data$coded_born_year.young-sim_vals$pair_data$coded_age_diff, 
               age_diff=sim_vals$pair_data$coded_age_diff,
               n_ckmr=sim_vals$pair_data$times,
-              k_ckmr_hsporgpp=sim_vals$pair_data$n_HSPorGPP,
+              k_ckmr_hsporggp=sim_vals$pair_data$n_HSPorGGP,
               #CKMR POP
               born_year_young=sim_vals$pair_data$coded_born_year.young, 
               k_ckmr_pop=sim_vals$pair_data$n_POP,

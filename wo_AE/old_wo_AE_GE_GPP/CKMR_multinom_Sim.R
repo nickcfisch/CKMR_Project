@@ -261,9 +261,9 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
   for (i in 1:nrow(collapsed_pairs)){
     #Ok so the fecundity based on the age of the potential parent / (0.5 * the total reproductive output of the population at the time of juves birth )
     if(collapsed_pairs$born_year.young[i]>0){  #if not in unfished territory
-      collapsed_pairs$prob_POP[i]<- 2*(OM$Mat[collapsed_pairs$age_diff[i]]*OM$Waa[collapsed_pairs$age_diff[i]] / sum( OM$Naa[collapsed_pairs$born_year.young[i],]*OM$Mat*OM$Waa ))
+      collapsed_pairs$prob_POP[i]<- 2*(OM$Mat[collapsed_pairs$age_diff[i]+1]*OM$Waa[collapsed_pairs$age_diff[i]+1] / sum( OM$Naa[collapsed_pairs$born_year.young[i],]*OM$Mat*OM$Waa ))
     } else if(collapsed_pairs$born_year.young[i]<1){
-      collapsed_pairs$prob_POP[i]<- 2*(OM$Mat[collapsed_pairs$age_diff[i]]*OM$Waa[collapsed_pairs$age_diff[i]] / sum( OM$N0aa*OM$Mat*OM$Waa ))
+      collapsed_pairs$prob_POP[i]<- 2*(OM$Mat[collapsed_pairs$age_diff[i]+1]*OM$Waa[collapsed_pairs$age_diff[i]+1] / sum( OM$N0aa*OM$Mat*OM$Waa ))
     }
   }#Don't need to consider plus group calcs bc max age diff will be 25
   

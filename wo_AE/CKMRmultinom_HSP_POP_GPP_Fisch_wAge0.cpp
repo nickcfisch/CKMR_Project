@@ -352,10 +352,10 @@ Type objective_function<Type>::operator() ()
     if(samp_year_old(i) >= born_year_young(i)){
   //So the exp reproductive output of the parent in the year of offsprings birth / total reprod output that year
      if(born_year_young(i)>0){
-	  POP_prob(i) = 2*(Mat(age_diff(i)-1)*Waa(age_diff(i)-1) / spbiomass(born_year_young(i)-1));
+	  POP_prob(i) = 2*(Mat(age_diff(i))*Waa(age_diff(i)) / spbiomass(born_year_young(i)-1));
 	 }    
 	 if(born_year_young(i)<1){
-	  POP_prob(i) = 2*(Mat(age_diff(i)-1)*Waa(age_diff(i)-1) / SSB0);
+	  POP_prob(i) = 2*(Mat(age_diff(i))*Waa(age_diff(i)) / SSB0);
 	 }
    }	 
    // A potential parent has to have been sampled after or on the year of youngs birth, because sampling is lethal 
