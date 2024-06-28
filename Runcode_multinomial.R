@@ -914,7 +914,7 @@ library(TMB)
 
 setwd(wd)
 #Compile and load model 
-compile("CKMRmultinom_POP_HSP_GPP_Fisch_wAge0.cpp")
+compile("CKMRmultinom_POP_HSP_GPP_Fisch_wAE.cpp")
 
 N_sim<-1:100
 res_list<-list()
@@ -972,9 +972,9 @@ for (Q in 1:3){  #Running through the life history types
                 Sel_logis_midpt=log(runif(1,min=OM$OM$Sel_50-OM$OM$Sel_50*0.5,max=OM$OM$Sel_50+OM$OM$Sel_50*0.5)),
                 log_fint=log(runif(length(OM$OM$F_int[26:100]),min=OM$OM$F_int[26:100]-OM$OM$F_int[26:100]*0.5,max=OM$OM$F_int[26:100]+OM$OM$F_int[26:100]*0.5)))  
     
-    dyn.load(dynlib("CKMRmultinom_POP_HSP_GPP_Fisch_wAge0"))
+    dyn.load(dynlib("CKMRmultinom_POP_HSP_GPP_Fisch_wAE"))
     
-    parm_names<-names(MakeADFun(dat, par, DLL="CKMRmultinom_POP_HSP_GPP_Fisch_wAge0")$par)
+    parm_names<-names(MakeADFun(dat, par, DLL="CKMRmultinom_POP_HSP_GPP_Fisch_wAE")$par)
     
     fixed<-list(steepness=factor(NA),
                 log_sd_catch=factor(NA),
@@ -987,7 +987,7 @@ for (Q in 1:3){  #Running through the life history types
     l<-lower_bounds[-which(parm_names %in% c(names(fixed),reffects))]
     u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
     
-    SCAA <- MakeADFun(dat, par, DLL="CKMRmultinom_POP_HSP_GPP_Fisch_wAge0", map=fixed, random=reffects)
+    SCAA <- MakeADFun(dat, par, DLL="CKMRmultinom_POP_HSP_GPP_Fisch_wAE", map=fixed, random=reffects)
     SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps=1, getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
     
     res_list[[Q]][[s]]<-SCAA_fit
@@ -1015,7 +1015,7 @@ library(TMB)
 
 setwd(wd)
 #Compile and load model 
-compile("CKMRmultinom_POP_HSP_GPP_Fisch_wAge0.cpp")
+compile("CKMRmultinom_POP_HSP_GPP_Fisch_wAE.cpp")
 
 N_sim<-1:100
 res_list<-list()
@@ -1073,9 +1073,9 @@ for (Q in 1:3){  #Running through the life history types
                 Sel_logis_midpt=log(runif(1,min=OM$OM$Sel_50-OM$OM$Sel_50*0.5,max=OM$OM$Sel_50+OM$OM$Sel_50*0.5)),
                 log_fint=log(runif(length(OM$OM$F_int[26:100]),min=OM$OM$F_int[26:100]-OM$OM$F_int[26:100]*0.5,max=OM$OM$F_int[26:100]+OM$OM$F_int[26:100]*0.5)))  
     
-    dyn.load(dynlib("CKMRmultinom_POP_HSP_GPP_Fisch_wAge0"))
+    dyn.load(dynlib("CKMRmultinom_POP_HSP_GPP_Fisch_wAE"))
     
-    parm_names<-names(MakeADFun(dat, par, DLL="CKMRmultinom_POP_HSP_GPP_Fisch_wAge0")$par)
+    parm_names<-names(MakeADFun(dat, par, DLL="CKMRmultinom_POP_HSP_GPP_Fisch_wAE")$par)
     
     fixed<-list(steepness=factor(NA),
                 log_sd_catch=factor(NA),
@@ -1088,7 +1088,7 @@ for (Q in 1:3){  #Running through the life history types
     l<-lower_bounds[-which(parm_names %in% c(names(fixed),reffects))]
     u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
     
-    SCAA <- MakeADFun(dat, par, DLL="CKMRmultinom_POP_HSP_GPP_Fisch_wAge0", map=fixed, random=reffects)
+    SCAA <- MakeADFun(dat, par, DLL="CKMRmultinom_POP_HSP_GPP_Fisch_wAE", map=fixed, random=reffects)
     SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps=1, getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
     
     res_list[[Q]][[s]]<-SCAA_fit
@@ -1116,7 +1116,7 @@ library(TMB)
 
 setwd(wd)
 #Compile and load model 
-compile("CKMRmultinom_POP_HSP_GPP_Fisch_wAge0.cpp")
+compile("CKMRmultinom_POP_HSP_GPP_Fisch_wAE.cpp")
 
 N_sim<-1:100
 res_list<-list()
@@ -1174,9 +1174,9 @@ for (Q in 1:3){  #Running through the life history types
                 Sel_logis_midpt=log(runif(1,min=OM$OM$Sel_50-OM$OM$Sel_50*0.5,max=OM$OM$Sel_50+OM$OM$Sel_50*0.5)),
                 log_fint=log(runif(length(OM$OM$F_int[26:100]),min=OM$OM$F_int[26:100]-OM$OM$F_int[26:100]*0.5,max=OM$OM$F_int[26:100]+OM$OM$F_int[26:100]*0.5)))  
     
-    dyn.load(dynlib("CKMRmultinom_POP_HSP_GPP_Fisch_wAge0"))
+    dyn.load(dynlib("CKMRmultinom_POP_HSP_GPP_Fisch_wAE"))
     
-    parm_names<-names(MakeADFun(dat, par, DLL="CKMRmultinom_POP_HSP_GPP_Fisch_wAge0")$par)
+    parm_names<-names(MakeADFun(dat, par, DLL="CKMRmultinom_POP_HSP_GPP_Fisch_wAE")$par)
     
     fixed<-list(steepness=factor(NA),
                 log_sd_catch=factor(NA),
@@ -1189,7 +1189,7 @@ for (Q in 1:3){  #Running through the life history types
     l<-lower_bounds[-which(parm_names %in% c(names(fixed),reffects))]
     u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
     
-    SCAA <- MakeADFun(dat, par, DLL="CKMRmultinom_POP_HSP_GPP_Fisch_wAge0", map=fixed, random=reffects)
+    SCAA <- MakeADFun(dat, par, DLL="CKMRmultinom_POP_HSP_GPP_Fisch_wAE", map=fixed, random=reffects)
     SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps=1, getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
     
     res_list[[Q]][[s]]<-SCAA_fit

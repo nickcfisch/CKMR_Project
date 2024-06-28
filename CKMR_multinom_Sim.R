@@ -356,7 +356,7 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
             
           }
         }
-  #######Instead if the sample year of older is equal to the birth year of the parent 
+  #######Instead if the sample year of older is equal to the birth year of the potential parent 
         if(collapsed_pairs$samp_year.old[i]==(collapsed_pairs$true_born_year.young[i]-k)){
           #age of grandparent at year of parents birth must be positive 
           if(((collapsed_pairs$true_born_year.young[i]-k)-(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i])) > 0 & ((collapsed_pairs$true_born_year.young[i]-k)-(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i])) < (OM$lage+1)){ #if we're not in plus group, and age of grandparent at year of parents birth must be positive 
@@ -1155,5 +1155,21 @@ for(s in 2:Nsim){
   points(1:101,Sardine_runs[[s]]$SSB/Sardine_runs[[s]]$SSB0)
 }
 
+
+##########################################
+#Deterministic to check calculations
+##########################################
+par <- list(log_M=log(OM$OM$Mref),
+            log_q=log(OM$q_index),
+            log_recruit_devs_init=OM$OM$lrecdevs[(25-(OM$OM$lage-1)):25],
+            log_recruit_devs=OM$OM$lrecdevs[26:100],
+            steepness=OM$OM$h,
+            log_R0=log(OM$OM$R0),
+            log_sigma_rec=log(OM$OM$sd_rec),
+            log_sd_catch=log(OM$sd_catch),
+            log_sd_index=log(OM$sd_index),
+            Sel_logis_k=log(OM$OM$Sel_slope),
+            Sel_logis_midpt=log(OM$OM$Sel_50),
+            log_fint=log(OM$OM$F_int[26:100]))
 
 
