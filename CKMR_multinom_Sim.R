@@ -427,7 +427,7 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
   sim_vals <- list(samples = samples, pairs=pairs, pair_counts = collapsed_pairs, pair_data = collapsed_data[,c("coded_born_year.young", "coded_age_diff", "samp_year.old","coded_age.young","coded_age.old","n_UP", "n_HSPorGGP","n_POP","times")])
     
   return(list(OM=OM,dat_seed=dat_seed,sd_catch=sd_catch,N_Comp_preCKMR=N_Comp_preCKMR,N_Comp_CKMR=N_Comp_CKMR,q_index=q_index,sd_index=sd_index,fyear_dat=fyear_dat,lyear_dat=lyear_dat,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AE_mat,
-              pair_counts=sim_vals$pair_counts,
+  #            pair_counts=sim_vals$pair_counts, #too memory intensive to upload (and don't use for anything)
               Obs_Catch=Obs_Catch,
               Obs_Catch_Comp=Obs_Catch_Comp,
               Obs_Index=Obs_Index,
@@ -806,7 +806,7 @@ for (Q in 1:3){  #Running through the life history types
               born_year_old=OM$born_year_old-(OM$fyear_dat-1),
               age_diff=OM$age_diff,
               n_ckmr=OM$n_ckmr,
-              k_ckmr_hsp=OM$k_ckmr_hsp,
+              k_ckmr_hsporggp=OM$k_ckmr_hsporggp,
               born_year_young=OM$born_year_young-(OM$fyear_dat-1), 
               k_ckmr_pop=OM$k_ckmr_pop,
               samp_year_old=OM$samp_year_old-(OM$fyear_dat-1),

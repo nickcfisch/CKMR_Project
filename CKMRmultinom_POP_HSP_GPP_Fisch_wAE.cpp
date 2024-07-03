@@ -50,7 +50,7 @@ Type objective_function<Type>::operator() ()
   DATA_IVECTOR(coded_born_year_old); 
   DATA_IVECTOR(coded_age_diff);   //Difference in the born years (not necessarily age difference because they die when sampled)
   DATA_VECTOR(n_ckmr);
-  DATA_VECTOR(k_ckmr_hsp); 
+  DATA_VECTOR(k_ckmr_hsporggp); 
   DATA_IVECTOR(coded_born_year_young); 
   DATA_VECTOR(k_ckmr_pop); 
   DATA_IVECTOR(samp_year_coded_old); 
@@ -255,9 +255,9 @@ Type objective_function<Type>::operator() ()
   for(i=0;i<=n_ckmr.size()-1;i++){       
 //  coded_born_year_young(i)+coded_age_one(i) is the sample year of coded younger, -1 is needed for TMB year indexing	
    for(x=0;x<=lage;x++){  //Loops through possible ages for ageing error. x is the possible age of the coded younger individual   
-    if(AE_mat(x,coded_age_one(i))>0.001){
+    if(AE_mat(x,coded_age_one(i))>0.01){
 	for(z=0;z<=lage;z++){  //^   z is possible age of the coded older individual
-     if(AE_mat(z,coded_age_two(i))>0.001){
+     if(AE_mat(z,coded_age_two(i))>0.01){
 
   //For ageing error, need the probability of that the younger was coded the age it was over true ages AND of same for the older, multiplied by the fishery composition in the years that the indv were sampled
   P_obs_xz = pred_fishery_comp(coded_born_year_young(i)+coded_age_one(i)-1,x)*AE_mat(x,coded_age_one(i)) * pred_fishery_comp(samp_year_coded_old(i)-1,z)*AE_mat(coded_age_two(i),z);
@@ -470,12 +470,12 @@ Type objective_function<Type>::operator() ()
 //Multinomial Likelihood for CKMR calcs
 ////////////////////////////////////////////  
 
-//Code in GPPs
-     L4 += -1*(n_ckmr(i)*((n_ckmr(i)-(k_ckmr_hsp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-(HSP_prob(i)*pi_nu+POP_prob(i)))); //Prob of no match
-     L4 += -1*(n_ckmr(i)*((k_ckmr_hsp(i)/n_ckmr(i))*log(HSP_prob(i)*pi_nu)));  //Prob of HSP, including the false negative retention probability
+     L4 += -1*(n_ckmr(i)*((n_ckmr(i)-(k_ckmr_hsporggp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-((HSP_prob(i)+GGP_prob(i))*pi_nu+POP_prob(i)))); //Prob of no match
+     L4 += -1*(n_ckmr(i)*((k_ckmr_hsporggp(i)/n_ckmr(i))*log((HSP_prob(i)+GGP_prob(i))*pi_nu)));    //Prob of HSP or GPP
      L4 += -1*(n_ckmr(i)*((k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i))));    //Prob of POP
       //Alternative = Sample size * sum ( Prob of no match + Prob of HSP + Prob of POP ) 
-//     L4 += -1*( n_ckmr(i) * ( ((n_ckmr(i)-(k_ckmr_hsp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-(HSP_prob(i)*pi_nu+POP_prob(i))) + (k_ckmr_hsp(i)/n_ckmr(i))*log(HSP_prob(i)*pi_nu) + (k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i))) ); 
+//     L4 += -1*( n_ckmr(i) * ( ((n_ckmr(i)-(k_ckmr_hsporggp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-((HSP_prob(i)+GGP_prob(i))*pi_nu+POP_prob(i))) + (k_ckmr_hsporggp(i)/n_ckmr(i))*log((HSP_prob(i)+GGP_prob(i))*pi_nu) + (k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i))) ); 
+
   }
 
 /////////////////////////
