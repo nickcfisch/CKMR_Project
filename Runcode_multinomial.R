@@ -539,7 +539,7 @@ library(TMB)
 
 setwd(wd)
 #Compile and load model 
-compile("SCAA_Fisch_wAge0.cpp")
+compile("SCAA_Fisch_wAE.cpp")
 
 #Doing N Simulations
 N_sim<-1:100
@@ -588,9 +588,9 @@ for (Q in 1:3){  #Running through the life history types
     ################
     #TMB stuff
     ################
-    dyn.load(dynlib("SCAA_Fisch_wAge0"))
+    dyn.load(dynlib("SCAA_Fisch_wAE"))
     
-    parm_names<-names(MakeADFun(dat, par, DLL="SCAA_Fisch_wAge0")$par)
+    parm_names<-names(MakeADFun(dat, par, DLL="SCAA_Fisch_wAE")$par)
     
     fixed<-list(steepness=factor(NA),
                 log_sd_catch=factor(NA),
@@ -603,7 +603,7 @@ for (Q in 1:3){  #Running through the life history types
     l<-lower_bounds[-which(parm_names %in% c(names(fixed),reffects))]
     u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
     
-    SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAge0", map=fixed, random=reffects)
+    SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAE", map=fixed, random=reffects)
     SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
     
     res_list[[Q]][[s]]<-SCAA_fit
@@ -632,7 +632,7 @@ library(TMB)
 
 setwd(wd)
 #Compile and load model 
-compile("SCAA_Fisch_wAge0.cpp")
+compile("SCAA_Fisch_wAE.cpp")
 
 #Doing N Simulations
 N_sim<-1:100
@@ -681,9 +681,9 @@ for (Q in 1:3){  #Running through the life history types
     ################
     #TMB stuff
     ################
-    dyn.load(dynlib("SCAA_Fisch_wAge0"))
+    dyn.load(dynlib("SCAA_Fisch_wAE"))
     
-    parm_names<-names(MakeADFun(dat, par, DLL="SCAA_Fisch_wAge0")$par)
+    parm_names<-names(MakeADFun(dat, par, DLL="SCAA_Fisch_wAE")$par)
     
     fixed<-list(steepness=factor(NA),
                 log_sd_catch=factor(NA),
@@ -696,7 +696,7 @@ for (Q in 1:3){  #Running through the life history types
     l<-lower_bounds[-which(parm_names %in% c(names(fixed),reffects))]
     u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
     
-    SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAge0", map=fixed, random=reffects)
+    SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAE", map=fixed, random=reffects)
     SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
     
     res_list[[Q]][[s]]<-SCAA_fit
@@ -726,7 +726,7 @@ library(TMB)
 
 setwd(wd)
 #Compile and load model 
-compile("SCAA_Fisch_wAge0.cpp")
+compile("SCAA_Fisch_wAE.cpp")
 
 #Doing N Simulations
 N_sim<-1:100
@@ -775,9 +775,9 @@ for (Q in 1:3){  #Running through the life history types
     ################
     #TMB stuff
     ################
-    dyn.load(dynlib("SCAA_Fisch_wAge0"))
+    dyn.load(dynlib("SCAA_Fisch_wAE"))
     
-    parm_names<-names(MakeADFun(dat, par, DLL="SCAA_Fisch_wAge0")$par)
+    parm_names<-names(MakeADFun(dat, par, DLL="SCAA_Fisch_wAE")$par)
     
     fixed<-list(steepness=factor(NA),
                 log_sd_catch=factor(NA),
@@ -790,7 +790,7 @@ for (Q in 1:3){  #Running through the life history types
     l<-lower_bounds[-which(parm_names %in% c(names(fixed),reffects))]
     u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
     
-    SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAge0", map=fixed, random=reffects)
+    SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAE", map=fixed, random=reffects)
     SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
     
     res_list[[Q]][[s]]<-SCAA_fit
@@ -819,7 +819,7 @@ library(TMB)
 
 setwd(wd)
 #Compile and load model 
-compile("SCAA_Fisch_wAge0.cpp")
+compile("SCAA_Fisch_wAE.cpp")
 
 #Doing N Simulations
 N_sim<-1:100
@@ -868,9 +868,9 @@ for (Q in 1:3){  #Running through the life history types
     ################
     #TMB stuff
     ################
-    dyn.load(dynlib("SCAA_Fisch_wAge0"))
+    dyn.load(dynlib("SCAA_Fisch_wAE"))
     
-    parm_names<-names(MakeADFun(dat, par, DLL="SCAA_Fisch_wAge0")$par)
+    parm_names<-names(MakeADFun(dat, par, DLL="SCAA_Fisch_wAE")$par)
     
     fixed<-list(steepness=factor(NA),
                 log_sd_catch=factor(NA),
@@ -883,7 +883,7 @@ for (Q in 1:3){  #Running through the life history types
     l<-lower_bounds[-which(parm_names %in% c(names(fixed),reffects))]
     u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
     
-    SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAge0", map=fixed, random=reffects)
+    SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAE", map=fixed, random=reffects)
     SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
     
     res_list[[Q]][[s]]<-SCAA_fit
