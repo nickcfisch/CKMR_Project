@@ -252,7 +252,8 @@ Type objective_function<Type>::operator() ()
 ///////////////////////////////////////////
   L4=Type(0);  
 // - 1s are for TMB indexing which starts at zero
-  for(i=0;i<=n_ckmr.size()-1;i++){       
+  for(i=0;i<=n_ckmr.size()-1;i++){   
+    
 //  coded_born_year_young(i)+coded_age_one(i) is the sample year of coded younger, -1 is needed for TMB year indexing	
    for(x=0;x<=lage;x++){  //Loops through possible ages for ageing error. x is the possible age of the coded younger individual   
     if(AE_mat(x,coded_age_one(i))>0.01){
@@ -426,38 +427,38 @@ Type objective_function<Type>::operator() ()
     // A potential parent has to have been sampled after the year of youngs birth, because sampling is lethal (and reviewer didnt want same year comparison[timing gets weird])
     if(theo_samp_year_old > born_year_young){
   //So the expected reproductive output of the parent in the year of offsprings birth / total reprod output that year
-     if(age_diff<(lage+1)){
-      if(born_year_young>0){
+     if(age_diff <= lage){
+      if(born_year_young > 0){
  	   POP_prob(i) += P_obs_xz * 2*(Mat(age_diff)*Waa(age_diff) / spbiomass(born_year_young-1));
  	  }    
-	  if(born_year_young<1){
+	  if(born_year_young < 1){
 	   POP_prob(i) += P_obs_xz * 2*(Mat(age_diff)*Waa(age_diff) / SSB0);
 	  }
 	 }
-	 if(age_diff>lage){
-      if(born_year_young>0){
+	 if(age_diff > lage){
+      if(born_year_young > 0){
  	   POP_prob(i) += P_obs_xz * 2*(Mat(lage)*Waa(lage) / spbiomass(born_year_young-1));
  	  }    
-	  if(born_year_young<1){
+	  if(born_year_young < 1){
 	   POP_prob(i) += P_obs_xz * 2*(Mat(lage)*Waa(lage) / SSB0);
 	  }
 	 }
    }	 
    //If your sample year is the same as the birth year of younger, we say due to timing, multiply the probability by 50% (given continuous fishing)
    if(theo_samp_year_old == born_year_young){ 
-     if(age_diff<(lage+1)){
-      if(born_year_young>0){
+     if(age_diff <= lage){
+      if(born_year_young > 0){
  	   POP_prob(i) += Type(0.5) * P_obs_xz * 2*(Mat(age_diff)*Waa(age_diff) / spbiomass(born_year_young-1));
  	  }    
-	  if(born_year_young<1){
+	  if(born_year_young < 1){
 	   POP_prob(i) += Type(0.5) * P_obs_xz * 2*(Mat(age_diff)*Waa(age_diff) / SSB0);
 	  }
 	 }
-	 if(age_diff>lage){
-      if(born_year_young>0){
+	 if(age_diff > lage){
+      if(born_year_young > 0){
  	   POP_prob(i) += Type(0.5) * P_obs_xz * 2*(Mat(lage)*Waa(lage) / spbiomass(born_year_young-1));
  	  }    
-	  if(born_year_young<1){
+	  if(born_year_young < 1){
 	   POP_prob(i) += Type(0.5) * P_obs_xz * 2*(Mat(lage)*Waa(lage) / SSB0);
 	  }
 	 }
@@ -474,9 +475,10 @@ Type objective_function<Type>::operator() ()
 //Multinomial Likelihood for CKMR calcs
 ////////////////////////////////////////////  
 
+
      L4 += -1*(n_ckmr(i)*((n_ckmr(i)-(k_ckmr_hsporggp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-((HSP_prob(i)+GGP_prob(i))*pi_nu+POP_prob(i)))); //Prob of no match
      L4 += -1*(n_ckmr(i)*((k_ckmr_hsporggp(i)/n_ckmr(i))*log((HSP_prob(i)+GGP_prob(i))*pi_nu)));    //Prob of HSP or GPP
-     L4 += -1*(n_ckmr(i)*((k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i))));    //Prob of POP
+     L4 += -1*(n_ckmr(i)*((k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i)+Type(1e-11))));    //Prob of POP, the small constant is required for the log because you are integrating over ageing error (and don't know ages for sure)
       //Alternative = Sample size * sum ( Prob of no match + Prob of HSP + Prob of POP ) 
 //     L4 += -1*( n_ckmr(i) * ( ((n_ckmr(i)-(k_ckmr_hsporggp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-((HSP_prob(i)+GGP_prob(i))*pi_nu+POP_prob(i))) + (k_ckmr_hsporggp(i)/n_ckmr(i))*log((HSP_prob(i)+GGP_prob(i))*pi_nu) + (k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i))) ); 
 
