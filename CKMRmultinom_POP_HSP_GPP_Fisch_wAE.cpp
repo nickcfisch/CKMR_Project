@@ -260,7 +260,7 @@ Type objective_function<Type>::operator() ()
      if(AE_mat(z,coded_age_two(i))>0.01){
 
   //For ageing error, need the probability of that the younger was coded the age it was over true ages AND of same for the older, multiplied by the fishery composition in the years that the indv were sampled
-  P_obs_xz = pred_fishery_comp(coded_born_year_young(i)+coded_age_one(i)-1,x)*AE_mat(x,coded_age_one(i)) * pred_fishery_comp(samp_year_coded_old(i)-1,z)*AE_mat(coded_age_two(i),z);
+  P_obs_xz = pred_fishery_comp(coded_born_year_young(i)+coded_age_one(i)-1,x)*AE_mat(x,coded_age_one(i)) * pred_fishery_comp(samp_year_coded_old(i)-1,z)*AE_mat(z,coded_age_two(i));
 
 //now need new variables (age_diff, born_year_young, etc) for true age of coded younger x, and coded older z. 
 
