@@ -266,7 +266,7 @@ Type objective_function<Type>::operator() ()
 
 // (coded_born_year_young(i)+coded_age_one(i)-x) born year of younger individual, given true age
 // (samp_year_coded_old(i)-z)                    born year of older individual, given true age
-  if( (samp_year_coded_old(i)-z) < (coded_born_year_young(i)+coded_age_one(i)-x) ){  //if born year of the theoretical older invidual is less than the born year of the theoretical younger borns birth
+  if( (samp_year_coded_old(i)-z) <= (coded_born_year_young(i)+coded_age_one(i)-x) ){  //if born year of the theoretical older invidual is less than the born year of the theoretical younger borns birth
    age_diff = (coded_born_year_young(i)+coded_age_one(i)-x) - (samp_year_coded_old(i)-z); //Difference in the born years of the true-aged indv (not the age difference)
    born_year_old = samp_year_coded_old(i)-z; 
    born_year_young = born_year_old+age_diff; //and the born year of the theoretical younger indv is the born year of the theoretical older indv + the age difference

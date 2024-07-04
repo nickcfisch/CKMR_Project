@@ -133,17 +133,39 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
                    prop_ckmr=1,
                    fyear_ckmr=76,
                    lyear_ckmr=100,
-                   pi_nu=0.736){  #False negative retention probability
+                   pi_nu=0.736,          #False negative retention probability
+                   AE_mat="identity")    #Given your true age i (row), this matrix defines the probability that you will be classified age j (column), #REMEMBER THIS NEEDS TO BE IN THE NUMBER OF AGES IN YOUR MODEL
+                  {
   
   set.seed(dat_seed)
+  if(AE_mat[1]=="identity"){
+    AE_mat<-diag(length(OM$fage:OM$lage))
+  }
   #Getting Data
   Obs_Catch<-Obs_Index<-NA
-  Obs_Catch_Comp<-matrix(NA,nrow=length(fyear_dat:lyear_dat),ncol=length(OM$fage:OM$lage))
+  Obs_Catch_Comp<-Obs_Catch_Comp_noAE<-matrix(NA,nrow=length(fyear_dat:lyear_dat),ncol=length(OM$fage:OM$lage))
+  Obs_Catch_Comp_wiY<-array(0,dim=c(length(fyear_dat:lyear_dat),length(OM$fage:OM$lage),length(OM$fage:OM$lage)))
   N_Comp<-c(rep(0,fyear_dat-1),N_Comp_preCKMR[1:length(fyear_dat:(fyear_ckmr-1))],rep(N_Comp_CKMR,length(fyear_ckmr:lyear_ckmr)))
   for (d in fyear_dat:lyear_dat){
     Obs_Catch[d-(fyear_dat-1)]<-rlnorm(1, meanlog=log(sum(OM$Caa[d,]*OM$Waa)), sdlog=sd_catch)
-    Obs_Catch_Comp[d-(fyear_dat-1),]<-rmultinom(n=1,size=N_Comp[d], prob=OM$Caa[d,])
+    Obs_Catch_Comp_noAE[d-(fyear_dat-1),]<-rmultinom(n=1,size=N_Comp[d], prob=OM$Caa[d,])
     Obs_Index[d-(fyear_dat-1)]<-rlnorm(1, meanlog=log(sum(OM$Naa[d,]*((1-exp(-OM$Zaa[d,]))/OM$Zaa[d,])*OM$Sel*OM$Waa)*q_index), sdlog=sd_index)
+    
+    #Getting observed data with Ageing error
+    #Another sampler is needed to get data in integers
+    for (a in 1:length(OM$fage:OM$lage)){
+      if(Obs_Catch_Comp_noAE[d-(fyear_dat-1),a]>0){
+        Obs_Catch_Comp_wiY[d-(fyear_dat-1),a,]<-rmultinom(1,size=Obs_Catch_Comp_noAE[d-(fyear_dat-1),a],prob=AE_mat[a,])
+      }
+    }
+    #if you're before CKMR
+    if(d<fyear_ckmr){  
+     Obs_Catch_Comp[d-(fyear_dat-1),]<-colSums(Obs_Catch_Comp_wiY[d-(fyear_dat-1),,])
+    }
+    #if you're after CKMR (no AE)
+    if(d>=fyear_ckmr){    
+     Obs_Catch_Comp[d-(fyear_dat-1),]<-Obs_Catch_Comp_noAE[d-(fyear_dat-1),]
+    }
   }
   
   ##################################
@@ -345,7 +367,7 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
   
   sim_vals <- list(samples = samples, pairs=pairs, pair_counts = collapsed_pairs, pair_data = collapsed_pairs[,c("born_year.young", "age_diff", "samp_year.old", "n_UP", "n_HSPorGGP","n_POP","times")])
     
-  return(list(OM=OM,dat_seed=dat_seed,sd_catch=sd_catch,N_Comp_preCKMR=N_Comp_preCKMR,N_Comp_CKMR=N_Comp_CKMR,q_index=q_index,sd_index=sd_index,fyear_dat=fyear_dat,lyear_dat=lyear_dat,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,
+  return(list(OM=OM,dat_seed=dat_seed,sd_catch=sd_catch,N_Comp_preCKMR=N_Comp_preCKMR,N_Comp_CKMR=N_Comp_CKMR,q_index=q_index,sd_index=sd_index,fyear_dat=fyear_dat,lyear_dat=lyear_dat,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AE_mat,
               pair_counts=sim_vals$pair_counts,
               Obs_Catch=Obs_Catch,
               Obs_Catch_Comp=Obs_Catch_Comp,
@@ -612,7 +634,7 @@ for (Q in 1:3){  #Running through the life history types
       OM<-Sardine_OM[[s]]
     }
     
-    dat<-list(fyear=OM$OM$fyear, lyear=75, fage=OM$OM$fage, lage=OM$OM$lage, 
+    dat<-list(fyear=OM$OM$fyear, fyear_CKMR=OM$fyear_ckmr-OM$fyear_dat-1, lyear=75, fage=OM$OM$fage, lage=OM$OM$lage, 
               years=OM$OM$fyear:75, ages=OM$OM$fage:OM$OM$lage,
               obs_harv=OM$Obs_Catch,
               obs_index=OM$Obs_Index,
@@ -706,7 +728,7 @@ for (Q in 1:3){  #Running through the life history types
       OM<-Sardine_OM[[s]]
     }
     
-    dat<-list(fyear=OM$OM$fyear, lyear=75, fage=OM$OM$fage, lage=OM$OM$lage, 
+    dat<-list(fyear=OM$OM$fyear, fyear_CKMR=OM$fyear_ckmr-OM$fyear_dat-1, lyear=75, fage=OM$OM$fage, lage=OM$OM$lage, 
               years=OM$OM$fyear:75, ages=OM$OM$fage:OM$OM$lage,
               obs_harv=OM$Obs_Catch,
               obs_index=OM$Obs_Index,

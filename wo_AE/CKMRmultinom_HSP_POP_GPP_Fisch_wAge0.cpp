@@ -30,6 +30,7 @@ Type objective_function<Type>::operator() ()
   //I. DATA INPUTS
   //---------------------------------------------------------------------------------------------
   DATA_INTEGER(fyear); //First year
+  DATA_INTEGER(fyear_CKMR); //First year of CKMR collection
   DATA_INTEGER(lyear); //Last year
   DATA_INTEGER(fage); //First age
   DATA_INTEGER(lage); //Last age
@@ -48,6 +49,8 @@ Type objective_function<Type>::operator() ()
 
   DATA_SCALAR(pi_nu);            //False negative retention probability
   
+  DATA_MATRIX(AE_mat);              //Ageing Error Matrix (given true age i, what is the probability that you will be coded age j)
+
 //CKMR data
   DATA_IVECTOR(born_year_old); 
   DATA_IVECTOR(age_diff);
@@ -108,6 +111,7 @@ Type objective_function<Type>::operator() ()
 
   matrix<Type> pred_caa(years.size(),ages.size());           //Predicted fishery catch at age
   matrix<Type> pred_fishery_comp(years.size(),ages.size());  //Predicted age composition from the fishery catch
+  matrix<Type> pred_fishery_comp_wAE(years.size(),ages.size()); //Predicted age composition from the fishery catch, with ageing error applied
   vector<Type> pred_harv(years.size());                      //Predicted Harvest weight (kg), (fyear,lyear) 
 
   vector<Type> pred_index(years.size());                    //Predicted index, (fyear,lyear)
@@ -231,6 +235,8 @@ Type objective_function<Type>::operator() ()
    pred_fishery_comp.row(i)=pred_caa.row(i)/(pred_caa.row(i).sum());  //calculating predicted catch age composition
   }
   
+   pred_fishery_comp_wAE=pred_fishery_comp*AE_mat;
+
 ///////////////////////////////////////////
 //Close kin calculations
 ///////////////////////////////////////////
@@ -439,7 +445,12 @@ Type objective_function<Type>::operator() ()
   for(i=0;i<=lyear-1;i++){
    if(SS_fishery(i)>0){   //Only run calcs if there is comp data
     for(j=fage;j<=lage;j++){
-     L2 += -1*(SS_fishery(i)*(obs_fishery_comp(i,j)*log(pred_fishery_comp(i,j))));     //Likelihood for age composition of fishery catch
+	 if(i < (fyear_CKMR-1)){  //If you're in the period prior to CKMR where there is Ageing error
+      L2 += -1*(SS_fishery(i)*(obs_fishery_comp(i,j)*log(pred_fishery_comp_wAE(i,j))));     //Likelihood for age composition of fishery catch
+     }
+	 if(i >= (fyear_CKMR-1)){  //If you're in the period post CKMR where there is NO Ageing error
+      L2 += -1*(SS_fishery(i)*(obs_fishery_comp(i,j)*log(pred_fishery_comp(i,j))));     //Likelihood for age composition of fishery catch, no ageing error once ckmr is collected
+	 }
     }
    }
   }
@@ -491,6 +502,7 @@ Type objective_function<Type>::operator() ()
   REPORT(pred_index);
   REPORT(obs_index);
   REPORT(pred_fishery_comp);
+  REPORT(pred_fishery_comp_wAE);
   REPORT(obs_fishery_comp);
 
   REPORT(L1);
