@@ -532,11 +532,11 @@ Type objective_function<Type>::operator() ()
   REPORT(sd_index);
   REPORT(log_recruit_devs);
 
-  REPORT(surv_prob);
-  REPORT(HSP_prob_aa);
-  REPORT(HSP_prob);
-  REPORT(POP_prob);
-  REPORT(GGP_prob);
+//  REPORT(surv_prob);
+//  REPORT(HSP_prob_aa);
+//  REPORT(HSP_prob);
+//  REPORT(POP_prob);
+//  REPORT(GGP_prob);
 
   REPORT(fishery_sel);
   REPORT(N0_age);

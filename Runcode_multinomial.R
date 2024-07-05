@@ -1041,13 +1041,13 @@ for (Q in 1:3){  #Running through the life history types
               Laa=OM$OM$Laa,
               Waa=OM$OM$Waa,
               #CKMR 
-              born_year_old=OM$born_year_old-(OM$fyear_dat-1),
-              age_diff=OM$age_diff,
+              coded_born_year_old=OM$born_year_old-(OM$fyear_dat-1),
+              coded_age_diff=OM$age_diff,
               n_ckmr=OM$n_ckmr,
               k_ckmr_hsporggp=OM$k_ckmr_hsporggp,
-              born_year_young=OM$born_year_young-(OM$fyear_dat-1), 
+              coded_born_year_young=OM$born_year_young-(OM$fyear_dat-1), 
               k_ckmr_pop=OM$k_ckmr_pop,
-              samp_year_old=OM$samp_year_old-(OM$fyear_dat-1),
+              samp_year_coded_old=OM$samp_year_old-(OM$fyear_dat-1),
               coded_age_one=OM$coded_age_young,
               coded_age_two=OM$coded_age_old,
               #Switch for whether to use a data source or not, 0=no, 1=yes
@@ -1056,7 +1056,7 @@ for (Q in 1:3){  #Running through the life history types
               Lamda_Index=1,
               Lamda_CKMR=1,
               AE_mat=OM$AE_mat,
-              AE_mat_rev=t(OM$AE_mat)/colSums(OM$AE_mat))
+              pi_nu=OM$pi_nu)
     
     #Parameters
     set.seed(s)
@@ -1142,13 +1142,13 @@ for (Q in 1:3){  #Running through the life history types
               Laa=OM$OM$Laa,
               Waa=OM$OM$Waa,
               #CKMR 
-              born_year_old=OM$born_year_old-(OM$fyear_dat-1),
-              age_diff=OM$age_diff,
+              coded_born_year_old=OM$born_year_old-(OM$fyear_dat-1),
+              coded_age_diff=OM$age_diff,
               n_ckmr=OM$n_ckmr,
               k_ckmr_hsporggp=OM$k_ckmr_hsporggp,
-              born_year_young=OM$born_year_young-(OM$fyear_dat-1), 
+              coded_born_year_young=OM$born_year_young-(OM$fyear_dat-1), 
               k_ckmr_pop=OM$k_ckmr_pop,
-              samp_year_old=OM$samp_year_old-(OM$fyear_dat-1),
+              samp_year_coded_old=OM$samp_year_old-(OM$fyear_dat-1),
               coded_age_one=OM$coded_age_young,
               coded_age_two=OM$coded_age_old,
               #Switch for whether to use a data source or not, 0=no, 1=yes
@@ -1157,7 +1157,7 @@ for (Q in 1:3){  #Running through the life history types
               Lamda_Index=1,
               Lamda_CKMR=1,
               AE_mat=OM$AE_mat,
-              AE_mat_rev=t(OM$AE_mat)/colSums(OM$AE_mat))
+              pi_nu=OM$pi_nu)
     
     #Parameters
     set.seed(s)
