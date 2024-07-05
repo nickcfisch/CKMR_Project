@@ -604,7 +604,7 @@ for (Q in 1:3){  #Running through the life history types
     u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
     
     SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAE", map=fixed, random=reffects)
-    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
+    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE,bias.correct=TRUE)
     
     res_list[[Q]][[s]]<-SCAA_fit
     print(c(Q,s))
@@ -697,7 +697,7 @@ for (Q in 1:3){  #Running through the life history types
     u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
     
     SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAE", map=fixed, random=reffects)
-    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
+    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE,bias.correct=TRUE)
     
     res_list[[Q]][[s]]<-SCAA_fit
     print(c(Q,s))
@@ -791,7 +791,7 @@ for (Q in 1:3){  #Running through the life history types
     u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
     
     SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAE", map=fixed, random=reffects)
-    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
+    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE,bias.correct=TRUE)
     
     res_list[[Q]][[s]]<-SCAA_fit
     print(c(Q,s))
@@ -884,7 +884,7 @@ for (Q in 1:3){  #Running through the life history types
     u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
     
     SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAE", map=fixed, random=reffects)
-    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
+    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE,bias.correct=TRUE)
     
     res_list[[Q]][[s]]<-SCAA_fit
     print(c(Q,s))
@@ -988,7 +988,7 @@ for (Q in 1:3){  #Running through the life history types
     u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
     
     SCAA <- MakeADFun(dat, par, DLL="CKMRmultinom_POP_HSP_GPP_Fisch_wAE", map=fixed, random=reffects)
-    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps=1, getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
+    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps=1, getsd=TRUE,bias.correct=TRUE)
     
     res_list[[Q]][[s]]<-SCAA_fit
     print(c(Q,s))
@@ -1089,7 +1089,7 @@ for (Q in 1:3){  #Running through the life history types
     u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
     
     SCAA <- MakeADFun(dat, par, DLL="CKMRmultinom_POP_HSP_GPP_Fisch_wAE", map=fixed, random=reffects)
-    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps=1, getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
+    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps=1, getsd=TRUE,bias.correct=TRUE)
     
     res_list[[Q]][[s]]<-SCAA_fit
     print(c(Q,s))
@@ -1190,7 +1190,7 @@ for (Q in 1:3){  #Running through the life history types
     u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
     
     SCAA <- MakeADFun(dat, par, DLL="CKMRmultinom_POP_HSP_GPP_Fisch_wAE", map=fixed, random=reffects)
-    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps=1, getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
+    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps=1, getsd=TRUE,bias.correct=TRUE)
     
     res_list[[Q]][[s]]<-SCAA_fit
     print(c(Q,s))
