@@ -897,17 +897,13 @@ saveRDS(res_list[[3]], file=paste0(wd,"/SCAAfit_Sardine_N1000_Ind50_20yrs_noCKMR
 
 ###############################################
 ######################################
-#TMB Model with both HSP and POP
+#TMB Model with HSP, POP, and GGP
 ######################################
 ###############################################
 #Ncomp 100, sdindex 0.25, ckmr 20 years
 load(paste0(wd,"/Cod_wdat_N100_Ind25_ckmrmultinom20_1.RData"))
 load(paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmrmultinom20_1.RData"))
 load(paste0(wd,"/Sardine_wdat_N100_Ind25_ckmrmultinom20_1.RData"))
-
-Cod_OM<-Cod_wdat
-Flatfish_OM<-Flatfish_wdat
-Sardine_OM<-Sardine_wdat
 
 #TMB Section
 library(TMB)
@@ -923,11 +919,11 @@ for (Q in 1:3){  #Running through the life history types
   for (s in N_sim){
     
     if(Q==1){
-      OM<-Cod_OM[[s]]
+      OM<-Cod_wdat[[s]]
     } else if (Q==2){
-      OM<-Flatfish_OM[[s]]
+      OM<-Flatfish_wdat[[s]]
     }else if (Q==3){
-      OM<-Sardine_OM[[s]]
+      OM<-Sardine_wdat[[s]]
     }
     
     dat<-list(fyear=OM$OM$fyear, lyear=75, fage=OM$OM$fage, lage=OM$OM$lage, 
@@ -1006,10 +1002,6 @@ load(paste0(wd,"/Cod_wdat_N1000_Ind25_ckmrmultinom20_1.RData"))
 load(paste0(wd,"/Flatfish_wdat_N1000_Ind25_ckmrmultinom20_1.RData"))
 load(paste0(wd,"/Sardine_wdat_N1000_Ind25_ckmrmultinom20_1.RData"))
 
-Cod_OM<-Cod_wdat
-Flatfish_OM<-Flatfish_wdat
-Sardine_OM<-Sardine_wdat
-
 #TMB Section
 library(TMB)
 
@@ -1024,11 +1016,11 @@ for (Q in 1:3){  #Running through the life history types
   for (s in N_sim){
     
     if(Q==1){
-      OM<-Cod_OM[[s]]
+      OM<-Cod_wdat[[s]]
     } else if (Q==2){
-      OM<-Flatfish_OM[[s]]
+      OM<-Flatfish_wdat[[s]]
     }else if (Q==3){
-      OM<-Sardine_OM[[s]]
+      OM<-Sardine_wdat[[s]]
     }
     
     dat<-list(fyear=OM$OM$fyear, lyear=75, fage=OM$OM$fage, lage=OM$OM$lage, 
@@ -1107,10 +1099,6 @@ load(paste0(wd,"/Cod_wdat_N1000_Ind50_ckmrmultinom20_1.RData"))
 load(paste0(wd,"/Flatfish_wdat_N1000_Ind50_ckmrmultinom20_1.RData"))
 load(paste0(wd,"/Sardine_wdat_N1000_Ind50_ckmrmultinom20_1.RData"))
 
-Cod_OM<-Cod_wdat
-Flatfish_OM<-Flatfish_wdat
-Sardine_OM<-Sardine_wdat
-
 #TMB Section
 library(TMB)
 
@@ -1125,11 +1113,11 @@ for (Q in 1:3){  #Running through the life history types
   for (s in N_sim){
     
     if(Q==1){
-      OM<-Cod_OM[[s]]
+      OM<-Cod_wdat[[s]]
     } else if (Q==2){
-      OM<-Flatfish_OM[[s]]
+      OM<-Flatfish_wdat[[s]]
     }else if (Q==3){
-      OM<-Sardine_OM[[s]]
+      OM<-Sardine_wdat[[s]]
     }
     
     dat<-list(fyear=OM$OM$fyear, lyear=75, fage=OM$OM$fage, lage=OM$OM$lage, 

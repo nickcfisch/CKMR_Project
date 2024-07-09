@@ -905,10 +905,6 @@ load(paste0(wd,"/Cod_wdat_N100_Ind25_ckmrmultinom20_1.RData"))
 load(paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmrmultinom20_1.RData"))
 load(paste0(wd,"/Sardine_wdat_N100_Ind25_ckmrmultinom20_1.RData"))
 
-Cod_OM<-Cod_wdat
-Flatfish_OM<-Flatfish_wdat
-Sardine_OM<-Sardine_wdat
-
 #TMB Section
 library(TMB)
 
@@ -923,11 +919,11 @@ for (Q in 1:3){  #Running through the life history types
   for (s in N_sim){
     
     if(Q==1){
-      OM<-Cod_OM[[s]]
+      OM<-Cod_wdat[[s]]
     } else if (Q==2){
-      OM<-Flatfish_OM[[s]]
+      OM<-Flatfish_wdat[[s]]
     }else if (Q==3){
-      OM<-Sardine_OM[[s]]
+      OM<-Sardine_wdat[[s]]
     }
     
     dat<-list(fyear=OM$OM$fyear, fyear_CKMR=OM$fyear_ckmr-(OM$fyear_dat-1), lyear=75, fage=OM$OM$fage, lage=OM$OM$lage, 
@@ -939,7 +935,6 @@ for (Q in 1:3){  #Running through the life history types
               Mat=OM$OM$Mat,
               Laa=OM$OM$Laa,
               Waa=OM$OM$Waa,
-              pi_nu=OM$pi_nu,
               #CKMR 
               born_year_old=OM$born_year_old-(OM$fyear_dat-1),
               age_diff=OM$age_diff,
@@ -952,8 +947,9 @@ for (Q in 1:3){  #Running through the life history types
               Lamda_Harvest=1,
               Lamda_Comp=1,
               Lamda_Index=1,
-              Lamda_CKMR=1, 
-              AE_mat=OM$AE_mat)
+              Lamda_CKMR=1,
+              AE_mat=OM$AE_mat,
+              pi_nu=OM$pi_nu)
     
     #Parameters
     set.seed(s)
@@ -986,7 +982,7 @@ for (Q in 1:3){  #Running through the life history types
     u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
     
     SCAA <- MakeADFun(dat, par, DLL="CKMRmultinom_HSP_POP_GPP_Fisch_wAge0", map=fixed, random=reffects)
-    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps=1, getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
+    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps=1, getsd=TRUE,bias.correct=TRUE)
     
     res_list[[Q]][[s]]<-SCAA_fit
     print(c(Q,s))
@@ -1004,10 +1000,6 @@ load(paste0(wd,"/Cod_wdat_N1000_Ind25_ckmrmultinom20_1.RData"))
 load(paste0(wd,"/Flatfish_wdat_N1000_Ind25_ckmrmultinom20_1.RData"))
 load(paste0(wd,"/Sardine_wdat_N1000_Ind25_ckmrmultinom20_1.RData"))
 
-Cod_OM<-Cod_wdat
-Flatfish_OM<-Flatfish_wdat
-Sardine_OM<-Sardine_wdat
-
 #TMB Section
 library(TMB)
 
@@ -1022,11 +1014,11 @@ for (Q in 1:3){  #Running through the life history types
   for (s in N_sim){
     
     if(Q==1){
-      OM<-Cod_OM[[s]]
+      OM<-Cod_wdat[[s]]
     } else if (Q==2){
-      OM<-Flatfish_OM[[s]]
+      OM<-Flatfish_wdat[[s]]
     }else if (Q==3){
-      OM<-Sardine_OM[[s]]
+      OM<-Sardine_wdat[[s]]
     }
     
     dat<-list(fyear=OM$OM$fyear, fyear_CKMR=OM$fyear_ckmr-(OM$fyear_dat-1), lyear=75, fage=OM$OM$fage, lage=OM$OM$lage, 
@@ -1038,7 +1030,6 @@ for (Q in 1:3){  #Running through the life history types
               Mat=OM$OM$Mat,
               Laa=OM$OM$Laa,
               Waa=OM$OM$Waa,
-              pi_nu=OM$pi_nu,
               #CKMR 
               born_year_old=OM$born_year_old-(OM$fyear_dat-1),
               age_diff=OM$age_diff,
@@ -1051,8 +1042,9 @@ for (Q in 1:3){  #Running through the life history types
               Lamda_Harvest=1,
               Lamda_Comp=1,
               Lamda_Index=1,
-              Lamda_CKMR=1, 
-              AE_mat=OM$AE_mat)
+              Lamda_CKMR=1,
+              AE_mat=OM$AE_mat,
+              pi_nu=OM$pi_nu)
     
     #Parameters
     set.seed(s)
@@ -1085,7 +1077,7 @@ for (Q in 1:3){  #Running through the life history types
     u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
     
     SCAA <- MakeADFun(dat, par, DLL="CKMRmultinom_HSP_POP_GPP_Fisch_wAge0", map=fixed, random=reffects)
-    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps=1, getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
+    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps=1, getsd=TRUE,bias.correct=TRUE)
     
     res_list[[Q]][[s]]<-SCAA_fit
     print(c(Q,s))
@@ -1103,10 +1095,6 @@ load(paste0(wd,"/Cod_wdat_N1000_Ind50_ckmrmultinom20_1.RData"))
 load(paste0(wd,"/Flatfish_wdat_N1000_Ind50_ckmrmultinom20_1.RData"))
 load(paste0(wd,"/Sardine_wdat_N1000_Ind50_ckmrmultinom20_1.RData"))
 
-Cod_OM<-Cod_wdat
-Flatfish_OM<-Flatfish_wdat
-Sardine_OM<-Sardine_wdat
-
 #TMB Section
 library(TMB)
 
@@ -1121,11 +1109,11 @@ for (Q in 1:3){  #Running through the life history types
   for (s in N_sim){
     
     if(Q==1){
-      OM<-Cod_OM[[s]]
+      OM<-Cod_wdat[[s]]
     } else if (Q==2){
-      OM<-Flatfish_OM[[s]]
+      OM<-Flatfish_wdat[[s]]
     }else if (Q==3){
-      OM<-Sardine_OM[[s]]
+      OM<-Sardine_wdat[[s]]
     }
     
     dat<-list(fyear=OM$OM$fyear, fyear_CKMR=OM$fyear_ckmr-(OM$fyear_dat-1), lyear=75, fage=OM$OM$fage, lage=OM$OM$lage, 
@@ -1137,7 +1125,6 @@ for (Q in 1:3){  #Running through the life history types
               Mat=OM$OM$Mat,
               Laa=OM$OM$Laa,
               Waa=OM$OM$Waa,
-              pi_nu=OM$pi_nu,
               #CKMR 
               born_year_old=OM$born_year_old-(OM$fyear_dat-1),
               age_diff=OM$age_diff,
@@ -1150,8 +1137,9 @@ for (Q in 1:3){  #Running through the life history types
               Lamda_Harvest=1,
               Lamda_Comp=1,
               Lamda_Index=1,
-              Lamda_CKMR=1, 
-              AE_mat=OM$AE_mat)
+              Lamda_CKMR=1,
+              AE_mat=OM$AE_mat,
+              pi_nu=OM$pi_nu)
     
     #Parameters
     set.seed(s)
@@ -1184,7 +1172,7 @@ for (Q in 1:3){  #Running through the life history types
     u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
     
     SCAA <- MakeADFun(dat, par, DLL="CKMRmultinom_HSP_POP_GPP_Fisch_wAge0", map=fixed, random=reffects)
-    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps=1, getsd=TRUE,bias.correct=TRUE,getHessian=TRUE)
+    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps=1, getsd=TRUE,bias.correct=TRUE)
     
     res_list[[Q]][[s]]<-SCAA_fit
     print(c(Q,s))

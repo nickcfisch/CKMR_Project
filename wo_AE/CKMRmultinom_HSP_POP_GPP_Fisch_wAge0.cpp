@@ -470,16 +470,16 @@ Type objective_function<Type>::operator() ()
 
 /////////////////////////
 //Report
-////////////////////////////
+/////////////////////////
 
-  REPORT(Maa);
-  REPORT(log_M);
-  REPORT(q);
-  REPORT(R0);
-  REPORT(sd_rec);
-  REPORT(sd_catch);
-  REPORT(sd_index);
-  REPORT(log_recruit_devs);
+//  REPORT(Maa);
+//  REPORT(log_M);
+//  REPORT(q);
+//  REPORT(R0);
+//  REPORT(sd_rec);
+//  REPORT(sd_catch);
+//  REPORT(sd_index);
+//  REPORT(log_recruit_devs);
 
 //  REPORT(surv_prob);
 //  REPORT(HSP_prob_aa);
@@ -487,30 +487,30 @@ Type objective_function<Type>::operator() ()
 //  REPORT(POP_prob);
 //  REPORT(GGP_prob);
 
-  REPORT(fishery_sel);
-  REPORT(N0_age);
-  REPORT(Laa);
-  REPORT(lxo);
-  REPORT(F);
-  REPORT(M);
-  REPORT(N);
+//  REPORT(fishery_sel);
+//  REPORT(N0_age);
+//  REPORT(Laa);
+//  REPORT(lxo);
+//  REPORT(F);
+//  REPORT(M);
+//  REPORT(N);
   REPORT(spbiomass);
   ADREPORT(spbiomass);
-  REPORT(obs_harv);
-  REPORT(pred_harv);
-  REPORT(pred_caa);
-  REPORT(pred_index);
-  REPORT(obs_index);
-  REPORT(pred_fishery_comp);
-  REPORT(pred_fishery_comp_wAE);
-  REPORT(obs_fishery_comp);
+//  REPORT(obs_harv);
+//  REPORT(pred_harv);
+//  REPORT(pred_caa);
+//  REPORT(pred_index);
+//  REPORT(obs_index);
+//  REPORT(pred_fishery_comp);
+//  REPORT(pred_fishery_comp_wAE);
+//  REPORT(obs_fishery_comp);
 
-  REPORT(L1);
-  REPORT(L2);
-  REPORT(L3);
-  REPORT(L4);
-  REPORT(NLL);
-  REPORT(NPRAND);
+//  REPORT(L1);
+//  REPORT(L2);
+//  REPORT(L3);
+//  REPORT(L4);
+//  REPORT(NLL);
+//  REPORT(NPRAND);
 
   return JNLL;
 
