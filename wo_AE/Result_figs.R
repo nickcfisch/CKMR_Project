@@ -1287,23 +1287,26 @@ re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
 for(f in 1:3){
   for (i in 1:100){
     if(f==1){
-      re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+      if(length(res_list[[f]][[i]])>2){
+       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
-      
+      }
     }else if (f==2){
-      re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+      if(length(res_list[[f]][[i]])>2){
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
-      
+      }
     } else if (f==3){
-      re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+      if(length(res_list[[f]][[i]])>2){
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
-      
+      }
     }
   }
 }
