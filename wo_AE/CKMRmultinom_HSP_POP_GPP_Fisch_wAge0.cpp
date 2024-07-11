@@ -348,7 +348,7 @@ Type objective_function<Type>::operator() ()
    
    HSP_prob(i) = HSP_prob_aa.row(i).sum();
    //Multiplying by two for the probability of MGGP or PGGP (^ previous calcs were for MGGP or equally PGGP)
-   GGP_prob(i)=GGP_prob(i)*Type(2);
+   GGP_prob(i) = GGP_prob(i)*Type(2);
 
 /////////////////////////
 //POP calcs
