@@ -57,6 +57,12 @@ Type objective_function<Type>::operator() ()
 
   DATA_IVECTOR(coded_age_one); 
   DATA_IVECTOR(coded_age_two); 
+
+  DATA_IVECTOR(coded_one_min); 
+  DATA_IVECTOR(coded_one_max); 
+  DATA_IVECTOR(coded_two_min); 
+  DATA_IVECTOR(coded_two_max); 
+
  //Year of first born, age difference, number of replicates, number of successes for HSP, year of second born (or juves birth), number of successes for POP, and sampling year of older indv
 
   DATA_INTEGER(Lamda_Harvest);    //Whether to use data sources or not
@@ -255,10 +261,8 @@ Type objective_function<Type>::operator() ()
   for(i=0;i<=n_ckmr.size()-1;i++){   
     
 //  coded_born_year_young(i)+coded_age_one(i) is the sample year of coded younger, -1 is needed for TMB year indexing	
-   for(x=0;x<=lage;x++){  //Loops through possible ages for ageing error. x is the possible age of the coded younger individual   
-    if(AE_mat(x,coded_age_one(i))>0.01){
-	for(z=0;z<=lage;z++){  //^   z is possible age of the coded older individual
-     if(AE_mat(z,coded_age_two(i))>0.01){
+   for(x=coded_one_min(i);x<=coded_one_max(i);x++){  //Loops through possible ages for ageing error. x is the possible age of the coded younger individual   
+	for(z=coded_two_min(i);z<=coded_two_max(i);z++){  //^   z is possible age of the coded older individual
 
   //For ageing error, need the probability of that the younger was coded the age it was over true ages AND of same for the older, multiplied by the fishery composition in the years that the indv were sampled
   P_obs_xz = pred_fishery_comp(coded_born_year_young(i)+coded_age_one(i)-1,x)*AE_mat(x,coded_age_one(i)) * pred_fishery_comp(samp_year_coded_old(i)-1,z)*AE_mat(z,coded_age_two(i));
@@ -323,7 +327,7 @@ Type objective_function<Type>::operator() ()
    surv_prob.row(i) = surv_prob_aa.block(age_diff-1,age_diff-1,1,lage+1); //getting subset of matrix, starting at (x1,y1), and taking 1 row of lage+1 columns  
   
 //HSP calcs
-   for(j=0;j<=lage;j++){  
+   for(j=1;j<=lage;j++){  // We can assume the age of the hypothetical parent for HSP or GGP was not 0 in the birth year of older sibling or zero in birth year of grandchild, so we start this integration at age 1  
     if((j+age_diff)<=lage){          //If we are not in the plus group
      if(born_year_old>0){                //if we're not in unfished years
       HSP_prob_aa(i,j) = ( (N(born_year_old-1,j)*Mat(j)*Waa(j)) / spbiomass(born_year_old-1) ) * surv_prob(i,j)  * (4 * Mat(int(j)+age_diff)*Waa(int(j)+age_diff) / spbiomass(born_year_old+age_diff-1));
@@ -469,7 +473,7 @@ Type objective_function<Type>::operator() ()
 	POP_prob(i) += Type(0);
    }
    
-   }}}}}  //closing ageing error loops, and if loops
+   }}}  //closing ageing error loops, and if loops
    
 //////////////////////////////////////////// 
 //Multinomial Likelihood for CKMR calcs
@@ -544,7 +548,7 @@ Type objective_function<Type>::operator() ()
 //  REPORT(lxo);
 //  REPORT(F);
 //  REPORT(M);
-//  REPORT(N);
+  REPORT(N);
   REPORT(spbiomass);
   ADREPORT(spbiomass);
 //  REPORT(obs_harv);
@@ -556,12 +560,12 @@ Type objective_function<Type>::operator() ()
 //  REPORT(pred_fishery_comp_wAE);
 //  REPORT(obs_fishery_comp);
 
-//  REPORT(L1);
-//  REPORT(L2);
-//  REPORT(L3);
-//  REPORT(L4);
-//  REPORT(NLL);
-//  REPORT(NPRAND);
+  REPORT(L1);
+  REPORT(L2);
+  REPORT(L3);
+  REPORT(L4);
+  REPORT(NLL);
+  REPORT(NPRAND);
 
   return JNLL;
 

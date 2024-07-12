@@ -968,7 +968,7 @@ for (Q in 1:3){  #Running through the life history types
     
     dyn.load(dynlib("CKMRmultinom_HSP_POP_GPP_Fisch_wAge0"))
     
-    parm_names<-names(MakeADFun(dat, par, DLL="CKMRmultinom_HSP_POP_GPP_Fisch_wAge0")$par)
+    parm_names<-rep(names(par),lapply(par,length))
     
     fixed<-list(steepness=factor(NA),
                 log_sd_catch=factor(NA),
@@ -1063,7 +1063,7 @@ for (Q in 1:3){  #Running through the life history types
     
     dyn.load(dynlib("CKMRmultinom_HSP_POP_GPP_Fisch_wAge0"))
     
-    parm_names<-names(MakeADFun(dat, par, DLL="CKMRmultinom_HSP_POP_GPP_Fisch_wAge0")$par)
+    parm_names<-rep(names(par),lapply(par,length))
     
     fixed<-list(steepness=factor(NA),
                 log_sd_catch=factor(NA),
@@ -1158,7 +1158,7 @@ for (Q in 1:3){  #Running through the life history types
     
     dyn.load(dynlib("CKMRmultinom_HSP_POP_GPP_Fisch_wAge0"))
     
-    parm_names<-names(MakeADFun(dat, par, DLL="CKMRmultinom_HSP_POP_GPP_Fisch_wAge0")$par)
+    parm_names<-rep(names(par),lapply(par,length))
     
     fixed<-list(steepness=factor(NA),
                 log_sd_catch=factor(NA),

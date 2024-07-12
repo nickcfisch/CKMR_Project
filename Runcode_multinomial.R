@@ -945,6 +945,10 @@ for (Q in 1:3){  #Running through the life history types
               samp_year_coded_old=OM$samp_year_old-(OM$fyear_dat-1),
               coded_age_one=OM$coded_age_young,
               coded_age_two=OM$coded_age_old,
+              coded_one_min=sapply(OM$coded_age_young, FUN=function(x){min(which(OM$AE_mat[,x+1]>0.1)-1)}),
+              coded_one_max=sapply(OM$coded_age_young, FUN=function(x){max(which(OM$AE_mat[,x+1]>0.1)-1)}),
+              coded_two_min=sapply(OM$coded_age_old, FUN=function(x){min(which(OM$AE_mat[,x+1]>0.1)-1)}),
+              coded_two_max=sapply(OM$coded_age_old, FUN=function(x){max(which(OM$AE_mat[,x+1]>0.1)-1)}),
               #Switch for whether to use a data source or not, 0=no, 1=yes
               Lamda_Harvest=1,
               Lamda_Comp=1,
@@ -970,7 +974,7 @@ for (Q in 1:3){  #Running through the life history types
     
     dyn.load(dynlib("CKMRmultinom_POP_HSP_GPP_Fisch_wAE"))
     
-    parm_names<-names(MakeADFun(dat, par, DLL="CKMRmultinom_POP_HSP_GPP_Fisch_wAE")$par)
+    parm_names<-rep(names(par),lapply(par,length))
     
     fixed<-list(steepness=factor(NA),
                 log_sd_catch=factor(NA),
@@ -1067,7 +1071,7 @@ for (Q in 1:3){  #Running through the life history types
     
     dyn.load(dynlib("CKMRmultinom_POP_HSP_GPP_Fisch_wAE"))
     
-    parm_names<-names(MakeADFun(dat, par, DLL="CKMRmultinom_POP_HSP_GPP_Fisch_wAE")$par)
+    parm_names<-rep(names(par),lapply(par,length))
     
     fixed<-list(steepness=factor(NA),
                 log_sd_catch=factor(NA),
@@ -1164,7 +1168,7 @@ for (Q in 1:3){  #Running through the life history types
     
     dyn.load(dynlib("CKMRmultinom_POP_HSP_GPP_Fisch_wAE"))
     
-    parm_names<-names(MakeADFun(dat, par, DLL="CKMRmultinom_POP_HSP_GPP_Fisch_wAE")$par)
+    parm_names<-rep(names(par),lapply(par,length))
     
     fixed<-list(steepness=factor(NA),
                 log_sd_catch=factor(NA),
