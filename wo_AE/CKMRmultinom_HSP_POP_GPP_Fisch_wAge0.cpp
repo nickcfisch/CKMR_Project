@@ -284,7 +284,7 @@ Type objective_function<Type>::operator() ()
    surv_prob.row(i) = surv_prob_aa.block(age_diff(i)-1,age_diff(i)-1,1,lage+1); //getting subset of matrix, starting at (x1,y1), and taking 1 row of lage+1 columns  
   
 //CKMR_data(i,1) is the year of second born, and CKMR_data(i,2) is the age difference
-   for(j=0;j<=lage;j++){  
+   for(j=1;j<=lage;j++){  // We can assume the age of the hypothetical parent for HSP or GGP was not 0 in the birth year of older sibling or zero in birth year of grandchild, so we start this integration at age 1 
     if((j+age_diff(i))<=lage){          //If we are not in the plus group
      if(born_year_old(i)>0){                //if we're not in unfished years
       HSP_prob_aa(i,j) = ( (N(born_year_old(i)-1,j)*Mat(j)*Waa(j)) / spbiomass(born_year_old(i)-1) ) * surv_prob(i,j)  * (4 * Mat(int(j)+age_diff(i))*Waa(int(j)+age_diff(i)) / spbiomass(born_year_old(i)+age_diff(i)-1));

@@ -548,7 +548,7 @@ Type objective_function<Type>::operator() ()
 //  REPORT(lxo);
 //  REPORT(F);
 //  REPORT(M);
-  REPORT(N);
+//  REPORT(N);
   REPORT(spbiomass);
   ADREPORT(spbiomass);
 //  REPORT(obs_harv);
