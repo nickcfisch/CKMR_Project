@@ -590,9 +590,9 @@ for (Q in 1:3){  #Running through the life history types
     ################
     dyn.load(dynlib("SCAA_Fisch_wAE"))
     
-    parm_names<-names(MakeADFun(dat, par, DLL="SCAA_Fisch_wAE")$par)
+    parm_names<-rep(names(par),lapply(par,length))
     
-    fixed<-list(steepness=factor(NA),
+    fixed<-list(steepness=factor(NA),log_sigma_rec=factor(NA),
                 log_sd_catch=factor(NA),
                 log_sd_index=factor(NA))
     
@@ -600,11 +600,17 @@ for (Q in 1:3){  #Running through the life history types
     upper_bounds<-c( 2,  1,rep( 10,dat$lage),rep( 10,dat$lyear), 1, 25, 2, 2, 2, 5, 5,rep(  0,dat$lyear))
     
     reffects=c("log_recruit_devs","log_recruit_devs_init")
-    l<-lower_bounds[-which(parm_names %in% c(names(fixed),reffects))]
-    u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
+    l<-lower_bounds[-which(parm_names %in% c(names(fixed)))]
+    u<-upper_bounds[-which(parm_names %in% c(names(fixed)))]
     
-    SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAE", map=fixed, random=reffects)
-    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE,bias.correct=TRUE)
+    SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAE", map=fixed)
+    counter<-1  
+    tryCatch({
+      SCAA_fit <- fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE)
+    }, error=function(e){
+      counter<<-0
+      SCAA_fit<<-list(NA)
+    })   
     
     res_list[[Q]][[s]]<-SCAA_fit
     print(c(Q,s))
@@ -683,9 +689,9 @@ for (Q in 1:3){  #Running through the life history types
     ################
     dyn.load(dynlib("SCAA_Fisch_wAE"))
     
-    parm_names<-names(MakeADFun(dat, par, DLL="SCAA_Fisch_wAE")$par)
+    parm_names<-rep(names(par),lapply(par,length))
     
-    fixed<-list(steepness=factor(NA),
+    fixed<-list(steepness=factor(NA),log_sigma_rec=factor(NA),
                 log_sd_catch=factor(NA),
                 log_sd_index=factor(NA))
     
@@ -693,11 +699,17 @@ for (Q in 1:3){  #Running through the life history types
     upper_bounds<-c( 2,  1,rep( 10,dat$lage),rep( 10,dat$lyear), 1, 25, 2, 2, 2, 5, 5,rep(  0,dat$lyear))
     
     reffects=c("log_recruit_devs","log_recruit_devs_init")
-    l<-lower_bounds[-which(parm_names %in% c(names(fixed),reffects))]
-    u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
+    l<-lower_bounds[-which(parm_names %in% c(names(fixed)))]
+    u<-upper_bounds[-which(parm_names %in% c(names(fixed)))]
     
-    SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAE", map=fixed, random=reffects)
-    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE,bias.correct=TRUE)
+    SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAE", map=fixed)
+    counter<-1  
+    tryCatch({
+      SCAA_fit <- fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE)
+    }, error=function(e){
+      counter<<-0
+      SCAA_fit<<-list(NA)
+    })   
     
     res_list[[Q]][[s]]<-SCAA_fit
     print(c(Q,s))
@@ -777,9 +789,9 @@ for (Q in 1:3){  #Running through the life history types
     ################
     dyn.load(dynlib("SCAA_Fisch_wAE"))
     
-    parm_names<-names(MakeADFun(dat, par, DLL="SCAA_Fisch_wAE")$par)
+    parm_names<-rep(names(par),lapply(par,length))
     
-    fixed<-list(steepness=factor(NA),
+    fixed<-list(steepness=factor(NA),log_sigma_rec=factor(NA),
                 log_sd_catch=factor(NA),
                 log_sd_index=factor(NA))
     
@@ -787,11 +799,17 @@ for (Q in 1:3){  #Running through the life history types
     upper_bounds<-c( 2,  1,rep( 10,dat$lage),rep( 10,dat$lyear), 1, 25, 2, 2, 2, 5, 5,rep(  0,dat$lyear))
     
     reffects=c("log_recruit_devs","log_recruit_devs_init")
-    l<-lower_bounds[-which(parm_names %in% c(names(fixed),reffects))]
-    u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
+    l<-lower_bounds[-which(parm_names %in% c(names(fixed)))]
+    u<-upper_bounds[-which(parm_names %in% c(names(fixed)))]
     
-    SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAE", map=fixed, random=reffects)
-    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE,bias.correct=TRUE)
+    SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAE", map=fixed)
+    counter<-1  
+    tryCatch({
+      SCAA_fit <- fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE)
+    }, error=function(e){
+      counter<<-0
+      SCAA_fit<<-list(NA)
+    })   
     
     res_list[[Q]][[s]]<-SCAA_fit
     print(c(Q,s))
@@ -870,9 +888,9 @@ for (Q in 1:3){  #Running through the life history types
     ################
     dyn.load(dynlib("SCAA_Fisch_wAE"))
     
-    parm_names<-names(MakeADFun(dat, par, DLL="SCAA_Fisch_wAE")$par)
+    parm_names<-rep(names(par),lapply(par,length))
     
-    fixed<-list(steepness=factor(NA),
+    fixed<-list(steepness=factor(NA),log_sigma_rec=factor(NA),
                 log_sd_catch=factor(NA),
                 log_sd_index=factor(NA))
     
@@ -880,11 +898,17 @@ for (Q in 1:3){  #Running through the life history types
     upper_bounds<-c( 2,  1,rep( 10,dat$lage),rep( 10,dat$lyear), 1, 25, 2, 2, 2, 5, 5,rep(  0,dat$lyear))
     
     reffects=c("log_recruit_devs","log_recruit_devs_init")
-    l<-lower_bounds[-which(parm_names %in% c(names(fixed),reffects))]
-    u<-upper_bounds[-which(parm_names %in% c(names(fixed),reffects))]
+    l<-lower_bounds[-which(parm_names %in% c(names(fixed)))]
+    u<-upper_bounds[-which(parm_names %in% c(names(fixed)))]
     
-    SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAE", map=fixed, random=reffects)
-    SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE,bias.correct=TRUE)
+    SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAE", map=fixed)
+    counter<-1  
+    tryCatch({
+      SCAA_fit <- fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE)
+    }, error=function(e){
+      counter<<-0
+      SCAA_fit<<-list(NA)
+    })   
     
     res_list[[Q]][[s]]<-SCAA_fit
     print(c(Q,s))
