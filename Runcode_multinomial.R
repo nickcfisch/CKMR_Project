@@ -606,7 +606,7 @@ for (Q in 1:3){  #Running through the life history types
     SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAE", map=fixed)
     counter<-1  
     tryCatch({
-      SCAA_fit <- fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE)
+      SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE)
     }, error=function(e){
       counter<<-0
       SCAA_fit<<-list(NA)
@@ -705,7 +705,7 @@ for (Q in 1:3){  #Running through the life history types
     SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAE", map=fixed)
     counter<-1  
     tryCatch({
-      SCAA_fit <- fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE)
+      SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE)
     }, error=function(e){
       counter<<-0
       SCAA_fit<<-list(NA)
@@ -805,7 +805,7 @@ for (Q in 1:3){  #Running through the life history types
     SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAE", map=fixed)
     counter<-1  
     tryCatch({
-      SCAA_fit <- fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE)
+      SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE)
     }, error=function(e){
       counter<<-0
       SCAA_fit<<-list(NA)
@@ -904,7 +904,7 @@ for (Q in 1:3){  #Running through the life history types
     SCAA <- MakeADFun(dat, par, DLL="SCAA_Fisch_wAE", map=fixed)
     counter<-1  
     tryCatch({
-      SCAA_fit <- fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE)
+      SCAA_fit <- TMBhelper::fit_tmb(obj=SCAA, startpar=SCAA$par, lower=l, upper=u, newtonsteps = 1,getsd=TRUE)
     }, error=function(e){
       counter<<-0
       SCAA_fit<<-list(NA)
