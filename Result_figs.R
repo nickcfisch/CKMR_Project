@@ -698,7 +698,7 @@ SD_M_N100_Ind25_5yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_Ind25_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_Ind25_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_Ind25_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_Ind25_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_Ind25_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -798,7 +798,7 @@ SD_M_N1000_Ind25_5yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_Ind25_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_Ind25_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_Ind25_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_Ind25_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_Ind25_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -898,7 +898,7 @@ SD_M_N5000_Ind25_5yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_Ind25_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_Ind25_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_Ind25_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_Ind25_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_Ind25_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -999,7 +999,7 @@ SD_M_N100_Ind50_5yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_Ind50_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_Ind50_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_Ind50_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_Ind50_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_Ind50_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -1099,7 +1099,7 @@ SD_M_N1000_Ind50_5yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_Ind50_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_Ind50_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_Ind50_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_Ind50_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_Ind50_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -1199,7 +1199,7 @@ SD_M_N5000_Ind50_5yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_Ind50_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_Ind50_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_Ind50_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_Ind50_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_Ind50_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -1304,7 +1304,7 @@ SD_M_N100_Ind25_10yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_Ind25_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_Ind25_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_Ind25_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_Ind25_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_Ind25_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -1404,7 +1404,7 @@ SD_M_N1000_Ind25_10yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_Ind25_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_Ind25_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_Ind25_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_Ind25_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_Ind25_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -1504,7 +1504,7 @@ SD_M_N5000_Ind25_10yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_Ind25_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_Ind25_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_Ind25_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_Ind25_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_Ind25_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -1605,7 +1605,7 @@ SD_M_N100_Ind50_10yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_Ind50_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_Ind50_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_Ind50_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_Ind50_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_Ind50_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -1705,7 +1705,7 @@ SD_M_N1000_Ind50_10yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_Ind50_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_Ind50_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_Ind50_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_Ind50_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_Ind50_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -1805,7 +1805,7 @@ SD_M_N5000_Ind50_10yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_Ind50_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_Ind50_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_Ind50_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_Ind50_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_Ind50_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -1910,7 +1910,7 @@ SD_M_N100_Ind25_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_Ind25_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_Ind25_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_Ind25_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_Ind25_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_Ind25_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -2010,7 +2010,7 @@ SD_M_N1000_Ind25_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_Ind25_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_Ind25_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_Ind25_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_Ind25_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_Ind25_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -2110,7 +2110,7 @@ SD_M_N5000_Ind25_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_Ind25_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_Ind25_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_Ind25_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_Ind25_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_Ind25_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -2211,7 +2211,7 @@ SD_M_N100_Ind50_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_Ind50_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_Ind50_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_Ind50_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_Ind50_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_Ind50_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -2311,7 +2311,7 @@ SD_M_N1000_Ind50_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_Ind50_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_Ind50_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_Ind50_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_Ind50_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_Ind50_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -2411,7 +2411,7 @@ SD_M_N5000_Ind50_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_Ind50_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_Ind50_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_Ind50_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_Ind50_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_Ind50_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -2516,7 +2516,7 @@ SD_M_N100_NoIndex_5yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_NoIndex_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_NoIndex_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_NoIndex_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_NoIndex_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_NoIndex_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -2615,7 +2615,7 @@ SD_M_N1000_NoIndex_5yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_NoIndex_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_NoIndex_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_NoIndex_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_NoIndex_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_NoIndex_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -2714,7 +2714,7 @@ SD_M_N5000_NoIndex_5yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_NoIndex_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_NoIndex_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_NoIndex_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_NoIndex_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_NoIndex_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -2819,7 +2819,7 @@ SD_M_N100_NoIndex_10yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_NoIndex_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_NoIndex_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_NoIndex_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_NoIndex_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_NoIndex_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -2919,7 +2919,7 @@ SD_M_N1000_NoIndex_10yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_NoIndex_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_NoIndex_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_NoIndex_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_NoIndex_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_NoIndex_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -3019,7 +3019,7 @@ SD_M_N5000_NoIndex_10yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_NoIndex_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_NoIndex_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_NoIndex_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_NoIndex_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_NoIndex_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -3120,7 +3120,7 @@ SD_M_N100_NoIndex_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_NoIndex_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_NoIndex_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_NoIndex_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_NoIndex_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_NoIndex_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -3220,7 +3220,7 @@ SD_M_N1000_NoIndex_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_NoIndex_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_NoIndex_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_NoIndex_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_NoIndex_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_NoIndex_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -3320,7 +3320,7 @@ SD_M_N5000_NoIndex_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_NoIndex_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_NoIndex_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_NoIndex_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_NoIndex_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_NoIndex_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -3526,7 +3526,7 @@ SD_M_N1000_Ind25_ckmrmultinom5<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_Ind25_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_Ind25_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_Ind25_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_Ind25_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_Ind25_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -3627,7 +3627,7 @@ SD_M_N5000_Ind25_ckmrmultinom5<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_Ind25_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_Ind25_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_Ind25_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_Ind25_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_Ind25_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -3728,7 +3728,7 @@ SD_M_N100_Ind50_ckmrmultinom5<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_Ind50_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_Ind50_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_Ind50_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_Ind50_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_Ind50_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -3829,7 +3829,7 @@ SD_M_N1000_Ind50_ckmrmultinom5<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_Ind50_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_Ind50_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_Ind50_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_Ind50_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_Ind50_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -3930,7 +3930,7 @@ SD_M_N5000_Ind50_ckmrmultinom5<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_Ind50_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_Ind50_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_Ind50_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_Ind50_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_Ind50_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -4031,7 +4031,7 @@ SD_M_N100_Ind25_ckmrmultinom10<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_Ind25_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_Ind25_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_Ind25_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_Ind25_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_Ind25_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -4132,7 +4132,7 @@ SD_M_N1000_Ind25_ckmrmultinom10<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_Ind25_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_Ind25_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_Ind25_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_Ind25_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_Ind25_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -4233,7 +4233,7 @@ SD_M_N5000_Ind25_ckmrmultinom10<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_Ind25_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_Ind25_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_Ind25_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_Ind25_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_Ind25_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -4334,7 +4334,7 @@ SD_M_N100_Ind50_ckmrmultinom10<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_Ind50_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_Ind50_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_Ind50_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_Ind50_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_Ind50_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -4435,7 +4435,7 @@ SD_M_N1000_Ind50_ckmrmultinom10<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_Ind50_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_Ind50_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_Ind50_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_Ind50_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_Ind50_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -4536,7 +4536,7 @@ SD_M_N5000_Ind50_ckmrmultinom10<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_Ind50_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_Ind50_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_Ind50_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_Ind50_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_Ind50_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -4638,7 +4638,7 @@ SD_M_N100_Ind25_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_Ind25_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_Ind25_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_Ind25_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_Ind25_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_Ind25_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -4739,7 +4739,7 @@ SD_M_N1000_Ind25_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_Ind25_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_Ind25_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_Ind25_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_Ind25_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_Ind25_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -4840,7 +4840,7 @@ SD_M_N5000_Ind25_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_Ind25_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_Ind25_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_Ind25_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_Ind25_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_Ind25_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -4941,7 +4941,7 @@ SD_M_N100_Ind50_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_Ind50_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_Ind50_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_Ind50_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_Ind50_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_Ind50_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -5042,7 +5042,7 @@ SD_M_N1000_Ind50_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_Ind50_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_Ind50_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_Ind50_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_Ind50_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_Ind50_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -5143,7 +5143,7 @@ SD_M_N5000_Ind50_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_Ind50_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_Ind50_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_Ind50_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_Ind50_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_Ind50_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -5248,7 +5248,7 @@ SD_M_N100_NoIndex_ckmrmultinom5<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_NoIndex_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_NoIndex_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_NoIndex_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_NoIndex_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_NoIndex_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -5349,7 +5349,7 @@ SD_M_N1000_NoIndex_ckmrmultinom5<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_NoIndex_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_NoIndex_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_NoIndex_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_NoIndex_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_NoIndex_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -5450,7 +5450,7 @@ SD_M_N5000_NoIndex_ckmrmultinom5<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_NoIndex_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_NoIndex_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_NoIndex_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_NoIndex_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_NoIndex_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -5551,7 +5551,7 @@ SD_M_N100_NoIndex_ckmrmultinom10<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_NoIndex_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_NoIndex_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_NoIndex_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_NoIndex_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_NoIndex_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -5652,7 +5652,7 @@ SD_M_N1000_NoIndex_ckmrmultinom10<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_NoIndex_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_NoIndex_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_NoIndex_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_NoIndex_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_NoIndex_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -5753,7 +5753,7 @@ SD_M_N5000_NoIndex_ckmrmultinom10<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_NoIndex_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_NoIndex_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_NoIndex_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_NoIndex_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_NoIndex_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -5854,7 +5854,7 @@ SD_M_N100_NoIndex_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_NoIndex_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_NoIndex_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_NoIndex_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_NoIndex_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_NoIndex_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -5955,7 +5955,7 @@ SD_M_N1000_NoIndex_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_NoIndex_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_NoIndex_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_NoIndex_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_NoIndex_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_NoIndex_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -6056,7 +6056,7 @@ SD_M_N5000_NoIndex_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_NoIndex_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_NoIndex_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_NoIndex_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_NoIndex_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_NoIndex_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
