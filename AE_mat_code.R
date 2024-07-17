@@ -85,3 +85,18 @@ AE_mat_Sardine<-AE_mat
 #Cod 1, Flatfish 2, Sardine 3. 
 AE_mat_list<-list(AE_mat_Cod, AE_mat_Flatfish, AE_mat_Sardine)
 #saveRDS(AE_mat_list, file="C:/Users/fischn/Documents/GitHub/CKMR_Project/AE_mat_list.RData")
+
+par(mfrow=c(2,3))
+plot(0:25,Cod_CV, main="Cod", ylab="CV", pch=16, las=1, ylim=c(0,1), xlab="")
+plot(0:25,Flatfish_SD, main="Flatfish", ylab="SD", pch=16, las=1, ylim=c(0,2.5), xlab="Age")
+plot(0:15,Sardine_SD, main="Sardine", ylab="SD", pch=16, las=1, ylim=c(0,0.75), xlab="")
+library(PBSmodelling)
+plotBubbles(t(AE_mat_Cod), xaxt="n", yaxt="n", ylab="Coded Age", xlab="True Age", size=0.15)
+axis(side=1, at=1:26, labels=0:25, las=1)
+axis(side=2, at=1:26, labels=0:25, las=1)
+plotBubbles(t(AE_mat_Flatfish), xaxt="n", yaxt="n", ylab="Coded Age", xlab="True Age", size=0.15)
+axis(side=1, at=1:26, labels=0:25, las=1)
+axis(side=2, at=1:26, labels=0:25, las=1)
+plotBubbles(t(AE_mat_Sardine), xaxt="n", yaxt="n", ylab="Coded Age", xlab="True Age", size=0.15)
+axis(side=1, at=1:16, labels=0:15, las=1)
+axis(side=2, at=1:16, labels=0:15, las=1)
