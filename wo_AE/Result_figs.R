@@ -606,16 +606,10 @@ tail(ex_dat)
 ##################################
 
 #N100 for 5yrs, and index sd 0.25
-res_list2<-list()
-res_list2[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind25_5yrs_noCKMR.RData"))
-res_list2[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind25_5yrs_noCKMR.RData"))
-res_list2[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind25_5yrs_noCKMR.RData"))
-
-#saved the results incorrectly, so I have to do the below code
 res_list<-list()
-res_list[[1]]<-res_list2[[3]][[1]]
-res_list[[2]]<-res_list2[[3]][[2]]
-res_list[[3]]<-res_list2[[3]][[3]]
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind25_5yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind25_5yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind25_5yrs_noCKMR.RData"))
 
 Cod_wdat<-Cod_100_25_5
 Flatfish_wdat<-Flatfish_100_25_5
@@ -627,24 +621,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
        #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
        #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
        #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -707,7 +701,7 @@ SD_M_N100_Ind25_5yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-     CV_ssb_N100_Ind25_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+     CV_ssb_N100_Ind25_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
      SD_ssb_N100_Ind25_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
      SD_R0_N100_Ind25_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
      SD_M_N100_Ind25_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -716,16 +710,10 @@ for(f in 1:3){
 }
 
 #N1000 for 5 yrs, sd index 0.25
-res_list2<-list()
-res_list2[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind25_5yrs_noCKMR.RData"))
-res_list2[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind25_5yrs_noCKMR.RData"))
-res_list2[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind25_5yrs_noCKMR.RData"))
-
-#saved the results incorrectly, so I have to do the below code
 res_list<-list()
-res_list[[1]]<-res_list2[[3]][[1]]
-res_list[[2]]<-res_list2[[3]][[2]]
-res_list[[3]]<-res_list2[[3]][[3]]
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind25_5yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind25_5yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind25_5yrs_noCKMR.RData"))
 
 Cod_wdat<-Cod_1000_25_5
 Flatfish_wdat<-Flatfish_1000_25_5
@@ -737,24 +725,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
        #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
        #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
        #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+       re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -817,7 +805,7 @@ SD_M_N1000_Ind25_5yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-     CV_ssb_N1000_Ind25_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+     CV_ssb_N1000_Ind25_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
      SD_ssb_N1000_Ind25_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
      SD_R0_N1000_Ind25_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
      SD_M_N1000_Ind25_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -826,15 +814,9 @@ for(f in 1:3){
 }
 
 #N5000 for 5 yrs, sd index 0.25
-res_list2[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind25_5yrs_noCKMR.RData"))
-res_list2[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind25_5yrs_noCKMR.RData"))
-res_list2[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind25_5yrs_noCKMR.RData"))
-
-#saved the results incorrectly, so I have to do the below code
-res_list<-list()
-res_list[[1]]<-res_list2[[3]][[1]]
-res_list[[2]]<-res_list2[[3]][[2]]
-res_list[[3]]<-res_list2[[3]][[3]]
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind25_5yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind25_5yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind25_5yrs_noCKMR.RData"))
 
 Cod_wdat<-Cod_5000_25_5
 Flatfish_wdat<-Flatfish_5000_25_5
@@ -846,24 +828,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       } 
     }
   }
@@ -926,7 +908,7 @@ SD_M_N5000_Ind25_5yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-     CV_ssb_N5000_Ind25_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+     CV_ssb_N5000_Ind25_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
      SD_ssb_N5000_Ind25_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
      SD_R0_N5000_Ind25_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
      SD_M_N5000_Ind25_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -935,16 +917,10 @@ for(f in 1:3){
 }
 
 #N100 for 5 yrs and index sd 0.50
-res_list2<-list()
-res_list2[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind50_5yrs_noCKMR.RData"))
-res_list2[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind50_5yrs_noCKMR.RData"))
-res_list2[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind50_5yrs_noCKMR.RData"))
-
-#saved the results incorrectly, so I have to do the below code
 res_list<-list()
-res_list[[1]]<-res_list2[[3]][[1]]
-res_list[[2]]<-res_list2[[3]][[2]]
-res_list[[3]]<-res_list2[[3]][[3]]
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind50_5yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind50_5yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind50_5yrs_noCKMR.RData"))
 
 Cod_wdat<-Cod_100_50_5
 Flatfish_wdat<-Flatfish_100_50_5
@@ -956,24 +932,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -1036,7 +1012,7 @@ SD_M_N100_Ind50_5yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-     CV_ssb_N100_Ind50_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+     CV_ssb_N100_Ind50_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
      SD_ssb_N100_Ind50_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
      SD_R0_N100_Ind50_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
      SD_M_N100_Ind50_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -1045,15 +1021,9 @@ for(f in 1:3){
 }
 
 #N1000 for 5 yrs, sd index 0.50
-res_list2[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind50_5yrs_noCKMR.RData"))
-res_list2[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind50_5yrs_noCKMR.RData"))
-res_list2[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind50_5yrs_noCKMR.RData"))
-
-#saved the results incorrectly, so I have to do the below code
-res_list<-list()
-res_list[[1]]<-res_list2[[3]][[1]]
-res_list[[2]]<-res_list2[[3]][[2]]
-res_list[[3]]<-res_list2[[3]][[3]]
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind50_5yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind50_5yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind50_5yrs_noCKMR.RData"))
 
 Cod_wdat<-Cod_1000_50_5
 Flatfish_wdat<-Flatfish_1000_50_5
@@ -1065,24 +1035,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -1145,7 +1115,7 @@ SD_M_N1000_Ind50_5yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_Ind50_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_Ind50_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_Ind50_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_Ind50_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_Ind50_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -1154,15 +1124,9 @@ for(f in 1:3){
 }
 
 #N5000 for 5 years, sd index 0.50
-res_list2[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind50_5yrs_noCKMR.RData"))
-res_list2[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind50_5yrs_noCKMR.RData"))
-res_list2[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind50_5yrs_noCKMR.RData"))
-
-#saved the results incorrectly, so I have to do the below code
-res_list<-list()
-res_list[[1]]<-res_list2[[3]][[1]]
-res_list[[2]]<-res_list2[[3]][[2]]
-res_list[[3]]<-res_list2[[3]][[3]]
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind50_5yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind50_5yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind50_5yrs_noCKMR.RData"))
 
 Cod_wdat<-Cod_5000_50_5
 Flatfish_wdat<-Flatfish_5000_50_5
@@ -1174,24 +1138,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -1254,7 +1218,7 @@ SD_M_N5000_Ind50_5yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_Ind50_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_Ind50_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_Ind50_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_Ind50_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_Ind50_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -1267,16 +1231,10 @@ for(f in 1:3){
 #########
 
 #N100 for 10yrs, and index sd 0.25
-res_list2<-list()
-res_list2[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind25_10yrs_noCKMR.RData"))
-res_list2[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind25_10yrs_noCKMR.RData"))
-res_list2[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind25_10yrs_noCKMR.RData"))
-
-#saved the results incorrectly, so I have to do the below code
 res_list<-list()
-res_list[[1]]<-res_list2[[3]][[1]]
-res_list[[2]]<-res_list2[[3]][[2]]
-res_list[[3]]<-res_list2[[3]][[3]]
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind25_10yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind25_10yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind25_10yrs_noCKMR.RData"))
 
 Cod_wdat<-Cod_100_25_10
 Flatfish_wdat<-Flatfish_100_25_10
@@ -1288,24 +1246,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+       re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -1368,7 +1326,7 @@ SD_M_N100_Ind25_10yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_Ind25_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_Ind25_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_Ind25_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_Ind25_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_Ind25_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -1377,15 +1335,9 @@ for(f in 1:3){
 }
 
 #N1000 for 10yrs, sd index 0.25
-res_list2[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind25_10yrs_noCKMR.RData"))
-res_list2[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind25_10yrs_noCKMR.RData"))
-res_list2[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind25_10yrs_noCKMR.RData"))
-
-#saved the results incorrectly, so I have to do the below code
-res_list<-list()
-res_list[[1]]<-res_list2[[3]][[1]]
-res_list[[2]]<-res_list2[[3]][[2]]
-res_list[[3]]<-res_list2[[3]][[3]]
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind25_10yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind25_10yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind25_10yrs_noCKMR.RData"))
 
 Cod_wdat<-Cod_1000_25_10
 Flatfish_wdat<-Flatfish_1000_25_10
@@ -1397,24 +1349,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -1477,7 +1429,7 @@ SD_M_N1000_Ind25_10yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_Ind25_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_Ind25_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_Ind25_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_Ind25_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_Ind25_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -1486,15 +1438,9 @@ for(f in 1:3){
 }
 
 #N5000 for 10yrs, sd index 0.25
-res_list2[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind25_10yrs_noCKMR.RData"))
-res_list2[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind25_10yrs_noCKMR.RData"))
-res_list2[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind25_10yrs_noCKMR.RData"))
-
-#saved the results incorrectly, so I have to do the below code
-res_list<-list()
-res_list[[1]]<-res_list2[[3]][[1]]
-res_list[[2]]<-res_list2[[3]][[2]]
-res_list[[3]]<-res_list2[[3]][[3]]
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind25_10yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind25_10yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind25_10yrs_noCKMR.RData"))
 
 Cod_wdat<-Cod_5000_25_10
 Flatfish_wdat<-Flatfish_5000_25_10
@@ -1506,24 +1452,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -1586,7 +1532,7 @@ SD_M_N5000_Ind25_10yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_Ind25_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_Ind25_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_Ind25_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_Ind25_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_Ind25_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -1595,16 +1541,10 @@ for(f in 1:3){
 }
 
 #N100 for 10yrs and index sd 0.50
-res_list2<-list()
-res_list2[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind50_10yrs_noCKMR.RData"))
-res_list2[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind50_10yrs_noCKMR.RData"))
-res_list2[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind50_10yrs_noCKMR.RData"))
-
-#saved the results incorrectly, so I have to do the below code
 res_list<-list()
-res_list[[1]]<-res_list2[[3]][[1]]
-res_list[[2]]<-res_list2[[3]][[2]]
-res_list[[3]]<-res_list2[[3]][[3]]
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind50_10yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind50_10yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind50_10yrs_noCKMR.RData"))
 
 Cod_wdat<-Cod_100_50_10
 Flatfish_wdat<-Flatfish_100_50_10
@@ -1616,24 +1556,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -1696,7 +1636,7 @@ SD_M_N100_Ind50_10yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_Ind50_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_Ind50_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_Ind50_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_Ind50_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_Ind50_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -1705,15 +1645,10 @@ for(f in 1:3){
 }
 
 #N1000 for 10yrs, sd index 0.50
-res_list2[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind50_10yrs_noCKMR.RData"))
-res_list2[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind50_10yrs_noCKMR.RData"))
-res_list2[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind50_10yrs_noCKMR.RData"))
-
-#saved the results incorrectly, so I have to do the below code
 res_list<-list()
-res_list[[1]]<-res_list2[[3]][[1]]
-res_list[[2]]<-res_list2[[3]][[2]]
-res_list[[3]]<-res_list2[[3]][[3]]
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind50_10yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind50_10yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind50_10yrs_noCKMR.RData"))
 
 Cod_wdat<-Cod_1000_50_10
 Flatfish_wdat<-Flatfish_1000_50_10
@@ -1725,24 +1660,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -1805,7 +1740,7 @@ SD_M_N1000_Ind50_10yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_Ind50_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_Ind50_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_Ind50_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_Ind50_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_Ind50_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -1814,15 +1749,9 @@ for(f in 1:3){
 }
 
 #N5000 for 10yrs, sd index 0.50
-res_list2[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind50_10yrs_noCKMR.RData"))
-res_list2[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind50_10yrs_noCKMR.RData"))
-res_list2[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind50_10yrs_noCKMR.RData"))
-
-#saved the results incorrectly, so I have to do the below code
-res_list<-list()
-res_list[[1]]<-res_list2[[3]][[1]]
-res_list[[2]]<-res_list2[[3]][[2]]
-res_list[[3]]<-res_list2[[3]][[3]]
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind50_10yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind50_10yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind50_10yrs_noCKMR.RData"))
 
 Cod_wdat<-Cod_5000_50_10
 Flatfish_wdat<-Flatfish_5000_50_10
@@ -1834,24 +1763,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -1914,7 +1843,7 @@ SD_M_N5000_Ind50_10yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_Ind50_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_Ind50_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_Ind50_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_Ind50_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_Ind50_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -1927,16 +1856,10 @@ for(f in 1:3){
 #########
 
 #N100 for 20yrs, and index sd 0.25
-res_list2<-list()
-res_list2[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind25_20yrs_noCKMR.RData"))
-res_list2[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind25_20yrs_noCKMR.RData"))
-res_list2[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind25_20yrs_noCKMR.RData"))
-
-#saved the results incorrectly, so I have to do the below code
 res_list<-list()
-res_list[[1]]<-res_list2[[3]][[1]]
-res_list[[2]]<-res_list2[[3]][[2]]
-res_list[[3]]<-res_list2[[3]][[3]]
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind25_20yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind25_20yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind25_20yrs_noCKMR.RData"))
 
 Cod_wdat<-Cod_100_25_20
 Flatfish_wdat<-Flatfish_100_25_20
@@ -1948,24 +1871,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -2028,7 +1951,7 @@ SD_M_N100_Ind25_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_Ind25_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_Ind25_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_Ind25_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_Ind25_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_Ind25_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -2037,15 +1960,9 @@ for(f in 1:3){
 }
 
 #N1000 for 20yrs, sd index 0.25
-res_list2[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind25_20yrs_noCKMR.RData"))
-res_list2[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind25_20yrs_noCKMR.RData"))
-res_list2[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind25_20yrs_noCKMR.RData"))
-
-#saved the results incorrectly, so I have to do the below code
-res_list<-list()
-res_list[[1]]<-res_list2[[3]][[1]]
-res_list[[2]]<-res_list2[[3]][[2]]
-res_list[[3]]<-res_list2[[3]][[3]]
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind25_20yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind25_20yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind25_20yrs_noCKMR.RData"))
 
 Cod_wdat<-Cod_1000_25_20
 Flatfish_wdat<-Flatfish_1000_25_20
@@ -2057,24 +1974,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -2137,7 +2054,7 @@ SD_M_N1000_Ind25_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_Ind25_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_Ind25_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_Ind25_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_Ind25_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_Ind25_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -2146,15 +2063,9 @@ for(f in 1:3){
 }
 
 #N5000 for 20yrs, sd index 0.25
-res_list2[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind25_20yrs_noCKMR.RData"))
-res_list2[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind25_20yrs_noCKMR.RData"))
-res_list2[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind25_20yrs_noCKMR.RData"))
-
-#saved the results incorrectly, so I have to do the below code
-res_list<-list()
-res_list[[1]]<-res_list2[[3]][[1]]
-res_list[[2]]<-res_list2[[3]][[2]]
-res_list[[3]]<-res_list2[[3]][[3]]
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind25_20yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind25_20yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind25_20yrs_noCKMR.RData"))
 
 Cod_wdat<-Cod_5000_25_20
 Flatfish_wdat<-Flatfish_5000_25_20
@@ -2166,24 +2077,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       } 
     }
   }
@@ -2246,7 +2157,7 @@ SD_M_N5000_Ind25_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_Ind25_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_Ind25_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_Ind25_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_Ind25_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_Ind25_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -2255,16 +2166,10 @@ for(f in 1:3){
 }
 
 #N100 for 20yrs and index sd 0.50
-res_list2<-list()
-res_list2[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind50_20yrs_noCKMR.RData"))
-res_list2[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind50_20yrs_noCKMR.RData"))
-res_list2[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind50_20yrs_noCKMR.RData"))
-
-#saved the results incorrectly, so I have to do the below code
 res_list<-list()
-res_list[[1]]<-res_list2[[3]][[1]]
-res_list[[2]]<-res_list2[[3]][[2]]
-res_list[[3]]<-res_list2[[3]][[3]]
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind50_20yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind50_20yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind50_20yrs_noCKMR.RData"))
 
 Cod_wdat<-Cod_100_50_20
 Flatfish_wdat<-Flatfish_100_50_20
@@ -2276,24 +2181,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -2356,7 +2261,7 @@ SD_M_N100_Ind50_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_Ind50_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_Ind50_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_Ind50_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_Ind50_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_Ind50_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -2365,15 +2270,9 @@ for(f in 1:3){
 }
 
 #N1000 for 20yrs, sd index 0.50
-res_list2[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind50_20yrs_noCKMR.RData"))
-res_list2[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind50_20yrs_noCKMR.RData"))
-res_list2[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind50_20yrs_noCKMR.RData"))
-
-#saved the results incorrectly, so I have to do the below code
-res_list<-list()
-res_list[[1]]<-res_list2[[3]][[1]]
-res_list[[2]]<-res_list2[[3]][[2]]
-res_list[[3]]<-res_list2[[3]][[3]]
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind50_20yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind50_20yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind50_20yrs_noCKMR.RData"))
 
 Cod_wdat<-Cod_1000_50_20
 Flatfish_wdat<-Flatfish_1000_50_20
@@ -2385,24 +2284,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -2465,7 +2364,7 @@ SD_M_N1000_Ind50_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_Ind50_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_Ind50_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_Ind50_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_Ind50_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_Ind50_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -2474,15 +2373,9 @@ for(f in 1:3){
 }
 
 #N5000 for 20yrs, sd index 0.50
-res_list2[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind50_20yrs_noCKMR.RData"))
-res_list2[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind50_20yrs_noCKMR.RData"))
-res_list2[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind50_20yrs_noCKMR.RData"))
-
-#saved the results incorrectly, so I have to do the below code
-res_list<-list()
-res_list[[1]]<-res_list2[[3]][[1]]
-res_list[[2]]<-res_list2[[3]][[2]]
-res_list[[3]]<-res_list2[[3]][[3]]
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind50_20yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind50_20yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind50_20yrs_noCKMR.RData"))
 
 Cod_wdat<-Cod_5000_50_20
 Flatfish_wdat<-Flatfish_5000_50_20
@@ -2494,24 +2387,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       } 
     }
   }
@@ -2574,7 +2467,7 @@ SD_M_N5000_Ind50_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_Ind50_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_Ind50_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_Ind50_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_Ind50_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_Ind50_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -2587,16 +2480,10 @@ for(f in 1:3){
 ###########################################
 
 #N100 for 5yrs, No Index
-res_list2<-list()
-res_list2[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_NoIndex_5yrs_noCKMR.RData"))
-res_list2[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_NoIndex_5yrs_noCKMR.RData"))
-res_list2[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_NoIndex_5yrs_noCKMR.RData"))
-
-#saved the results incorrectly, so I have to do the below code
 res_list<-list()
-res_list[[1]]<-res_list2[[3]][[1]]
-res_list[[2]]<-res_list2[[3]][[2]]
-res_list[[3]]<-res_list2[[3]][[3]]
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_NoIndex_5yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_NoIndex_5yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_NoIndex_5yrs_noCKMR.RData"))
 
 Cod_wdat<-Cod_100_25_5
 Flatfish_wdat<-Flatfish_100_25_5
@@ -2608,24 +2495,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -2688,7 +2575,7 @@ SD_M_N100_NoIndex_5yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_NoIndex_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_NoIndex_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_NoIndex_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_NoIndex_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_NoIndex_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -2697,15 +2584,9 @@ for(f in 1:3){
 }
 
 #N1000 for 5 yrs, No Index
-res_list2[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_NoIndex_5yrs_noCKMR.RData"))
-res_list2[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_NoIndex_5yrs_noCKMR.RData"))
-res_list2[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_NoIndex_5yrs_noCKMR.RData"))
-
-#saved the results incorrectly, so I have to do the below code
-res_list<-list()
-res_list[[1]]<-res_list2[[3]][[1]]
-res_list[[2]]<-res_list2[[3]][[2]]
-res_list[[3]]<-res_list2[[3]][[3]]
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_NoIndex_5yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_NoIndex_5yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_NoIndex_5yrs_noCKMR.RData"))
 
 Cod_wdat<-Cod_1000_25_5
 Flatfish_wdat<-Flatfish_1000_25_5
@@ -2717,24 +2598,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       } 
     }
   }
@@ -2796,7 +2677,7 @@ SD_M_N1000_NoIndex_5yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_NoIndex_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_NoIndex_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_NoIndex_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_NoIndex_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_NoIndex_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -2805,15 +2686,9 @@ for(f in 1:3){
 }
 
 #N5000 for 5 yrs, No Index
-res_list2[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_NoIndex_5yrs_noCKMR.RData"))
-res_list2[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_NoIndex_5yrs_noCKMR.RData"))
-res_list2[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_NoIndex_5yrs_noCKMR.RData"))
-
-#saved the results incorrectly, so I have to do the below code
-res_list<-list()
-res_list[[1]]<-res_list2[[3]][[1]]
-res_list[[2]]<-res_list2[[3]][[2]]
-res_list[[3]]<-res_list2[[3]][[3]]
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_NoIndex_5yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_NoIndex_5yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_NoIndex_5yrs_noCKMR.RData"))
 
 Cod_wdat<-Cod_5000_25_5
 Flatfish_wdat<-Flatfish_5000_25_5
@@ -2825,24 +2700,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -2904,7 +2779,7 @@ SD_M_N5000_NoIndex_5yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_NoIndex_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_NoIndex_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_NoIndex_5yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_NoIndex_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_NoIndex_5yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -2917,16 +2792,10 @@ for(f in 1:3){
 #########
 
 #N100 for 10yrs, and No Index
-res_list2<-list()
-res_list2[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_NoIndex_10yrs_noCKMR.RData"))
-res_list2[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_NoIndex_10yrs_noCKMR.RData"))
-res_list2[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_NoIndex_10yrs_noCKMR.RData"))
-
-#saved the results incorrectly, so I have to do the below code
 res_list<-list()
-res_list[[1]]<-res_list2[[3]][[1]]
-res_list[[2]]<-res_list2[[3]][[2]]
-res_list[[3]]<-res_list2[[3]][[3]]
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_NoIndex_10yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_NoIndex_10yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_NoIndex_10yrs_noCKMR.RData"))
 
 Cod_wdat<-Cod_100_25_10
 Flatfish_wdat<-Flatfish_100_25_10
@@ -2938,24 +2807,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -3018,7 +2887,7 @@ SD_M_N100_NoIndex_10yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_NoIndex_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_NoIndex_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_NoIndex_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_NoIndex_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_NoIndex_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -3027,15 +2896,9 @@ for(f in 1:3){
 }
 
 #N1000 for 10yrs, No Index
-res_list2[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_NoIndex_10yrs_noCKMR.RData"))
-res_list2[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_NoIndex_10yrs_noCKMR.RData"))
-res_list2[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_NoIndex_10yrs_noCKMR.RData"))
-
-#saved the results incorrectly, so I have to do the below code
-res_list<-list()
-res_list[[1]]<-res_list2[[3]][[1]]
-res_list[[2]]<-res_list2[[3]][[2]]
-res_list[[3]]<-res_list2[[3]][[3]]
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_NoIndex_10yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_NoIndex_10yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_NoIndex_10yrs_noCKMR.RData"))
 
 Cod_wdat<-Cod_1000_25_10
 Flatfish_wdat<-Flatfish_1000_25_10
@@ -3047,24 +2910,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -3127,7 +2990,7 @@ SD_M_N1000_NoIndex_10yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_NoIndex_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_NoIndex_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_NoIndex_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_NoIndex_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_NoIndex_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -3136,15 +2999,9 @@ for(f in 1:3){
 }
 
 #N5000 for 10yrs, No Index
-res_list2[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_NoIndex_10yrs_noCKMR.RData"))
-res_list2[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_NoIndex_10yrs_noCKMR.RData"))
-res_list2[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_NoIndex_10yrs_noCKMR.RData"))
-
-#saved the results incorrectly, so I have to do the below code
-res_list<-list()
-res_list[[1]]<-res_list2[[3]][[1]]
-res_list[[2]]<-res_list2[[3]][[2]]
-res_list[[3]]<-res_list2[[3]][[3]]
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_NoIndex_10yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_NoIndex_10yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_NoIndex_10yrs_noCKMR.RData"))
 
 Cod_wdat<-Cod_5000_25_10
 Flatfish_wdat<-Flatfish_5000_25_10
@@ -3156,24 +3013,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -3236,7 +3093,7 @@ SD_M_N5000_NoIndex_10yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_NoIndex_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_NoIndex_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_NoIndex_10yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_NoIndex_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_NoIndex_10yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -3245,16 +3102,10 @@ for(f in 1:3){
 }
 
 #N100 for 20yrs, No index
-res_list2<-list()
-res_list2[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_NoIndex_20yrs_noCKMR.RData"))
-res_list2[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_NoIndex_20yrs_noCKMR.RData"))
-res_list2[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_NoIndex_20yrs_noCKMR.RData"))
-
-#saved the results incorrectly, so I have to do the below code
 res_list<-list()
-res_list[[1]]<-res_list2[[3]][[1]]
-res_list[[2]]<-res_list2[[3]][[2]]
-res_list[[3]]<-res_list2[[3]][[3]]
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_NoIndex_20yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_NoIndex_20yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_NoIndex_20yrs_noCKMR.RData"))
 
 Cod_wdat<-Cod_100_25_20
 Flatfish_wdat<-Flatfish_100_25_20
@@ -3266,24 +3117,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -3346,7 +3197,7 @@ SD_M_N100_NoIndex_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_NoIndex_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_NoIndex_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_NoIndex_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_NoIndex_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_NoIndex_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -3355,15 +3206,9 @@ for(f in 1:3){
 }
 
 #N1000 for 20yrs, No Index
-res_list2[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_NoIndex_20yrs_noCKMR.RData"))
-res_list2[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_NoIndex_20yrs_noCKMR.RData"))
-res_list2[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_NoIndex_20yrs_noCKMR.RData"))
-
-#saved the results incorrectly, so I have to do the below code
-res_list<-list()
-res_list[[1]]<-res_list2[[3]][[1]]
-res_list[[2]]<-res_list2[[3]][[2]]
-res_list[[3]]<-res_list2[[3]][[3]]
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_NoIndex_20yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_NoIndex_20yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_NoIndex_20yrs_noCKMR.RData"))
 
 Cod_wdat<-Cod_1000_25_20
 Flatfish_wdat<-Flatfish_1000_25_20
@@ -3375,24 +3220,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -3455,7 +3300,7 @@ SD_M_N1000_NoIndex_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_NoIndex_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_NoIndex_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_NoIndex_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_NoIndex_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_NoIndex_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -3464,15 +3309,9 @@ for(f in 1:3){
 }
 
 #N5000 for 20yrs, No Index
-res_list2[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_NoIndex_20yrs_noCKMR.RData"))
-res_list2[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_NoIndex_20yrs_noCKMR.RData"))
-res_list2[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_NoIndex_20yrs_noCKMR.RData"))
-
-#saved the results incorrectly, so I have to do the below code
-res_list<-list()
-res_list[[1]]<-res_list2[[3]][[1]]
-res_list[[2]]<-res_list2[[3]][[2]]
-res_list[[3]]<-res_list2[[3]][[3]]
+res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_NoIndex_20yrs_noCKMR.RData"))
+res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_NoIndex_20yrs_noCKMR.RData"))
+res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_NoIndex_20yrs_noCKMR.RData"))
 
 Cod_wdat<-Cod_5000_25_20
 Flatfish_wdat<-Flatfish_5000_25_20
@@ -3484,24 +3323,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -3564,7 +3403,7 @@ SD_M_N5000_NoIndex_20yrs_noCKMR<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_NoIndex_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_NoIndex_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_NoIndex_20yrs_noCKMR[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_NoIndex_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_NoIndex_20yrs_noCKMR[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -3592,24 +3431,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -3672,7 +3511,7 @@ SD_M_N100_Ind25_ckmrmultinom5<-matrix(NA, nrow=3, ncol=100)
  for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_Ind25_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_Ind25_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
    SD_ssb_N100_Ind25_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd
    SD_R0_N100_Ind25_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
    SD_M_N100_Ind25_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -3696,24 +3535,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -3776,7 +3615,7 @@ SD_M_N1000_Ind25_ckmrmultinom5<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_Ind25_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_Ind25_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_Ind25_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_Ind25_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_Ind25_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -3800,24 +3639,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -3880,7 +3719,7 @@ SD_M_N5000_Ind25_ckmrmultinom5<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_Ind25_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_Ind25_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_Ind25_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_Ind25_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_Ind25_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -3904,24 +3743,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -3984,7 +3823,7 @@ SD_M_N100_Ind50_ckmrmultinom5<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_Ind50_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_Ind50_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_Ind50_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_Ind50_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_Ind50_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -4008,24 +3847,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -4088,7 +3927,7 @@ SD_M_N1000_Ind50_ckmrmultinom5<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_Ind50_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_Ind50_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_Ind50_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_Ind50_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_Ind50_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -4112,24 +3951,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -4192,7 +4031,7 @@ SD_M_N5000_Ind50_ckmrmultinom5<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_Ind50_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_Ind50_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_Ind50_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_Ind50_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_Ind50_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -4216,24 +4055,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       } 
     }
   }
@@ -4296,7 +4135,7 @@ SD_M_N100_Ind25_ckmrmultinom10<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_Ind25_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_Ind25_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_Ind25_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_Ind25_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_Ind25_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -4320,24 +4159,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -4400,7 +4239,7 @@ SD_M_N1000_Ind25_ckmrmultinom10<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_Ind25_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_Ind25_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_Ind25_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_Ind25_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_Ind25_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -4424,24 +4263,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
        }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
        }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
        }
     }
   }
@@ -4504,7 +4343,7 @@ SD_M_N5000_Ind25_ckmrmultinom10<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-        CV_ssb_N5000_Ind25_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+        CV_ssb_N5000_Ind25_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_Ind25_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_Ind25_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_Ind25_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -4528,24 +4367,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -4608,7 +4447,7 @@ SD_M_N100_Ind50_ckmrmultinom10<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_Ind50_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_Ind50_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_Ind50_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_Ind50_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_Ind50_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -4632,24 +4471,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -4712,7 +4551,7 @@ SD_M_N1000_Ind50_ckmrmultinom10<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_Ind50_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_Ind50_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_Ind50_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_Ind50_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_Ind50_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -4736,24 +4575,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
        }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
        }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
        }
     }
   }
@@ -4816,7 +4655,7 @@ SD_M_N5000_Ind50_ckmrmultinom10<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_Ind50_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_Ind50_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_Ind50_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_Ind50_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_Ind50_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -4841,24 +4680,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
 }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
 }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
 }
     }
   }
@@ -4921,7 +4760,7 @@ SD_M_N100_Ind25_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_Ind25_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_Ind25_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_Ind25_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_Ind25_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_Ind25_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -4945,24 +4784,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
 }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
 }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
 }
     }
   }
@@ -5025,7 +4864,7 @@ SD_M_N1000_Ind25_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_Ind25_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_Ind25_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_Ind25_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_Ind25_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_Ind25_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -5049,24 +4888,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
        }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
        }
     }
   }
@@ -5129,7 +4968,7 @@ SD_M_N5000_Ind25_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_Ind25_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_Ind25_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_Ind25_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_Ind25_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_Ind25_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -5153,24 +4992,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
 }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
 }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
 }
     }
   }
@@ -5233,7 +5072,7 @@ SD_M_N100_Ind50_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_Ind50_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_Ind50_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_Ind50_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_Ind50_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_Ind50_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -5257,24 +5096,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
 }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
 }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
 }
     }
   }
@@ -5337,7 +5176,7 @@ SD_M_N1000_Ind50_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_Ind50_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_Ind50_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_Ind50_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_Ind50_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_Ind50_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -5361,24 +5200,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
        }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
        }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
-      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[3])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_R0"])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
        }
     }
   }
@@ -5441,7 +5280,7 @@ SD_M_N5000_Ind50_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_Ind50_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_Ind50_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_Ind50_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_Ind50_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_Ind50_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -5469,24 +5308,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -5549,7 +5388,7 @@ SD_M_N100_NoIndex_ckmrmultinom5<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_NoIndex_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_NoIndex_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_NoIndex_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_NoIndex_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_NoIndex_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -5573,24 +5412,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -5653,7 +5492,7 @@ SD_M_N1000_NoIndex_ckmrmultinom5<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_NoIndex_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_NoIndex_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_NoIndex_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_NoIndex_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_NoIndex_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -5677,24 +5516,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -5757,7 +5596,7 @@ SD_M_N5000_NoIndex_ckmrmultinom5<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N5000_NoIndex_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N5000_NoIndex_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_NoIndex_ckmrmultinom5[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_NoIndex_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_NoIndex_ckmrmultinom5[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -5781,24 +5620,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -5861,7 +5700,7 @@ SD_M_N100_NoIndex_ckmrmultinom10<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_NoIndex_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_NoIndex_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_NoIndex_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_NoIndex_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_NoIndex_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -5885,24 +5724,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
       }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
       }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
       }
     }
   }
@@ -5965,7 +5804,7 @@ SD_M_N1000_NoIndex_ckmrmultinom10<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_NoIndex_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_NoIndex_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_NoIndex_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_NoIndex_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_NoIndex_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -5989,24 +5828,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
        }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
        }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
        }
     }
   }
@@ -6070,7 +5909,7 @@ for(f in 1:3){
   for (i in 1:100){
     if (!is.null(res_list[[f]][[i]])){
       if(length(res_list[[f]][[i]])>2){
-        CV_ssb_N5000_NoIndex_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+        CV_ssb_N5000_NoIndex_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N5000_NoIndex_ckmrmultinom10[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N5000_NoIndex_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N5000_NoIndex_ckmrmultinom10[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -6095,24 +5934,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
 }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
 }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
 }
     }
   }
@@ -6175,7 +6014,7 @@ SD_M_N100_NoIndex_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N100_NoIndex_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N100_NoIndex_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N100_NoIndex_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N100_NoIndex_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N100_NoIndex_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -6199,24 +6038,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
 }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
 }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
 }
     }
   }
@@ -6279,7 +6118,7 @@ SD_M_N1000_NoIndex_ckmrmultinom20<-matrix(NA, nrow=3, ncol=100)
 for(f in 1:3){
   for (i in 1:100){
     if(length(res_list[[f]][[i]])>2){
-      CV_ssb_N1000_NoIndex_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$unbiased$value
+      CV_ssb_N1000_NoIndex_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd/res_list[[f]][[i]]$SD$value
     SD_ssb_N1000_NoIndex_ckmrmultinom20[f,i,]<-res_list[[f]][[i]]$SD$sd
     SD_R0_N1000_NoIndex_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_R0","log_R0"])
     SD_M_N1000_NoIndex_ckmrmultinom20[f,i]<-sqrt(res_list[[f]][[i]]$SD$cov.fixed["log_M","log_M"])
@@ -6303,24 +6142,24 @@ for(f in 1:3){
   for (i in 1:100){
     if(f==1){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Cod_wdat[[i]]$OM$SSB[26:101])/Cod_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)/(Cod_wdat[[i]]$OM$SSB[26:101]/Cod_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Cod_wdat[[i]]$OM$R0)/Cod_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Cod_wdat[[i]]$OM$Mref)/Cod_wdat[[i]]$OM$Mref
        }
     }else if (f==2){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Flatfish_wdat[[i]]$OM$SSB[26:101])/Flatfish_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)/(Flatfish_wdat[[i]]$OM$SSB[26:101]/Flatfish_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Flatfish_wdat[[i]]$OM$R0)/Flatfish_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Flatfish_wdat[[i]]$OM$Mref)/Flatfish_wdat[[i]]$OM$Mref
        }
     } else if (f==3){
       if(length(res_list[[f]][[i]])>2){
-        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$unbiased$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
+        re_SSB[f,i,]<-(res_list[[f]][[i]]$SD$value-Sardine_wdat[[i]]$OM$SSB[26:101])/Sardine_wdat[[i]]$OM$SSB[26:101]
       #re_Dep[f,i,]<-(summary(res_list[[f]][[i]]$SD)[which(rownames(summary(res_list[[f]][[i]]$SD)) %in% "Depletion"),3]-Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)/(Sardine_wdat[[i]]$OM$SSB[26:101]/Sardine_wdat[[i]]$OM$SSB0)
       re_R0[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[2])-Sardine_wdat[[i]]$OM$R0)/Sardine_wdat[[i]]$OM$R0
-      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed[1])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
+      re_M[i,f]<-(exp(res_list[[f]][[i]]$SD$par.fixed["log_M"])-Sardine_wdat[[i]]$OM$Mref)/Sardine_wdat[[i]]$OM$Mref
        }
     }
   }
