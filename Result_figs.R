@@ -803,6 +803,7 @@ for(f in 1:3){
 }
 
 #N5000 for 5 yrs, sd index 0.25
+res_list<-list()
 res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind25_5yrs_noCKMR.RData"))
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind25_5yrs_noCKMR.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind25_5yrs_noCKMR.RData"))

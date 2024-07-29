@@ -460,7 +460,7 @@ Type objective_function<Type>::operator() ()
 /////////////////////////
 //POP calcs
 /////////////////////////
-     POP_prob(i)=Type(0);
+     
     // A potential parent has to have been sampled after the year of youngs birth, because sampling is lethal (and reviewer didnt want same year comparison[timing gets weird])
     if(theo_samp_year_old > born_year_young){
   //So the expected reproductive output of the parent in the year of offsprings birth / total reprod output that year
