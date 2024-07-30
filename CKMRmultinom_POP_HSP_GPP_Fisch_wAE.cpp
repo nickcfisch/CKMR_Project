@@ -341,7 +341,7 @@ Type objective_function<Type>::operator() ()
   GGP_prob_aa.row(i).setZero();
   
 //HSP and GGP Potential parent loop
-   for(j=0;j<=lage;j++){  // We can assume the age of the hypothetical parent for HSP or GGP was not 0 in the birth year of older sibling or zero in birth year of grandchild, so we start this integration at age 1  
+   for(j=1;j<=lage;j++){  // We can assume the age of the hypothetical parent for HSP or GGP was not 0 in the birth year of older sibling or zero in birth year of grandchild, so we start this integration at age 1  
     if((j+age_diff)<=lage){          //If we are not in the plus group
 //     if(born_year_old>0){                //if we're not in unfished years
       HSP_prob_aa(i,j) = ( (N(born_year_old-1,j)*Mat(j)*Waa(j)) / spbiomass(born_year_old-1) ) * surv_prob(i,j)  * (4 * Mat(int(j)+age_diff)*Waa(int(j)+age_diff) / spbiomass(born_year_old+age_diff-1));
@@ -371,8 +371,6 @@ Type objective_function<Type>::operator() ()
    	/////////////////////////////////////////////////////////
 	//Doing GGP calcs within this loop to try and save time
 	/////////////////////////////////////////////////////////
-	
-	//Your age difference has to be > 0 (applied up higher)
 
    //sample year of older must be greater than birth year of the parent 
    if(theo_samp_year_old > (born_year_young-j)){

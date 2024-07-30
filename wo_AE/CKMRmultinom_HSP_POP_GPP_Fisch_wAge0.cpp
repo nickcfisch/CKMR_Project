@@ -324,7 +324,7 @@ Type objective_function<Type>::operator() ()
 	//Doing GGP calcs within this loop to try and save time
 	/////////////////////////////////////////////////////////
 	
-	//Your age difference has to be > 0, and you have to have been sampled after the birth of younger indv
+	//Your age difference has to be > 0
    if(age_diff(i) > 0){ 
 
    //sample year of older must be greater than birth year of the parent 
