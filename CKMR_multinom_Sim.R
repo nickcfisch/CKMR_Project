@@ -244,7 +244,7 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
     surv_prob[i,]<-lxf[[i]][collapsed_pairs$true_age_diff[i],collapsed_pairs$true_age_diff[i]:((OM$lage+1)+collapsed_pairs$true_age_diff[i]-1)]
     
     #Ok so now it is the number (fecundity) that could have given birth to the first born / total reproductive output  * survival to second born * (fecundity of age at second born / total reproductive output at time of second born)
-    for(j in 1:(OM$lage+1)){
+    for(j in 2:(OM$lage+1)){ #you can't have been the parent at age 0
       if ((j+collapsed_pairs$true_age_diff[i])<=(OM$lage+1)){ #If we are not in the plus group
         
         if(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i]>0){ # if we're not in unfished years
@@ -303,9 +303,9 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
   #Now for loop through the samples
   collapsed_pairs$prob_GGP<-0
   for (i in 1:nrow(collapsed_pairs)){
-    #Your true age difference has to be > 0, and you have to have been sampled after the birth of younger indv
-    if(collapsed_pairs$true_age_diff[i]>0 & collapsed_pairs$samp_year.old[i] > collapsed_pairs$true_born_year.young[i]){ 
-      for (k in 0:OM$lage){  #Looping through potential ages of potential parent 
+    #Your true age difference has to be > 0,
+    if(collapsed_pairs$true_age_diff[i]>0){ 
+      for (k in 1:OM$lage){  #Looping through potential ages of potential parent. you can't have been the parent at age 0
         #sample year of older must be greater than birth year of the parent 
         if(collapsed_pairs$samp_year.old[i]>(collapsed_pairs$true_born_year.young[i]-k)){
           #age of grandparent at year of parents birth must be positive 
@@ -366,7 +366,7 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
               #P(GGP)=2 * sum over parent ages (Naa[birth year of younger,age of potential parent] * Fec[age of potential parent at time of youngers birth]/SSB[birth year of younger] * Fec[age of grandparent at time of parents birth]/(0.5*SSB[year of potential parents birth]) )
               #So the birth year of the potential parent of the younger is the birth year of younger - age of parent at time of youngers birth
               #The age of the grandparent at the time of the parents birth is the birth year of the parent - the birth year of the grandparent
-              collapsed_pairs$prob_GGP[i]<- collapsed_pairs$prob_GGP[i] + 0.5*
+              collapsed_pairs$prob_GGP[i]<- collapsed_pairs$prob_GGP[i] + 0.5 *
                 OM$Naa[collapsed_pairs$true_born_year.young[i],k+1] *
                 ((OM$Mat[k+1]*OM$Waa[k+1])/sum(OM$Naa[collapsed_pairs$true_born_year.young[i],]*OM$Mat*OM$Waa)) *
                 ((OM$Mat[(collapsed_pairs$true_born_year.young[i]-k)-(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i])+1]*OM$Waa[(collapsed_pairs$true_born_year.young[i]-k)-(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i])+1])/(0.5*sum(OM$Naa[collapsed_pairs$true_born_year.young[i]-k,]*OM$Mat*OM$Waa))) 

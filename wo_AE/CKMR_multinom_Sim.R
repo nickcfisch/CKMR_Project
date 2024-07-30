@@ -211,8 +211,8 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
   colnames(collapsed_pairs)<-c("born_year.young", "age_diff","samp_year.old","times")
   
   #Now for loop through the samples
-  surv_prob<-matrix(NA, nrow=nrow(collapsed_pairs), ncol=(OM$lage+1))
-  HSP_calcs<-matrix(NA, nrow=nrow(collapsed_pairs), ncol=(OM$lage+1))
+  surv_prob<-matrix(0, nrow=nrow(collapsed_pairs), ncol=(OM$lage+1))
+  HSP_calcs<-matrix(0, nrow=nrow(collapsed_pairs), ncol=(OM$lage+1))
   lxf<-list()
   for (i in 1:nrow(collapsed_pairs)){
     #Probability you were alive in the year of the first born and survived to the year of the second born
@@ -246,7 +246,7 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
     surv_prob[i,]<-lxf[[i]][collapsed_pairs$age_diff[i],collapsed_pairs$age_diff[i]:((OM$lage+1)+collapsed_pairs$age_diff[i]-1)]
     
     #Ok so now it is the number (fecundity) that could have given birth to the first born / total reproductive output  * survival to second born * (fecundity of age at second born / total reproductive output at time of second born)
-    for(j in 1:(OM$lage+1)){
+    for(j in 2:(OM$lage+1)){ #parent cannot have been age 0
       if ((j+collapsed_pairs$age_diff[i])<=(OM$lage+1)){ #If we are not in the plus group
         
         if(collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i]>0){ # if we're not in unfished years
@@ -299,9 +299,9 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
   #Now for loop through the samples
   collapsed_pairs$prob_GGP<-0
   for (i in 1:nrow(collapsed_pairs)){
-    #Your true age difference has to be > 0, and you have to have been sampled after the birth of younger indv
-    if(collapsed_pairs$age_diff[i]>0 & collapsed_pairs$samp_year.old[i] > collapsed_pairs$born_year.young[i]){ 
-      for (k in 0:OM$lage){  #Looping through potential ages of potential parent 
+    #Your true age difference has to be > 0
+    if(collapsed_pairs$age_diff[i]>0){ 
+      for (k in 1:OM$lage){  #Looping through potential ages of potential parent, parent cannot have been age 0 
         #sample year of older must be greater than birth year of the parent 
         if(collapsed_pairs$samp_year.old[i]>(collapsed_pairs$born_year.young[i]-k)){
           #age of grandparent at year of parents birth must be positive 

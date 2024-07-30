@@ -313,7 +313,7 @@ Type objective_function<Type>::operator() ()
 //	}
    
    if(age_diff>1){
-    for(k=0;k<=lage+age_diff-2;k++){ //Can start this loop at 1 given an age 0 will not have given birth
+    for(k=0;k<=lage+age_diff-2;k++){ 
 //Assume that spawning happens at the very start of the year 
 // So parent has to survive year of the birth, year after the birth,.. up to age difference
     if(k<=lage){
@@ -340,37 +340,31 @@ Type objective_function<Type>::operator() ()
   HSP_prob_aa.row(i).setZero();
   GGP_prob_aa.row(i).setZero();
   
-//HSP calcs
-   for(j=1;j<=lage;j++){  // We can assume the age of the hypothetical parent for HSP or GGP was not 0 in the birth year of older sibling or zero in birth year of grandchild, so we start this integration at age 1  
+//HSP and GGP Potential parent loop
+   for(j=0;j<=lage;j++){  // We can assume the age of the hypothetical parent for HSP or GGP was not 0 in the birth year of older sibling or zero in birth year of grandchild, so we start this integration at age 1  
     if((j+age_diff)<=lage){          //If we are not in the plus group
 //     if(born_year_old>0){                //if we're not in unfished years
       HSP_prob_aa(i,j) = ( (N(born_year_old-1,j)*Mat(j)*Waa(j)) / spbiomass(born_year_old-1) ) * surv_prob(i,j)  * (4 * Mat(int(j)+age_diff)*Waa(int(j)+age_diff) / spbiomass(born_year_old+age_diff-1));
-//      HSP_prob(i) += P_obs_xz * ( (N(born_year_old-1,j)*Mat(j)*Waa(j)) / spbiomass(born_year_old-1) ) * surv_prob(i,j)  * (4 * Mat(int(j)+age_diff)*Waa(int(j)+age_diff) / spbiomass(born_year_old+age_diff-1));
 //	 }
 /*	 if(born_year_old<1){                //if we are in unfished years
 	  if(born_year_old+age_diff>0){   //if second born is not in unfished years
        HSP_prob_aa(i,j) = ( (N0_age(j)*Mat(j)*Waa(j)) / SSB0 ) * surv_prob(i,j)  * (4 * Mat(int(j)+age_diff)*Waa(int(j)+age_diff) / spbiomass(born_year_old+age_diff-1));
-//       HSP_prob(i) += P_obs_xz * ( (N0_age(j)*Mat(j)*Waa(j)) / SSB0 ) * surv_prob(i,j)  * (4 * Mat(int(j)+age_diff)*Waa(int(j)+age_diff) / spbiomass(born_year_old+age_diff-1));
 	  }
 	  if(born_year_old+age_diff<1){   //if second born is in unfished years
        HSP_prob_aa(i,j) = ( (N0_age(j)*Mat(j)*Waa(j)) / SSB0 ) * surv_prob(i,j)  * (4 * Mat(int(j)+age_diff)*Waa(int(j)+age_diff) / SSB0);
-//       HSP_prob(i) += P_obs_xz * ( (N0_age(j)*Mat(j)*Waa(j)) / SSB0 ) * surv_prob(i,j)  * (4 * Mat(int(j)+age_diff)*Waa(int(j)+age_diff) / SSB0);
  	  }}
 */    }
 	
     if((j+age_diff)>lage){            //If we are in the plus group
 //     if(born_year_old>0){                //if we're not in unfished years
       HSP_prob_aa(i,j) = ( (N(born_year_old-1,j)*Mat(j)*Waa(j)) / spbiomass(born_year_old-1) ) * surv_prob(i,j)  * (4 * Mat(lage)*Waa(lage) / spbiomass(born_year_old+age_diff-1));	
-//      HSP_prob(i) += P_obs_xz * ( (N(born_year_old-1,j)*Mat(j)*Waa(j)) / spbiomass(born_year_old-1) ) * surv_prob(i,j)  * (4 * Mat(lage)*Waa(lage) / spbiomass(born_year_old+age_diff-1));	
 //	 }
 /*	 if(born_year_old<1){                //if we are in unfished years
 	  if(born_year_old+age_diff>0){   //if second born is not in unfished years
        HSP_prob_aa(i,j) = ( (N0_age(j)*Mat(j)*Waa(j)) / SSB0 ) * surv_prob(i,j)  * (4 * Mat(lage)*Waa(lage) / spbiomass(born_year_old+age_diff-1));	
-//       HSP_prob(i) += P_obs_xz * ( (N0_age(j)*Mat(j)*Waa(j)) / SSB0 ) * surv_prob(i,j)  * (4 * Mat(lage)*Waa(lage) / spbiomass(born_year_old+age_diff-1));	
 	  }
   	  if(born_year_old+age_diff<1){   //if second born is in unfished years
        HSP_prob_aa(i,j) = ( (N0_age(j)*Mat(j)*Waa(j)) / SSB0 ) * surv_prob(i,j)  * (4 * Mat(lage)*Waa(lage) / SSB0);	
-//       HSP_prob(i) += P_obs_xz * ( (N0_age(j)*Mat(j)*Waa(j)) / SSB0 ) * surv_prob(i,j)  * (4 * Mat(lage)*Waa(lage) / SSB0);	
 	 }}
 */    }
    
@@ -378,8 +372,8 @@ Type objective_function<Type>::operator() ()
 	//Doing GGP calcs within this loop to try and save time
 	/////////////////////////////////////////////////////////
 	
-	//Your age difference has to be > 0, and you have to have been sampled after the birth of younger indv
-  if( (age_diff > 0) & (theo_samp_year_old > born_year_young)){ 
+	//Your age difference has to be > 0 (applied up higher), and you have to have been sampled after the birth of younger indv
+  if(theo_samp_year_old > born_year_young){ 
 
    //sample year of older must be greater than birth year of the parent 
    if(theo_samp_year_old > (born_year_young-j)){
@@ -388,30 +382,24 @@ Type objective_function<Type>::operator() ()
     //if not in unfished territory
 //     if(((born_year_young-1-j) > -1) & ((born_year_young-1) > -1)){
       GGP_prob_aa(i,j) = N(born_year_young-1,j) * (Mat(j)*Waa(j))/spbiomass(born_year_young-1) * ((Mat((born_year_young-j)-(born_year_young-age_diff)) * Waa((born_year_young-j)-(born_year_young-age_diff))) / (0.5*spbiomass(born_year_young-1-j)));  	  
-//      GGP_prob(i) += N(born_year_young-1,j) * (Mat(j)*Waa(j))/spbiomass(born_year_young-1) * ((Mat((born_year_young-j)-(born_year_young-age_diff)) * Waa((born_year_young-j)-(born_year_young-age_diff))) / (0.5*spbiomass(born_year_young-1-j)));  	  
 //     } //if in unfished
 /*     if(((born_year_young-1-j) < 0) & ((born_year_young-1) > -1)){
       GGP_prob_aa(i,j) = N(born_year_young-1,j) * (Mat(j)*Waa(j))/spbiomass(born_year_young-1) * ((Mat((born_year_young-j)-(born_year_young-age_diff)) * Waa((born_year_young-j)-(born_year_young-age_diff))) / (0.5*SSB0));  	  
-      GGP_prob(i) += N(born_year_young-1,j) * (Mat(j)*Waa(j))/spbiomass(born_year_young-1) * ((Mat((born_year_young-j)-(born_year_young-age_diff)) * Waa((born_year_young-j)-(born_year_young-age_diff))) / (0.5*SSB0));  	  
 	 } //if both in unfished
      if(((born_year_young-1-j) < 0) & ((born_year_young-1) < 0)){
       GGP_prob_aa(i,j) = N0_age(j) * (Mat(j)*Waa(j))/SSB0 * ((Mat((born_year_young-j)-(born_year_young-age_diff)) * Waa((born_year_young-j)-(born_year_young-age_diff))) / (0.5*SSB0));  	  
-      GGP_prob(i) += N0_age(j) * (Mat(j)*Waa(j))/SSB0 * ((Mat((born_year_young-j)-(born_year_young-age_diff)) * Waa((born_year_young-j)-(born_year_young-age_diff))) / (0.5*SSB0));  	  
 	 } 
 */    }
 	//Instead if we're in plus group
     if(((born_year_young-j)-(born_year_young-age_diff)) > lage){ 
 //     if(((born_year_young-1-j) > -1) & ((born_year_young-1) > -1)){
       GGP_prob_aa(i,j) = N(born_year_young-1,j) * (Mat(j)*Waa(j))/spbiomass(born_year_young-1) * ((Mat(lage) * Waa(lage)) / (0.5*spbiomass(born_year_young-1-j)));  	  
-//      GGP_prob(i) += N(born_year_young-1,j) * (Mat(j)*Waa(j))/spbiomass(born_year_young-1) * ((Mat(lage) * Waa(lage)) / (0.5*spbiomass(born_year_young-1-j)));  	  
 //	 } //if in unfished
 /*     if(((born_year_young-1-j) < 0) & ((born_year_young-1) > -1)){
       GGP_prob_aa(i,j) = N(born_year_young-1,j) * (Mat(j)*Waa(j))/spbiomass(born_year_young-1) * ((Mat(lage) * Waa(lage)) / (0.5*SSB0));  	  
-      GGP_prob(i) += N(born_year_young-1,j) * (Mat(j)*Waa(j))/spbiomass(born_year_young-1) * ((Mat(lage) * Waa(lage)) / (0.5*SSB0));  	  
 	 } //if both in unfished
      if(((born_year_young-1-j) < 0) & ((born_year_young-1) < 0)){
       GGP_prob_aa(i,j) = N0_age(j) * (Mat(j)*Waa(j))/SSB0 * ((Mat(lage) * Waa(lage)) / (0.5*SSB0));  	  
-      GGP_prob(i) += N0_age(j) * (Mat(j)*Waa(j))/SSB0 * ((Mat(lage) * Waa(lage)) / (0.5*SSB0));  	  
 	 }
 */	}
    }
@@ -421,31 +409,25 @@ Type objective_function<Type>::operator() ()
     if((((born_year_young-j)-(born_year_young-age_diff)) > fage) &  (((born_year_young-j)-(born_year_young-age_diff)) < (lage+1))){ 
     //if not in unfished territory
 //     if(((born_year_young-1-j) > -1) & ((born_year_young-1) > -1)){
-      GGP_prob_aa(i,j) = 0.5 * N(born_year_young-1,j) * (Mat(j)*Waa(j))/spbiomass(born_year_young-1) * ((Mat((born_year_young-j)-(born_year_young-age_diff)) * Waa((born_year_young-j)-(born_year_young-age_diff))) / (0.5*spbiomass(born_year_young-1-j)));  	  
-//      GGP_prob(i) += 0.5 * N(born_year_young-1,j) * (Mat(j)*Waa(j))/spbiomass(born_year_young-1) * ((Mat((born_year_young-j)-(born_year_young-age_diff)) * Waa((born_year_young-j)-(born_year_young-age_diff))) / (0.5*spbiomass(born_year_young-1-j)));  	  
+      GGP_prob_aa(i,j) = Type(0.5) * N(born_year_young-1,j) * (Mat(j)*Waa(j))/spbiomass(born_year_young-1) * ((Mat((born_year_young-j)-(born_year_young-age_diff)) * Waa((born_year_young-j)-(born_year_young-age_diff))) / (0.5*spbiomass(born_year_young-1-j)));  	  
 //     } //if in unfished
 /*     if(((born_year_young-1-j) < 0) & ((born_year_young-1) > -1)){
-      GGP_prob_aa(i,j) = 0.5 * N(born_year_young-1,j) * (Mat(j)*Waa(j))/spbiomass(born_year_young-1) * ((Mat((born_year_young-j)-(born_year_young-age_diff)) * Waa((born_year_young-j)-(born_year_young-age_diff))) / (0.5*SSB0));  	  
-      GGP_prob(i) += 0.5 * N(born_year_young-1,j) * (Mat(j)*Waa(j))/spbiomass(born_year_young-1) * ((Mat((born_year_young-j)-(born_year_young-age_diff)) * Waa((born_year_young-j)-(born_year_young-age_diff))) / (0.5*SSB0));  	  
+      GGP_prob_aa(i,j) = Type(0.5) * N(born_year_young-1,j) * (Mat(j)*Waa(j))/spbiomass(born_year_young-1) * ((Mat((born_year_young-j)-(born_year_young-age_diff)) * Waa((born_year_young-j)-(born_year_young-age_diff))) / (0.5*SSB0));  	  
 	 } //if both in unfished
      if(((born_year_young-1-j) < 0) & ((born_year_young-1) < 0)){
-      GGP_prob_aa(i,j) = 0.5 * N0_age(j) * (Mat(j)*Waa(j))/SSB0 * ((Mat((born_year_young-j)-(born_year_young-age_diff)) * Waa((born_year_young-j)-(born_year_young-age_diff))) / (0.5*SSB0));  	  
-      GGP_prob(i) += 0.5 * N0_age(j) * (Mat(j)*Waa(j))/SSB0 * ((Mat((born_year_young-j)-(born_year_young-age_diff)) * Waa((born_year_young-j)-(born_year_young-age_diff))) / (0.5*SSB0));  	  
+      GGP_prob_aa(i,j) = Type(0.5) * N0_age(j) * (Mat(j)*Waa(j))/SSB0 * ((Mat((born_year_young-j)-(born_year_young-age_diff)) * Waa((born_year_young-j)-(born_year_young-age_diff))) / (0.5*SSB0));  	  
 	 } 
 */    }
    //Instead if we're in plus group
    if(((born_year_young-j)-(born_year_young-age_diff)) > lage){ 
 //    if(((born_year_young-1-j) > -1) & ((born_year_young-1) > -1)){
-     GGP_prob_aa(i,j) = 0.5 * N(born_year_young-1,j) * (Mat(j)*Waa(j))/spbiomass(born_year_young-1) * ((Mat(lage) * Waa(lage)) / (0.5*spbiomass(born_year_young-1-j)));  	  
-//     GGP_prob(i) += 0.5 * N(born_year_young-1,j) * (Mat(j)*Waa(j))/spbiomass(born_year_young-1) * ((Mat(lage) * Waa(lage)) / (0.5*spbiomass(born_year_young-1-j)));  	  
+     GGP_prob_aa(i,j) = Type(0.5) * N(born_year_young-1,j) * (Mat(j)*Waa(j))/spbiomass(born_year_young-1) * ((Mat(lage) * Waa(lage)) / (0.5*spbiomass(born_year_young-1-j)));  	  
 //	} //if in unfished
 /*    if(((born_year_young-1-j) < 0) & ((born_year_young-1) > -1)){
-     GGP_prob_aa(i,j) = 0.5 * N(born_year_young-1,j) * (Mat(j)*Waa(j))/spbiomass(born_year_young-1) * ((Mat(lage) * Waa(lage)) / (0.5*SSB0));  	  
-     GGP_prob(i) += 0.5 * N(born_year_young-1,j) * (Mat(j)*Waa(j))/spbiomass(born_year_young-1) * ((Mat(lage) * Waa(lage)) / (0.5*SSB0));  	  
+     GGP_prob_aa(i,j) = Type(0.5) * N(born_year_young-1,j) * (Mat(j)*Waa(j))/spbiomass(born_year_young-1) * ((Mat(lage) * Waa(lage)) / (0.5*SSB0));  	  
 	} //if both in unfished
     if(((born_year_young-1-j) < 0) & ((born_year_young-1) < 0)){
-     GGP_prob_aa(i,j) = 0.5 * N0_age(j) * (Mat(j)*Waa(j))/SSB0 * ((Mat(lage) * Waa(lage)) / (0.5*SSB0));  	  
-     GGP_prob(i) += 0.5 * N0_age(j) * (Mat(j)*Waa(j))/SSB0 * ((Mat(lage) * Waa(lage)) / (0.5*SSB0));  	  
+     GGP_prob_aa(i,j) = Type(0.5) * N0_age(j) * (Mat(j)*Waa(j))/SSB0 * ((Mat(lage) * Waa(lage)) / (0.5*SSB0));  	  
 	}
 */   }
   }
@@ -455,7 +437,6 @@ Type objective_function<Type>::operator() ()
    HSP_prob(i) += P_obs_xz*HSP_prob_aa.row(i).sum();
    //Multiplying by two for the probability of MGGP or PGGP (^ previous calcs were for MGGP or equally PGGP)
    GGP_prob(i) += P_obs_xz*Type(2)*GGP_prob_aa.row(i).sum();
-//   GGP_prob(i) += P_obs_xz*Type(2)*GGP_prob(i);
 
 /////////////////////////
 //POP calcs
