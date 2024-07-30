@@ -372,7 +372,8 @@ Type objective_function<Type>::operator() ()
 	//Doing GGP calcs within this loop to try and save time
 	/////////////////////////////////////////////////////////
 	
-	//Your age difference has to be > 0 (applied up higher)
+	//Your age difference has to be > 0 (applied up higher), and you have to have been sampled after the birth of younger indv
+  if(theo_samp_year_old > born_year_young){ 
 
    //sample year of older must be greater than birth year of the parent 
    if(theo_samp_year_old > (born_year_young-j)){
@@ -429,7 +430,8 @@ Type objective_function<Type>::operator() ()
      GGP_prob_aa(i,j) = Type(0.5) * N0_age(j) * (Mat(j)*Waa(j))/SSB0 * ((Mat(lage) * Waa(lage)) / (0.5*SSB0));  	  
 	}
 */   }
-    }
+  }
+  }
    } //Closing HSP and GGP loop
    
    HSP_prob(i) += P_obs_xz*HSP_prob_aa.row(i).sum();
