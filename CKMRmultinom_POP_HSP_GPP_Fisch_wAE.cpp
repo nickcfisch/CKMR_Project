@@ -274,7 +274,6 @@ Type objective_function<Type>::operator() ()
 	for(z=coded_two_min(i);z<=coded_two_max(i);z++){  //^   z is possible age of the coded older individual
 
   //For ageing error, need the probability of that the younger was coded the age it was over true ages AND of same for the older, multiplied by the fishery composition in the years that the indv were sampled
-//  P_obs_xz = pred_fishery_comp(coded_born_year_young(i)+coded_age_one(i)-1,x)*AE_mat(x,coded_age_one(i)) * pred_fishery_comp(samp_year_coded_old(i)-1,z)*AE_mat(z,coded_age_two(i));
   P_obs_xz = (pred_fishery_comp(coded_born_year_young(i)+coded_age_one(i)-1,x)*AE_mat(x,coded_age_one(i)))/pred_fishery_comp_wAE(coded_born_year_young(i)+coded_age_one(i)-1,coded_age_one(i)) * (pred_fishery_comp(samp_year_coded_old(i)-1,z)*AE_mat(z,coded_age_two(i)))/pred_fishery_comp_wAE(samp_year_coded_old(i)-1,coded_age_two(i));
 
 //now need new variables (age_diff, born_year_young, etc) for true age of coded younger x, and coded older z. 
@@ -438,7 +437,7 @@ Type objective_function<Type>::operator() ()
 //POP calcs
 /////////////////////////
      
-    // A potential parent has to have been sampled after the year of youngs birth, because sampling is lethal (and reviewer didnt want same year comparison[timing gets weird])
+    //If a potential parent is sampled after the year of youngs birth, because sampling is lethal
     if(theo_samp_year_old > born_year_young){
   //So the expected reproductive output of the parent in the year of offsprings birth / total reprod output that year
      if(age_diff <= lage){
@@ -489,13 +488,27 @@ Type objective_function<Type>::operator() ()
 //Multinomial Likelihood for CKMR calcs
 ////////////////////////////////////////////  
 
-     L4 += -1*(n_ckmr(i)*((n_ckmr(i)-(k_ckmr_hsporggp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-((HSP_prob(i)+GGP_prob(i))*pi_nu+Type(1e-20)+POP_prob(i)))); //Prob of no match
-     L4 += -1*(n_ckmr(i)*((k_ckmr_hsporggp(i)/n_ckmr(i))*log((HSP_prob(i)+GGP_prob(i))*pi_nu+Type(1e-20))));    //Prob of HSP or GPP
-     L4 += -1*(n_ckmr(i)*((k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i)+Type(1e-20))));    //Prob of POP, the small constant is required for the log because you are integrating over ageing error (and don't know ages for sure)
+//     L4 -= (n_ckmr(i)*((n_ckmr(i)-(k_ckmr_hsporggp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-((HSP_prob(i)+GGP_prob(i))*pi_nu+Type(1e-20)+POP_prob(i)+Type(1e-20)))); //Prob of no match
+//     L4 -= (n_ckmr(i)*((k_ckmr_hsporggp(i)/n_ckmr(i))*log((HSP_prob(i)+GGP_prob(i))*pi_nu+Type(1e-20))));    //Prob of HSP or GPP
+//     L4 -= (n_ckmr(i)*((k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i)+Type(1e-20))));    //Prob of POP, the small constant is required for the log because you are integrating over ageing error (and don't know ages for sure)
       //Alternative = Sample size * sum ( Prob of no match + Prob of HSP + Prob of POP ) 
 //     L4 += -1*( n_ckmr(i) * ( ((n_ckmr(i)-(k_ckmr_hsporggp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-((HSP_prob(i)+GGP_prob(i))*pi_nu+POP_prob(i))) + (k_ckmr_hsporggp(i)/n_ckmr(i))*log((HSP_prob(i)+GGP_prob(i))*pi_nu) + (k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i))) ); 
 
+//  /*
+    //Potential parent or has to be sampled after or on the year of youngs birth, because sampling is lethal 	  
+    if(samp_year_coded_old(i) >= (coded_born_year_young(i)+coded_age_one(i)-coded_age_min(i))){
+     L4 -= (n_ckmr(i)*((n_ckmr(i)-(k_ckmr_hsporggp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-((HSP_prob(i)+GGP_prob(i))*pi_nu+POP_prob(i)))); //Prob of no match
+     L4 -= (n_ckmr(i)*((k_ckmr_hsporggp(i)/n_ckmr(i))*log((HSP_prob(i)+GGP_prob(i))*pi_nu)));    //Prob of HSP or GPP
+     L4 -= (n_ckmr(i)*((k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i))));    //Prob of POP
+    }
+    //if not, then collapses to binomial for only HSP calcs 
+    if(samp_year_coded_old(i) < (coded_born_year_young(i)+coded_age_one(i)-coded_age_min(i))){
+     L4 -= log(dbinom(k_ckmr_hsporggp(i),n_ckmr(i),(HSP_prob(i)+GGP_prob(i))*pi_nu)); 
+   }
+//   */
   }
+
+(coded_born_year_young(i)+coded_age_one(i)-coded_age_min(i))
 
 ////////////////////////////////////
 //LIKELIHOODS other than CKMR
@@ -561,6 +574,7 @@ Type objective_function<Type>::operator() ()
   REPORT(L2);
   REPORT(L3);
   REPORT(L4);
+  ADREPORT(L4);
   REPORT(NLL);
   REPORT(NPRAND);
 

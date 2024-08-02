@@ -391,14 +391,24 @@ Type objective_function<Type>::operator() ()
 //POP calcs
 /////////////////////////
     
-    // A potential parent has to have been sampled after or on the year of youngs birth, because sampling is lethal 
-    if(samp_year_old(i) >= born_year_young(i)){
+    // A potential parent has to have been sampled after because sampling is lethal 
+    if(samp_year_old(i) > born_year_young(i)){
   //So the exp reproductive output of the parent in the year of offsprings birth / total reprod output that year
 //     if(born_year_young(i)>0){
 	  POP_prob(i) = 2*(Mat(age_diff(i))*Waa(age_diff(i)) / spbiomass(born_year_young(i)-1));
 //	 }    
 /*	 if(born_year_young(i)<1){
 	  POP_prob(i) = 2*(Mat(age_diff(i))*Waa(age_diff(i)) / SSB0);
+	 }
+*/   }	 
+  //If it was sampled on the year of youngs birth, multiply by 0.5
+   if(samp_year_old(i) == born_year_young(i)){
+  //So the exp reproductive output of the parent in the year of offsprings birth / total reprod output that year
+//     if(born_year_young(i)>0){
+	  POP_prob(i) = Type(0.5) * 2*(Mat(age_diff(i))*Waa(age_diff(i)) / spbiomass(born_year_young(i)-1));
+//	 }    
+/*	 if(born_year_young(i)<1){
+	  POP_prob(i) = Type(0.5) * 2*(Mat(age_diff(i))*Waa(age_diff(i)) / SSB0);
 	 }
 */   }	 
    // A potential parent has to have been sampled after or on the year of youngs birth, because sampling is lethal 
@@ -410,18 +420,24 @@ Type objective_function<Type>::operator() ()
 //Multinomial Likelihood for CKMR calcs
 ////////////////////////////////////////////  
 
-    //if potential parent or grandparent was sampled after or on the year of youngs birth, because sampling is lethal  	  
+//     L4 -= (n_ckmr(i)*((n_ckmr(i)-(k_ckmr_hsporggp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-((HSP_prob(i)+GGP_prob(i))*pi_nu+Type(1e-20)+POP_prob(i)+Type(1e-20)))); //Prob of no match
+//     L4 -= (n_ckmr(i)*((k_ckmr_hsporggp(i)/n_ckmr(i))*log((HSP_prob(i)+GGP_prob(i))*pi_nu+Type(1e-20))));    //Prob of HSP or GPP
+//     L4 -= (n_ckmr(i)*((k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i)+Type(1e-20))));    //Prob of POP, the small constant is required for the log because you are integrating over ageing error (and don't know ages for sure)
+
+//  /*
+    //Potential parent or has to be sampled after the year of youngs birth, because sampling is lethal (note we are omitting same year comparisons here 	  
     if(samp_year_old(i) > born_year_young(i)){
-     L4 += -1*(n_ckmr(i)*((n_ckmr(i)-(k_ckmr_hsporggp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-((HSP_prob(i)+GGP_prob(i))*pi_nu+POP_prob(i)))); //Prob of no match
-     L4 += -1*(n_ckmr(i)*((k_ckmr_hsporggp(i)/n_ckmr(i))*log((HSP_prob(i)+GGP_prob(i))*pi_nu)));    //Prob of HSP or GPP
-     L4 += -1*(n_ckmr(i)*((k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i))));    //Prob of POP
+     L4 -= (n_ckmr(i)*((n_ckmr(i)-(k_ckmr_hsporggp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-((HSP_prob(i)+GGP_prob(i))*pi_nu+Type(1e-20)+POP_prob(i)+Type(1e-20)))); //Prob of no match
+     L4 -= (n_ckmr(i)*((k_ckmr_hsporggp(i)/n_ckmr(i))*log((HSP_prob(i)+GGP_prob(i))*pi_nu+Type(1e-20))));    //Prob of HSP or GPP
+     L4 -= (n_ckmr(i)*((k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i)+Type(1e-20))));    //Prob of POP
       //Alternative = Sample size * sum ( Prob of no match + Prob of HSP + Prob of POP ) 
-//     L4 += -1*( n_ckmr(i) * ( ((n_ckmr(i)-(k_ckmr_hsporggp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-((HSP_prob(i)+GGP_prob(i))*pi_nu+POP_prob(i))) + (k_ckmr_hsporggp(i)/n_ckmr(i))*log((HSP_prob(i)+GGP_prob(i))*pi_nu) + (k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i))) ); 
+//     L4 -= ( n_ckmr(i) * ( ((n_ckmr(i)-(k_ckmr_hsporggp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-((HSP_prob(i)+GGP_prob(i))*pi_nu+POP_prob(i))) + (k_ckmr_hsporggp(i)/n_ckmr(i))*log((HSP_prob(i)+GGP_prob(i))*pi_nu) + (k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i))) ); 
     }
-    //if not, then collapses to binomial for only HSP calcs (GGP prob will be zero in this case)
+    //if not, then collapses to binomial for only HSP calcs
     if(samp_year_old(i) < born_year_young(i)){
-     L4 += -1*log(dbinom(k_ckmr_hsporggp(i),n_ckmr(i),(HSP_prob(i)+GGP_prob(i))*pi_nu)); 
+     L4 -= log(dbinom(k_ckmr_hsporggp(i),n_ckmr(i),(HSP_prob(i)+GGP_prob(i))*pi_nu+Type(1e-20))); 
    }
+//   */
   }
 
 ////////////////////////////////////
@@ -489,12 +505,13 @@ Type objective_function<Type>::operator() ()
 //  REPORT(pred_fishery_comp_wAE);
 //  REPORT(obs_fishery_comp);
 
-//  REPORT(L1);
-//  REPORT(L2);
-//  REPORT(L3);
-//  REPORT(L4);
-//  REPORT(NLL);
-//  REPORT(NPRAND);
+  REPORT(L1);
+  REPORT(L2);
+  REPORT(L3);
+  REPORT(L4);
+  ADREPORT(L4);
+  REPORT(NLL);
+  REPORT(NPRAND);
 
   return JNLL;
 
