@@ -496,19 +496,17 @@ Type objective_function<Type>::operator() ()
 
 //  /*
     //Potential parent or has to be sampled after or on the year of youngs birth, because sampling is lethal 	  
-    if(samp_year_coded_old(i) >= (coded_born_year_young(i)+coded_age_one(i)-coded_age_min(i))){
+    if(samp_year_coded_old(i) >= (coded_born_year_young(i)+coded_age_one(i)-coded_one_min(i))){
      L4 -= (n_ckmr(i)*((n_ckmr(i)-(k_ckmr_hsporggp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-((HSP_prob(i)+GGP_prob(i))*pi_nu+POP_prob(i)))); //Prob of no match
      L4 -= (n_ckmr(i)*((k_ckmr_hsporggp(i)/n_ckmr(i))*log((HSP_prob(i)+GGP_prob(i))*pi_nu)));    //Prob of HSP or GPP
      L4 -= (n_ckmr(i)*((k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i))));    //Prob of POP
     }
     //if not, then collapses to binomial for only HSP calcs 
-    if(samp_year_coded_old(i) < (coded_born_year_young(i)+coded_age_one(i)-coded_age_min(i))){
+    if(samp_year_coded_old(i) < (coded_born_year_young(i)+coded_age_one(i)-coded_one_min(i))){
      L4 -= log(dbinom(k_ckmr_hsporggp(i),n_ckmr(i),(HSP_prob(i)+GGP_prob(i))*pi_nu)); 
    }
 //   */
   }
-
-(coded_born_year_young(i)+coded_age_one(i)-coded_age_min(i))
 
 ////////////////////////////////////
 //LIKELIHOODS other than CKMR
@@ -574,7 +572,7 @@ Type objective_function<Type>::operator() ()
   REPORT(L2);
   REPORT(L3);
   REPORT(L4);
-  ADREPORT(L4);
+//  ADREPORT(L4);
   REPORT(NLL);
   REPORT(NPRAND);
 
