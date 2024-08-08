@@ -501,43 +501,6 @@ hist(Pairs_Sardine_1000_25_20[,2], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,
 hist(Pairs_Sardine_100_25_20[,2], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0,0.8,0.2))
 #dev.off()
 
-#Getting pairs Table, 
-c(mean(Pairs_Cod_100_25_5[,1]),sd(Pairs_Cod_100_25_5[,1]),mean(Pairs_Cod_100_25_5_HSPandGGP),sd(Pairs_Cod_100_25_5_HSPandGGP))
-c(mean(Pairs_Cod_100_25_10[,1]),sd(Pairs_Cod_100_25_10[,1]),mean(Pairs_Cod_100_25_10_HSPandGGP),sd(Pairs_Cod_100_25_10_HSPandGGP))
-c(mean(Pairs_Cod_100_25_20[,1]),sd(Pairs_Cod_100_25_20[,1]),mean(Pairs_Cod_100_25_20_HSPandGGP),sd(Pairs_Cod_100_25_20_HSPandGGP))
-
-c(mean(Pairs_Cod_1000_25_5[,1]),sd(Pairs_Cod_1000_25_5[,1]),mean(Pairs_Cod_1000_25_5_HSPandGGP),sd(Pairs_Cod_1000_25_5_HSPandGGP))
-c(mean(Pairs_Cod_1000_25_10[,1]),sd(Pairs_Cod_1000_25_10[,1]),mean(Pairs_Cod_1000_25_10_HSPandGGP),sd(Pairs_Cod_1000_25_10_HSPandGGP))
-c(mean(Pairs_Cod_1000_25_20[,1]),sd(Pairs_Cod_1000_25_20[,1]),mean(Pairs_Cod_1000_25_20_HSPandGGP),sd(Pairs_Cod_1000_25_20_HSPandGGP))
-
-c(mean(Pairs_Cod_5000_25_5[,1]),sd(Pairs_Cod_5000_25_5[,1]),mean(Pairs_Cod_5000_25_5_HSPandGGP),sd(Pairs_Cod_5000_25_5_HSPandGGP))
-c(mean(Pairs_Cod_5000_25_10[,1]),sd(Pairs_Cod_5000_25_10[,1]),mean(Pairs_Cod_5000_25_10_HSPandGGP),sd(Pairs_Cod_5000_25_10_HSPandGGP))
-c(mean(Pairs_Cod_5000_25_20[,1]),sd(Pairs_Cod_5000_25_20[,1]),mean(Pairs_Cod_5000_25_20_HSPandGGP),sd(Pairs_Cod_5000_25_20_HSPandGGP))
-
-c(mean(Pairs_Flatfish_100_25_5[,1]),sd(Pairs_Flatfish_100_25_5[,1]),mean(Pairs_Flatfish_100_25_5_HSPandGGP),sd(Pairs_Flatfish_100_25_5_HSPandGGP))
-c(mean(Pairs_Flatfish_100_25_10[,1]),sd(Pairs_Flatfish_100_25_10[,1]),mean(Pairs_Flatfish_100_25_10_HSPandGGP),sd(Pairs_Flatfish_100_25_10_HSPandGGP))
-c(mean(Pairs_Flatfish_100_25_20[,1]),sd(Pairs_Flatfish_100_25_20[,1]),mean(Pairs_Flatfish_100_25_20_HSPandGGP),sd(Pairs_Flatfish_100_25_20_HSPandGGP))
-
-c(mean(Pairs_Flatfish_1000_25_5[,1]),sd(Pairs_Flatfish_1000_25_5[,1]),mean(Pairs_Flatfish_1000_25_5_HSPandGGP),sd(Pairs_Flatfish_1000_25_5_HSPandGGP))
-c(mean(Pairs_Flatfish_1000_25_10[,1]),sd(Pairs_Flatfish_1000_25_10[,1]),mean(Pairs_Flatfish_1000_25_10_HSPandGGP),sd(Pairs_Flatfish_1000_25_10_HSPandGGP))
-c(mean(Pairs_Flatfish_1000_25_20[,1]),sd(Pairs_Flatfish_1000_25_20[,1]),mean(Pairs_Flatfish_1000_25_20_HSPandGGP),sd(Pairs_Flatfish_1000_25_20_HSPandGGP))
-
-c(mean(Pairs_Flatfish_5000_25_5[,1]),sd(Pairs_Flatfish_5000_25_5[,1]),mean(Pairs_Flatfish_5000_25_5_HSPandGGP),sd(Pairs_Flatfish_5000_25_5_HSPandGGP))
-c(mean(Pairs_Flatfish_5000_25_10[,1]),sd(Pairs_Flatfish_5000_25_10[,1]),mean(Pairs_Flatfish_5000_25_10_HSPandGGP),sd(Pairs_Flatfish_5000_25_10_HSPandGGP))
-c(mean(Pairs_Flatfish_5000_25_20[,1]),sd(Pairs_Flatfish_5000_25_20[,1]),mean(Pairs_Flatfish_5000_25_20_HSPandGGP),sd(Pairs_Flatfish_5000_25_20_HSPandGGP))
-
-c(mean(Pairs_Sardine_100_25_5[,1]),sd(Pairs_Sardine_100_25_5[,1]),mean(Pairs_Sardine_100_25_5_HSPandGGP),sd(Pairs_Sardine_100_25_5_HSPandGGP))
-c(mean(Pairs_Sardine_100_25_10[,1]),sd(Pairs_Sardine_100_25_10[,1]),mean(Pairs_Sardine_100_25_10_HSPandGGP),sd(Pairs_Sardine_100_25_10_HSPandGGP))
-c(mean(Pairs_Sardine_100_25_20[,1]),sd(Pairs_Sardine_100_25_20[,1]),mean(Pairs_Sardine_100_25_20_HSPandGGP),sd(Pairs_Sardine_100_25_20_HSPandGGP))
-
-c(mean(Pairs_Sardine_1000_25_5[,1]),sd(Pairs_Sardine_1000_25_5[,1]),mean(Pairs_Sardine_1000_25_5_HSPandGGP),sd(Pairs_Sardine_1000_25_5_HSPandGGP))
-c(mean(Pairs_Sardine_1000_25_10[,1]),sd(Pairs_Sardine_1000_25_10[,1]),mean(Pairs_Sardine_1000_25_10_HSPandGGP),sd(Pairs_Sardine_1000_25_10_HSPandGGP))
-c(mean(Pairs_Sardine_1000_25_20[,1]),sd(Pairs_Sardine_1000_25_20[,1]),mean(Pairs_Sardine_1000_25_20_HSPandGGP),sd(Pairs_Sardine_1000_25_20_HSPandGGP))
-
-c(mean(Pairs_Sardine_5000_25_5[,1]),sd(Pairs_Sardine_5000_25_5[,1]),mean(Pairs_Sardine_5000_25_5_HSPandGGP),sd(Pairs_Sardine_5000_25_5_HSPandGGP))
-c(mean(Pairs_Sardine_5000_25_10[,1]),sd(Pairs_Sardine_5000_25_10[,1]),mean(Pairs_Sardine_5000_25_10_HSPandGGP),sd(Pairs_Sardine_5000_25_10_HSPandGGP))
-c(mean(Pairs_Sardine_5000_25_20[,1]),sd(Pairs_Sardine_5000_25_20[,1]),mean(Pairs_Sardine_5000_25_20_HSPandGGP),sd(Pairs_Sardine_5000_25_20_HSPandGGP))
-
 #Plots of Selectivity
 par(mfrow=c(3,1), mar=c(4,4,1,1), oma=c(2,2,1,1))
 plot(0:25, Cod_wdat[[1]]$OM$Sel, xlab="", ylab="", las=1, type="b", pch=16, lwd=2, main="Cod")
