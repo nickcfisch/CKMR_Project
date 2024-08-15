@@ -411,10 +411,11 @@ Type objective_function<Type>::operator() ()
 	  POP_prob(i) = Type(0.5) * 2*(Mat(age_diff(i))*Waa(age_diff(i)) / SSB0);
 	 }
 */   }	 
-   // A potential parent has to have been sampled after or on the year of youngs birth, because sampling is lethal 
-   if(samp_year_old(i) < born_year_young(i)){
-	POP_prob(i) = Type(0);
-   }
+
+//   // A potential parent has to have been sampled after or on the year of youngs birth, because sampling is lethal 
+//   if(samp_year_old(i) < born_year_young(i)){
+//	POP_prob(i) = Type(0);
+//   }
 
 //////////////////////////////////////////// 
 //Multinomial Likelihood for CKMR calcs

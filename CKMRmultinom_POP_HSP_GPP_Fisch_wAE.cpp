@@ -48,7 +48,6 @@ Type objective_function<Type>::operator() ()
   
 //CKMR data
   DATA_IVECTOR(coded_born_year_old); 
-  DATA_IVECTOR(coded_age_diff);   //Difference in the born years (not necessarily age difference because they die when sampled)
   DATA_VECTOR(n_ckmr);
   DATA_VECTOR(k_ckmr_hsporggp); 
   DATA_IVECTOR(coded_born_year_young); 
@@ -257,6 +256,7 @@ Type objective_function<Type>::operator() ()
   for(i=0;i<=years.size()-1;i++){  //TMB starts at zero   
    pred_harv(i)=(vector<Type>(pred_caa.row(i))*Waa).sum();
    pred_index(i)=q*(vector<Type>(Nbar.row(i))*Waa*fishery_sel).sum();
+//   pred_index(i)=(vector<Type>(Nbar.row(i))*Waa*fishery_sel).sum();
    pred_fishery_comp.row(i)=pred_caa.row(i)/(pred_caa.row(i).sum());  //calculating predicted catch age composition
   }
   
@@ -273,7 +273,8 @@ Type objective_function<Type>::operator() ()
    for(x=coded_one_min(i);x<=coded_one_max(i);x++){  //Loops through possible ages for ageing error. x is the possible age of the coded younger individual   
 	for(z=coded_two_min(i);z<=coded_two_max(i);z++){  //^   z is possible age of the coded older individual
 
-  //For ageing error, need the probability of that the younger was coded the age it was over true ages AND of same for the older, multiplied by the fishery composition in the years that the indv were sampled
+  //For ageing error, need the probability of that the younger was coded the age it was over true ages AND of same for the older, 
+  //multiplied by the fishery composition in the years that the indv were sampled
   P_obs_xz = (pred_fishery_comp(coded_born_year_young(i)+coded_age_one(i)-1,x)*AE_mat(x,coded_age_one(i)))/pred_fishery_comp_wAE(coded_born_year_young(i)+coded_age_one(i)-1,coded_age_one(i)) * (pred_fishery_comp(samp_year_coded_old(i)-1,z)*AE_mat(z,coded_age_two(i)))/pred_fishery_comp_wAE(samp_year_coded_old(i)-1,coded_age_two(i));
 
 //now need new variables (age_diff, born_year_young, etc) for true age of coded younger x, and coded older z. 
@@ -299,6 +300,9 @@ Type objective_function<Type>::operator() ()
   //Specifying dimensions of the vector of matrices
    matrix<Type> surv_prob_aa(age_diff,lage+age_diff);
    surv_prob_aa.setZero();
+   surv_prob.row(i).setZero();
+   HSP_prob_aa.row(i).setZero();
+   GGP_prob_aa.row(i).setZero();
    
 /////////////////////////////////////
 //HSP Calcs
@@ -335,9 +339,6 @@ Type objective_function<Type>::operator() ()
    } 
   }
    surv_prob.row(i) = surv_prob_aa.block(age_diff-1,age_diff-1,1,lage+1); //getting subset of matrix, starting at (x1,y1), and taking 1 row of lage+1 columns  
-  
-  HSP_prob_aa.row(i).setZero();
-  GGP_prob_aa.row(i).setZero();
   
 //HSP and GGP Potential parent loop
    for(j=1;j<=lage;j++){  // We can assume the age of the hypothetical parent for HSP or GGP was not 0 in the birth year of older sibling or zero in birth year of grandchild, so we start this integration at age 1  
@@ -477,35 +478,33 @@ Type objective_function<Type>::operator() ()
 	 }
    }
    
-   // A potential parent has to have been sampled after or on the year of youngs birth, because sampling is lethal 
-   if(theo_samp_year_old < born_year_young){
-	POP_prob(i) += Type(0);
-   }
-   
    }}}  //closing ageing error loops, and if loops
    
 //////////////////////////////////////////// 
 //Multinomial Likelihood for CKMR calcs
 ////////////////////////////////////////////  
 
-     L4 -= (n_ckmr(i)*((n_ckmr(i)-(k_ckmr_hsporggp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-((HSP_prob(i)+GGP_prob(i))*pi_nu+Type(1e-20)+POP_prob(i)+Type(1e-20)))); //Prob of no match
-     L4 -= (n_ckmr(i)*((k_ckmr_hsporggp(i)/n_ckmr(i))*log((HSP_prob(i)+GGP_prob(i))*pi_nu+Type(1e-20))));    //Prob of HSP or GPP
-     L4 -= (n_ckmr(i)*((k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i)+Type(1e-20))));    //Prob of POP, the small constant is required for the log because you are integrating over ageing error (and don't know ages for sure)
+     L4 -= (n_ckmr(i)*((n_ckmr(i)-(k_ckmr_hsporggp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-((HSP_prob(i)+GGP_prob(i))*pi_nu+POP_prob(i)))); //Prob of no match
+     L4 -= (n_ckmr(i)*((k_ckmr_hsporggp(i)/n_ckmr(i))*log((HSP_prob(i)+GGP_prob(i)+Type(1e-100))*pi_nu)));    //Prob of HSP or GPP
+     L4 -= (n_ckmr(i)*((k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i)+Type(1e-100))));    //Prob of POP, the small constant is required for the log because you are integrating over ageing error (and don't know ages for sure)
       //Alternative = Sample size * sum ( Prob of no match + Prob of HSP + Prob of POP ) 
 //     L4 -= (n_ckmr(i)*(((n_ckmr(i)-(k_ckmr_hsporggp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-((HSP_prob(i)+GGP_prob(i))*pi_nu+POP_prob(i))) + (k_ckmr_hsporggp(i)/n_ckmr(i))*log((HSP_prob(i)+GGP_prob(i))*pi_nu) + (k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i)))); 
 
   /*
     //Potential parent has to be sampled after or on the year of youngs birth, because sampling is lethal 	  
-    if(samp_year_coded_old(i) >= (coded_born_year_young(i)+coded_age_one(i)-coded_one_min(i))){
+    if(samp_year_coded_old(i) >= (coded_born_year_young(i)+coded_age_one(i)-coded_one_max(i))){
+//    if((samp_year_coded_old(i) >= (coded_born_year_young(i)+coded_age_one(i)-coded_one_max(i))) | (coded_born_year_young(i)+coded_age_one(i) >= (coded_born_year_old(i)+coded_age_two(i)-coded_two_max(i))) ){
      L4 -= (n_ckmr(i)*((n_ckmr(i)-(k_ckmr_hsporggp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-((HSP_prob(i)+GGP_prob(i))*pi_nu+POP_prob(i)))); //Prob of no match
      L4 -= (n_ckmr(i)*((k_ckmr_hsporggp(i)/n_ckmr(i))*log((HSP_prob(i)+GGP_prob(i)+Type(1e-20))*pi_nu)));    //Prob of HSP or GPP
      L4 -= (n_ckmr(i)*((k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i)+Type(1e-20))));    //Prob of POP
     }
     //if not, then collapses to binomial for only HSP calcs 
-    if(samp_year_coded_old(i) < (coded_born_year_young(i)+coded_age_one(i)-coded_one_min(i))){
+    if(samp_year_coded_old(i) < (coded_born_year_young(i)+coded_age_one(i)-coded_one_max(i))){
+//or if ages are way wrong and the sample year of the younger (actually older) is before the max born year of the coded older (actually younger)	
+//    if((samp_year_coded_old(i) < (coded_born_year_young(i)+coded_age_one(i)-coded_one_max(i))) | (coded_born_year_young(i)+coded_age_one(i) < (coded_born_year_old(i)+coded_age_two(i)-coded_two_max(i))) ){
      L4 -= log(dbinom(k_ckmr_hsporggp(i),n_ckmr(i),(HSP_prob(i)+GGP_prob(i)+Type(1e-20))*pi_nu)); 
    }
-   */
+  */
   }
 
 ////////////////////////////////////
@@ -524,6 +523,7 @@ Type objective_function<Type>::operator() ()
 //Fishery Index
 //Lognormal by SD
   L3 = -sum(dnorm(log(obs_index),log(pred_index),sd_index,true));
+//  L3 = -sum(dnorm(log(vector<Type>(obs_index/obs_index.mean())),log(vector<Type>(pred_index/pred_index.mean())),sd_index,true));
   
   //Recruitment deviations
   NPRAND = -1*(sum(dnorm(log_recruit_devs,0,sd_rec,true)) + sum(dnorm(log_recruit_devs_init,0,sd_rec,true))); //Recruitment deviations

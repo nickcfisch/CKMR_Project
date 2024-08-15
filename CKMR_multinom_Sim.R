@@ -129,7 +129,6 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
                    N_Comp_preCKMR=c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30)),
                    N_Comp_CKMR=200,
                    q_index=0.0001,
-                   sd_index=0.25,
                    prop_ckmr=1,
                    fyear_ckmr=76,
                    lyear_ckmr=100,
@@ -142,7 +141,7 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
    AE_mat<-diag(length(OM$fage:OM$lage))
   }
   #Getting Data
-  Obs_Catch<-Obs_Index<-NA
+  Obs_Catch<-Obs_Index_25<-Obs_Index_50<-NA
   Obs_Catch_Comp<-Obs_Catch_Comp_noAE<-matrix(NA,nrow=length(fyear_dat:lyear_dat),ncol=length(OM$fage:OM$lage))
   Obs_Catch_Comp_wiY<-array(0,dim=c(length(fyear_dat:lyear_dat),length(OM$fage:OM$lage),length(OM$fage:OM$lage)))
   N_Comp<-c(rep(0,fyear_dat-1),N_Comp_preCKMR[1:length(fyear_dat:(fyear_ckmr-1))],rep(N_Comp_CKMR,length(fyear_ckmr:lyear_ckmr)))
@@ -150,7 +149,8 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
   for (d in fyear_dat:lyear_dat){
     Obs_Catch[d-(fyear_dat-1)]<-rlnorm(1, meanlog=log(sum(OM$Caa[d,]*OM$Waa)), sdlog=sd_catch)
     Obs_Catch_Comp_noAE[d-(fyear_dat-1),]<-rmultinom(n=1,size=N_Comp[d], prob=OM$Caa[d,])
-    Obs_Index[d-(fyear_dat-1)]<-rlnorm(1, meanlog=log(sum(OM$Naa[d,]*((1-exp(-OM$Zaa[d,]))/OM$Zaa[d,])*OM$Sel*OM$Waa)*q_index), sdlog=sd_index)
+    Obs_Index_25[d-(fyear_dat-1)]<-rlnorm(1, meanlog=log(sum(OM$Naa[d,]*((1-exp(-OM$Zaa[d,]))/OM$Zaa[d,])*OM$Sel*OM$Waa)*q_index), sdlog=0.25)
+    Obs_Index_50[d-(fyear_dat-1)]<-rlnorm(1, meanlog=log(sum(OM$Naa[d,]*((1-exp(-OM$Zaa[d,]))/OM$Zaa[d,])*OM$Sel*OM$Waa)*q_index), sdlog=0.50)
     
     #Getting observed data with Ageing error
     #Another sampler is needed to get data in integers
@@ -171,9 +171,7 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
   ##################################
   #Simulator for both HSP and POP
   ##################################
-  library(microbenchmark)
-  library(purrr)
-  
+
   #Simulating the data
   ages <- OM$fage:OM$lage          #a vector of the ages
   n_ckmr<-round(N_Comp_CKMR*prop_ckmr) #the number of ckmr samples
@@ -192,20 +190,43 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
   Tot_reprod[which(samples$true_born_year>0)] <- OM$SSB[samples$true_born_year[which(samples$true_born_year>0)]]
   Tot_reprod[which(samples$true_born_year<1)] <- OM$SSB0
   samples <- cbind.data.frame(samples, Tot_reprod = Tot_reprod)                         #The total reproductive output at the time it was born
-  samples<-aggregate(rep(1,nrow(samples)),by=list(samp_year=samples$samp_year,true_age=samples$true_age,coded_age=samples$coded_age,true_born_year=samples$true_born_year,coded_born_year=samples$coded_born_year,Tot_reprod=samples$Tot_reprod), FUN=sum)
-  colnames(samples)<-c("samp_year","true_age","coded_age","true_born_year","coded_born_year","Tot_reprod","reps")
-  samples<-samples[order(samples$samp_year,samples$true_age,samples$coded_age,samples$true_born_year,samples$coded_born_year,samples$Tot_reprod),]
+
+  #Making unique ID to cross reference every sample with every other
+  samples$unique_ID<-1:nrow(samples)
+  out <- with(samples, crossprod(table(paste(samp_year,true_age,coded_age,true_born_year,coded_born_year,Tot_reprod),unique_ID)))
+  out[lower.tri(out, diag = TRUE)] <- NA
+  out_dat<-subset(as.data.frame.table(out), !is.na(Freq))
+  final<-out_dat[order(out_dat$unique_ID),-3] #just taking out useless column
+
+#  fin_smpls<-cbind.data.frame(samples[final$unique_ID,-7],samples[final$unique_ID.1,-7])
+#  colnames(fin_smpls)<-c("samp_year.1","true_age.1","coded_age.1","true_born_year.1","coded_born_year.1","Tot_reprod.1","samp_year.2","true_age.2","coded_age.2","true_born_year.2","coded_born_year.2","Tot_reprod.2") #naming the columns 
+#  samples<-aggregate(rep(1,nrow(fin_smpls)),by=list(samp_year.1=fin_smpls$samp_year.1,true_age.1=fin_smpls$true_age.1,coded_age.1=fin_smpls$coded_age.1,true_born_year.1=fin_smpls$true_born_year.1,coded_born_year.1=fin_smpls$coded_born_year.1,Tot_reprod.1=fin_smpls$Tot_reprod.1,
+#                                                    samp_year.2=fin_smpls$samp_year.2,true_age.2=fin_smpls$true_age.2,coded_age.2=fin_smpls$coded_age.2,true_born_year.2=fin_smpls$true_born_year.2,coded_born_year.2=fin_smpls$coded_born_year.2,Tot_reprod.2=fin_smpls$Tot_reprod.2), FUN=sum)
+
+  samples_agg<-aggregate(rep(1,nrow(final)),by=list(samp_year.1=samples[final$unique_ID,  "samp_year"],true_age.1=samples[final$unique_ID,  "true_age"],coded_age.1=samples[final$unique_ID,  "coded_age"],true_born_year.1=samples[final$unique_ID,  "true_born_year"],coded_born_year.1=samples[final$unique_ID,  "coded_born_year"],Tot_reprod.1=samples[final$unique_ID,  "Tot_reprod"],
+                                                    samp_year.2=samples[final$unique_ID.1,"samp_year"],true_age.2=samples[final$unique_ID.1,"true_age"],coded_age.2=samples[final$unique_ID.1,"coded_age"],true_born_year.2=samples[final$unique_ID.1,"true_born_year"],coded_born_year.2=samples[final$unique_ID.1,"coded_born_year"],Tot_reprod.2=samples[final$unique_ID.1,"Tot_reprod"]), FUN=sum)
+
+#  library(data.table)
+#  DT<-data.table(ones=rep(1,nrow(final)),samp_year.1=samples[final$unique_ID,  "samp_year"],true_age.1=samples[final$unique_ID,  "true_age"],coded_age.1=samples[final$unique_ID,  "coded_age"],true_born_year.1=samples[final$unique_ID,  "true_born_year"],coded_born_year.1=samples[final$unique_ID,  "coded_born_year"],Tot_reprod.1=samples[final$unique_ID,  "Tot_reprod"],
+#                 samp_year.2=samples[final$unique_ID.1,"samp_year"],true_age.2=samples[final$unique_ID.1,"true_age"],coded_age.2=samples[final$unique_ID.1,"coded_age"],true_born_year.2=samples[final$unique_ID.1,"true_born_year"],coded_born_year.2=samples[final$unique_ID.1,"coded_born_year"],Tot_reprod.2=samples[final$unique_ID.1,"Tot_reprod"])
+#  samples_agg<-DT[,length(ones), by=list(samp_year.1,true_age.1,coded_age.1,true_born_year.1,coded_born_year.1,Tot_reprod.1,samp_year.2,true_age.2,coded_age.2,true_born_year.2,coded_born_year.2,Tot_reprod.2)]
+
+  colnames(samples_agg)<-c(colnames(samples_agg)[1:12],"reps")
+#  samples_agg<-samples_agg[order(samples_agg$samp_year.1, samples_agg$true_age.1, samples_agg$coded_age.1, samples_agg$true_born_year.1, samples_agg$coded_born_year.1, samples_agg$samp_year.2, samples_agg$true_age.2,samples_agg$coded_age.2, samples_agg$true_born_year.2, samples_agg$coded_born_year.2),]
+    
+  new_dat<-samples_agg
+  for(i in 1:nrow(samples_agg)){
+   if(samples_agg$true_born_year.1[i] <= samples_agg$true_born_year.2[i]){
+    new_dat[i,]<-samples_agg[i,]
+   } else if (samples_agg$true_born_year.1[i] > samples_agg$true_born_year.2[i]){
+    new_dat[i,]<-c(samples_agg[i,7:12],samples_agg[i,1:6],samples_agg[i,13])
+  }}
+  colnames(new_dat)<-c("samp_year.old","true_age.old","coded_age.old","true_born_year.old","coded_born_year.old","Tot_reprod.old","samp_year.young","true_age.young","coded_age.young","true_born_year.young","coded_born_year.young","Tot_reprod.young", "reps") #naming the columns 
   
-  pairs<-do.call(cbind.data.frame,Map(expand.grid,samples,samples))
-  colnames(pairs)<-c("samp_year.old","samp_year.young","true_age.old","true_age.young","coded_age.old","coded_age.young","true_born_year.old","true_born_year.young","coded_born_year.old","coded_born_year.young","Tot_reprod.old","Tot_reprod.young","reps.old","reps.young") #naming the columns 
-  #Older sibling has to be older than younger, as does parent.
-  pairs <- pairs[c(pairs$true_born_year.old < pairs$true_born_year.young),]
-  pairs <- pairs[,c("samp_year.young","true_age.young","coded_age.young","true_born_year.young","coded_born_year.young","Tot_reprod.young","reps.young","samp_year.old","true_age.old","coded_age.old","true_born_year.old","coded_born_year.old","Tot_reprod.old","reps.old")] #just reordering the columns
-  pairs <- cbind.data.frame(pairs, true_age_diff = pairs$true_born_year.young-pairs$true_born_year.old, coded_age_diff = pairs$coded_born_year.young-pairs$coded_born_year.old, times=pairs$reps.young*pairs$reps.old) 
+  pairs <- cbind.data.frame(new_dat, true_age_diff = new_dat$true_born_year.young-new_dat$true_born_year.old, coded_age_diff = new_dat$coded_born_year.young-new_dat$coded_born_year.old, times=new_dat$reps) 
   
   #Rewrote using multinomial (and binomial. rather than bernoulli), because you can't have too many samples it gets too complex. With AE now need to keep track of the ages (in particular the age of the younger bc age of older is findable)
-  collapsed_pairs<-aggregate.data.frame(x=pairs$times, by=list(pairs$true_born_year.young,pairs$true_age_diff,pairs$samp_year.old, pairs$coded_born_year.young, pairs$coded_age_diff,pairs$coded_age.young,pairs$coded_age.old), FUN=sum)
-  colnames(collapsed_pairs)<-c("true_born_year.young", "true_age_diff","samp_year.old","coded_born_year.young","coded_age_diff","coded_age.young","coded_age.old","times")
+  collapsed_pairs<-pairs
 
   #Now for loop through the samples, and now we only consider the true ages (the coded stuff is just for bookkeeping and later data)
   surv_prob<-matrix(0, nrow=nrow(collapsed_pairs), ncol=(OM$lage+1))
@@ -419,21 +440,21 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
   }
   
   #ordering the counts by coded year born and then the coded age difference (for data purposes)
-  collapsed_pairs<-collapsed_pairs[order(collapsed_pairs$coded_born_year.young,collapsed_pairs$coded_age_diff,collapsed_pairs$true_born_year.young,collapsed_pairs$true_age_diff),] 
+  collapsed_pairs<-collapsed_pairs[order(collapsed_pairs$coded_born_year.young,collapsed_pairs$true_born_year.young,collapsed_pairs$true_age_diff),] 
   
-  collapsed_data<-aggregate.data.frame(x=collapsed_pairs[,c("times", "n_UP", "n_HSPorGGP","n_POP")], by=list(collapsed_pairs$coded_born_year.young,collapsed_pairs$coded_age_diff,collapsed_pairs$samp_year.old,collapsed_pairs$coded_age.young,collapsed_pairs$coded_age.old), FUN=sum)
-  colnames(collapsed_data)<-c("coded_born_year.young", "coded_age_diff","samp_year.old","coded_age.young","coded_age.old","times", "n_UP", "n_HSPorGGP","n_POP")
+  collapsed_data<-aggregate.data.frame(x=collapsed_pairs[,c("times", "n_UP", "n_HSPorGGP","n_POP")], by=list(collapsed_pairs$coded_born_year.young,collapsed_pairs$samp_year.old,collapsed_pairs$coded_age.young,collapsed_pairs$coded_age.old), FUN=sum)
+  colnames(collapsed_data)<-c("coded_born_year.young", "samp_year.old","coded_age.young","coded_age.old","times", "n_UP", "n_HSPorGGP","n_POP")
   
-  sim_vals <- list(samples = samples, pairs=pairs, pair_counts = collapsed_pairs, pair_data = collapsed_data[,c("coded_born_year.young", "coded_age_diff", "samp_year.old","coded_age.young","coded_age.old","n_UP", "n_HSPorGGP","n_POP","times")])
+  sim_vals <- list(samples = samples, pairs=pairs, pair_counts = collapsed_pairs, pair_data = collapsed_data[,c("coded_born_year.young", "samp_year.old","coded_age.young","coded_age.old","n_UP", "n_HSPorGGP","n_POP","times")])
     
-  return(list(OM=OM,dat_seed=dat_seed,sd_catch=sd_catch,N_Comp_preCKMR=N_Comp_preCKMR,N_Comp_CKMR=N_Comp_CKMR,q_index=q_index,sd_index=sd_index,fyear_dat=fyear_dat,lyear_dat=lyear_dat,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AE_mat,
+  return(list(OM=OM,dat_seed=dat_seed,sd_catch=sd_catch,N_Comp_preCKMR=N_Comp_preCKMR,N_Comp_CKMR=N_Comp_CKMR,q_index=q_index,fyear_dat=fyear_dat,lyear_dat=lyear_dat,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AE_mat,
   #            pair_counts=sim_vals$pair_counts, #too memory intensive to upload (and don't use for anything)
               Obs_Catch=Obs_Catch,
               Obs_Catch_Comp=Obs_Catch_Comp,
-              Obs_Index=Obs_Index,
+              Obs_Index_25=Obs_Index_25,
+              Obs_Index_50=Obs_Index_50,
               #CKMR HSP data
-              born_year_old=sim_vals$pair_data$coded_born_year.young-sim_vals$pair_data$coded_age_diff, 
-              age_diff=sim_vals$pair_data$coded_age_diff,
+              born_year_old=sim_vals$pair_data$samp_year.old-sim_vals$pair_data$coded_age.old, 
               n_ckmr=sim_vals$pair_data$times,
               k_ckmr_hsporggp=sim_vals$pair_data$n_HSPorGGP,
               #CKMR POP
