@@ -193,35 +193,59 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
 
   #Making unique ID to cross reference every sample with every other
   samples$unique_ID<-1:nrow(samples)
-  out <- with(samples, crossprod(table(paste(samp_year,true_age,coded_age,true_born_year,coded_born_year,Tot_reprod),unique_ID)))
-  out[lower.tri(out, diag = TRUE)] <- NA
-  out_dat<-subset(as.data.frame.table(out), !is.na(Freq))
-  final<-out_dat[order(out_dat$unique_ID),-3] #just taking out useless column
-
-#  fin_smpls<-cbind.data.frame(samples[final$unique_ID,-7],samples[final$unique_ID.1,-7])
-#  colnames(fin_smpls)<-c("samp_year.1","true_age.1","coded_age.1","true_born_year.1","coded_born_year.1","Tot_reprod.1","samp_year.2","true_age.2","coded_age.2","true_born_year.2","coded_born_year.2","Tot_reprod.2") #naming the columns 
-#  samples<-aggregate(rep(1,nrow(fin_smpls)),by=list(samp_year.1=fin_smpls$samp_year.1,true_age.1=fin_smpls$true_age.1,coded_age.1=fin_smpls$coded_age.1,true_born_year.1=fin_smpls$true_born_year.1,coded_born_year.1=fin_smpls$coded_born_year.1,Tot_reprod.1=fin_smpls$Tot_reprod.1,
-#                                                    samp_year.2=fin_smpls$samp_year.2,true_age.2=fin_smpls$true_age.2,coded_age.2=fin_smpls$coded_age.2,true_born_year.2=fin_smpls$true_born_year.2,coded_born_year.2=fin_smpls$coded_born_year.2,Tot_reprod.2=fin_smpls$Tot_reprod.2), FUN=sum)
-
-  samples_agg<-aggregate(rep(1,nrow(final)),by=list(samp_year.1=samples[final$unique_ID,  "samp_year"],true_age.1=samples[final$unique_ID,  "true_age"],coded_age.1=samples[final$unique_ID,  "coded_age"],true_born_year.1=samples[final$unique_ID,  "true_born_year"],coded_born_year.1=samples[final$unique_ID,  "coded_born_year"],Tot_reprod.1=samples[final$unique_ID,  "Tot_reprod"],
-                                                    samp_year.2=samples[final$unique_ID.1,"samp_year"],true_age.2=samples[final$unique_ID.1,"true_age"],coded_age.2=samples[final$unique_ID.1,"coded_age"],true_born_year.2=samples[final$unique_ID.1,"true_born_year"],coded_born_year.2=samples[final$unique_ID.1,"coded_born_year"],Tot_reprod.2=samples[final$unique_ID.1,"Tot_reprod"]), FUN=sum)
-
-#  library(data.table)
-#  DT<-data.table(ones=rep(1,nrow(final)),samp_year.1=samples[final$unique_ID,  "samp_year"],true_age.1=samples[final$unique_ID,  "true_age"],coded_age.1=samples[final$unique_ID,  "coded_age"],true_born_year.1=samples[final$unique_ID,  "true_born_year"],coded_born_year.1=samples[final$unique_ID,  "coded_born_year"],Tot_reprod.1=samples[final$unique_ID,  "Tot_reprod"],
-#                 samp_year.2=samples[final$unique_ID.1,"samp_year"],true_age.2=samples[final$unique_ID.1,"true_age"],coded_age.2=samples[final$unique_ID.1,"coded_age"],true_born_year.2=samples[final$unique_ID.1,"true_born_year"],coded_born_year.2=samples[final$unique_ID.1,"coded_born_year"],Tot_reprod.2=samples[final$unique_ID.1,"Tot_reprod"])
-#  samples_agg<-DT[,length(ones), by=list(samp_year.1,true_age.1,coded_age.1,true_born_year.1,coded_born_year.1,Tot_reprod.1,samp_year.2,true_age.2,coded_age.2,true_born_year.2,coded_born_year.2,Tot_reprod.2)]
-
+  
+  samples_short<-aggregate(rep(1,nrow(samples)), by=list(samp_year=samples$samp_year, true_age=samples$true_age, coded_age=samples$coded_age, true_born_year=samples$true_born_year, coded_born_year=samples$coded_born_year, Tot_reprod=samples$Tot_reprod), FUN=sum)
+  samples_short$unique_ID<-1:nrow(samples_short)
+  
+  out_short <- with(samples_short, crossprod(table(paste(samp_year,true_age,coded_age,true_born_year,coded_born_year,Tot_reprod),unique_ID)))
+  out_short[lower.tri(out_short, diag = TRUE)] <- NA
+  diag(out_short)<-0
+  out_dat_short<-subset(as.data.frame.table(out_short), !is.na(Freq))
+  final_short<-out_dat_short[order(out_dat_short$unique_ID),-3] #just taking out useless column
+  
+  samples_agg<-aggregate(rep(1,nrow(final_short)),
+               by=list(samp_year.1=samples_short[final_short$unique_ID,  "samp_year"],true_age.1=samples_short[final_short$unique_ID,  "true_age"],coded_age.1=samples_short[final_short$unique_ID,  "coded_age"],true_born_year.1=samples_short[final_short$unique_ID,  "true_born_year"],coded_born_year.1=samples_short[final_short$unique_ID,  "coded_born_year"],Tot_reprod.1=samples_short[final_short$unique_ID,  "Tot_reprod"],num1=samples_short[final_short$unique_ID,  "x"],                                           
+                       samp_year.2=samples_short[final_short$unique_ID.1,"samp_year"],true_age.2=samples_short[final_short$unique_ID.1,"true_age"],coded_age.2=samples_short[final_short$unique_ID.1,"coded_age"],true_born_year.2=samples_short[final_short$unique_ID.1,"true_born_year"],coded_born_year.2=samples_short[final_short$unique_ID.1,"coded_born_year"],Tot_reprod.2=samples_short[final_short$unique_ID.1,"Tot_reprod"],num2=samples_short[final_short$unique_ID.1,"x"]),
+               FUN=sum)
+  
+  #Number of comparisons
+  samples_agg$num_agg<-samples_agg$num1*samples_agg$num2
+  
+  #For comparing fish with identical covariates (k choose 2)
+  samples_agg$num_agg<-ifelse(samples_agg$samp_year.1==samples_agg$samp_year.2 &
+                              samples_agg$true_age.1==samples_agg$true_age.2 &
+                              samples_agg$coded_age.1==samples_agg$coded_age.2 &
+                              samples_agg$true_born_year.1==samples_agg$true_born_year.2 &
+                              samples_agg$coded_born_year.1==samples_agg$coded_born_year.2,
+                              choose(samples_agg$num1,2),samples_agg$num_agg)
+  
+  samples_agg<-samples_agg[-which(samples_agg$num_agg==0),]  #Taking out no observsations
+  samples_agg<-samples_agg[,-which(colnames(samples_agg) %in% c("x","num1","num2"))] #Taking out useless columns
+  #Renaming column
   colnames(samples_agg)<-c(colnames(samples_agg)[1:12],"reps")
-#  samples_agg<-samples_agg[order(samples_agg$samp_year.1, samples_agg$true_age.1, samples_agg$coded_age.1, samples_agg$true_born_year.1, samples_agg$coded_born_year.1, samples_agg$samp_year.2, samples_agg$true_age.2,samples_agg$coded_age.2, samples_agg$true_born_year.2, samples_agg$coded_born_year.2),]
-    
+  
   new_dat<-samples_agg
   for(i in 1:nrow(samples_agg)){
-   if(samples_agg$true_born_year.1[i] <= samples_agg$true_born_year.2[i]){
-    new_dat[i,]<-samples_agg[i,]
-   } else if (samples_agg$true_born_year.1[i] > samples_agg$true_born_year.2[i]){
-    new_dat[i,]<-c(samples_agg[i,7:12],samples_agg[i,1:6],samples_agg[i,13])
-  }}
+    if(samples_agg$true_born_year.1[i] < samples_agg$true_born_year.2[i]){
+      new_dat[i,]<-samples_agg[i,]
+    } else if (samples_agg$true_born_year.1[i] == samples_agg$true_born_year.2[i] & samples_agg$true_age.1[i] > samples_agg$true_age.2[i]){
+      new_dat[i,]<-samples_agg[i,]
+    } else if (samples_agg$true_born_year.1[i] == samples_agg$true_born_year.2[i] & samples_agg$true_age.1[i] == samples_agg$true_age.2[i]){
+      if(samples_agg$coded_born_year.1[i] < samples_agg$coded_born_year.2[i]){
+        new_dat[i,]<-samples_agg[i,]
+      } else if(samples_agg$coded_born_year.1[i] == samples_agg$coded_born_year.2[i]){
+        new_dat[i,]<-samples_agg[i,]
+      } else if(samples_agg$coded_born_year.1[i] > samples_agg$coded_born_year.2[i]){
+        new_dat[i,]<-c(samples_agg[i,7:12],samples_agg[i,1:6],samples_agg[i,13])
+      }
+    } else if (samples_agg$true_born_year.1[i] == samples_agg$true_born_year.2[i] & samples_agg$true_age.1[i] < samples_agg$true_age.2[i]){
+      new_dat[i,]<-c(samples_agg[i,7:12],samples_agg[i,1:6],samples_agg[i,13])
+    } else if (samples_agg$true_born_year.1[i] > samples_agg$true_born_year.2[i]){
+      new_dat[i,]<-c(samples_agg[i,7:12],samples_agg[i,1:6],samples_agg[i,13])
+    }}
   colnames(new_dat)<-c("samp_year.old","true_age.old","coded_age.old","true_born_year.old","coded_born_year.old","Tot_reprod.old","samp_year.young","true_age.young","coded_age.young","true_born_year.young","coded_born_year.young","Tot_reprod.young", "reps") #naming the columns 
+  
+  new_dat<-new_dat[order(new_dat$samp_year.old, new_dat$true_age.old, new_dat$coded_age.old, new_dat$true_born_year.old, new_dat$coded_born_year.old, new_dat$samp_year.young, new_dat$true_age.young,new_dat$coded_age.young, new_dat$true_born_year.young, new_dat$coded_born_year.young),]
   
   pairs <- cbind.data.frame(new_dat, true_age_diff = new_dat$true_born_year.young-new_dat$true_born_year.old, coded_age_diff = new_dat$coded_born_year.young-new_dat$coded_born_year.old, times=new_dat$reps) 
   
