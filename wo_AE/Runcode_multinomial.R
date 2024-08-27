@@ -10,14 +10,13 @@ AEs<-readRDS("C:/Users/fischn/Documents/GitHub/CKMR_Project/AE_mat_list.RData")
 #CKMR 20 Years
 ########################
 
-#Ncomp 100, sdindex 0.25
+#Ncomp 100
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
 #N_comp_preCKMR<-100
 N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
 N_comp_CKMR<-100
 sd_catch<-0.05
-sd_index<-0.25
 fyear_dat<-26
 lyear_dat<-100
 prop_ckmr<-1
@@ -26,54 +25,25 @@ lyear_ckmr<-100
 pi_nu<-0.736
 progress_bar<-TRUE
 for (s in 1:N_sim){
-  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[1]])
-  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[2]])
-  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[3]])
+  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[1]])
+  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[2]])
+  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[3]])
   if(progress_bar==TRUE){
     plot(rep(1,length(1:s)), pch=16)
   }
 }
 
-save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N100_Ind25_ckmrmultinom20_1.RData"))
-save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmrmultinom20_1.RData"))
-save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N100_Ind25_ckmrmultinom20_1.RData"))
+save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N100_ckmrmultinom20_1.RData"))
+save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N100_ckmrmultinom20_1.RData"))
+save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N100_ckmrmultinom20_1.RData"))
 
-#Ncomp 100, sdindex 0.5
-N_sim<-100
-Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
-#N_comp_preCKMR<-100
-N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
-N_comp_CKMR<-100
-sd_catch<-0.05
-sd_index<-0.5
-fyear_dat<-26
-lyear_dat<-100
-prop_ckmr<-1
-fyear_ckmr<-81
-lyear_ckmr<-100
-pi_nu<-0.736
-progress_bar<-TRUE
-for (s in 1:N_sim){
-  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[1]])
-  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[2]])
-  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[3]])
-  if(progress_bar==TRUE){
-    plot(rep(1,length(1:s)), pch=16)
-  }
-}
-
-save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N100_Ind50_ckmrmultinom20_1.RData"))
-save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N100_Ind50_ckmrmultinom20_1.RData"))
-save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N100_Ind50_ckmrmultinom20_1.RData"))
-
-#Ncomp 1000, sdindex 0.25
+#Ncomp 1000
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
 #N_comp_preCKMR<-100
 N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
 N_comp_CKMR<-1000
 sd_catch<-0.05
-sd_index<-0.25
 fyear_dat<-26
 lyear_dat<-100
 prop_ckmr<-1
@@ -82,54 +52,25 @@ lyear_ckmr<-100
 pi_nu<-0.736
 progress_bar<-TRUE
 for (s in 1:N_sim){
-  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[1]])
-  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[2]])
-  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[3]])
+  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[1]])
+  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[2]])
+  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[3]])
   if(progress_bar==TRUE){
     plot(rep(1,length(1:s)), pch=16)
   }
 }
 
-save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N1000_Ind25_ckmrmultinom20_1.RData"))
-save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N1000_Ind25_ckmrmultinom20_1.RData"))
-save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N1000_Ind25_ckmrmultinom20_1.RData"))
+save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N1000_ckmrmultinom20_1.RData"))
+save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N1000_ckmrmultinom20_1.RData"))
+save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N1000_ckmrmultinom20_1.RData"))
 
-#Ncomp 1000, sdindex 0.5
-N_sim<-100
-Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
-#N_comp_preCKMR<-100
-N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
-N_comp_CKMR<-1000
-sd_catch<-0.05
-sd_index<-0.5
-fyear_dat<-26
-lyear_dat<-100
-prop_ckmr<-1
-fyear_ckmr<-81
-lyear_ckmr<-100
-pi_nu<-0.736
-progress_bar<-TRUE
-for (s in 1:N_sim){
-  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[1]])
-  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[2]])
-  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[3]])
-  if(progress_bar==TRUE){
-    plot(rep(1,length(1:s)), pch=16)
-  }
-}
-
-save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N1000_Ind50_ckmrmultinom20_1.RData"))
-save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N1000_Ind50_ckmrmultinom20_1.RData"))
-save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N1000_Ind50_ckmrmultinom20_1.RData"))
-
-#Ncomp 5000, sdindex 0.25
+#Ncomp 5000
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
 #N_comp_preCKMR<-100
 N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
 N_comp_CKMR<-5000
 sd_catch<-0.05
-sd_index<-0.25
 fyear_dat<-26
 lyear_dat<-100
 prop_ckmr<-1
@@ -138,58 +79,30 @@ lyear_ckmr<-100
 pi_nu<-0.736
 progress_bar<-TRUE
 for (s in 1:N_sim){
-  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[1]])
-  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[2]])
-  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[3]])
+  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[1]])
+  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[2]])
+  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[3]])
   if(progress_bar==TRUE){
     plot(rep(1,length(1:s)), pch=16)
   }
 }
 
-save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N5000_Ind25_ckmrmultinom20_1.RData"))
-save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N5000_Ind25_ckmrmultinom20_1.RData"))
-save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N5000_Ind25_ckmrmultinom20_1.RData"))
+save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N5000_ckmrmultinom20_1.RData"))
+save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N5000_ckmrmultinom20_1.RData"))
+save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N5000_ckmrmultinom20_1.RData"))
 
-#Ncomp 5000, sdindex 0.5
-N_sim<-100
-Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
-#N_comp_preCKMR<-100
-N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
-N_comp_CKMR<-5000
-sd_catch<-0.05
-sd_index<-0.5
-fyear_dat<-26
-lyear_dat<-100
-prop_ckmr<-1
-fyear_ckmr<-81
-lyear_ckmr<-100
-pi_nu<-0.736
-progress_bar<-TRUE
-for (s in 1:N_sim){
-  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[1]])
-  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[2]])
-  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[3]])
-  if(progress_bar==TRUE){
-    plot(rep(1,length(1:s)), pch=16)
-  }
-}
-
-save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N5000_Ind50_ckmrmultinom20_1.RData"))
-save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N5000_Ind50_ckmrmultinom20_1.RData"))
-save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N5000_Ind50_ckmrmultinom20_1.RData"))
 
 ##################################
 #CKMR 10 Years
 ##################################
 
-#Ncomp 100, sdindex 0.25
+#Ncomp 100, 
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
 #N_comp_preCKMR<-100
 N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
 N_comp_CKMR<-100
 sd_catch<-0.05
-sd_index<-0.25
 fyear_dat<-26
 lyear_dat<-100
 prop_ckmr<-1
@@ -198,54 +111,25 @@ lyear_ckmr<-100
 pi_nu<-0.736
 progress_bar<-TRUE
 for (s in 1:N_sim){
-  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[1]])
-  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[2]])
-  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[3]])
+  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[1]])
+  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[2]])
+  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[3]])
   if(progress_bar==TRUE){
     plot(rep(1,length(1:s)), pch=16)
   }
 }
 
-save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N100_Ind25_ckmrmultinom10_1.RData"))
-save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmrmultinom10_1.RData"))
-save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N100_Ind25_ckmrmultinom10_1.RData"))
+save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N100_ckmrmultinom10_1.RData"))
+save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N100_ckmrmultinom10_1.RData"))
+save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N100_ckmrmultinom10_1.RData"))
 
-#Ncomp 100, sdindex 0.5
-N_sim<-100
-Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
-#N_comp_preCKMR<-100
-N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
-N_comp_CKMR<-100
-sd_catch<-0.05
-sd_index<-0.5
-fyear_dat<-26
-lyear_dat<-100
-prop_ckmr<-1
-fyear_ckmr<-91
-lyear_ckmr<-100
-pi_nu<-0.736
-progress_bar<-TRUE
-for (s in 1:N_sim){
-  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[1]])
-  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[2]])
-  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[3]])
-  if(progress_bar==TRUE){
-    plot(rep(1,length(1:s)), pch=16)
-  }
-}
-
-save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N100_Ind50_ckmrmultinom10_1.RData"))
-save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N100_Ind50_ckmrmultinom10_1.RData"))
-save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N100_Ind50_ckmrmultinom10_1.RData"))
-
-#Ncomp 1000, sdindex 0.25
+#Ncomp 1000
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
 #N_comp_preCKMR<-100
 N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
 N_comp_CKMR<-1000
 sd_catch<-0.05
-sd_index<-0.25
 fyear_dat<-26
 lyear_dat<-100
 prop_ckmr<-1
@@ -254,54 +138,25 @@ lyear_ckmr<-100
 pi_nu<-0.736
 progress_bar<-TRUE
 for (s in 1:N_sim){
-  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[1]])
-  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[2]])
-  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[3]])
+  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[1]])
+  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[2]])
+  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[3]])
   if(progress_bar==TRUE){
     plot(rep(1,length(1:s)), pch=16)
   }
 }
 
-save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N1000_Ind25_ckmrmultinom10_1.RData"))
-save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N1000_Ind25_ckmrmultinom10_1.RData"))
-save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N1000_Ind25_ckmrmultinom10_1.RData"))
+save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N1000_ckmrmultinom10_1.RData"))
+save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N1000_ckmrmultinom10_1.RData"))
+save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N1000_ckmrmultinom10_1.RData"))
 
-#Ncomp 1000, sdindex 0.5
-N_sim<-100
-Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
-#N_comp_preCKMR<-100
-N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
-N_comp_CKMR<-1000
-sd_catch<-0.05
-sd_index<-0.5
-fyear_dat<-26
-lyear_dat<-100
-prop_ckmr<-1
-fyear_ckmr<-91
-lyear_ckmr<-100
-pi_nu<-0.736
-progress_bar<-TRUE
-for (s in 1:N_sim){
-  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[1]])
-  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[2]])
-  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[3]])
-  if(progress_bar==TRUE){
-    plot(rep(1,length(1:s)), pch=16)
-  }
-}
-
-save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N1000_Ind50_ckmrmultinom10_1.RData"))
-save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N1000_Ind50_ckmrmultinom10_1.RData"))
-save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N1000_Ind50_ckmrmultinom10_1.RData"))
-
-#Ncomp 5000, sdindex 0.25
+#Ncomp 5000
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
 #N_comp_preCKMR<-100
 N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
 N_comp_CKMR<-5000
 sd_catch<-0.05
-sd_index<-0.25
 fyear_dat<-26
 lyear_dat<-100
 prop_ckmr<-1
@@ -310,58 +165,29 @@ lyear_ckmr<-100
 pi_nu<-0.736
 progress_bar<-TRUE
 for (s in 1:N_sim){
-  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[1]])
-  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[2]])
-  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[3]])
+  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[1]])
+  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[2]])
+  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[3]])
   if(progress_bar==TRUE){
     plot(rep(1,length(1:s)), pch=16)
   }
 }
 
-save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N5000_Ind25_ckmrmultinom10_1.RData"))
-save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N5000_Ind25_ckmrmultinom10_1.RData"))
-save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N5000_Ind25_ckmrmultinom10_1.RData"))
-
-#Ncomp 5000, sdindex 0.5
-N_sim<-100
-Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
-#N_comp_preCKMR<-100
-N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
-N_comp_CKMR<-5000
-sd_catch<-0.05
-sd_index<-0.5
-fyear_dat<-26
-lyear_dat<-100
-prop_ckmr<-1
-fyear_ckmr<-91
-lyear_ckmr<-100
-pi_nu<-0.736
-progress_bar<-TRUE
-for (s in 1:N_sim){
-  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[1]])
-  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[2]])
-  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[3]])
-  if(progress_bar==TRUE){
-    plot(rep(1,length(1:s)), pch=16)
-  }
-}
-
-save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N5000_Ind50_ckmrmultinom10_1.RData"))
-save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N5000_Ind50_ckmrmultinom10_1.RData"))
-save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N5000_Ind50_ckmrmultinom10_1.RData"))
+save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N5000_ckmrmultinom10_1.RData"))
+save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N5000_ckmrmultinom10_1.RData"))
+save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N5000_ckmrmultinom10_1.RData"))
 
 ##################################
 #CKMR 5 Years
 ##################################
 
-#Ncomp 100, sdindex 0.25
+#Ncomp 100
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
 #N_comp_preCKMR<-100
 N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
 N_comp_CKMR<-100
 sd_catch<-0.05
-sd_index<-0.25
 fyear_dat<-26
 lyear_dat<-100
 prop_ckmr<-1
@@ -370,54 +196,25 @@ lyear_ckmr<-100
 pi_nu<-0.736
 progress_bar<-TRUE
 for (s in 1:N_sim){
-  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[1]])
-  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[2]])
-  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[3]])
+  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[1]])
+  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[2]])
+  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[3]])
   if(progress_bar==TRUE){
     plot(rep(1,length(1:s)), pch=16)
   }
 }
 
-save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N100_Ind25_ckmrmultinom5_1.RData"))
-save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmrmultinom5_1.RData"))
-save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N100_Ind25_ckmrmultinom5_1.RData"))
+save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N100_ckmrmultinom5_1.RData"))
+save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N100_ckmrmultinom5_1.RData"))
+save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N100_ckmrmultinom5_1.RData"))
 
-#Ncomp 100, sdindex 0.5
-N_sim<-100
-Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
-#N_comp_preCKMR<-100
-N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
-N_comp_CKMR<-100
-sd_catch<-0.05
-sd_index<-0.5
-fyear_dat<-26
-lyear_dat<-100
-prop_ckmr<-1
-fyear_ckmr<-96
-lyear_ckmr<-100
-pi_nu<-0.736
-progress_bar<-TRUE
-for (s in 1:N_sim){
-  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[1]])
-  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[2]])
-  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[3]])
-  if(progress_bar==TRUE){
-    plot(rep(1,length(1:s)), pch=16)
-  }
-}
-
-save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N100_Ind50_ckmrmultinom5_1.RData"))
-save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N100_Ind50_ckmrmultinom5_1.RData"))
-save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N100_Ind50_ckmrmultinom5_1.RData"))
-
-#Ncomp 1000, sdindex 0.25
+#Ncomp 1000
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
 #N_comp_preCKMR<-100
 N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
 N_comp_CKMR<-1000
 sd_catch<-0.05
-sd_index<-0.25
 fyear_dat<-26
 lyear_dat<-100
 prop_ckmr<-1
@@ -426,54 +223,25 @@ lyear_ckmr<-100
 pi_nu<-0.736
 progress_bar<-TRUE
 for (s in 1:N_sim){
-  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[1]])
-  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[2]])
-  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[3]])
+  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[1]])
+  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[2]])
+  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[3]])
   if(progress_bar==TRUE){
     plot(rep(1,length(1:s)), pch=16)
   }
 }
 
-save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N1000_Ind25_ckmrmultinom5_1.RData"))
-save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N1000_Ind25_ckmrmultinom5_1.RData"))
-save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N1000_Ind25_ckmrmultinom5_1.RData"))
+save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N1000_ckmrmultinom5_1.RData"))
+save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N1000_ckmrmultinom5_1.RData"))
+save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N1000_ckmrmultinom5_1.RData"))
 
-#Ncomp 1000, sdindex 0.5
-N_sim<-100
-Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
-#N_comp_preCKMR<-100
-N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
-N_comp_CKMR<-1000
-sd_catch<-0.05
-sd_index<-0.5
-fyear_dat<-26
-lyear_dat<-100
-prop_ckmr<-1
-fyear_ckmr<-96
-lyear_ckmr<-100
-pi_nu<-0.736
-progress_bar<-TRUE
-for (s in 1:N_sim){
-  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[1]])
-  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[2]])
-  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[3]])
-  if(progress_bar==TRUE){
-    plot(rep(1,length(1:s)), pch=16)
-  }
-}
-
-save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N1000_Ind50_ckmrmultinom5_1.RData"))
-save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N1000_Ind50_ckmrmultinom5_1.RData"))
-save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N1000_Ind50_ckmrmultinom5_1.RData"))
-
-#Ncomp 5000, sdindex 0.25
+#Ncomp 5000
 N_sim<-100
 Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
 #N_comp_preCKMR<-100
 N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
 N_comp_CKMR<-5000
 sd_catch<-0.05
-sd_index<-0.25
 fyear_dat<-26
 lyear_dat<-100
 prop_ckmr<-1
@@ -482,45 +250,18 @@ lyear_ckmr<-100
 pi_nu<-0.736
 progress_bar<-TRUE
 for (s in 1:N_sim){
-  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[1]])
-  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[2]])
-  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[3]])
+  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[1]])
+  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[2]])
+  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[3]])
   if(progress_bar==TRUE){
     plot(rep(1,length(1:s)), pch=16)
   }
 }
 
-save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N5000_Ind25_ckmrmultinom5_1.RData"))
-save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N5000_Ind25_ckmrmultinom5_1.RData"))
-save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N5000_Ind25_ckmrmultinom5_1.RData"))
+save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N5000_ckmrmultinom5_1.RData"))
+save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N5000_ckmrmultinom5_1.RData"))
+save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N5000_ckmrmultinom5_1.RData"))
 
-#Ncomp 5000, sdindex 0.5
-N_sim<-100
-Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
-#N_comp_preCKMR<-100
-N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
-N_comp_CKMR<-5000
-sd_catch<-0.05
-sd_index<-0.5
-fyear_dat<-26
-lyear_dat<-100
-prop_ckmr<-1
-fyear_ckmr<-96
-lyear_ckmr<-100
-pi_nu<-0.736
-progress_bar<-TRUE
-for (s in 1:N_sim){
-  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[1]])
-  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[2]])
-  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AEs[[3]])
-  if(progress_bar==TRUE){
-    plot(rep(1,length(1:s)), pch=16)
-  }
-}
-
-save(Cod_wdat, file=paste0(wd,"/Cod_wdat_N5000_Ind50_ckmrmultinom5_1.RData"))
-save(Flatfish_wdat, file=paste0(wd,"/Flatfish_wdat_N5000_Ind50_ckmrmultinom5_1.RData"))
-save(Sardine_wdat, file=paste0(wd,"/Sardine_wdat_N5000_Ind50_ckmrmultinom5_1.RData"))
 
 #############################################################
 #TMB SCAAs fit to Fishery data without CKMR (Base models)

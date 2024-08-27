@@ -269,12 +269,12 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
     if(collapsed_pairs$true_age_diff[i]>1){
       for (y in 1:(collapsed_pairs$true_age_diff[i]-1)){        #Loop through the years the parent has to survive (1st year has 1 for survival)
         for (j in 1:((OM$lage+1)+collapsed_pairs$true_age_diff[i]-2)){   #Loop through mature ages in the year of the first born
-          if(j<(OM$lage+1)+1){ #if we are not in plus group
+          if(j<=OM$lage){ #if we are not in plus group
             if(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i]>0){
-              lxf[[i]][y+1,j+1] <- lxf[[i]][y,j]*exp(-(OM$Maa[j]+OM$Faa[collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i]+y,j]))  #(y-1) is to account for the year in pop model
+              lxf[[i]][y+1,j+1] <- lxf[[i]][y,j]*exp(-(OM$Maa[j+1]+OM$Faa[collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i]+y,j+1]))  
             } else if (collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i]<1){ #to account for unfished years
-              lxf[[i]][y+1,j+1] <- lxf[[i]][y,j]*exp(-OM$Maa[j])    
-            }} else if (j>(OM$lage+1)){
+              lxf[[i]][y+1,j+1] <- lxf[[i]][y,j]*exp(-OM$Maa[j+1])    
+            }} else if (j>OM$lage){
               if(collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i]>0){
                 lxf[[i]][y+1,j+1] <- lxf[[i]][y,j]*exp(-(OM$Maa[OM$lage+1]+OM$Faa[collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i]+y,(OM$lage+1)]))  #collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i] is to get the birth year of first born
               } else if (collapsed_pairs$true_born_year.young[i]-collapsed_pairs$true_age_diff[i]<1){ #to account for unfished years

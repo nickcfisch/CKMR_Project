@@ -129,27 +129,27 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
                    N_Comp_preCKMR=c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30)),
                    N_Comp_CKMR=200,
                    q_index=0.0001,
-                   sd_index=0.25,
                    prop_ckmr=1,
                    fyear_ckmr=76,
                    lyear_ckmr=100,
                    pi_nu=0.736,          #False negative retention probability
                    AE_mat="identity")    #Given your true age i (row), this matrix defines the probability that you will be classified age j (column), #REMEMBER THIS NEEDS TO BE IN THE NUMBER OF AGES IN YOUR MODEL
-                  {
+{
   
   set.seed(dat_seed)
   if(AE_mat[1]=="identity"){
     AE_mat<-diag(length(OM$fage:OM$lage))
   }
   #Getting Data
-  Obs_Catch<-Obs_Index<-NA
+  Obs_Catch<-Obs_Index_25<-Obs_Index_50<-NA
   Obs_Catch_Comp<-Obs_Catch_Comp_noAE<-matrix(NA,nrow=length(fyear_dat:lyear_dat),ncol=length(OM$fage:OM$lage))
   Obs_Catch_Comp_wiY<-array(0,dim=c(length(fyear_dat:lyear_dat),length(OM$fage:OM$lage),length(OM$fage:OM$lage)))
   N_Comp<-c(rep(0,fyear_dat-1),N_Comp_preCKMR[1:length(fyear_dat:(fyear_ckmr-1))],rep(N_Comp_CKMR,length(fyear_ckmr:lyear_ckmr)))
   for (d in fyear_dat:lyear_dat){
     Obs_Catch[d-(fyear_dat-1)]<-rlnorm(1, meanlog=log(sum(OM$Caa[d,]*OM$Waa)), sdlog=sd_catch)
     Obs_Catch_Comp_noAE[d-(fyear_dat-1),]<-rmultinom(n=1,size=N_Comp[d], prob=OM$Caa[d,])
-    Obs_Index[d-(fyear_dat-1)]<-rlnorm(1, meanlog=log(sum(OM$Naa[d,]*((1-exp(-OM$Zaa[d,]))/OM$Zaa[d,])*OM$Sel*OM$Waa)*q_index), sdlog=sd_index)
+    Obs_Index_25[d-(fyear_dat-1)]<-rlnorm(1, meanlog=log(sum(OM$Naa[d,]*((1-exp(-OM$Zaa[d,]))/OM$Zaa[d,])*OM$Sel*OM$Waa)*q_index), sdlog=0.25)
+    Obs_Index_50[d-(fyear_dat-1)]<-rlnorm(1, meanlog=log(sum(OM$Naa[d,]*((1-exp(-OM$Zaa[d,]))/OM$Zaa[d,])*OM$Sel*OM$Waa)*q_index), sdlog=0.50)
     
     #Getting observed data with Ageing error
     #Another sampler is needed to get data in integers
@@ -160,11 +160,11 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
     }
     #if you're before CKMR
     if(d<fyear_ckmr){  
-     Obs_Catch_Comp[d-(fyear_dat-1),]<-colSums(Obs_Catch_Comp_wiY[d-(fyear_dat-1),,])
+      Obs_Catch_Comp[d-(fyear_dat-1),]<-colSums(Obs_Catch_Comp_wiY[d-(fyear_dat-1),,])
     }
     #if you're after CKMR (no AE)
     if(d>=fyear_ckmr){    
-     Obs_Catch_Comp[d-(fyear_dat-1),]<-Obs_Catch_Comp_noAE[d-(fyear_dat-1),]
+      Obs_Catch_Comp[d-(fyear_dat-1),]<-Obs_Catch_Comp_noAE[d-(fyear_dat-1),]
     }
   }
   
@@ -224,14 +224,14 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
     }
     
     if(collapsed_pairs$age_diff[i]>1){
-      for (y in 1:(collapsed_pairs$age_diff[i]-1)){        #Loop through the years the parent has to survive (1st year has 1 for survival)
+      for (y in 1:(collapsed_pairs$age_diff[i]-1)){        #Loop through the years the parent has to survive 
         for (j in 1:((OM$lage+1)+collapsed_pairs$age_diff[i]-2)){   #Loop through mature ages in the year of the first born
-          if(j<(OM$lage+1)+1){ #if we are not in plus group
+          if(j<=OM$lage){ #if we are not in plus group
             if(collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i]>0){
-              lxf[[i]][y+1,j+1] <- lxf[[i]][y,j]*exp(-(OM$Maa[j]+OM$Faa[collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i]+y,j]))  #(y-1) is to account for the year in pop model
+              lxf[[i]][y+1,j+1] <- lxf[[i]][y,j]*exp(-(OM$Maa[j+1]+OM$Faa[collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i]+y,j+1]))  
             } else if (collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i]<1){ #to account for unfished years
-              lxf[[i]][y+1,j+1] <- lxf[[i]][y,j]*exp(-OM$Maa[j])    
-            }} else if (j>(OM$lage+1)){
+              lxf[[i]][y+1,j+1] <- lxf[[i]][y,j]*exp(-OM$Maa[j+1])    
+            }} else if (j>OM$lage){
               if(collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i]>0){
                 lxf[[i]][y+1,j+1] <- lxf[[i]][y,j]*exp(-(OM$Maa[OM$lage+1]+OM$Faa[collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i]+y,(OM$lage+1)]))  #collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i] is to get the birth year of first born
               } else if (collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i]<1){ #to account for unfished years
@@ -247,11 +247,10 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
     
     #Ok so now it is the number (fecundity) that could have given birth to the first born / total reproductive output  * survival to second born * (fecundity of age at second born / total reproductive output at time of second born)
     for(j in 2:(OM$lage+1)){ #parent cannot have been age 0
-      if ((j+collapsed_pairs$age_diff[i])<=(OM$lage+1)){ #If we are not in the plus group
-        
+     if ((j+collapsed_pairs$age_diff[i])<=(OM$lage+1)){ #If we are not in the plus group
+
         if(collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i]>0){ # if we're not in unfished years
           HSP_calcs[i,j] <-  ( (OM$Naa[collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i],j]*OM$Mat[j]*OM$Waa[j]) / OM$SSB[collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i]] ) * surv_prob[i,j]  * (4 * OM$Mat[j+collapsed_pairs$age_diff[i]]*OM$Waa[j+collapsed_pairs$age_diff[i]] / OM$SSB[collapsed_pairs$born_year.young[i]])  #4 is for MHSP + FHSP
-#          HSP_calcs[i,j] <- 2 * (( (0.5*OM$Naa[collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i],j]*OM$Mat[j]*OM$Waa[j]) / (0.5*OM$SSB[collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i]]) ) * surv_prob[i,j]  * (OM$Mat[j+collapsed_pairs$age_diff[i]]*OM$Waa[j+collapsed_pairs$age_diff[i]] / (0.5*OM$SSB[collapsed_pairs$born_year.young[i]])))  #4 is for MHSP + FHSP
         } else if (collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i]<1){ #if we are in unfished years
           if(collapsed_pairs$born_year.young[i]>0){ #if second born is not in unfished years
             HSP_calcs[i,j] <-  ( (OM$N0aa[j]*OM$Mat[j]*OM$Waa[j]) / OM$SSB0 ) * surv_prob[i,j]  * (4 * OM$Mat[j+collapsed_pairs$age_diff[i]]*OM$Waa[j+collapsed_pairs$age_diff[i]] / OM$SSB[collapsed_pairs$born_year.young[i]])  #4 is for MHSP + FHSP
@@ -260,9 +259,8 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
           }}
         
       } else if (j+collapsed_pairs$age_diff[i]>(OM$lage+1)){ #Now if we are in plus group
-        if(collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i]>0){ #if we're not in unfished years
+         if(collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i]>0){ #if we're not in unfished years
           HSP_calcs[i,j] <-  ( (OM$Naa[collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i],j]*OM$Mat[j]*OM$Waa[j]) / OM$SSB[collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i]] ) * surv_prob[i,j]  * (4 * OM$Mat[(OM$lage+1)]*OM$Waa[(OM$lage+1)] / OM$SSB[collapsed_pairs$born_year.young[i]])  #4 is for MHSP + FHSP
-#          HSP_calcs[i,j] <- 2 * (( (0.5*OM$Naa[collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i],j]*OM$Mat[j]*OM$Waa[j]) / (0.5*OM$SSB[collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i]] )) * surv_prob[i,j]  * (OM$Mat[(OM$lage+1)]*OM$Waa[(OM$lage+1)] / (0.5*OM$SSB[collapsed_pairs$born_year.young[i]])))  #4 is for MHSP + FHSP
         } else if (collapsed_pairs$born_year.young[i]-collapsed_pairs$age_diff[i]<1){ #if we are in unfished years
           if(collapsed_pairs$born_year.young[i]>0){ #if second born is not in unfished years
             HSP_calcs[i,j] <-  ( (OM$N0aa[j]*OM$Mat[j]*OM$Waa[j]) / OM$SSB0 ) * surv_prob[i,j]  * (4 * OM$Mat[(OM$lage+1)]*OM$Waa[(OM$lage+1)] / OM$SSB[collapsed_pairs$born_year.young[i]])  #4 is for MHSP + FHSP
@@ -409,17 +407,18 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
   
   collapsed_pairs$n_UP<-collapsed_pairs$n_HSPorGGP<-collapsed_pairs$n_POP<-NA
   for (m in 1:nrow(collapsed_pairs)){
-   collapsed_pairs[m,c("n_UP","n_HSPorGGP","n_POP")]<-t(rmultinom(1, size=collapsed_pairs$times[m], prob=c(1-((collapsed_pairs$HSP_prob[m]+collapsed_pairs$prob_GGP[m])*pi_nu+collapsed_pairs$prob_POP[m]),(collapsed_pairs$HSP_prob[m]+collapsed_pairs$prob_GGP[m])*pi_nu,collapsed_pairs$prob_POP[m])))
+    collapsed_pairs[m,c("n_UP","n_HSPorGGP","n_POP")]<-t(rmultinom(1, size=collapsed_pairs$times[m], prob=c(1-((collapsed_pairs$HSP_prob[m]+collapsed_pairs$prob_GGP[m])*pi_nu+collapsed_pairs$prob_POP[m]),(collapsed_pairs$HSP_prob[m]+collapsed_pairs$prob_GGP[m])*pi_nu,collapsed_pairs$prob_POP[m])))
   }
   collapsed_pairs<-collapsed_pairs[order(collapsed_pairs$born_year.young,collapsed_pairs$age_diff),] #ordering the counts by year born and then the age difference
   
   sim_vals <- list(samples = samples, pairs=pairs, pair_counts = collapsed_pairs, pair_data = collapsed_pairs[,c("born_year.young", "age_diff", "samp_year.old", "n_UP", "n_HSPorGGP","n_POP","times")])
-    
-  return(list(OM=OM,dat_seed=dat_seed,sd_catch=sd_catch,N_Comp_preCKMR=N_Comp_preCKMR,N_Comp_CKMR=N_Comp_CKMR,q_index=q_index,sd_index=sd_index,fyear_dat=fyear_dat,lyear_dat=lyear_dat,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AE_mat,
+  
+  return(list(OM=OM,dat_seed=dat_seed,sd_catch=sd_catch,N_Comp_preCKMR=N_Comp_preCKMR,N_Comp_CKMR=N_Comp_CKMR,q_index=q_index,fyear_dat=fyear_dat,lyear_dat=lyear_dat,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu,AE_mat=AE_mat,
               pair_counts=sim_vals$pair_counts,
               Obs_Catch=Obs_Catch,
               Obs_Catch_Comp=Obs_Catch_Comp,
-              Obs_Index=Obs_Index,
+              Obs_Index_25=Obs_Index_25,
+              Obs_Index_50=Obs_Index_50,
               #CKMR HSP data
               born_year_old=sim_vals$pair_data$born_year.young-sim_vals$pair_data$age_diff, 
               age_diff=sim_vals$pair_data$age_diff,
@@ -430,7 +429,6 @@ Get_Data<-function(OM=NA,              #Operating model from which to model
               k_ckmr_pop=sim_vals$pair_data$n_POP,
               samp_year_old=sim_vals$pair_data$samp_year.old))
 }
-
 
 #Fhigh is F that equals 0.85 MSY, as is flow
 
@@ -627,7 +625,6 @@ Cod_wdat<-Flatfish_wdat<-Sardine_wdat<-list()
 N_comp_preCKMR<-c(30,rep(0,9),40,rep(0,9),50,rep(0,4),60,rep(0,4),70,rep(0,4),80,rep(0,4),90,rep(0,4),rep(100,30))
 N_comp_CKMR<-100
 sd_catch<-0.05
-sd_index<-0.5
 fyear_dat<-26
 lyear_dat<-100
 prop_ckmr<-1
@@ -636,9 +633,9 @@ lyear_ckmr<-100
 pi_nu<-0.736
 progress_bar<-FALSE
 for (s in 1:N_sim){
-  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu)
-  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu)
-  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,sd_index=sd_index,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu)
+  Cod_wdat[[s]]     <-Get_Data(OM=Cod_runs[[s]],     dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu)
+  Flatfish_wdat[[s]]<-Get_Data(OM=Flatfish_runs[[s]],dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu)
+  Sardine_wdat[[s]] <-Get_Data(OM=Sardine_runs[[s]], dat_seed=s,fyear_dat=fyear_dat,lyear_dat=lyear_dat,sd_catch=sd_catch,N_Comp_preCKMR=N_comp_preCKMR,N_Comp_CKMR=N_comp_CKMR,q_index=0.0001,prop_ckmr=prop_ckmr,fyear_ckmr=fyear_ckmr,lyear_ckmr=lyear_ckmr,pi_nu=pi_nu)
   if(progress_bar==TRUE){
     plot(rep(1,length(1:s)), pch=16)
   }

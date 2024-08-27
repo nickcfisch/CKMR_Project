@@ -271,18 +271,18 @@ Type objective_function<Type>::operator() ()
     for(k=0;k<=lage+age_diff(i)-2;k++){   //Can start this loop at 1 given an age 0 will not have given birth
 //Assume that spawning happens at the very start of the year 
 // So parent has to survive year of the birth, year after the birth,.. up to age difference
-    if(k<=lage){
+    if(k<lage){
 //     if(born_year_old(i)>0){
-      surv_prob_aa.block(1,k+1,age_diff(i)-1,1) = surv_prob_aa.block(0,k,age_diff(i)-1,1).array() * S.block(born_year_old(i)+0,k,age_diff(i)-1,1).array(); 
+      surv_prob_aa.block(1,k+1,age_diff(i)-1,1) = surv_prob_aa.block(0,k,age_diff(i)-1,1).array() * S.block(born_year_old(i),k+1,age_diff(i)-1,1).array(); 
 //	 }
 //	 if(born_year_old(i)<1){
-//      surv_prob_aa.block(1,k+1,age_diff(i)-1,1) = surv_prob_aa.block(0,k,age_diff(i)-1,1) * exp(-1*Maa(k));
+//      surv_prob_aa.block(1,k+1,age_diff(i)-1,1) = surv_prob_aa.block(0,k,age_diff(i)-1,1) * exp(-1*Maa(k+1));
 //	 }
  	}
 	
-	if(k>lage){
+	if(k>=lage){
 //     if(born_year_old(i)>0){
-      surv_prob_aa.block(1,k+1,age_diff(i)-1,1) = surv_prob_aa.block(0,k,age_diff(i)-1,1).array() * S.block(born_year_old(i)+0,lage,age_diff(i)-1,1).array();
+      surv_prob_aa.block(1,k+1,age_diff(i)-1,1) = surv_prob_aa.block(0,k,age_diff(i)-1,1).array() * S.block(born_year_old(i),lage,age_diff(i)-1,1).array();
 //	 }
 //     if(born_year_old(i)<1){
 //      surv_prob_aa.block(1,k+1,age_diff(i)-1,1) = surv_prob_aa.block(0,k,age_diff(i)-1,1) * exp(-1*Maa(lage));
@@ -422,7 +422,7 @@ Type objective_function<Type>::operator() ()
 ////////////////////////////////////////////  
 
 //     L4 -= (n_ckmr(i)*((n_ckmr(i)-(k_ckmr_hsporggp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-((HSP_prob(i)+GGP_prob(i)+Type(1e-20))*pi_nu+POP_prob(i)+Type(1e-20)))); //Prob of no match
-//     L4 -= (n_ckmr(i)*((k_ckmr_hsporggp(i)/n_ckmr(i))*log((HSP_prob(i)+GGP_prob(i))*pi_nu+Type(1e-20))));    //Prob of HSP or GPP
+//     L4 -= (n_ckmr(i)*((k_ckmr_hsporggp(i)/n_ckmr(i))*log((HSP_prob(i)+GGP_prob(i)+Type(1e-20))*pi_nu)));    //Prob of HSP or GPP
 //     L4 -= (n_ckmr(i)*((k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i)+Type(1e-20))));    //Prob of POP, the small constant is required for the log because you are integrating over ageing error (and don't know ages for sure)
 
 //  /*
@@ -485,6 +485,7 @@ Type objective_function<Type>::operator() ()
 //  REPORT(surv_prob);
 //  REPORT(HSP_prob_aa);
 //  REPORT(HSP_prob);
+//  ADREPORT(HSP_prob);
 //  REPORT(POP_prob);
 //  REPORT(GGP_prob);
 
@@ -506,13 +507,13 @@ Type objective_function<Type>::operator() ()
 //  REPORT(pred_fishery_comp_wAE);
 //  REPORT(obs_fishery_comp);
 
-  REPORT(L1);
-  REPORT(L2);
-  REPORT(L3);
-  REPORT(L4);
-  ADREPORT(L4);
-  REPORT(NLL);
-  REPORT(NPRAND);
+//  REPORT(L1);
+//  REPORT(L2);
+//  REPORT(L3);
+//  REPORT(L4);
+//  ADREPORT(L4);
+//  REPORT(NLL);
+//  REPORT(NPRAND);
 
   return JNLL;
 

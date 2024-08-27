@@ -319,18 +319,18 @@ Type objective_function<Type>::operator() ()
     for(k=0;k<=lage+age_diff-2;k++){ 
 //Assume that spawning happens at the very start of the year 
 // So parent has to survive year of the birth, year after the birth,.. up to age difference
-    if(k<=lage){
+    if(k<lage){
 //     if(born_year_old>0){
-      surv_prob_aa.block(1,k+1,age_diff-1,1) = surv_prob_aa.block(0,k,age_diff-1,1).array() * S.block(born_year_old+0,k,age_diff-1,1).array(); 
+      surv_prob_aa.block(1,k+1,age_diff-1,1) = surv_prob_aa.block(0,k,age_diff-1,1).array() * S.block(born_year_old,k+1,age_diff-1,1).array(); 
 //	 }
 //	 if(born_year_old<1){
-//      surv_prob_aa.block(1,k+1,age_diff-1,1) = surv_prob_aa.block(0,k,age_diff-1,1) * exp(-1*Maa(k));
+//      surv_prob_aa.block(1,k+1,age_diff-1,1) = surv_prob_aa.block(0,k,age_diff-1,1) * exp(-1*Maa(k+1));
 //	 }
  	}
 	
-	if(k>lage){
+	if(k>=lage){
 //     if(born_year_old>0){
-      surv_prob_aa.block(1,k+1,age_diff-1,1) = surv_prob_aa.block(0,k,age_diff-1,1).array() * S.block(born_year_old+0,lage,age_diff-1,1).array();
+      surv_prob_aa.block(1,k+1,age_diff-1,1) = surv_prob_aa.block(0,k,age_diff-1,1).array() * S.block(born_year_old,lage,age_diff-1,1).array();
 //	 }
 //     if(born_year_old<1){
 //      surv_prob_aa.block(1,k+1,age_diff-1,1) = surv_prob_aa.block(0,k,age_diff-1,1) * exp(-1*Maa(lage));
