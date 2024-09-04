@@ -5,341 +5,260 @@
 
 #wd<-"C:/Users/fischn/Documents/GitHub/CKMR_Project/wo_AE"
 
-#Ncomp 100, sdindex 0.25, ckmr 5 years
-load(paste0(wd,"/Cod_wdat_N100_Ind25_ckmrmultinom5_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmrmultinom5_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N100_Ind25_ckmrmultinom5_1.RData"))
+#Ncomp 100, ckmr 5 years
+load(paste0(wd,"/Cod_wdat_N100_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N100_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N100_ckmrmultinom5_1.RData"))
 
-Cod_100_25_5<-Cod_wdat
-Flatfish_100_25_5<-Flatfish_wdat
-Sardine_100_25_5<-Sardine_wdat
+Cod_100_5<-Cod_wdat
+Flatfish_100_5<-Flatfish_wdat
+Sardine_100_5<-Sardine_wdat
 
-#Ncomp 1000, sdindex 0.25, ckmr 5 years
-load(paste0(wd,"/Cod_wdat_N1000_Ind25_ckmrmultinom5_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N1000_Ind25_ckmrmultinom5_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N1000_Ind25_ckmrmultinom5_1.RData"))
+#Ncomp 1000, ckmr 5 years
+load(paste0(wd,"/Cod_wdat_N1000_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N1000_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N1000_ckmrmultinom5_1.RData"))
 
-Cod_1000_25_5<-Cod_wdat
-Flatfish_1000_25_5<-Flatfish_wdat
-Sardine_1000_25_5<-Sardine_wdat
+Cod_1000_5<-Cod_wdat
+Flatfish_1000_5<-Flatfish_wdat
+Sardine_1000_5<-Sardine_wdat
 
-#Ncomp 5000, sdindex 0.25, ckmr 5 years
-load(paste0(wd,"/Cod_wdat_N5000_Ind25_ckmrmultinom5_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N5000_Ind25_ckmrmultinom5_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N5000_Ind25_ckmrmultinom5_1.RData"))
+#Ncomp 5000, ckmr 5 years
+load(paste0(wd,"/Cod_wdat_N5000_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N5000_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N5000_ckmrmultinom5_1.RData"))
 
-Cod_5000_25_5<-Cod_wdat
-Flatfish_5000_25_5<-Flatfish_wdat
-Sardine_5000_25_5<-Sardine_wdat
+Cod_5000_5<-Cod_wdat
+Flatfish_5000_5<-Flatfish_wdat
+Sardine_5000_5<-Sardine_wdat
 
-#Ncomp 100, sdindex 0.25, ckmr 10 years
-load(paste0(wd,"/Cod_wdat_N100_Ind25_ckmrmultinom10_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmrmultinom10_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N100_Ind25_ckmrmultinom10_1.RData"))
+#Ncomp 100, ckmr 10 years
+load(paste0(wd,"/Cod_wdat_N100_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N100_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N100_ckmrmultinom10_1.RData"))
 
-Cod_100_25_10<-Cod_wdat
-Flatfish_100_25_10<-Flatfish_wdat
-Sardine_100_25_10<-Sardine_wdat
+Cod_100_10<-Cod_wdat
+Flatfish_100_10<-Flatfish_wdat
+Sardine_100_10<-Sardine_wdat
 
-#Ncomp 1000, sdindex 0.25, ckmr 10 years
-load(paste0(wd,"/Cod_wdat_N1000_Ind25_ckmrmultinom10_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N1000_Ind25_ckmrmultinom10_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N1000_Ind25_ckmrmultinom10_1.RData"))
+#Ncomp 1000, ckmr 10 years
+load(paste0(wd,"/Cod_wdat_N1000_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N1000_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N1000_ckmrmultinom10_1.RData"))
 
-Cod_1000_25_10<-Cod_wdat
-Flatfish_1000_25_10<-Flatfish_wdat
-Sardine_1000_25_10<-Sardine_wdat
+Cod_1000_10<-Cod_wdat
+Flatfish_1000_10<-Flatfish_wdat
+Sardine_1000_10<-Sardine_wdat
 
-#Ncomp 5000, sdindex 0.25, ckmr 10 years
-load(paste0(wd,"/Cod_wdat_N5000_Ind25_ckmrmultinom10_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N5000_Ind25_ckmrmultinom10_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N5000_Ind25_ckmrmultinom10_1.RData"))
+#Ncomp 5000, ckmr 10 years
+load(paste0(wd,"/Cod_wdat_N5000_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N5000_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N5000_ckmrmultinom10_1.RData"))
 
-Cod_5000_25_10<-Cod_wdat
-Flatfish_5000_25_10<-Flatfish_wdat
-Sardine_5000_25_10<-Sardine_wdat
+Cod_5000_10<-Cod_wdat
+Flatfish_5000_10<-Flatfish_wdat
+Sardine_5000_10<-Sardine_wdat
 
-#Ncomp 100, sdindex 0.25, ckmr 20 years
-load(paste0(wd,"/Cod_wdat_N100_Ind25_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N100_Ind25_ckmrmultinom20_1.RData"))
+#Ncomp 100, ckmr 20 years
+load(paste0(wd,"/Cod_wdat_N100_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N100_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N100_ckmrmultinom20_1.RData"))
 
-Cod_100_25_20<-Cod_wdat
-Flatfish_100_25_20<-Flatfish_wdat
-Sardine_100_25_20<-Sardine_wdat
+Cod_100_20<-Cod_wdat
+Flatfish_100_20<-Flatfish_wdat
+Sardine_100_20<-Sardine_wdat
 
-#Ncomp 1000, sdindex 0.25, ckmr 20 years
-load(paste0(wd,"/Cod_wdat_N1000_Ind25_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N1000_Ind25_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N1000_Ind25_ckmrmultinom20_1.RData"))
+#Ncomp 1000, ckmr 20 years
+load(paste0(wd,"/Cod_wdat_N1000_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N1000_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N1000_ckmrmultinom20_1.RData"))
 
-Cod_1000_25_20<-Cod_wdat
-Flatfish_1000_25_20<-Flatfish_wdat
-Sardine_1000_25_20<-Sardine_wdat
+Cod_1000_20<-Cod_wdat
+Flatfish_1000_20<-Flatfish_wdat
+Sardine_1000_20<-Sardine_wdat
 
-#Ncomp 5000, sdindex 0.25, ckmr 20 years
-load(paste0(wd,"/Cod_wdat_N5000_Ind25_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N5000_Ind25_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N5000_Ind25_ckmrmultinom20_1.RData"))
+#Ncomp 5000, ckmr 20 years
+load(paste0(wd,"/Cod_wdat_N5000_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N5000_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N5000_ckmrmultinom20_1.RData"))
 
-Cod_5000_25_20<-Cod_wdat
-Flatfish_5000_25_20<-Flatfish_wdat
-Sardine_5000_25_20<-Sardine_wdat
-
-#Ncomp 100, sdindex 0.50, ckmr 5 years
-load(paste0(wd,"/Cod_wdat_N100_Ind50_ckmrmultinom5_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N100_Ind50_ckmrmultinom5_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N100_Ind50_ckmrmultinom5_1.RData"))
-
-Cod_100_50_5<-Cod_wdat
-Flatfish_100_50_5<-Flatfish_wdat
-Sardine_100_50_5<-Sardine_wdat
-
-#Ncomp 1000, sdindex 0.50, ckmr 5 years
-load(paste0(wd,"/Cod_wdat_N1000_Ind50_ckmrmultinom5_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N1000_Ind50_ckmrmultinom5_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N1000_Ind50_ckmrmultinom5_1.RData"))
-
-Cod_1000_50_5<-Cod_wdat
-Flatfish_1000_50_5<-Flatfish_wdat
-Sardine_1000_50_5<-Sardine_wdat
-
-#Ncomp 5000, sdindex 0.50, ckmr 5 years
-load(paste0(wd,"/Cod_wdat_N5000_Ind50_ckmrmultinom5_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N5000_Ind50_ckmrmultinom5_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N5000_Ind50_ckmrmultinom5_1.RData"))
-
-Cod_5000_50_5<-Cod_wdat
-Flatfish_5000_50_5<-Flatfish_wdat
-Sardine_5000_50_5<-Sardine_wdat
-
-#Ncomp 100, sdindex 0.50, ckmr 10 years
-load(paste0(wd,"/Cod_wdat_N100_Ind50_ckmrmultinom10_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N100_Ind50_ckmrmultinom10_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N100_Ind50_ckmrmultinom10_1.RData"))
-
-Cod_100_50_10<-Cod_wdat
-Flatfish_100_50_10<-Flatfish_wdat
-Sardine_100_50_10<-Sardine_wdat
-
-#Ncomp 1000, sdindex 0.50, ckmr 10 years
-load(paste0(wd,"/Cod_wdat_N1000_Ind50_ckmrmultinom10_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N1000_Ind50_ckmrmultinom10_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N1000_Ind50_ckmrmultinom10_1.RData"))
-
-Cod_1000_50_10<-Cod_wdat
-Flatfish_1000_50_10<-Flatfish_wdat
-Sardine_1000_50_10<-Sardine_wdat
-
-#Ncomp 5000, sdindex 0.50, ckmr 10 years
-load(paste0(wd,"/Cod_wdat_N5000_Ind50_ckmrmultinom10_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N5000_Ind50_ckmrmultinom10_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N5000_Ind50_ckmrmultinom10_1.RData"))
-
-Cod_5000_50_10<-Cod_wdat
-Flatfish_5000_50_10<-Flatfish_wdat
-Sardine_5000_50_10<-Sardine_wdat
-
-#Ncomp 100, sdindex 0.50, ckmr 20 years
-load(paste0(wd,"/Cod_wdat_N100_Ind50_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N100_Ind50_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N100_Ind50_ckmrmultinom20_1.RData"))
-
-Cod_100_50_20<-Cod_wdat
-Flatfish_100_50_20<-Flatfish_wdat
-Sardine_100_50_20<-Sardine_wdat
-
-#Ncomp 1000, sdindex 0.50, ckmr 20 years
-load(paste0(wd,"/Cod_wdat_N1000_Ind50_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N1000_Ind50_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N1000_Ind50_ckmrmultinom20_1.RData"))
-
-Cod_1000_50_20<-Cod_wdat
-Flatfish_1000_50_20<-Flatfish_wdat
-Sardine_1000_50_20<-Sardine_wdat
-
-#Ncomp 5000, sdindex 0.50, ckmr 20 years
-load(paste0(wd,"/Cod_wdat_N5000_Ind50_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N5000_Ind50_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N5000_Ind50_ckmrmultinom20_1.RData"))
-
-Cod_5000_50_20<-Cod_wdat
-Flatfish_5000_50_20<-Flatfish_wdat
-Sardine_5000_50_20<-Sardine_wdat
+Cod_5000_20<-Cod_wdat
+Flatfish_5000_20<-Flatfish_wdat
+Sardine_5000_20<-Sardine_wdat
 
 #############################################
 #Looking at the number of pairs by treatment 
 #############################################
 #Getting it into more usable data 
-Pairs_Cod_100_25_5<-Pairs_Cod_1000_25_5<-Pairs_Cod_5000_25_5<-matrix(NA, nrow=100,ncol=2)
-Pairs_Cod_100_25_10<-Pairs_Cod_1000_25_10<-Pairs_Cod_5000_25_10<-matrix(NA, nrow=100,ncol=2)
-Pairs_Cod_100_25_20<-Pairs_Cod_1000_25_20<-Pairs_Cod_5000_25_20<-matrix(NA, nrow=100,ncol=2)
-Pairs_Flatfish_100_25_5<-Pairs_Flatfish_1000_25_5<-Pairs_Flatfish_5000_25_5<-matrix(NA, nrow=100,ncol=2)
-Pairs_Flatfish_100_25_10<-Pairs_Flatfish_1000_25_10<-Pairs_Flatfish_5000_25_10<-matrix(NA, nrow=100,ncol=2)
-Pairs_Flatfish_100_25_20<-Pairs_Flatfish_1000_25_20<-Pairs_Flatfish_5000_25_20<-matrix(NA, nrow=100,ncol=2)
-Pairs_Sardine_100_25_5<-Pairs_Sardine_1000_25_5<-Pairs_Sardine_5000_25_5<-matrix(NA, nrow=100,ncol=2)
-Pairs_Sardine_100_25_10<-Pairs_Sardine_1000_25_10<-Pairs_Sardine_5000_25_10<-matrix(NA, nrow=100,ncol=2)
-Pairs_Sardine_100_25_20<-Pairs_Sardine_1000_25_20<-Pairs_Sardine_5000_25_20<-matrix(NA, nrow=100,ncol=2)
+Pairs_Cod_100_5<-Pairs_Cod_1000_5<-Pairs_Cod_5000_5<-matrix(NA, nrow=100,ncol=2)
+Pairs_Cod_100_10<-Pairs_Cod_1000_10<-Pairs_Cod_5000_10<-matrix(NA, nrow=100,ncol=2)
+Pairs_Cod_100_20<-Pairs_Cod_1000_20<-Pairs_Cod_5000_20<-matrix(NA, nrow=100,ncol=2)
+Pairs_Flatfish_100_5<-Pairs_Flatfish_1000_5<-Pairs_Flatfish_5000_5<-matrix(NA, nrow=100,ncol=2)
+Pairs_Flatfish_100_10<-Pairs_Flatfish_1000_10<-Pairs_Flatfish_5000_10<-matrix(NA, nrow=100,ncol=2)
+Pairs_Flatfish_100_20<-Pairs_Flatfish_1000_20<-Pairs_Flatfish_5000_20<-matrix(NA, nrow=100,ncol=2)
+Pairs_Sardine_100_5<-Pairs_Sardine_1000_5<-Pairs_Sardine_5000_5<-matrix(NA, nrow=100,ncol=2)
+Pairs_Sardine_100_10<-Pairs_Sardine_1000_10<-Pairs_Sardine_5000_10<-matrix(NA, nrow=100,ncol=2)
+Pairs_Sardine_100_20<-Pairs_Sardine_1000_20<-Pairs_Sardine_5000_20<-matrix(NA, nrow=100,ncol=2)
 
 for (i in 1:100){
- Pairs_Cod_100_25_5[i,1]<-(sum(Cod_100_25_5[[i]]$k_ckmr_pop))
- Pairs_Cod_100_25_5[i,2]<-(sum(Cod_100_25_5[[i]]$k_ckmr_hsporggp))
- Pairs_Cod_1000_25_5[i,1]<-(sum(Cod_1000_25_5[[i]]$k_ckmr_pop))
- Pairs_Cod_1000_25_5[i,2]<-(sum(Cod_1000_25_5[[i]]$k_ckmr_hsporggp))
- Pairs_Cod_5000_25_5[i,1]<-(sum(Cod_5000_25_5[[i]]$k_ckmr_pop))
- Pairs_Cod_5000_25_5[i,2]<-(sum(Cod_5000_25_5[[i]]$k_ckmr_hsporggp))
+ Pairs_Cod_100_5[i,1]<-(sum(Cod_100_5[[i]]$k_ckmr_pop))
+ Pairs_Cod_100_5[i,2]<-(sum(Cod_100_5[[i]]$k_ckmr_hsporggp))
+ Pairs_Cod_1000_5[i,1]<-(sum(Cod_1000_5[[i]]$k_ckmr_pop))
+ Pairs_Cod_1000_5[i,2]<-(sum(Cod_1000_5[[i]]$k_ckmr_hsporggp))
+ Pairs_Cod_5000_5[i,1]<-(sum(Cod_5000_5[[i]]$k_ckmr_pop))
+ Pairs_Cod_5000_5[i,2]<-(sum(Cod_5000_5[[i]]$k_ckmr_hsporggp))
 
- Pairs_Cod_100_25_10[i,1]<-(sum(Cod_100_25_10[[i]]$k_ckmr_pop))
- Pairs_Cod_100_25_10[i,2]<-(sum(Cod_100_25_10[[i]]$k_ckmr_hsporggp))
- Pairs_Cod_1000_25_10[i,1]<-(sum(Cod_1000_25_10[[i]]$k_ckmr_pop))
- Pairs_Cod_1000_25_10[i,2]<-(sum(Cod_1000_25_10[[i]]$k_ckmr_hsporggp))
- Pairs_Cod_5000_25_10[i,1]<-(sum(Cod_5000_25_10[[i]]$k_ckmr_pop))
- Pairs_Cod_5000_25_10[i,2]<-(sum(Cod_5000_25_10[[i]]$k_ckmr_hsporggp))
+ Pairs_Cod_100_10[i,1]<-(sum(Cod_100_10[[i]]$k_ckmr_pop))
+ Pairs_Cod_100_10[i,2]<-(sum(Cod_100_10[[i]]$k_ckmr_hsporggp))
+ Pairs_Cod_1000_10[i,1]<-(sum(Cod_1000_10[[i]]$k_ckmr_pop))
+ Pairs_Cod_1000_10[i,2]<-(sum(Cod_1000_10[[i]]$k_ckmr_hsporggp))
+ Pairs_Cod_5000_10[i,1]<-(sum(Cod_5000_10[[i]]$k_ckmr_pop))
+ Pairs_Cod_5000_10[i,2]<-(sum(Cod_5000_10[[i]]$k_ckmr_hsporggp))
 
- Pairs_Cod_100_25_20[i,1]<-(sum(Cod_100_25_20[[i]]$k_ckmr_pop))
- Pairs_Cod_100_25_20[i,2]<-(sum(Cod_100_25_20[[i]]$k_ckmr_hsporggp))
- Pairs_Cod_1000_25_20[i,1]<-(sum(Cod_1000_25_20[[i]]$k_ckmr_pop))
- Pairs_Cod_1000_25_20[i,2]<-(sum(Cod_1000_25_20[[i]]$k_ckmr_hsporggp))
- Pairs_Cod_5000_25_20[i,1]<-(sum(Cod_5000_25_20[[i]]$k_ckmr_pop))
- Pairs_Cod_5000_25_20[i,2]<-(sum(Cod_5000_25_20[[i]]$k_ckmr_hsporggp))
+ Pairs_Cod_100_20[i,1]<-(sum(Cod_100_20[[i]]$k_ckmr_pop))
+ Pairs_Cod_100_20[i,2]<-(sum(Cod_100_20[[i]]$k_ckmr_hsporggp))
+ Pairs_Cod_1000_20[i,1]<-(sum(Cod_1000_20[[i]]$k_ckmr_pop))
+ Pairs_Cod_1000_20[i,2]<-(sum(Cod_1000_20[[i]]$k_ckmr_hsporggp))
+ Pairs_Cod_5000_20[i,1]<-(sum(Cod_5000_20[[i]]$k_ckmr_pop))
+ Pairs_Cod_5000_20[i,2]<-(sum(Cod_5000_20[[i]]$k_ckmr_hsporggp))
 
- Pairs_Flatfish_100_25_5[i,1]<-(sum(Flatfish_100_25_5[[i]]$k_ckmr_pop))
- Pairs_Flatfish_100_25_5[i,2]<-(sum(Flatfish_100_25_5[[i]]$k_ckmr_hsporggp))
- Pairs_Flatfish_1000_25_5[i,1]<-(sum(Flatfish_1000_25_5[[i]]$k_ckmr_pop))
- Pairs_Flatfish_1000_25_5[i,2]<-(sum(Flatfish_1000_25_5[[i]]$k_ckmr_hsporggp))
- Pairs_Flatfish_5000_25_5[i,1]<-(sum(Flatfish_5000_25_5[[i]]$k_ckmr_pop))
- Pairs_Flatfish_5000_25_5[i,2]<-(sum(Flatfish_5000_25_5[[i]]$k_ckmr_hsporggp))
+ Pairs_Flatfish_100_5[i,1]<-(sum(Flatfish_100_5[[i]]$k_ckmr_pop))
+ Pairs_Flatfish_100_5[i,2]<-(sum(Flatfish_100_5[[i]]$k_ckmr_hsporggp))
+ Pairs_Flatfish_1000_5[i,1]<-(sum(Flatfish_1000_5[[i]]$k_ckmr_pop))
+ Pairs_Flatfish_1000_5[i,2]<-(sum(Flatfish_1000_5[[i]]$k_ckmr_hsporggp))
+ Pairs_Flatfish_5000_5[i,1]<-(sum(Flatfish_5000_5[[i]]$k_ckmr_pop))
+ Pairs_Flatfish_5000_5[i,2]<-(sum(Flatfish_5000_5[[i]]$k_ckmr_hsporggp))
 
- Pairs_Flatfish_100_25_10[i,1]<-(sum(Flatfish_100_25_10[[i]]$k_ckmr_pop))
- Pairs_Flatfish_100_25_10[i,2]<-(sum(Flatfish_100_25_10[[i]]$k_ckmr_hsporggp))
- Pairs_Flatfish_1000_25_10[i,1]<-(sum(Flatfish_1000_25_10[[i]]$k_ckmr_pop))
- Pairs_Flatfish_1000_25_10[i,2]<-(sum(Flatfish_1000_25_10[[i]]$k_ckmr_hsporggp))
- Pairs_Flatfish_5000_25_10[i,1]<-(sum(Flatfish_5000_25_10[[i]]$k_ckmr_pop))
- Pairs_Flatfish_5000_25_10[i,2]<-(sum(Flatfish_5000_25_10[[i]]$k_ckmr_hsporggp))
+ Pairs_Flatfish_100_10[i,1]<-(sum(Flatfish_100_10[[i]]$k_ckmr_pop))
+ Pairs_Flatfish_100_10[i,2]<-(sum(Flatfish_100_10[[i]]$k_ckmr_hsporggp))
+ Pairs_Flatfish_1000_10[i,1]<-(sum(Flatfish_1000_10[[i]]$k_ckmr_pop))
+ Pairs_Flatfish_1000_10[i,2]<-(sum(Flatfish_1000_10[[i]]$k_ckmr_hsporggp))
+ Pairs_Flatfish_5000_10[i,1]<-(sum(Flatfish_5000_10[[i]]$k_ckmr_pop))
+ Pairs_Flatfish_5000_10[i,2]<-(sum(Flatfish_5000_10[[i]]$k_ckmr_hsporggp))
 
- Pairs_Flatfish_100_25_20[i,1]<-(sum(Flatfish_100_25_20[[i]]$k_ckmr_pop))
- Pairs_Flatfish_100_25_20[i,2]<-(sum(Flatfish_100_25_20[[i]]$k_ckmr_hsporggp))
- Pairs_Flatfish_1000_25_20[i,1]<-(sum(Flatfish_1000_25_20[[i]]$k_ckmr_pop))
- Pairs_Flatfish_1000_25_20[i,2]<-(sum(Flatfish_1000_25_20[[i]]$k_ckmr_hsporggp))
- Pairs_Flatfish_5000_25_20[i,1]<-(sum(Flatfish_5000_25_20[[i]]$k_ckmr_pop))
- Pairs_Flatfish_5000_25_20[i,2]<-(sum(Flatfish_5000_25_20[[i]]$k_ckmr_hsporggp))
+ Pairs_Flatfish_100_20[i,1]<-(sum(Flatfish_100_20[[i]]$k_ckmr_pop))
+ Pairs_Flatfish_100_20[i,2]<-(sum(Flatfish_100_20[[i]]$k_ckmr_hsporggp))
+ Pairs_Flatfish_1000_20[i,1]<-(sum(Flatfish_1000_20[[i]]$k_ckmr_pop))
+ Pairs_Flatfish_1000_20[i,2]<-(sum(Flatfish_1000_20[[i]]$k_ckmr_hsporggp))
+ Pairs_Flatfish_5000_20[i,1]<-(sum(Flatfish_5000_20[[i]]$k_ckmr_pop))
+ Pairs_Flatfish_5000_20[i,2]<-(sum(Flatfish_5000_20[[i]]$k_ckmr_hsporggp))
 
- Pairs_Sardine_100_25_5[i,1]<-(sum(Sardine_100_25_5[[i]]$k_ckmr_pop))
- Pairs_Sardine_100_25_5[i,2]<-(sum(Sardine_100_25_5[[i]]$k_ckmr_hsporggp))
- Pairs_Sardine_1000_25_5[i,1]<-(sum(Sardine_1000_25_5[[i]]$k_ckmr_pop))
- Pairs_Sardine_1000_25_5[i,2]<-(sum(Sardine_1000_25_5[[i]]$k_ckmr_hsporggp))
- Pairs_Sardine_5000_25_5[i,1]<-(sum(Sardine_5000_25_5[[i]]$k_ckmr_pop))
- Pairs_Sardine_5000_25_5[i,2]<-(sum(Sardine_5000_25_5[[i]]$k_ckmr_hsporggp))
+ Pairs_Sardine_100_5[i,1]<-(sum(Sardine_100_5[[i]]$k_ckmr_pop))
+ Pairs_Sardine_100_5[i,2]<-(sum(Sardine_100_5[[i]]$k_ckmr_hsporggp))
+ Pairs_Sardine_1000_5[i,1]<-(sum(Sardine_1000_5[[i]]$k_ckmr_pop))
+ Pairs_Sardine_1000_5[i,2]<-(sum(Sardine_1000_5[[i]]$k_ckmr_hsporggp))
+ Pairs_Sardine_5000_5[i,1]<-(sum(Sardine_5000_5[[i]]$k_ckmr_pop))
+ Pairs_Sardine_5000_5[i,2]<-(sum(Sardine_5000_5[[i]]$k_ckmr_hsporggp))
 
- Pairs_Sardine_100_25_10[i,1]<-(sum(Sardine_100_25_10[[i]]$k_ckmr_pop))
- Pairs_Sardine_100_25_10[i,2]<-(sum(Sardine_100_25_10[[i]]$k_ckmr_hsporggp))
- Pairs_Sardine_1000_25_10[i,1]<-(sum(Sardine_1000_25_10[[i]]$k_ckmr_pop))
- Pairs_Sardine_1000_25_10[i,2]<-(sum(Sardine_1000_25_10[[i]]$k_ckmr_hsporggp))
- Pairs_Sardine_5000_25_10[i,1]<-(sum(Sardine_5000_25_10[[i]]$k_ckmr_pop))
- Pairs_Sardine_5000_25_10[i,2]<-(sum(Sardine_5000_25_10[[i]]$k_ckmr_hsporggp))
+ Pairs_Sardine_100_10[i,1]<-(sum(Sardine_100_10[[i]]$k_ckmr_pop))
+ Pairs_Sardine_100_10[i,2]<-(sum(Sardine_100_10[[i]]$k_ckmr_hsporggp))
+ Pairs_Sardine_1000_10[i,1]<-(sum(Sardine_1000_10[[i]]$k_ckmr_pop))
+ Pairs_Sardine_1000_10[i,2]<-(sum(Sardine_1000_10[[i]]$k_ckmr_hsporggp))
+ Pairs_Sardine_5000_10[i,1]<-(sum(Sardine_5000_10[[i]]$k_ckmr_pop))
+ Pairs_Sardine_5000_10[i,2]<-(sum(Sardine_5000_10[[i]]$k_ckmr_hsporggp))
 
- Pairs_Sardine_100_25_20[i,1]<-(sum(Sardine_100_25_20[[i]]$k_ckmr_pop))
- Pairs_Sardine_100_25_20[i,2]<-(sum(Sardine_100_25_20[[i]]$k_ckmr_hsporggp))
- Pairs_Sardine_1000_25_20[i,1]<-(sum(Sardine_1000_25_20[[i]]$k_ckmr_pop))
- Pairs_Sardine_1000_25_20[i,2]<-(sum(Sardine_1000_25_20[[i]]$k_ckmr_hsporggp))
- Pairs_Sardine_5000_25_20[i,1]<-(sum(Sardine_5000_25_20[[i]]$k_ckmr_pop))
- Pairs_Sardine_5000_25_20[i,2]<-(sum(Sardine_5000_25_20[[i]]$k_ckmr_hsporggp))
+ Pairs_Sardine_100_20[i,1]<-(sum(Sardine_100_20[[i]]$k_ckmr_pop))
+ Pairs_Sardine_100_20[i,2]<-(sum(Sardine_100_20[[i]]$k_ckmr_hsporggp))
+ Pairs_Sardine_1000_20[i,1]<-(sum(Sardine_1000_20[[i]]$k_ckmr_pop))
+ Pairs_Sardine_1000_20[i,2]<-(sum(Sardine_1000_20[[i]]$k_ckmr_hsporggp))
+ Pairs_Sardine_5000_20[i,1]<-(sum(Sardine_5000_20[[i]]$k_ckmr_pop))
+ Pairs_Sardine_5000_20[i,2]<-(sum(Sardine_5000_20[[i]]$k_ckmr_hsporggp))
 }
 
 
 #Trying boxplot as reviewer suggested 
 #tiff(paste0(wd,"/CKMRPairs.tiff"), height=25, width=35, units='cm', compression="lzw", res=500)
 par(mfrow=c(3,3), oma=c(2,6,1,1), mar=c(3.5,0,1,0), bty="C")
-boxplot(Pairs_Cod_100_25_5, at=1:2, ylim=c(0,10), las=1, xlab="", main="", xlim=c(0.5,9.5), xaxt="n", col=c("rosybrown1", "skyblue"), bty="L")
-boxplot(Pairs_Cod_100_25_10, at=4:5, ylim=c(0,10), las=1, xlab="", main="", xlim=c(0.5,9.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
-boxplot(Pairs_Cod_100_25_20, at=7:8, ylim=c(0,10), las=1, xlab="", main="", xlim=c(0.5,9.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+boxplot(Pairs_Cod_100_5, at=1:2, ylim=c(0,10), las=1, xlab="", main="", xlim=c(0.5,9.5), xaxt="n", col=c("rosybrown1", "skyblue"), bty="L")
+boxplot(Pairs_Cod_100_10, at=4:5, ylim=c(0,10), las=1, xlab="", main="", xlim=c(0.5,9.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+boxplot(Pairs_Cod_100_20, at=7:8, ylim=c(0,10), las=1, xlab="", main="", xlim=c(0.5,9.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
 axis(side=1, at=seq(1.5,25.5,3), c("5yrs","10yrs","20yrs","5yrs","10yrs","20yrs","5yrs","10yrs","20yrs"))
 mtext(side=3,"100 CKMR Samples",line=-3)
-boxplot(Pairs_Cod_1000_25_5, at=10:11, ylim=c(0,20), las=1, xlab="", main="Cod", xlim=c(9.5,18.5), xaxt="n", col=c("rosybrown1", "skyblue"))
-boxplot(Pairs_Cod_1000_25_10, at=13:14, ylim=c(0,20), las=1, xlab="", main="", xlim=c(9.5,18.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
-boxplot(Pairs_Cod_1000_25_20, at=16:17, ylim=c(0,20), las=1, xlab="", main="", xlim=c(9.5,18.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+boxplot(Pairs_Cod_1000_5, at=10:11, ylim=c(0,20), las=1, xlab="", main="Cod", xlim=c(9.5,18.5), xaxt="n", col=c("rosybrown1", "skyblue"))
+boxplot(Pairs_Cod_1000_10, at=13:14, ylim=c(0,20), las=1, xlab="", main="", xlim=c(9.5,18.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+boxplot(Pairs_Cod_1000_20, at=16:17, ylim=c(0,20), las=1, xlab="", main="", xlim=c(9.5,18.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
 axis(side=1, at=seq(1.5,25.5,3), c("5yrs","10yrs","20yrs","5yrs","10yrs","20yrs","5yrs","10yrs","20yrs"))
 mtext(side=3,"1,000 CKMR Samples",line=-3)
 par(bty="o")
-boxplot(Pairs_Cod_5000_25_5, at=19:20, ylim=c(0,80), las=1, xlab="", main="", xlim=c(18.5,26.5), xaxt="n", col=c("rosybrown1", "skyblue"))
-boxplot(Pairs_Cod_5000_25_10, at=22:23, ylim=c(0,80), las=1, xlab="", main="", xlim=c(18.5,26.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
-boxplot(Pairs_Cod_5000_25_20, at=25:26, ylim=c(0,80), las=1, xlab="", main="", xlim=c(18.5,26.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+boxplot(Pairs_Cod_5000_5, at=19:20, ylim=c(0,80), las=1, xlab="", main="", xlim=c(18.5,26.5), xaxt="n", col=c("rosybrown1", "skyblue"))
+boxplot(Pairs_Cod_5000_10, at=22:23, ylim=c(0,80), las=1, xlab="", main="", xlim=c(18.5,26.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+boxplot(Pairs_Cod_5000_20, at=25:26, ylim=c(0,80), las=1, xlab="", main="", xlim=c(18.5,26.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
 axis(side=1, at=seq(1.5,25.5,3), c("5yrs","10yrs","20yrs","5yrs","10yrs","20yrs","5yrs","10yrs","20yrs"))
 mtext(side=3,"5,000 CKMR Samples",line=-3)
 #Flatfish
-boxplot(Pairs_Flatfish_100_25_5, at=1:2, ylim=c(0,200), las=1, xlab="", main="", xlim=c(0.5,9.5), xaxt="n", col=c("rosybrown1", "skyblue"), bty="L")
+boxplot(Pairs_Flatfish_100_5, at=1:2, ylim=c(0,200), las=1, xlab="", main="", xlim=c(0.5,9.5), xaxt="n", col=c("rosybrown1", "skyblue"), bty="L")
 mtext(side=2,"Pairs Found",line=4)
-boxplot(Pairs_Flatfish_100_25_10, at=4:5, ylim=c(0,200), las=1, xlab="", main="", xlim=c(0.5,9.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
-boxplot(Pairs_Flatfish_100_25_20, at=7:8, ylim=c(0,200), las=1, xlab="", main="", xlim=c(0.5,9.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+boxplot(Pairs_Flatfish_100_10, at=4:5, ylim=c(0,200), las=1, xlab="", main="", xlim=c(0.5,9.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+boxplot(Pairs_Flatfish_100_20, at=7:8, ylim=c(0,200), las=1, xlab="", main="", xlim=c(0.5,9.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
 axis(side=1, at=seq(1.5,25.5,3), c("5yrs","10yrs","20yrs","5yrs","10yrs","20yrs","5yrs","10yrs","20yrs"))
-boxplot(Pairs_Flatfish_1000_25_5, at=10:11, ylim=c(0,1.05e4), las=1, xlab="", main="Flatfish", xlim=c(9.5,18.5), xaxt="n", col=c("rosybrown1", "skyblue"))
+boxplot(Pairs_Flatfish_1000_5, at=10:11, ylim=c(0,1.05e4), las=1, xlab="", main="Flatfish", xlim=c(9.5,18.5), xaxt="n", col=c("rosybrown1", "skyblue"))
 legend("top", c("POP", "HSP+GGP"),pch=15, col=c("rosybrown1", "skyblue"), bty="n", pt.cex=1.5)
-boxplot(Pairs_Flatfish_1000_25_10, at=13:14, ylim=c(0,1.05e4), las=1, xlab="", main="", xlim=c(9.5,18.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
-boxplot(Pairs_Flatfish_1000_25_20, at=16:17, ylim=c(0,1.05e4), las=1, xlab="", main="", xlim=c(9.5,18.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+boxplot(Pairs_Flatfish_1000_10, at=13:14, ylim=c(0,1.05e4), las=1, xlab="", main="", xlim=c(9.5,18.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+boxplot(Pairs_Flatfish_1000_20, at=16:17, ylim=c(0,1.05e4), las=1, xlab="", main="", xlim=c(9.5,18.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
 axis(side=1, at=seq(1.5,25.5,3), c("5yrs","10yrs","20yrs","5yrs","10yrs","20yrs","5yrs","10yrs","20yrs"))
 par(bty="o")
-boxplot(Pairs_Flatfish_5000_25_5, at=19:20, ylim=c(0,2.6e5), las=1, xlab="", main="", xlim=c(18.5,26.5), xaxt="n", col=c("rosybrown1", "skyblue"))
-boxplot(Pairs_Flatfish_5000_25_10, at=22:23, ylim=c(0,2.6e5), las=1, xlab="", main="", xlim=c(18.5,26.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
-boxplot(Pairs_Flatfish_5000_25_20, at=25:26, ylim=c(0,2.6e5), las=1, xlab="", main="", xlim=c(18.5,26.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+boxplot(Pairs_Flatfish_5000_5, at=19:20, ylim=c(0,2.6e5), las=1, xlab="", main="", xlim=c(18.5,26.5), xaxt="n", col=c("rosybrown1", "skyblue"))
+boxplot(Pairs_Flatfish_5000_10, at=22:23, ylim=c(0,2.6e5), las=1, xlab="", main="", xlim=c(18.5,26.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+boxplot(Pairs_Flatfish_5000_20, at=25:26, ylim=c(0,2.6e5), las=1, xlab="", main="", xlim=c(18.5,26.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
 axis(side=1, at=seq(1.5,25.5,3), c("5yrs","10yrs","20yrs","5yrs","10yrs","20yrs","5yrs","10yrs","20yrs"))
 #Sardine
-boxplot(Pairs_Sardine_100_25_5, at=1:2, ylim=c(0,20), las=1, xlab="", main="", xlim=c(0.5,9.5), xaxt="n", col=c("rosybrown1", "skyblue"), bty="L")
-boxplot(Pairs_Sardine_100_25_10, at=4:5, ylim=c(0,20), las=1, xlab="", main="", xlim=c(0.5,9.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
-boxplot(Pairs_Sardine_100_25_20, at=7:8, ylim=c(0,20), las=1, xlab="", main="", xlim=c(0.5,9.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+boxplot(Pairs_Sardine_100_5, at=1:2, ylim=c(0,20), las=1, xlab="", main="", xlim=c(0.5,9.5), xaxt="n", col=c("rosybrown1", "skyblue"), bty="L")
+boxplot(Pairs_Sardine_100_10, at=4:5, ylim=c(0,20), las=1, xlab="", main="", xlim=c(0.5,9.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+boxplot(Pairs_Sardine_100_20, at=7:8, ylim=c(0,20), las=1, xlab="", main="", xlim=c(0.5,9.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
 axis(side=1, at=seq(1.5,25.5,3), c("5yrs","10yrs","20yrs","5yrs","10yrs","20yrs","5yrs","10yrs","20yrs"))
-boxplot(Pairs_Sardine_1000_25_5, at=10:11, ylim=c(0,103), las=1, xlab="", main="Sardine", xlim=c(9.5,18.5), xaxt="n", col=c("rosybrown1", "skyblue"))
+boxplot(Pairs_Sardine_1000_5, at=10:11, ylim=c(0,103), las=1, xlab="", main="Sardine", xlim=c(9.5,18.5), xaxt="n", col=c("rosybrown1", "skyblue"))
 mtext(side=1,"Number of Years of CKMR Collection",line=3.5)
-boxplot(Pairs_Sardine_1000_25_10, at=13:14, ylim=c(0,103), las=1, xlab="", main="", xlim=c(9.5,18.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
-boxplot(Pairs_Sardine_1000_25_20, at=16:17, ylim=c(0,103), las=1, xlab="", main="", xlim=c(9.5,18.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+boxplot(Pairs_Sardine_1000_10, at=13:14, ylim=c(0,103), las=1, xlab="", main="", xlim=c(9.5,18.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+boxplot(Pairs_Sardine_1000_20, at=16:17, ylim=c(0,103), las=1, xlab="", main="", xlim=c(9.5,18.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
 axis(side=1, at=seq(1.5,25.5,3), c("5yrs","10yrs","20yrs","5yrs","10yrs","20yrs","5yrs","10yrs","20yrs"))
 par(bty="o")
-boxplot(Pairs_Sardine_5000_25_5, at=19:20, ylim=c(0,2.05e3), las=1, xlab="", main="", xlim=c(18.5,26.5), xaxt="n", col=c("rosybrown1", "skyblue"))
-boxplot(Pairs_Sardine_5000_25_10, at=22:23, ylim=c(0,2.05e3), las=1, xlab="", main="", xlim=c(18.5,26.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
-boxplot(Pairs_Sardine_5000_25_20, at=25:26, ylim=c(0,2.05e3), las=1, xlab="", main="", xlim=c(18.5,26.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+boxplot(Pairs_Sardine_5000_5, at=19:20, ylim=c(0,2.05e3), las=1, xlab="", main="", xlim=c(18.5,26.5), xaxt="n", col=c("rosybrown1", "skyblue"))
+boxplot(Pairs_Sardine_5000_10, at=22:23, ylim=c(0,2.05e3), las=1, xlab="", main="", xlim=c(18.5,26.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+boxplot(Pairs_Sardine_5000_20, at=25:26, ylim=c(0,2.05e3), las=1, xlab="", main="", xlim=c(18.5,26.5), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
 axis(side=1, at=seq(1.5,25.5,3), c("5yrs","10yrs","20yrs","5yrs","10yrs","20yrs","5yrs","10yrs","20yrs"))
 #dev.off()
 
 
 # #tiff(paste0(wd,"/CKMRPairs.tiff"), height=20, width=30, units='cm', compression="lzw", res=500)
 # par(mfrow=c(3,1), oma=c(2,2,1,1), mar=c(3.5,4,1,1))
-# boxplot(Pairs_Cod_100_25_5, at=1:2, ylim=c(0,80), las=1, xlab="", main="Cod", xlim=c(1,26), xaxt="n", col=c("rosybrown1", "skyblue"))
-# boxplot(Pairs_Cod_100_25_10, at=4:5, ylim=c(0,80), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
-# boxplot(Pairs_Cod_100_25_20, at=7:8, ylim=c(0,80), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
-# boxplot(Pairs_Cod_1000_25_5, at=10:11, ylim=c(0,80), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
-# boxplot(Pairs_Cod_1000_25_10, at=13:14, ylim=c(0,80), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
-# boxplot(Pairs_Cod_1000_25_20, at=16:17, ylim=c(0,80), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
-# boxplot(Pairs_Cod_5000_25_5, at=19:20, ylim=c(0,80), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
-# boxplot(Pairs_Cod_5000_25_10, at=22:23, ylim=c(0,80), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
-# boxplot(Pairs_Cod_5000_25_20, at=25:26, ylim=c(0,80), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+# boxplot(Pairs_Cod_100_5, at=1:2, ylim=c(0,80), las=1, xlab="", main="Cod", xlim=c(1,26), xaxt="n", col=c("rosybrown1", "skyblue"))
+# boxplot(Pairs_Cod_100_10, at=4:5, ylim=c(0,80), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+# boxplot(Pairs_Cod_100_20, at=7:8, ylim=c(0,80), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+# boxplot(Pairs_Cod_1000_5, at=10:11, ylim=c(0,80), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+# boxplot(Pairs_Cod_1000_10, at=13:14, ylim=c(0,80), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+# boxplot(Pairs_Cod_1000_20, at=16:17, ylim=c(0,80), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+# boxplot(Pairs_Cod_5000_5, at=19:20, ylim=c(0,80), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+# boxplot(Pairs_Cod_5000_10, at=22:23, ylim=c(0,80), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+# boxplot(Pairs_Cod_5000_20, at=25:26, ylim=c(0,80), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
 # abline(v=c(9,18))
 # mtext(side=3,"100 CKMR Samples",line=-3, at=4.5)
 # mtext(side=3,"1,000 CKMR Samples",line=-3)
 # mtext(side=3,"5,000 CKMR Samples",line=-3, at=22.5)
 # axis(side=1, at=seq(1.5,25.5,3), c("5yrs","10yrs","20yrs","5yrs","10yrs","20yrs","5yrs","10yrs","20yrs"))
 # 
-# boxplot(Pairs_Flatfish_100_25_5, at=1:2, ylim=c(0,2.35e5), las=1, xlab="", main="Flatfish", xlim=c(1,26), xaxt="n", col=c("rosybrown1", "skyblue"))
-# boxplot(Pairs_Flatfish_100_25_10, at=4:5, ylim=c(0,2.35e5), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
-# boxplot(Pairs_Flatfish_100_25_20, at=7:8, ylim=c(0,2.35e5), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
-# boxplot(Pairs_Flatfish_1000_25_5, at=10:11, ylim=c(0,2.35e5), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
-# boxplot(Pairs_Flatfish_1000_25_10, at=13:14, ylim=c(0,2.35e5), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
-# boxplot(Pairs_Flatfish_1000_25_20, at=16:17, ylim=c(0,2.35e5), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
-# boxplot(Pairs_Flatfish_5000_25_5, at=19:20, ylim=c(0,2.35e5), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
-# boxplot(Pairs_Flatfish_5000_25_10, at=22:23, ylim=c(0,2.35e5), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
-# boxplot(Pairs_Flatfish_5000_25_20, at=25:26, ylim=c(0,2.35e5), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+# boxplot(Pairs_Flatfish_100_5, at=1:2, ylim=c(0,2.35e5), las=1, xlab="", main="Flatfish", xlim=c(1,26), xaxt="n", col=c("rosybrown1", "skyblue"))
+# boxplot(Pairs_Flatfish_100_10, at=4:5, ylim=c(0,2.35e5), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+# boxplot(Pairs_Flatfish_100_20, at=7:8, ylim=c(0,2.35e5), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+# boxplot(Pairs_Flatfish_1000_5, at=10:11, ylim=c(0,2.35e5), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+# boxplot(Pairs_Flatfish_1000_10, at=13:14, ylim=c(0,2.35e5), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+# boxplot(Pairs_Flatfish_1000_20, at=16:17, ylim=c(0,2.35e5), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+# boxplot(Pairs_Flatfish_5000_5, at=19:20, ylim=c(0,2.35e5), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+# boxplot(Pairs_Flatfish_5000_10, at=22:23, ylim=c(0,2.35e5), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+# boxplot(Pairs_Flatfish_5000_20, at=25:26, ylim=c(0,2.35e5), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
 # abline(v=c(9,18))
 # axis(side=1, at=seq(1.5,25.5,3), c("5yrs","10yrs","20yrs","5yrs","10yrs","20yrs","5yrs","10yrs","20yrs"))
 # mtext(side=2,"Pairs Found",line=4)
 # legend("top", c("POP", "HSP+GGP"),pch=15, col=c("rosybrown1", "skyblue"), bty="n", pt.cex=1.2)
 # 
-# boxplot(Pairs_Sardine_100_25_5, at=1:2, ylim=c(0,1.75e3), las=1, xlab="", main="Sardine", xlim=c(1,26), col=c("rosybrown1", "skyblue"), xaxt="n")
-# boxplot(Pairs_Sardine_100_25_10, at=4:5, ylim=c(0,1.75e3), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
-# boxplot(Pairs_Sardine_100_25_20, at=7:8, ylim=c(0,1.75e3), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
-# boxplot(Pairs_Sardine_1000_25_5, at=10:11, ylim=c(0,1.75e3), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
-# boxplot(Pairs_Sardine_1000_25_10, at=13:14, ylim=c(0,1.75e3), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
-# boxplot(Pairs_Sardine_1000_25_20, at=16:17, ylim=c(0,1.75e3), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
-# boxplot(Pairs_Sardine_5000_25_5, at=19:20, ylim=c(0,1.75e3), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
-# boxplot(Pairs_Sardine_5000_25_10, at=22:23, ylim=c(0,1.75e3), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
-# boxplot(Pairs_Sardine_5000_25_20, at=25:26, ylim=c(0,1.75e3), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+# boxplot(Pairs_Sardine_100_5, at=1:2, ylim=c(0,1.75e3), las=1, xlab="", main="Sardine", xlim=c(1,26), col=c("rosybrown1", "skyblue"), xaxt="n")
+# boxplot(Pairs_Sardine_100_10, at=4:5, ylim=c(0,1.75e3), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+# boxplot(Pairs_Sardine_100_20, at=7:8, ylim=c(0,1.75e3), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+# boxplot(Pairs_Sardine_1000_5, at=10:11, ylim=c(0,1.75e3), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+# boxplot(Pairs_Sardine_1000_10, at=13:14, ylim=c(0,1.75e3), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+# boxplot(Pairs_Sardine_1000_20, at=16:17, ylim=c(0,1.75e3), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+# boxplot(Pairs_Sardine_5000_5, at=19:20, ylim=c(0,1.75e3), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+# boxplot(Pairs_Sardine_5000_10, at=22:23, ylim=c(0,1.75e3), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
+# boxplot(Pairs_Sardine_5000_20, at=25:26, ylim=c(0,1.75e3), las=1, xlab="", main="", xlim=c(1,26), xaxt="n",yaxt="n", col=c("rosybrown1", "skyblue"), add=TRUE)
 # abline(v=c(9,18))
 # axis(side=1, at=seq(1.5,25.5,3), c("5yrs","10yrs","20yrs","5yrs","10yrs","20yrs","5yrs","10yrs","20yrs"))
 # mtext(side=1,"Number of Years of CKMR Collection",line=3.5)
@@ -348,210 +267,210 @@ axis(side=1, at=seq(1.5,25.5,3), c("5yrs","10yrs","20yrs","5yrs","10yrs","20yrs"
 #N100
 #tiff(paste0(wd,"/CKMRPairs_N100.tiff"), height=20, width=30, units='cm', compression="lzw", res=500)
 par(mfrow=c(3,6), oma=c(2,2,1,1), mar=c(4,4,2.5,1))
-hist(Pairs_Cod_100_25_5[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="", main="")
+hist(Pairs_Cod_100_5[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="", main="")
 mtext(text="5yr", side=2, line=4.5, font=2)
 mtext(text="POP", side=3, line=-2,font=2)
-hist(Pairs_Cod_100_25_5[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="", main="", ylab="")
+hist(Pairs_Cod_100_5[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="", main="", ylab="")
 mtext(text="Cod", side=3, line=2, at=-4, font=2)
 mtext(text="HSP", side=3, line=-2,font=2)
 
-hist(Pairs_Flatfish_100_25_5[,1], breaks=seq(-0.5,1e6,10), xlim=c(-0.5,200), las=1, xlab="", main="", ylab="")
+hist(Pairs_Flatfish_100_5[,1], breaks=seq(-0.5,1e6,10), xlim=c(-0.5,200), las=1, xlab="", main="", ylab="")
 mtext(text="POP", side=3, line=-2,font=2)
-hist(Pairs_Flatfish_100_25_5[,2], breaks=seq(-0.5,1e6,10), xlim=c(-0.5,200), las=1, xlab="", main="", ylab="")
+hist(Pairs_Flatfish_100_5[,2], breaks=seq(-0.5,1e6,10), xlim=c(-0.5,200), las=1, xlab="", main="", ylab="")
 mtext(text="Flatfish", side=3, line=2, at=-75, font=2)
 mtext(text="HSP", side=3, line=-2,font=2)
 
-hist(Pairs_Sardine_100_25_5[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="", main="", ylab="")
+hist(Pairs_Sardine_100_5[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="", main="", ylab="")
 mtext(text="POP", side=3, line=-2,font=2)
-hist(Pairs_Sardine_100_25_5[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="", main="", ylab="")
+hist(Pairs_Sardine_100_5[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="", main="", ylab="")
 mtext(text="Sardine", side=3, line=2, at=-4, font=2)
 mtext(text="HSP", side=3, line=-2,font=2)
 
-hist(Pairs_Cod_100_25_10[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="", main="")
+hist(Pairs_Cod_100_10[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="", main="")
 mtext(text="10yr", side=2, line=4.5, font=2)
-hist(Pairs_Cod_100_25_10[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="", main="", ylab="")
+hist(Pairs_Cod_100_10[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="", main="", ylab="")
 
-hist(Pairs_Flatfish_100_25_10[,1], breaks=seq(-0.5,1e6,10), xlim=c(-0.5,200), las=1, xlab="", main="", ylab="")
-hist(Pairs_Flatfish_100_25_10[,2], breaks=seq(-0.5,1e6,10), xlim=c(-0.5,200), las=1, xlab="", main="", ylab="")
+hist(Pairs_Flatfish_100_10[,1], breaks=seq(-0.5,1e6,10), xlim=c(-0.5,200), las=1, xlab="", main="", ylab="")
+hist(Pairs_Flatfish_100_10[,2], breaks=seq(-0.5,1e6,10), xlim=c(-0.5,200), las=1, xlab="", main="", ylab="")
 
-hist(Pairs_Sardine_100_25_10[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="", main="", ylab="")
-hist(Pairs_Sardine_100_25_10[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="", main="", ylab="")
+hist(Pairs_Sardine_100_10[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="", main="", ylab="")
+hist(Pairs_Sardine_100_10[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="", main="", ylab="")
 
-hist(Pairs_Cod_100_25_20[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="Parent-Offspring Pairs", main="")
+hist(Pairs_Cod_100_20[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="Parent-Offspring Pairs", main="")
 mtext(text="20yr", side=2, line=4.5, font=2)
-hist(Pairs_Cod_100_25_20[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
+hist(Pairs_Cod_100_20[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
 
-hist(Pairs_Flatfish_100_25_20[,1], breaks=seq(-0.5,1e6,10), xlim=c(-0.5,200), las=1, xlab="Parent-Offspring Pairs", main="", ylab="")
-hist(Pairs_Flatfish_100_25_20[,2], breaks=seq(-0.5,1e6,10), xlim=c(-0.5,200), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
+hist(Pairs_Flatfish_100_20[,1], breaks=seq(-0.5,1e6,10), xlim=c(-0.5,200), las=1, xlab="Parent-Offspring Pairs", main="", ylab="")
+hist(Pairs_Flatfish_100_20[,2], breaks=seq(-0.5,1e6,10), xlim=c(-0.5,200), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
 
-hist(Pairs_Sardine_100_25_20[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="Parent-Offspring Pairs", main="", ylab="")
-hist(Pairs_Sardine_100_25_20[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
+hist(Pairs_Sardine_100_20[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="Parent-Offspring Pairs", main="", ylab="")
+hist(Pairs_Sardine_100_20[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,5), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
 #dev.off()
 
 #N1000
 #tiff(paste0(wd,"/CKMRPairs_N1000.tiff"), height=20, width=30, units='cm', compression="lzw", res=500)
 par(mfrow=c(3,6), oma=c(2,2,1,1), mar=c(4,4,2.5,1))
-hist(Pairs_Cod_1000_25_5[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,10), las=1, xlab="", main="")
+hist(Pairs_Cod_1000_5[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,10), las=1, xlab="", main="")
 mtext(text="5yr", side=2, line=4.5, font=2)
 mtext(text="POP", side=3, line=-2,font=2)
-hist(Pairs_Cod_1000_25_5[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,10), las=1, xlab="", main="", ylab="")
+hist(Pairs_Cod_1000_5[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,10), las=1, xlab="", main="", ylab="")
 mtext(text="Cod", side=3, line=2, at=-4, font=2)
 mtext(text="HSP", side=3, line=-2,font=2)
 
-hist(Pairs_Flatfish_1000_25_5[,1], breaks=seq(-0.5,1e6,100), xlim=c(-0.5,15000), las=1, xlab="", main="", ylab="")
+hist(Pairs_Flatfish_1000_5[,1], breaks=seq(-0.5,1e6,100), xlim=c(-0.5,15000), las=1, xlab="", main="", ylab="")
 mtext(text="POP", side=3, line=-2,font=2)
-hist(Pairs_Flatfish_1000_25_5[,2], breaks=seq(-0.5,1e6,100), xlim=c(-0.5,15000), las=1, xlab="", main="", ylab="")
+hist(Pairs_Flatfish_1000_5[,2], breaks=seq(-0.5,1e6,100), xlim=c(-0.5,15000), las=1, xlab="", main="", ylab="")
 mtext(text="Flatfish", side=3, line=2, at=-2500, font=2)
 mtext(text="HSP", side=3, line=-2,font=2)
 
-hist(Pairs_Sardine_1000_25_5[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,100), las=1, xlab="", main="", ylab="")
+hist(Pairs_Sardine_1000_5[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,100), las=1, xlab="", main="", ylab="")
 mtext(text="POP", side=3, line=-2,font=2)
-hist(Pairs_Sardine_1000_25_5[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,100), las=1, xlab="", main="", ylab="")
+hist(Pairs_Sardine_1000_5[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,100), las=1, xlab="", main="", ylab="")
 mtext(text="Sardine", side=3, line=2, at=-25, font=2)
 mtext(text="HSP", side=3, line=-2,font=2)
 
-hist(Pairs_Cod_1000_25_10[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,10), las=1, xlab="", main="")
+hist(Pairs_Cod_1000_10[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,10), las=1, xlab="", main="")
 mtext(text="10yr", side=2, line=4.5, font=2)
-hist(Pairs_Cod_1000_25_10[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,10), las=1, xlab="", main="", ylab="")
+hist(Pairs_Cod_1000_10[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,10), las=1, xlab="", main="", ylab="")
 
-hist(Pairs_Flatfish_1000_25_10[,1], breaks=seq(-0.5,1e6,100), xlim=c(-0.5,15000), las=1, xlab="", main="", ylab="")
-hist(Pairs_Flatfish_1000_25_10[,2], breaks=seq(-0.5,1e6,100), xlim=c(-0.5,15000), las=1, xlab="", main="", ylab="")
+hist(Pairs_Flatfish_1000_10[,1], breaks=seq(-0.5,1e6,100), xlim=c(-0.5,15000), las=1, xlab="", main="", ylab="")
+hist(Pairs_Flatfish_1000_10[,2], breaks=seq(-0.5,1e6,100), xlim=c(-0.5,15000), las=1, xlab="", main="", ylab="")
 
-hist(Pairs_Sardine_1000_25_10[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,100), las=1, xlab="", main="", ylab="")
-hist(Pairs_Sardine_1000_25_10[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,100), las=1, xlab="", main="", ylab="")
+hist(Pairs_Sardine_1000_10[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,100), las=1, xlab="", main="", ylab="")
+hist(Pairs_Sardine_1000_10[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,100), las=1, xlab="", main="", ylab="")
 
-hist(Pairs_Cod_1000_25_20[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,10), las=1, xlab="Parent-Offspring Pairs", main="")
+hist(Pairs_Cod_1000_20[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,10), las=1, xlab="Parent-Offspring Pairs", main="")
 mtext(text="20yr", side=2, line=4.5, font=2)
-hist(Pairs_Cod_1000_25_20[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,10), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
+hist(Pairs_Cod_1000_20[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,10), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
 
-hist(Pairs_Flatfish_1000_25_20[,1], breaks=seq(-0.5,1e6,100), xlim=c(-0.5,15000), las=1, xlab="Parent-Offspring Pairs", main="", ylab="")
-hist(Pairs_Flatfish_1000_25_20[,2], breaks=seq(-0.5,1e6,100), xlim=c(-0.5,15000), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
+hist(Pairs_Flatfish_1000_20[,1], breaks=seq(-0.5,1e6,100), xlim=c(-0.5,15000), las=1, xlab="Parent-Offspring Pairs", main="", ylab="")
+hist(Pairs_Flatfish_1000_20[,2], breaks=seq(-0.5,1e6,100), xlim=c(-0.5,15000), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
 
-hist(Pairs_Sardine_1000_25_20[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,100), las=1, xlab="Parent-Offspring Pairs", main="", ylab="")
-hist(Pairs_Sardine_1000_25_20[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,100), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
+hist(Pairs_Sardine_1000_20[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,100), las=1, xlab="Parent-Offspring Pairs", main="", ylab="")
+hist(Pairs_Sardine_1000_20[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,100), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
 #dev.off()
 
 #N5000
 #tiff(paste0(wd,"/CKMRPairs_N5000.tiff"), height=20, width=30, units='cm', compression="lzw", res=500)
 par(mfrow=c(3,6), oma=c(2,2,1,1), mar=c(4,4,2.5,1))
-hist(Pairs_Cod_5000_25_5[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,120), las=1, xlab="", main="")
+hist(Pairs_Cod_5000_5[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,120), las=1, xlab="", main="")
 mtext(text="5yr", side=2, line=4.5, font=2)
 mtext(text="POP", side=3, line=-2,font=2)
-hist(Pairs_Cod_5000_25_5[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,120), las=1, xlab="", main="", ylab="")
+hist(Pairs_Cod_5000_5[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,120), las=1, xlab="", main="", ylab="")
 mtext(text="Cod", side=3, line=2, at=-30, font=2)
 mtext(text="HSP", side=3, line=-2,font=2)
 
-hist(Pairs_Flatfish_5000_25_5[,1], breaks=seq(-0.5,1e6,2e3), xlim=c(-0.5,3e5), las=1, xlab="", main="", ylab="")
+hist(Pairs_Flatfish_5000_5[,1], breaks=seq(-0.5,1e6,2e3), xlim=c(-0.5,3e5), las=1, xlab="", main="", ylab="")
 mtext(text="POP", side=3, line=-2,font=2)
-hist(Pairs_Flatfish_5000_25_5[,2], breaks=seq(-0.5,1e6,2e3), xlim=c(-0.5,3e5), las=1, xlab="", main="", ylab="")
+hist(Pairs_Flatfish_5000_5[,2], breaks=seq(-0.5,1e6,2e3), xlim=c(-0.5,3e5), las=1, xlab="", main="", ylab="")
 mtext(text="Flatfish", side=3, line=2, at=-50000, font=2)
 mtext(text="HSP", side=3, line=-2,font=2)
 
-hist(Pairs_Sardine_5000_25_5[,1], breaks=seq(-0.5,1e6,50), xlim=c(-0.5,2500), las=1, xlab="", main="", ylab="")
+hist(Pairs_Sardine_5000_5[,1], breaks=seq(-0.5,1e6,50), xlim=c(-0.5,2500), las=1, xlab="", main="", ylab="")
 mtext(text="POP", side=3, line=-2,font=2)
-hist(Pairs_Sardine_5000_25_5[,2], breaks=seq(-0.5,1e6,50), xlim=c(-0.5,2500), las=1, xlab="", main="", ylab="")
+hist(Pairs_Sardine_5000_5[,2], breaks=seq(-0.5,1e6,50), xlim=c(-0.5,2500), las=1, xlab="", main="", ylab="")
 mtext(text="Sardine", side=3, line=2, at=-600, font=2)
 mtext(text="HSP", side=3, line=-2,font=2)
 
-hist(Pairs_Cod_5000_25_10[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,120), las=1, xlab="", main="")
+hist(Pairs_Cod_5000_10[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,120), las=1, xlab="", main="")
 mtext(text="10yr", side=2, line=4.5, font=2)
-hist(Pairs_Cod_5000_25_10[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,120), las=1, xlab="", main="", ylab="")
+hist(Pairs_Cod_5000_10[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,120), las=1, xlab="", main="", ylab="")
 
-hist(Pairs_Flatfish_5000_25_10[,1], breaks=seq(-0.5,1e6,2e3), xlim=c(-0.5,3e5), las=1, xlab="", main="", ylab="")
-hist(Pairs_Flatfish_5000_25_10[,2], breaks=seq(-0.5,1e6,2e3), xlim=c(-0.5,3e5), las=1, xlab="", main="", ylab="")
+hist(Pairs_Flatfish_5000_10[,1], breaks=seq(-0.5,1e6,2e3), xlim=c(-0.5,3e5), las=1, xlab="", main="", ylab="")
+hist(Pairs_Flatfish_5000_10[,2], breaks=seq(-0.5,1e6,2e3), xlim=c(-0.5,3e5), las=1, xlab="", main="", ylab="")
 
-hist(Pairs_Sardine_5000_25_10[,1], breaks=seq(-0.5,1e6,50), xlim=c(-0.5,2500), las=1, xlab="", main="", ylab="")
-hist(Pairs_Sardine_5000_25_10[,2], breaks=seq(-0.5,1e6,50), xlim=c(-0.5,2500), las=1, xlab="", main="", ylab="")
+hist(Pairs_Sardine_5000_10[,1], breaks=seq(-0.5,1e6,50), xlim=c(-0.5,2500), las=1, xlab="", main="", ylab="")
+hist(Pairs_Sardine_5000_10[,2], breaks=seq(-0.5,1e6,50), xlim=c(-0.5,2500), las=1, xlab="", main="", ylab="")
 
-hist(Pairs_Cod_5000_25_20[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,120), las=1, xlab="Parent-Offspring Pairs", main="")
+hist(Pairs_Cod_5000_20[,1], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,120), las=1, xlab="Parent-Offspring Pairs", main="")
 mtext(text="20yr", side=2, line=4.5, font=2)
-hist(Pairs_Cod_5000_25_20[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,120), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
+hist(Pairs_Cod_5000_20[,2], breaks=seq(-0.5,1e6,1), xlim=c(-0.5,120), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
 
-hist(Pairs_Flatfish_5000_25_20[,1], breaks=seq(-0.5,1e6,2e3), xlim=c(-0.5,3e5), las=1, xlab="Parent-Offspring Pairs", main="", ylab="")
-hist(Pairs_Flatfish_5000_25_20[,2], breaks=seq(-0.5,1e6,2e3), xlim=c(-0.5,3e5), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
+hist(Pairs_Flatfish_5000_20[,1], breaks=seq(-0.5,1e6,2e3), xlim=c(-0.5,3e5), las=1, xlab="Parent-Offspring Pairs", main="", ylab="")
+hist(Pairs_Flatfish_5000_20[,2], breaks=seq(-0.5,1e6,2e3), xlim=c(-0.5,3e5), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
 
-hist(Pairs_Sardine_5000_25_20[,1], breaks=seq(-0.5,1e6,50), xlim=c(-0.5,2500), las=1, xlab="Parent-Offspring Pairs", main="", ylab="")
-hist(Pairs_Sardine_5000_25_20[,2], breaks=seq(-0.5,1e6,50), xlim=c(-0.5,2500), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
+hist(Pairs_Sardine_5000_20[,1], breaks=seq(-0.5,1e6,50), xlim=c(-0.5,2500), las=1, xlab="Parent-Offspring Pairs", main="", ylab="")
+hist(Pairs_Sardine_5000_20[,2], breaks=seq(-0.5,1e6,50), xlim=c(-0.5,2500), las=1, xlab="Half-Sibling Pairs", main="", ylab="")
 #dev.off()
 
 #Overlap histograms
 #N5000
 #tiff(paste0(wd,"/CKMRPairs_Overlap.tiff"), height=20, width=30, units='cm', compression="lzw", res=500)
 par(mfrow=c(3,6), oma=c(2,2,1,1), mar=c(4,4,2.5,1))
-hist(Pairs_Cod_5000_25_5[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,100), las=1, xlab="", main="",col=rgb(0.8,0,0,0.2))
-hist(Pairs_Cod_1000_25_5[,1], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0.8,0,0.2))
-hist(Pairs_Cod_100_25_5[,1], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0,0.8,0.2))
+hist(Pairs_Cod_5000_5[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,100), las=1, xlab="", main="",col=rgb(0.8,0,0,0.2))
+hist(Pairs_Cod_1000_5[,1], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0.8,0,0.2))
+hist(Pairs_Cod_100_5[,1], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0,0.8,0.2))
 mtext(text="5yr", side=2, line=4.5, font=2)
 mtext(text="POP", side=3, line=-2,font=2)
-hist(Pairs_Cod_5000_25_5[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,100), las=1, xlab="", main="", ylab="",col=rgb(0.8,0,0,0.2))
-hist(Pairs_Cod_1000_25_5[,2], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0.8,0,0.2))
-hist(Pairs_Cod_100_25_5[,2], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0,0.8,0.2))
+hist(Pairs_Cod_5000_5[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,100), las=1, xlab="", main="", ylab="",col=rgb(0.8,0,0,0.2))
+hist(Pairs_Cod_1000_5[,2], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0.8,0,0.2))
+hist(Pairs_Cod_100_5[,2], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0,0.8,0.2))
 mtext(text="Cod", side=3, line=2, at=-30, font=2)
 mtext(text="HSP", side=3, line=-2,font=2)
 
-hist(Pairs_Flatfish_5000_25_5[,1], breaks=seq(-0.5,1e6,5e3), xlim=c(-1,2.5e5), las=1, xlab="", main="", ylab="",col=rgb(0.8,0,0,0.2))
-hist(Pairs_Flatfish_1000_25_5[,1], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0.8,0,0.2))
-hist(Pairs_Flatfish_100_25_5[,1], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0,0.8,0.2))
+hist(Pairs_Flatfish_5000_5[,1], breaks=seq(-0.5,1e6,5e3), xlim=c(-1,2.5e5), las=1, xlab="", main="", ylab="",col=rgb(0.8,0,0,0.2))
+hist(Pairs_Flatfish_1000_5[,1], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0.8,0,0.2))
+hist(Pairs_Flatfish_100_5[,1], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0,0.8,0.2))
 mtext(text="POP", side=3, line=-2,font=2)
-hist(Pairs_Flatfish_5000_25_5[,2], breaks=seq(-0.5,1e6,5e3), xlim=c(-1,2.5e5), las=1, xlab="", main="", ylab="",col=rgb(0.8,0,0,0.2))
-hist(Pairs_Flatfish_1000_25_5[,2], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0.8,0,0.2))
-hist(Pairs_Flatfish_100_25_5[,2], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0,0.8,0.2))
+hist(Pairs_Flatfish_5000_5[,2], breaks=seq(-0.5,1e6,5e3), xlim=c(-1,2.5e5), las=1, xlab="", main="", ylab="",col=rgb(0.8,0,0,0.2))
+hist(Pairs_Flatfish_1000_5[,2], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0.8,0,0.2))
+hist(Pairs_Flatfish_100_5[,2], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0,0.8,0.2))
 mtext(text="Flatfish", side=3, line=2, at=-50000, font=2)
 mtext(text="HSP", side=3, line=-2,font=2)
 
-hist(Pairs_Sardine_5000_25_5[,1], breaks=seq(-0.5,1e6,50), xlim=c(-1,2200), las=1, xlab="", main="", ylab="",col=rgb(0.8,0,0,0.2))
-hist(Pairs_Sardine_1000_25_5[,1], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0.8,0,0.2))
-hist(Pairs_Sardine_100_25_5[,1], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0,0.8,0.2))
+hist(Pairs_Sardine_5000_5[,1], breaks=seq(-0.5,1e6,50), xlim=c(-1,2200), las=1, xlab="", main="", ylab="",col=rgb(0.8,0,0,0.2))
+hist(Pairs_Sardine_1000_5[,1], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0.8,0,0.2))
+hist(Pairs_Sardine_100_5[,1], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0,0.8,0.2))
 mtext(text="POP", side=3, line=-2,font=2)
-hist(Pairs_Sardine_5000_25_5[,2], breaks=seq(-0.5,1e6,50), xlim=c(-1,2200), las=1, xlab="", main="", ylab="",col=rgb(0.8,0,0,0.2))
-hist(Pairs_Sardine_1000_25_5[,2], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0.8,0,0.2))
-hist(Pairs_Sardine_100_25_5[,2], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0,0.8,0.2))
+hist(Pairs_Sardine_5000_5[,2], breaks=seq(-0.5,1e6,50), xlim=c(-1,2200), las=1, xlab="", main="", ylab="",col=rgb(0.8,0,0,0.2))
+hist(Pairs_Sardine_1000_5[,2], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0.8,0,0.2))
+hist(Pairs_Sardine_100_5[,2], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0,0.8,0.2))
 mtext(text="Sardine", side=3, line=2, at=-600, font=2)
 mtext(text="HSP", side=3, line=-2,font=2)
 
-hist(Pairs_Cod_5000_25_10[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,100), las=1, xlab="", main="",col=rgb(0.8,0,0,0.2))
-hist(Pairs_Cod_1000_25_10[,1], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0.8,0,0.2))
-hist(Pairs_Cod_100_25_10[,1], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0,0.8,0.2))
+hist(Pairs_Cod_5000_10[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,100), las=1, xlab="", main="",col=rgb(0.8,0,0,0.2))
+hist(Pairs_Cod_1000_10[,1], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0.8,0,0.2))
+hist(Pairs_Cod_100_10[,1], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0,0.8,0.2))
 mtext(text="10yr", side=2, line=4.5, font=2)
-hist(Pairs_Cod_5000_25_10[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,100), las=1, xlab="", main="", ylab="",col=rgb(0.8,0,0,0.2))
-hist(Pairs_Cod_1000_25_10[,2], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0.8,0,0.2))
-hist(Pairs_Cod_100_25_10[,2], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0,0.8,0.2))
+hist(Pairs_Cod_5000_10[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,100), las=1, xlab="", main="", ylab="",col=rgb(0.8,0,0,0.2))
+hist(Pairs_Cod_1000_10[,2], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0.8,0,0.2))
+hist(Pairs_Cod_100_10[,2], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0,0.8,0.2))
 
-hist(Pairs_Flatfish_5000_25_10[,1], breaks=seq(-0.5,1e6,5e3), xlim=c(-1,2.5e5), las=1, xlab="", main="", ylab="",col=rgb(0.8,0,0,0.2))
-hist(Pairs_Flatfish_1000_25_10[,1], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0.8,0,0.2))
-hist(Pairs_Flatfish_100_25_10[,1], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0,0.8,0.2))
-hist(Pairs_Flatfish_5000_25_10[,2], breaks=seq(-0.5,1e6,5e3), xlim=c(-1,2.5e5), las=1, xlab="", main="", ylab="",col=rgb(0.8,0,0,0.2))
-hist(Pairs_Flatfish_1000_25_10[,2], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0.8,0,0.2))
-hist(Pairs_Flatfish_100_25_10[,2], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0,0.8,0.2))
+hist(Pairs_Flatfish_5000_10[,1], breaks=seq(-0.5,1e6,5e3), xlim=c(-1,2.5e5), las=1, xlab="", main="", ylab="",col=rgb(0.8,0,0,0.2))
+hist(Pairs_Flatfish_1000_10[,1], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0.8,0,0.2))
+hist(Pairs_Flatfish_100_10[,1], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0,0.8,0.2))
+hist(Pairs_Flatfish_5000_10[,2], breaks=seq(-0.5,1e6,5e3), xlim=c(-1,2.5e5), las=1, xlab="", main="", ylab="",col=rgb(0.8,0,0,0.2))
+hist(Pairs_Flatfish_1000_10[,2], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0.8,0,0.2))
+hist(Pairs_Flatfish_100_10[,2], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0,0.8,0.2))
 
-hist(Pairs_Sardine_5000_25_10[,1], breaks=seq(-0.5,1e6,50), xlim=c(-1,2200), las=1, xlab="", main="", ylab="",col=rgb(0.8,0,0,0.2))
-hist(Pairs_Sardine_1000_25_10[,1], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0.8,0,0.2))
-hist(Pairs_Sardine_100_25_10[,1], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0,0.8,0.2))
-hist(Pairs_Sardine_5000_25_10[,2], breaks=seq(-0.5,1e6,50), xlim=c(-1,2200), las=1, xlab="", main="", ylab="",col=rgb(0.8,0,0,0.2))
-hist(Pairs_Sardine_1000_25_10[,2], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0.8,0,0.2))
-hist(Pairs_Sardine_100_25_10[,2], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0,0.8,0.2))
+hist(Pairs_Sardine_5000_10[,1], breaks=seq(-0.5,1e6,50), xlim=c(-1,2200), las=1, xlab="", main="", ylab="",col=rgb(0.8,0,0,0.2))
+hist(Pairs_Sardine_1000_10[,1], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0.8,0,0.2))
+hist(Pairs_Sardine_100_10[,1], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0,0.8,0.2))
+hist(Pairs_Sardine_5000_10[,2], breaks=seq(-0.5,1e6,50), xlim=c(-1,2200), las=1, xlab="", main="", ylab="",col=rgb(0.8,0,0,0.2))
+hist(Pairs_Sardine_1000_10[,2], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0.8,0,0.2))
+hist(Pairs_Sardine_100_10[,2], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0,0.8,0.2))
 
-hist(Pairs_Cod_5000_25_20[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,100), las=1, xlab="Parent-Offspring Pairs", main="",col=rgb(0.8,0,0,0.2))
-hist(Pairs_Cod_1000_25_20[,1], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0.8,0,0.2))
-hist(Pairs_Cod_100_25_20[,1], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0,0.8,0.2))
+hist(Pairs_Cod_5000_20[,1], breaks=seq(-0.5,1e6,1), xlim=c(-1,100), las=1, xlab="Parent-Offspring Pairs", main="",col=rgb(0.8,0,0,0.2))
+hist(Pairs_Cod_1000_20[,1], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0.8,0,0.2))
+hist(Pairs_Cod_100_20[,1], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0,0.8,0.2))
 mtext(text="20yr", side=2, line=4.5, font=2)
-hist(Pairs_Cod_5000_25_20[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,100), las=1, xlab="Half-Sibling Pairs", main="", ylab="",col=rgb(0.8,0,0,0.2))
-hist(Pairs_Cod_1000_25_20[,2], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0.8,0,0.2))
-hist(Pairs_Cod_100_25_20[,2], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0,0.8,0.2))
+hist(Pairs_Cod_5000_20[,2], breaks=seq(-0.5,1e6,1), xlim=c(-1,100), las=1, xlab="Half-Sibling Pairs", main="", ylab="",col=rgb(0.8,0,0,0.2))
+hist(Pairs_Cod_1000_20[,2], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0.8,0,0.2))
+hist(Pairs_Cod_100_20[,2], breaks=seq(-0.5,1e6,1), add=TRUE, col=rgb(0,0,0.8,0.2))
 
-hist(Pairs_Flatfish_5000_25_20[,1], breaks=seq(-0.5,1e6,5e3), xlim=c(-1,2.5e5), las=1, xlab="Parent-Offspring Pairs", main="", ylab="",col=rgb(0.8,0,0,0.2))
-hist(Pairs_Flatfish_1000_25_20[,1], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0.8,0,0.2))
-hist(Pairs_Flatfish_100_25_20[,1], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0,0.8,0.2))
-hist(Pairs_Flatfish_5000_25_20[,2], breaks=seq(-0.5,1e6,5e3), xlim=c(-1,2.5e5), las=1, xlab="Half-Sibling Pairs", main="", ylab="",col=rgb(0.8,0,0,0.2))
-hist(Pairs_Flatfish_1000_25_20[,2], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0.8,0,0.2))
-hist(Pairs_Flatfish_100_25_20[,2], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0,0.8,0.2))
+hist(Pairs_Flatfish_5000_20[,1], breaks=seq(-0.5,1e6,5e3), xlim=c(-1,2.5e5), las=1, xlab="Parent-Offspring Pairs", main="", ylab="",col=rgb(0.8,0,0,0.2))
+hist(Pairs_Flatfish_1000_20[,1], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0.8,0,0.2))
+hist(Pairs_Flatfish_100_20[,1], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0,0.8,0.2))
+hist(Pairs_Flatfish_5000_20[,2], breaks=seq(-0.5,1e6,5e3), xlim=c(-1,2.5e5), las=1, xlab="Half-Sibling Pairs", main="", ylab="",col=rgb(0.8,0,0,0.2))
+hist(Pairs_Flatfish_1000_20[,2], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0.8,0,0.2))
+hist(Pairs_Flatfish_100_20[,2], breaks=seq(-0.5,1e6,5e3), add=TRUE, col=rgb(0,0,0.8,0.2))
 
-hist(Pairs_Sardine_5000_25_20[,1], breaks=seq(-0.5,1e6,50), xlim=c(-1,2200), las=1, xlab="Parent-Offspring Pairs", main="", ylab="",col=rgb(0.8,0,0,0.2))
-hist(Pairs_Sardine_1000_25_20[,1], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0.8,0,0.2))
-hist(Pairs_Sardine_100_25_20[,1], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0,0.8,0.2))
-hist(Pairs_Sardine_5000_25_20[,2], breaks=seq(-0.5,1e6,50), xlim=c(-1,2200), las=1, xlab="Half-Sibling Pairs", main="", ylab="",col=rgb(0.8,0,0,0.2))
-hist(Pairs_Sardine_1000_25_20[,2], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0.8,0,0.2))
-hist(Pairs_Sardine_100_25_20[,2], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0,0.8,0.2))
+hist(Pairs_Sardine_5000_20[,1], breaks=seq(-0.5,1e6,50), xlim=c(-1,2200), las=1, xlab="Parent-Offspring Pairs", main="", ylab="",col=rgb(0.8,0,0,0.2))
+hist(Pairs_Sardine_1000_20[,1], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0.8,0,0.2))
+hist(Pairs_Sardine_100_20[,1], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0,0.8,0.2))
+hist(Pairs_Sardine_5000_20[,2], breaks=seq(-0.5,1e6,50), xlim=c(-1,2200), las=1, xlab="Half-Sibling Pairs", main="", ylab="",col=rgb(0.8,0,0,0.2))
+hist(Pairs_Sardine_1000_20[,2], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0.8,0,0.2))
+hist(Pairs_Sardine_100_20[,2], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0,0.8,0.2))
 #dev.off()
 
 #Plots of Selectivity
@@ -574,9 +493,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind25_5yrs_noCKMR.RData"))
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind25_5yrs_noCKMR.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind25_5yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_100_25_5
-Flatfish_wdat<-Flatfish_100_25_5
-Sardine_wdat<-Sardine_100_25_5
+Cod_wdat<-Cod_100_5
+Flatfish_wdat<-Flatfish_100_5
+Sardine_wdat<-Sardine_100_5
   
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -678,9 +597,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind25_5yrs_noCKMR.RData"))
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind25_5yrs_noCKMR.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind25_5yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_1000_25_5
-Flatfish_wdat<-Flatfish_1000_25_5
-Sardine_wdat<-Sardine_1000_25_5
+Cod_wdat<-Cod_1000_5
+Flatfish_wdat<-Flatfish_1000_5
+Sardine_wdat<-Sardine_1000_5
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -781,9 +700,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind25_5yrs_noCKMR.RData"))
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind25_5yrs_noCKMR.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind25_5yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_5000_25_5
-Flatfish_wdat<-Flatfish_5000_25_5
-Sardine_wdat<-Sardine_5000_25_5
+Cod_wdat<-Cod_5000_5
+Flatfish_wdat<-Flatfish_5000_5
+Sardine_wdat<-Sardine_5000_5
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -885,9 +804,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind50_5yrs_noCKMR.RData"))
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind50_5yrs_noCKMR.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind50_5yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_100_50_5
-Flatfish_wdat<-Flatfish_100_50_5
-Sardine_wdat<-Sardine_100_50_5
+Cod_wdat<-Cod_100_5
+Flatfish_wdat<-Flatfish_100_5
+Sardine_wdat<-Sardine_100_5
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -988,9 +907,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind50_5yrs_noCKMR.RData"))
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind50_5yrs_noCKMR.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind50_5yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_1000_50_5
-Flatfish_wdat<-Flatfish_1000_50_5
-Sardine_wdat<-Sardine_1000_50_5
+Cod_wdat<-Cod_1000_5
+Flatfish_wdat<-Flatfish_1000_5
+Sardine_wdat<-Sardine_1000_5
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -1091,9 +1010,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind50_5yrs_noCKMR.RData"))
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind50_5yrs_noCKMR.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind50_5yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_5000_50_5
-Flatfish_wdat<-Flatfish_5000_50_5
-Sardine_wdat<-Sardine_5000_50_5
+Cod_wdat<-Cod_5000_5
+Flatfish_wdat<-Flatfish_5000_5
+Sardine_wdat<-Sardine_5000_5
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -1199,9 +1118,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind25_10yrs_noCKMR.RData"))
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind25_10yrs_noCKMR.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind25_10yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_100_25_10
-Flatfish_wdat<-Flatfish_100_25_10
-Sardine_wdat<-Sardine_100_25_10
+Cod_wdat<-Cod_100_10
+Flatfish_wdat<-Flatfish_100_10
+Sardine_wdat<-Sardine_100_10
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -1302,9 +1221,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind25_10yrs_noCKMR.RData"))
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind25_10yrs_noCKMR.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind25_10yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_1000_25_10
-Flatfish_wdat<-Flatfish_1000_25_10
-Sardine_wdat<-Sardine_1000_25_10
+Cod_wdat<-Cod_1000_10
+Flatfish_wdat<-Flatfish_1000_10
+Sardine_wdat<-Sardine_1000_10
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -1405,9 +1324,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind25_10yrs_noCKMR.RData"))
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind25_10yrs_noCKMR.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind25_10yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_5000_25_10
-Flatfish_wdat<-Flatfish_5000_25_10
-Sardine_wdat<-Sardine_5000_25_10
+Cod_wdat<-Cod_5000_10
+Flatfish_wdat<-Flatfish_5000_10
+Sardine_wdat<-Sardine_5000_10
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -1509,9 +1428,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind50_10yrs_noCKMR.RData"))
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind50_10yrs_noCKMR.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind50_10yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_100_50_10
-Flatfish_wdat<-Flatfish_100_50_10
-Sardine_wdat<-Sardine_100_50_10
+Cod_wdat<-Cod_100_10
+Flatfish_wdat<-Flatfish_100_10
+Sardine_wdat<-Sardine_100_10
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -1613,9 +1532,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind50_10yrs_noCKMR.RData"))
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind50_10yrs_noCKMR.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind50_10yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_1000_50_10
-Flatfish_wdat<-Flatfish_1000_50_10
-Sardine_wdat<-Sardine_1000_50_10
+Cod_wdat<-Cod_1000_10
+Flatfish_wdat<-Flatfish_1000_10
+Sardine_wdat<-Sardine_1000_10
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -1716,9 +1635,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind50_10yrs_noCKMR.RData"))
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind50_10yrs_noCKMR.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind50_10yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_5000_50_10
-Flatfish_wdat<-Flatfish_5000_50_10
-Sardine_wdat<-Sardine_5000_50_10
+Cod_wdat<-Cod_5000_10
+Flatfish_wdat<-Flatfish_5000_10
+Sardine_wdat<-Sardine_5000_10
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -1824,9 +1743,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind25_20yrs_noCKMR.RData"))
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind25_20yrs_noCKMR.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind25_20yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_100_25_20
-Flatfish_wdat<-Flatfish_100_25_20
-Sardine_wdat<-Sardine_100_25_20
+Cod_wdat<-Cod_100_20
+Flatfish_wdat<-Flatfish_100_20
+Sardine_wdat<-Sardine_100_20
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -1927,9 +1846,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind25_20yrs_noCKMR.RData"))
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind25_20yrs_noCKMR.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind25_20yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_1000_25_20
-Flatfish_wdat<-Flatfish_1000_25_20
-Sardine_wdat<-Sardine_1000_25_20
+Cod_wdat<-Cod_1000_20
+Flatfish_wdat<-Flatfish_1000_20
+Sardine_wdat<-Sardine_1000_20
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -2031,9 +1950,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind25_20yrs_noCKMR.RData"))
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind25_20yrs_noCKMR.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind25_20yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_5000_25_20
-Flatfish_wdat<-Flatfish_5000_25_20
-Sardine_wdat<-Sardine_5000_25_20
+Cod_wdat<-Cod_5000_20
+Flatfish_wdat<-Flatfish_5000_20
+Sardine_wdat<-Sardine_5000_20
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -2135,9 +2054,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind50_20yrs_noCKMR.RData"))
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind50_20yrs_noCKMR.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind50_20yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_100_50_20
-Flatfish_wdat<-Flatfish_100_50_20
-Sardine_wdat<-Sardine_100_50_20
+Cod_wdat<-Cod_100_20
+Flatfish_wdat<-Flatfish_100_20
+Sardine_wdat<-Sardine_100_20
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -2238,9 +2157,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind50_20yrs_noCKMR.RData"))
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind50_20yrs_noCKMR.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind50_20yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_1000_50_20
-Flatfish_wdat<-Flatfish_1000_50_20
-Sardine_wdat<-Sardine_1000_50_20
+Cod_wdat<-Cod_1000_20
+Flatfish_wdat<-Flatfish_1000_20
+Sardine_wdat<-Sardine_1000_20
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -2341,9 +2260,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind50_20yrs_noCKMR.RData"))
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind50_20yrs_noCKMR.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind50_20yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_5000_50_20
-Flatfish_wdat<-Flatfish_5000_50_20
-Sardine_wdat<-Sardine_5000_50_20
+Cod_wdat<-Cod_5000_20
+Flatfish_wdat<-Flatfish_5000_20
+Sardine_wdat<-Sardine_5000_20
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -2449,9 +2368,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_NoIndex_5yrs_noCKMR.RData"))
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_NoIndex_5yrs_noCKMR.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_NoIndex_5yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_100_25_5
-Flatfish_wdat<-Flatfish_100_25_5
-Sardine_wdat<-Sardine_100_25_5
+Cod_wdat<-Cod_100_5
+Flatfish_wdat<-Flatfish_100_5
+Sardine_wdat<-Sardine_100_5
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -2552,9 +2471,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_NoIndex_5yrs_noCKMR.RData")
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_NoIndex_5yrs_noCKMR.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_NoIndex_5yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_1000_25_5
-Flatfish_wdat<-Flatfish_1000_25_5
-Sardine_wdat<-Sardine_1000_25_5
+Cod_wdat<-Cod_1000_5
+Flatfish_wdat<-Flatfish_1000_5
+Sardine_wdat<-Sardine_1000_5
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -2654,9 +2573,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_NoIndex_5yrs_noCKMR.RData")
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_NoIndex_5yrs_noCKMR.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_NoIndex_5yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_5000_25_5
-Flatfish_wdat<-Flatfish_5000_25_5
-Sardine_wdat<-Sardine_5000_25_5
+Cod_wdat<-Cod_5000_5
+Flatfish_wdat<-Flatfish_5000_5
+Sardine_wdat<-Sardine_5000_5
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -2761,9 +2680,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_NoIndex_10yrs_noCKMR.RData")
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_NoIndex_10yrs_noCKMR.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_NoIndex_10yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_100_25_10
-Flatfish_wdat<-Flatfish_100_25_10
-Sardine_wdat<-Sardine_100_25_10
+Cod_wdat<-Cod_100_10
+Flatfish_wdat<-Flatfish_100_10
+Sardine_wdat<-Sardine_100_10
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -2864,9 +2783,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_NoIndex_10yrs_noCKMR.RData"
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_NoIndex_10yrs_noCKMR.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_NoIndex_10yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_1000_25_10
-Flatfish_wdat<-Flatfish_1000_25_10
-Sardine_wdat<-Sardine_1000_25_10
+Cod_wdat<-Cod_1000_10
+Flatfish_wdat<-Flatfish_1000_10
+Sardine_wdat<-Sardine_1000_10
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -2967,9 +2886,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_NoIndex_10yrs_noCKMR.RData"
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_NoIndex_10yrs_noCKMR.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_NoIndex_10yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_5000_25_10
-Flatfish_wdat<-Flatfish_5000_25_10
-Sardine_wdat<-Sardine_5000_25_10
+Cod_wdat<-Cod_5000_10
+Flatfish_wdat<-Flatfish_5000_10
+Sardine_wdat<-Sardine_5000_10
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -3071,9 +2990,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_NoIndex_20yrs_noCKMR.RData")
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_NoIndex_20yrs_noCKMR.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_NoIndex_20yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_100_25_20
-Flatfish_wdat<-Flatfish_100_25_20
-Sardine_wdat<-Sardine_100_25_20
+Cod_wdat<-Cod_100_20
+Flatfish_wdat<-Flatfish_100_20
+Sardine_wdat<-Sardine_100_20
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -3174,9 +3093,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_NoIndex_20yrs_noCKMR.RData"
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_NoIndex_20yrs_noCKMR.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_NoIndex_20yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_1000_25_20
-Flatfish_wdat<-Flatfish_1000_25_20
-Sardine_wdat<-Sardine_1000_25_20
+Cod_wdat<-Cod_1000_20
+Flatfish_wdat<-Flatfish_1000_20
+Sardine_wdat<-Sardine_1000_20
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -3277,9 +3196,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_NoIndex_20yrs_noCKMR.RData"
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_NoIndex_20yrs_noCKMR.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_NoIndex_20yrs_noCKMR.RData"))
 
-Cod_wdat<-Cod_5000_25_20
-Flatfish_wdat<-Flatfish_5000_25_20
-Sardine_wdat<-Sardine_5000_25_20
+Cod_wdat<-Cod_5000_20
+Flatfish_wdat<-Flatfish_5000_20
+Sardine_wdat<-Sardine_5000_20
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -3385,9 +3304,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind25_ckmrmultinom5.RData"))
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind25_ckmrmultinom5.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind25_ckmrmultinom5.RData"))
 
-load(paste0(wd,"/Cod_wdat_N100_Ind25_ckmrmultinom5_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmrmultinom5_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N100_Ind25_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Cod_wdat_N100_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N100_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N100_ckmrmultinom5_1.RData"))
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -3489,9 +3408,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind25_ckmrmultinom5.RData")
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind25_ckmrmultinom5.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind25_ckmrmultinom5.RData"))
 
-load(paste0(wd,"/Cod_wdat_N1000_Ind25_ckmrmultinom5_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N1000_Ind25_ckmrmultinom5_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N1000_Ind25_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Cod_wdat_N1000_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N1000_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N1000_ckmrmultinom5_1.RData"))
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -3593,9 +3512,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind25_ckmrmultinom5.RData")
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind25_ckmrmultinom5.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind25_ckmrmultinom5.RData"))
 
-load(paste0(wd,"/Cod_wdat_N5000_Ind25_ckmrmultinom5_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N5000_Ind25_ckmrmultinom5_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N5000_Ind25_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Cod_wdat_N5000_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N5000_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N5000_ckmrmultinom5_1.RData"))
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -3697,9 +3616,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind50_ckmrmultinom5.RData"))
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind50_ckmrmultinom5.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind50_ckmrmultinom5.RData"))
 
-load(paste0(wd,"/Cod_wdat_N100_Ind50_ckmrmultinom5_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N100_Ind50_ckmrmultinom5_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N100_Ind50_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Cod_wdat_N100_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N100_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N100_ckmrmultinom5_1.RData"))
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -3801,9 +3720,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind50_ckmrmultinom5.RData")
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind50_ckmrmultinom5.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind50_ckmrmultinom5.RData"))
 
-load(paste0(wd,"/Cod_wdat_N1000_Ind50_ckmrmultinom5_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N1000_Ind50_ckmrmultinom5_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N1000_Ind50_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Cod_wdat_N1000_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N1000_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N1000_ckmrmultinom5_1.RData"))
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -3905,9 +3824,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind50_ckmrmultinom5.RData")
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind50_ckmrmultinom5.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind50_ckmrmultinom5.RData"))
 
-load(paste0(wd,"/Cod_wdat_N5000_Ind50_ckmrmultinom5_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N5000_Ind50_ckmrmultinom5_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N5000_Ind50_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Cod_wdat_N5000_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N5000_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N5000_ckmrmultinom5_1.RData"))
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -4009,9 +3928,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind25_ckmrmultinom10.RData")
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind25_ckmrmultinom10.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind25_ckmrmultinom10.RData"))
 
-load(paste0(wd,"/Cod_wdat_N100_Ind25_ckmrmultinom10_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmrmultinom10_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N100_Ind25_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Cod_wdat_N100_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N100_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N100_ckmrmultinom10_1.RData"))
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -4113,9 +4032,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind25_ckmrmultinom10.RData"
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind25_ckmrmultinom10.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind25_ckmrmultinom10.RData"))
 
-load(paste0(wd,"/Cod_wdat_N1000_Ind25_ckmrmultinom10_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N1000_Ind25_ckmrmultinom10_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N1000_Ind25_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Cod_wdat_N1000_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N1000_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N1000_ckmrmultinom10_1.RData"))
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -4217,9 +4136,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind25_ckmrmultinom10.RData"
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind25_ckmrmultinom10.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind25_ckmrmultinom10.RData"))
 
-load(paste0(wd,"/Cod_wdat_N5000_Ind25_ckmrmultinom10_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N5000_Ind25_ckmrmultinom10_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N5000_Ind25_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Cod_wdat_N5000_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N5000_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N5000_ckmrmultinom10_1.RData"))
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -4321,9 +4240,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind50_ckmrmultinom10.RData")
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind50_ckmrmultinom10.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind50_ckmrmultinom10.RData"))
 
-load(paste0(wd,"/Cod_wdat_N100_Ind50_ckmrmultinom10_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N100_Ind50_ckmrmultinom10_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N100_Ind50_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Cod_wdat_N100_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N100_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N100_ckmrmultinom10_1.RData"))
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -4425,9 +4344,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind50_ckmrmultinom10.RData"
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind50_ckmrmultinom10.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind50_ckmrmultinom10.RData"))
 
-load(paste0(wd,"/Cod_wdat_N1000_Ind50_ckmrmultinom10_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N1000_Ind50_ckmrmultinom10_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N1000_Ind50_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Cod_wdat_N1000_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N1000_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N1000_ckmrmultinom10_1.RData"))
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -4529,9 +4448,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind50_ckmrmultinom10.RData"
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind50_ckmrmultinom10.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind50_ckmrmultinom10.RData"))
 
-load(paste0(wd,"/Cod_wdat_N5000_Ind50_ckmrmultinom10_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N5000_Ind50_ckmrmultinom10_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N5000_Ind50_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Cod_wdat_N5000_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N5000_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N5000_ckmrmultinom10_1.RData"))
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -4634,9 +4553,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind25_ckmrmultinom20.RData")
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind25_ckmrmultinom20.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind25_ckmrmultinom20.RData"))
 
-load(paste0(wd,"/Cod_wdat_N100_Ind25_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N100_Ind25_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Cod_wdat_N100_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N100_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N100_ckmrmultinom20_1.RData"))
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -4738,9 +4657,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind25_ckmrmultinom20.RData"
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind25_ckmrmultinom20.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind25_ckmrmultinom20.RData"))
 
-load(paste0(wd,"/Cod_wdat_N1000_Ind25_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N1000_Ind25_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N1000_Ind25_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Cod_wdat_N1000_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N1000_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N1000_ckmrmultinom20_1.RData"))
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -4842,9 +4761,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind25_ckmrmultinom20.RData"
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind25_ckmrmultinom20.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind25_ckmrmultinom20.RData"))
 
-load(paste0(wd,"/Cod_wdat_N5000_Ind25_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N5000_Ind25_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N5000_Ind25_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Cod_wdat_N5000_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N5000_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N5000_ckmrmultinom20_1.RData"))
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -4946,9 +4865,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_Ind50_ckmrmultinom20.RData")
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_Ind50_ckmrmultinom20.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_Ind50_ckmrmultinom20.RData"))
 
-load(paste0(wd,"/Cod_wdat_N100_Ind50_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N100_Ind50_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N100_Ind50_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Cod_wdat_N100_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N100_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N100_ckmrmultinom20_1.RData"))
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -5050,9 +4969,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_Ind50_ckmrmultinom20.RData"
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_Ind50_ckmrmultinom20.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_Ind50_ckmrmultinom20.RData"))
 
-load(paste0(wd,"/Cod_wdat_N1000_Ind50_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N1000_Ind50_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N1000_Ind50_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Cod_wdat_N1000_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N1000_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N1000_ckmrmultinom20_1.RData"))
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -5154,9 +5073,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_Ind50_ckmrmultinom20.RData"
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_Ind50_ckmrmultinom20.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_Ind50_ckmrmultinom20.RData"))
 
-load(paste0(wd,"/Cod_wdat_N5000_Ind50_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N5000_Ind50_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N5000_Ind50_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Cod_wdat_N5000_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N5000_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N5000_ckmrmultinom20_1.RData"))
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -5262,9 +5181,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_NoIndex_ckmrmultinom5.RData"
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_NoIndex_ckmrmultinom5.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_NoIndex_ckmrmultinom5.RData"))
 
-load(paste0(wd,"/Cod_wdat_N100_Ind25_ckmrmultinom5_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmrmultinom5_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N100_Ind25_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Cod_wdat_N100_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N100_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N100_ckmrmultinom5_1.RData"))
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -5366,9 +5285,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_NoIndex_ckmrmultinom5.RData
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_NoIndex_ckmrmultinom5.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_NoIndex_ckmrmultinom5.RData"))
 
-load(paste0(wd,"/Cod_wdat_N1000_Ind25_ckmrmultinom5_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N1000_Ind25_ckmrmultinom5_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N1000_Ind25_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Cod_wdat_N1000_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N1000_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N1000_ckmrmultinom5_1.RData"))
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -5470,9 +5389,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_NoIndex_ckmrmultinom5.RData
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_NoIndex_ckmrmultinom5.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_NoIndex_ckmrmultinom5.RData"))
 
-load(paste0(wd,"/Cod_wdat_N5000_Ind25_ckmrmultinom5_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N5000_Ind25_ckmrmultinom5_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N5000_Ind25_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Cod_wdat_N5000_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N5000_ckmrmultinom5_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N5000_ckmrmultinom5_1.RData"))
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -5574,9 +5493,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_NoIndex_ckmrmultinom10.RData
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_NoIndex_ckmrmultinom10.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_NoIndex_ckmrmultinom10.RData"))
 
-load(paste0(wd,"/Cod_wdat_N100_Ind25_ckmrmultinom10_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmrmultinom10_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N100_Ind25_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Cod_wdat_N100_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N100_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N100_ckmrmultinom10_1.RData"))
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -5678,9 +5597,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_NoIndex_ckmrmultinom10.RDat
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_NoIndex_ckmrmultinom10.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_NoIndex_ckmrmultinom10.RData"))
 
-load(paste0(wd,"/Cod_wdat_N1000_Ind25_ckmrmultinom10_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N1000_Ind25_ckmrmultinom10_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N1000_Ind25_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Cod_wdat_N1000_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N1000_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N1000_ckmrmultinom10_1.RData"))
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -5782,9 +5701,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_NoIndex_ckmrmultinom10.RDat
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_NoIndex_ckmrmultinom10.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_NoIndex_ckmrmultinom10.RData"))
 
-load(paste0(wd,"/Cod_wdat_N5000_Ind25_ckmrmultinom10_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N5000_Ind25_ckmrmultinom10_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N5000_Ind25_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Cod_wdat_N5000_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N5000_ckmrmultinom10_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N5000_ckmrmultinom10_1.RData"))
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -5888,9 +5807,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N100_NoIndex_ckmrmultinom20.RData
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N100_NoIndex_ckmrmultinom20.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N100_NoIndex_ckmrmultinom20.RData"))
 
-load(paste0(wd,"/Cod_wdat_N100_Ind25_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N100_Ind25_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N100_Ind25_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Cod_wdat_N100_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N100_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N100_ckmrmultinom20_1.RData"))
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -5992,9 +5911,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N1000_NoIndex_ckmrmultinom20.RDat
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N1000_NoIndex_ckmrmultinom20.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N1000_NoIndex_ckmrmultinom20.RData"))
 
-load(paste0(wd,"/Cod_wdat_N1000_Ind25_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N1000_Ind25_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N1000_Ind25_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Cod_wdat_N1000_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N1000_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N1000_ckmrmultinom20_1.RData"))
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
@@ -6096,9 +6015,9 @@ res_list[[1]]<-readRDS(paste0(wd,"/SCAAfit_Cod_N5000_NoIndex_ckmrmultinom20.RDat
 res_list[[2]]<-readRDS(paste0(wd,"/SCAAfit_Flatfish_N5000_NoIndex_ckmrmultinom20.RData"))
 res_list[[3]]<-readRDS(paste0(wd,"/SCAAfit_Sardine_N5000_NoIndex_ckmrmultinom20.RData"))
 
-load(paste0(wd,"/Cod_wdat_N5000_Ind25_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Flatfish_wdat_N5000_Ind25_ckmrmultinom20_1.RData"))
-load(paste0(wd,"/Sardine_wdat_N5000_Ind25_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Cod_wdat_N5000_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Flatfish_wdat_N5000_ckmrmultinom20_1.RData"))
+load(paste0(wd,"/Sardine_wdat_N5000_ckmrmultinom20_1.RData"))
 
 re_Dep<-re_SSB<-array(NA, dim=c(3,100,76))
 re_R0<-re_M<-matrix(NA, nrow=100, ncol=3)
