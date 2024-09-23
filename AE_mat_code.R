@@ -87,7 +87,7 @@ AE_mat_list<-list(AE_mat_Cod, AE_mat_Flatfish, AE_mat_Sardine)
 #saveRDS(AE_mat_list, file="C:/Users/fischn/Documents/GitHub/CKMR_Project/AE_mat_list.RData")
 
 
-#tiff(filename="C:/Users/fischn/Documents/GitHub/CKMR_Project/Age_error.tiff", height=30, width=45, units='cm', compression="lzw", res=500)
+#tiff(filename="C:/Users/fischn/Documents/GitHub/CKMR_Project/Age_error.tiff", height=22.5, width=37.5, units='cm', compression="lzw", res=500)
 par(mfrow=c(2,3), mar=c(3,3.5,1,1), oma=c(3,3,1,1))
 plot(0:25,Cod_CV, main="Cod", ylab="", pch=16, las=1, ylim=c(0,1), xlab="")
 mtext("CV",side=2, line=3)
