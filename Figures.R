@@ -1,38 +1,7 @@
 #####################################################
-#Plot combining no ageing error with ageing error
-#####################################################
 #SD index = 0.5
 #SE of SSB within Sims
 #####################################################
-
-#Placeholder until results come out
-SD_ssb_N5000_Ind25_ckmrmultinom20<-SD_ssb_N5000_Ind25_ckmrmultinom20_woAE
-SD_ssb_N5000_NoIndex_ckmrmultinom20<-SD_ssb_N5000_NoIndex_ckmrmultinom20_woAE
-
-SD_M_N5000_Ind25_ckmrmultinom20<-SD_M_N5000_Ind25_ckmrmultinom20_woAE
-SD_M_N5000_NoIndex_ckmrmultinom20<-SD_M_N5000_NoIndex_ckmrmultinom20_woAE
-
-SD_R0_N5000_Ind25_ckmrmultinom20<-SD_R0_N5000_Ind25_ckmrmultinom20_woAE
-SD_R0_N5000_NoIndex_ckmrmultinom20<-SD_R0_N5000_NoIndex_ckmrmultinom20_woAE
-
-RE_ssb_N5000_Ind25_ckmrmultinom20<-RE_ssb_N5000_Ind25_ckmrmultinom20_woAE
-RE_ssb_N5000_NoIndex_ckmrmultinom20<-RE_ssb_N5000_NoIndex_ckmrmultinom20_woAE
-
-RE_M_N5000_Ind25_ckmrmultinom20<-RE_M_N5000_Ind25_ckmrmultinom20_woAE
-RE_M_N5000_NoIndex_ckmrmultinom20<-RE_M_N5000_NoIndex_ckmrmultinom20_woAE
-
-RE_R0_N5000_Ind25_ckmrmultinom20<-RE_R0_N5000_Ind25_ckmrmultinom20_woAE
-RE_R0_N5000_NoIndex_ckmrmultinom20<-RE_R0_N5000_NoIndex_ckmrmultinom20_woAE
-
-IQR_RE_ssb_N5000_Ind50_ckmrmultinom20<-IQR_RE_ssb_N5000_Ind50_ckmrmultinom20_woAE
-IQR_RE_ssb_N5000_Ind25_ckmrmultinom20<-IQR_RE_ssb_N5000_Ind25_ckmrmultinom20_woAE
-IQR_RE_ssb_N5000_NoIndex_ckmrmultinom20<-IQR_RE_ssb_N5000_NoIndex_ckmrmultinom20_woAE
-
-IQR_RE_M_N5000_Ind25_ckmrmultinom20<-IQR_RE_M_N5000_Ind25_ckmrmultinom20_woAE
-IQR_RE_M_N5000_NoIndex_ckmrmultinom20<-IQR_RE_M_N5000_NoIndex_ckmrmultinom20_woAE
-
-IQR_RE_R0_N5000_Ind25_ckmrmultinom20<-IQR_RE_R0_N5000_Ind25_ckmrmultinom20_woAE
-IQR_RE_R0_N5000_NoIndex_ckmrmultinom20<-IQR_RE_R0_N5000_NoIndex_ckmrmultinom20_woAE
 
 #Pairs plot
 #tiff(filename="C:/Users/fischn/Documents/GitHub/CKMR_Project/Pairs_precision_050.tiff", height=23, width=18, units='cm', compression="lzw", res=500)
