@@ -1,5 +1,5 @@
 //Stock Catch at age assessment with the inclusion of CKMR data
-//created by Nicholas Fisch to be used in simulation study, CKMR data to be added later
+//created by Nicholas Fisch to be used in simulation study
 
 //Dec 2022
 
@@ -68,7 +68,7 @@ Type objective_function<Type>::operator() ()
 
   //II. PARAMETER DECLARATION
   //---------------------------------------------------------------------------------------------
-  PARAMETER(log_M);          //M scalar for Lorenzen M
+  PARAMETER(log_M);          //Natural Mortality
   PARAMETER(log_q);          //Fishery Catchability for index
   
   PARAMETER_VECTOR(log_recruit_devs_init); //Log scale recruitment deviations for initial abundance
@@ -247,7 +247,7 @@ Type objective_function<Type>::operator() ()
    pred_fishery_comp_wAE=pred_fishery_comp*AE_mat;
 
 ///////////////////////////////////////////
-//Close kin calculations
+//Close kin calculations, commented out stuff generally has to do with unfished calcs and is commented out to make model run faster
 ///////////////////////////////////////////
   L4=Type(0);  
 // - 1s are for TMB indexing which starts at zero

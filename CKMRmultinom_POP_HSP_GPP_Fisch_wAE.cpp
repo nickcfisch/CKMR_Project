@@ -1,5 +1,5 @@
-//Stock Catch at age assessment with the inclusion of CKMR data
-//created by Nicholas Fisch to be used in simulation study, CKMR data to be added later
+//Stock Catch at age assessment with the inclusion of CKMR data, and Ageing Error
+//created by Nicholas Fisch to be used in simulation study
 
 //Dec 2022
 
@@ -47,22 +47,20 @@ Type objective_function<Type>::operator() ()
   DATA_VECTOR(Waa);                 //Weight at age vector
   
 //CKMR data
-  DATA_IVECTOR(coded_born_year_old); 
-  DATA_VECTOR(n_ckmr);
-  DATA_VECTOR(k_ckmr_hsporggp); 
-  DATA_IVECTOR(coded_born_year_young); 
-  DATA_VECTOR(k_ckmr_pop); 
-  DATA_IVECTOR(samp_year_coded_old); 
+  DATA_IVECTOR(coded_born_year_old);        //The coded born year of the coded older indv
+  DATA_VECTOR(n_ckmr);                      //number of replicates for obs with similar covariates
+  DATA_VECTOR(k_ckmr_hsporggp);             //number of HSPs or GGps found
+  DATA_IVECTOR(coded_born_year_young);      //Coded born year of the coded younger indv
+  DATA_VECTOR(k_ckmr_pop);                  //number of POPs found
+  DATA_IVECTOR(samp_year_coded_old);        //sample year of the coded older indv
 
-  DATA_IVECTOR(coded_age_one); 
-  DATA_IVECTOR(coded_age_two); 
+  DATA_IVECTOR(coded_age_one);              //Coded age of the coded younger indv
+  DATA_IVECTOR(coded_age_two);              //Coded age of the coded older indv
   
-  DATA_IVECTOR(coded_one_min); 
+  DATA_IVECTOR(coded_one_min);              //These min and max ages are to avoid looping through all possible true ages in the AE integration. Simplifying by only looping through true ages that have a probability>0.001 of being coded the coded age
   DATA_IVECTOR(coded_one_max); 
   DATA_IVECTOR(coded_two_min); 
   DATA_IVECTOR(coded_two_max); 
-
- //Year of first born, age difference, number of replicates, number of successes for HSP, year of second born (or juves birth), number of successes for POP, and sampling year of older indv
 
   DATA_INTEGER(Lamda_Harvest);    //Whether to use data sources or not
   DATA_INTEGER(Lamda_Comp);    
@@ -75,7 +73,7 @@ Type objective_function<Type>::operator() ()
 
   //II. PARAMETER DECLARATION
   //---------------------------------------------------------------------------------------------
-  PARAMETER(log_M);          //M scalar for Lorenzen M
+  PARAMETER(log_M);          //Natural mortality
   PARAMETER(log_q);          //Fishery Catchability for index
   
   PARAMETER_VECTOR(log_recruit_devs_init); //Log scale recruitment deviations for initial abundance
@@ -114,7 +112,7 @@ Type objective_function<Type>::operator() ()
   matrix<Type> A(years.size(),ages.size());                //Annual mortality matrix
 
   matrix<Type> N(years.size()+1,ages.size());	           //Predicted abundance at age, +1 is to incorporate final catch 
-  matrix<Type> Nbar(years.size(),ages.size());	           //Nbar
+  matrix<Type> Nbar(years.size(),ages.size());	           //Nbar, used for fishery index (mean of abundance in a year)
 
   matrix<Type> pred_caa(years.size(),ages.size());           //Predicted fishery catch at age
   matrix<Type> pred_fishery_comp(years.size(),ages.size());  //Predicted age composition from the fishery catch
@@ -136,6 +134,7 @@ Type objective_function<Type>::operator() ()
   Type L3;
   Type L4;
 
+//Declaring integers for later calculations
   Type P_obs_xz=0;
   int age_diff=0;
   int born_year_old=0; 
@@ -273,8 +272,9 @@ Type objective_function<Type>::operator() ()
    for(x=coded_one_min(i);x<=coded_one_max(i);x++){  //Loops through possible ages for ageing error. x is the possible age of the coded younger individual   
 	for(z=coded_two_min(i);z<=coded_two_max(i);z++){  //^   z is possible age of the coded older individual
 
-  //For ageing error, need the probability of that the younger was coded the age it was over true ages AND of same for the older, 
-  //multiplied by the fishery composition in the years that the indv were sampled
+  //For ageing error, need the probability that the younger was coded the age it was from the AE mat, multiplied by the true fishery composition in the years that the indv was sampled 
+  //and divided by the fishery comp with AE in that year as a normalizing constant.
+  //AND of same for the older,
   P_obs_xz = (pred_fishery_comp(coded_born_year_young(i)+coded_age_one(i)-1,x)*AE_mat(x,coded_age_one(i)))/pred_fishery_comp_wAE(coded_born_year_young(i)+coded_age_one(i)-1,coded_age_one(i)) * (pred_fishery_comp(samp_year_coded_old(i)-1,z)*AE_mat(z,coded_age_two(i)))/pred_fishery_comp_wAE(samp_year_coded_old(i)-1,coded_age_two(i));
 
 //now need new variables (age_diff, born_year_young, etc) for true age of coded younger x, and coded older z. 
@@ -303,6 +303,8 @@ Type objective_function<Type>::operator() ()
    surv_prob.row(i).setZero();
    HSP_prob_aa.row(i).setZero();
    GGP_prob_aa.row(i).setZero();
+   
+   //Much of what is commented out below has to do with unfished calcs (when you are backdating to unfished territory), and is commented out to make the model run faster
    
 /////////////////////////////////////
 //HSP Calcs
@@ -340,7 +342,7 @@ Type objective_function<Type>::operator() ()
   }
    surv_prob.row(i) = surv_prob_aa.block(age_diff-1,age_diff-1,1,lage+1); //getting subset of matrix, starting at (x1,y1), and taking 1 row of lage+1 columns  
   
-//HSP and GGP Potential parent loop
+//HSP and GGP Unseen parent loop
    for(j=1;j<=lage;j++){  // We can assume the age of the hypothetical parent for HSP or GGP was not 0 in the birth year of older sibling or zero in birth year of grandchild, so we start this integration at age 1  
     if((j+age_diff)<=lage){          //If we are not in the plus group
 //     if(born_year_old>0){                //if we're not in unfished years
@@ -490,6 +492,7 @@ Type objective_function<Type>::operator() ()
       //Alternative = Sample size * sum ( Prob of no match + Prob of HSP + Prob of POP ) 
 //     L4 -= (n_ckmr(i)*(((n_ckmr(i)-(k_ckmr_hsporggp(i)+k_ckmr_pop(i)))/n_ckmr(i))*log(1-((HSP_prob(i)+GGP_prob(i))*pi_nu+POP_prob(i))) + (k_ckmr_hsporggp(i)/n_ckmr(i))*log((HSP_prob(i)+GGP_prob(i))*pi_nu) + (k_ckmr_pop(i)/n_ckmr(i))*log(POP_prob(i)))); 
 
+//Other alternatives to writing it
   /*
     //Potential parent has to be sampled after or on the year of youngs birth, because sampling is lethal 	  
     if(samp_year_coded_old(i) >= (coded_born_year_young(i)+coded_age_one(i)-coded_one_max(i))){
@@ -512,7 +515,7 @@ Type objective_function<Type>::operator() ()
 ////////////////////////////////////
   L1 = -sum(dnorm(log(obs_harv),log(pred_harv),sd_catch,true));
 
-//Multinomial  
+//Multinomial age compositions
   L2=Type(0);
   for(i=0;i<=lyear-1;i++){
    if(SS_fishery(i)>0){   //Only run calcs if there is comp data
