@@ -428,14 +428,18 @@ hist(Pairs_Sardine_100_20[,2], breaks=seq(-0.5,1e6,50), add=TRUE, col=rgb(0,0,0.
 #dev.off()
 
 #Plots of Selectivity
+#tiff(filename="C:/Users/fischn/Documents/GitHub/CKMR_Project/SelFec.tiff", height=23, width=15, units='cm', compression="lzw", res=500)
 par(mfrow=c(3,1), mar=c(4,4,1,1), oma=c(2,2,1,1))
-plot(0:25, Cod_wdat[[1]]$OM$Sel, xlab="", ylab="", las=1, type="b", pch=16, lwd=2, main="Cod")
-points(0:25, Cod_wdat[[1]]$OM$Mat, col=3, pch=16, type="b")
-plot(0:25,Flatfish_wdat[[1]]$OM$Sel, ylab="Selectivity", xlab="", type="b", pch=16, lwd=2, las=1, main="Flatfish")
-points(0:25, Flatfish_wdat[[1]]$OM$Mat, col=3, pch=16, type="b")
-plot(0:15,Sardine_wdat[[1]]$OM$Sel, xlab="Age", ylab="", las=1, type="b", pch=16, lwd=2, main="Sardine")
-points(0:15, Sardine_wdat[[1]]$OM$Mat, col=3, pch=16, type="b")
-
+plot(0:25, Cod_wdat[[1]]$OM$Sel, xlab="", ylab="", las=1, type="b", pch=16, lwd=2, main="Cod", cex.axis=1.2)
+points(0:25, Cod_wdat[[1]]$OM$Mat*Cod_wdat[[1]]$OM$Waa/max(Cod_wdat[[1]]$OM$Mat*Cod_wdat[[1]]$OM$Waa), col=3, pch=16, type="b")
+plot(0:25,Flatfish_wdat[[1]]$OM$Sel, ylab="", xlab="", type="b", pch=16, lwd=2, las=1, main="Flatfish", cex.axis=1.2)
+mtext(side=2, "Selectivity or Relative Fecundity", line=4)
+points(0:25, Flatfish_wdat[[1]]$OM$Mat*Flatfish_wdat[[1]]$OM$Waa/max(Flatfish_wdat[[1]]$OM$Mat*Flatfish_wdat[[1]]$OM$Waa), col=3, pch=16, type="b")
+plot(0:15,Sardine_wdat[[1]]$OM$Sel, xlab="", ylab="", las=1, type="b", pch=16, lwd=2, main="Sardine", cex.axis=1.2)
+points(0:15, Sardine_wdat[[1]]$OM$Mat*Sardine_wdat[[1]]$OM$Waa/max(Sardine_wdat[[1]]$OM$Mat*Sardine_wdat[[1]]$OM$Waa), col=3, pch=16, type="b")
+mtext(side=1, "Age", line=3)
+legend("bottom", c("Selectivity", "Fecundity"), bty="n", lwd=2, col=c(1,3))
+#dev.off()
 
 ##################################
 #SCAAs without CKMR data

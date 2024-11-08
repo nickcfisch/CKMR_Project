@@ -587,45 +587,46 @@ for (s in 1:Nsim){
 #save(Sardine_runs, file=paste0(wd,"/Sardine_Base.RData"))
 
 #SSB plots
-par(mfrow=c(3,3), oma=c(3,2,1,1), mar=c(2,4,1,1))
-plot(1:101,rowSums(t(t(Cod_runs[[1]]$Naa)*Cod_runs[[1]]$Mat)), ylim=c(0,8e8), las=1, xlab="", ylab="", main="Cod", type="l", col="grey50", xaxt="n")
-mtext(text="Spawning Abundance",side=2, line=4)
+#tiff(filename="C:/Users/fischn/Documents/GitHub/CKMR_Project/LifeHist_SSB.tiff", height=22.5, width=37.5, units='cm', compression="lzw", res=500)
+par(mfrow=c(3,3), oma=c(3,2,1,1), mar=c(1.5,4,1,1))
+plot(1:101,rowSums(t(t(Cod_runs[[1]]$Naa)*Cod_runs[[1]]$Mat)), ylim=c(0,8e8), las=1, xlab="", ylab="", main="Cod", type="l", col="grey50", xaxt="n", cex.main=1.5, cex.axis=1.3)
+mtext(text="Spawning Abundance",side=2, line=4.5, cex=1.2)
 Cod_Sabun<-matrix(NA, nrow=Nsim,ncol=101)
 Cod_Sabun[1,]<-rowSums(t(t(Cod_runs[[1]]$Naa)*Cod_runs[[1]]$Mat))
 for(s in 2:Nsim){  
   lines(1:101,rowSums(t(t(Cod_runs[[s]]$Naa)*Cod_runs[[s]]$Mat)), col="grey50")
   Cod_Sabun[s,]<-rowSums(t(t(Cod_runs[[s]]$Naa)*Cod_runs[[s]]$Mat))
 }
-plot(1:101,rowSums(t(t(Flatfish_runs[[1]]$Naa)*Flatfish_runs[[1]]$Mat)), ylim=c(0,2.5e5), las=1, xlab="", ylab="", main="Flatfish", type="l", col="grey50", xaxt="n")
+plot(1:101,rowSums(t(t(Flatfish_runs[[1]]$Naa)*Flatfish_runs[[1]]$Mat)), ylim=c(0,2.5e5), las=1, xlab="", ylab="", main="Flatfish", type="l", col="grey50", xaxt="n", cex.main=1.5, cex.axis=1.3)
 Flatfish_Sabun<-matrix(NA, nrow=Nsim,ncol=101)
 Flatfish_Sabun[1,]<-rowSums(t(t(Flatfish_runs[[1]]$Naa)*Flatfish_runs[[1]]$Mat))
 for(s in 2:Nsim){  
   lines(1:101,rowSums(t(t(Flatfish_runs[[s]]$Naa)*Flatfish_runs[[s]]$Mat)), col="grey50")
   Flatfish_Sabun[s,]<-rowSums(t(t(Flatfish_runs[[s]]$Naa)*Flatfish_runs[[s]]$Mat))
 }
-plot(1:101,rowSums(t(t(Sardine_runs[[1]]$Naa)*Sardine_runs[[1]]$Mat)), ylim=c(0,4e7), las=1, xlab="", ylab="", main="Sardine", type="l", col="grey50", xaxt="n")
+plot(1:101,rowSums(t(t(Sardine_runs[[1]]$Naa)*Sardine_runs[[1]]$Mat)), ylim=c(0,4e7), las=1, xlab="", ylab="", main="Sardine", type="l", col="grey50", xaxt="n", cex.main=1.5, cex.axis=1.3)
 Sardine_Sabun<-matrix(NA, nrow=Nsim,ncol=101)
 Sardine_Sabun[1,]<-rowSums(t(t(Sardine_runs[[1]]$Naa)*Sardine_runs[[1]]$Mat))
 for(s in 2:Nsim){ 
   lines(1:101,rowSums(t(t(Sardine_runs[[s]]$Naa)*Sardine_runs[[s]]$Mat)), col="grey50")
   Sardine_Sabun[s,]<-rowSums(t(t(Sardine_runs[[s]]$Naa)*Sardine_runs[[s]]$Mat))
 }
-plot(1:101,apply(Cod_Sabun,2,quantile,probs=0.975), type="l", lty=2, ylim=c(0,8e8), las=1, xlab="", ylab="", main="", xaxt="n")
-mtext(text="Spawning Abundance",side=2, line=4)
+plot(1:101,apply(Cod_Sabun,2,quantile,probs=0.975), type="l", lty=2, ylim=c(0,8e8), las=1, xlab="", ylab="", main="", xaxt="n", cex.axis=1.3)
+mtext(text="Spawning Abundance",side=2, line=4.5, cex=1.2)
 lines(1:101,apply(Cod_Sabun,2,median),lty=1)
 lines(1:101,apply(Cod_Sabun,2,quantile,probs=0.025),lty=2)
 lines(1:101,apply(Cod_Sabun,2,quantile,probs=0.875),lty=3)
 lines(1:101,apply(Cod_Sabun,2,quantile,probs=0.125),lty=3)
 
-plot(1:101,apply(Flatfish_Sabun,2,quantile,probs=0.975), type="l", lty=2, ylim=c(0,2.5e5), las=1, xlab="", ylab="", main="", xaxt="n")
+plot(1:101,apply(Flatfish_Sabun,2,quantile,probs=0.975), type="l", lty=2, ylim=c(0,2.5e5), las=1, xlab="", ylab="", main="", xaxt="n", cex.axis=1.3)
 mtext(text="",side=1, line=3)
 lines(1:101,apply(Flatfish_Sabun,2,median),lty=1)
 lines(1:101,apply(Flatfish_Sabun,2,quantile,probs=0.025),lty=2)
 lines(1:101,apply(Flatfish_Sabun,2,quantile,probs=0.875),lty=3)
 lines(1:101,apply(Flatfish_Sabun,2,quantile,probs=0.125),lty=3)
-legend("top", c("Median","Inner 75%","Inner 95%"), lwd=1, lty=c(1,3,2))
+legend("top", c("Median","Inner 75%","Inner 95%"), lwd=1, lty=c(1,3,2), cex=1.2)
 
-plot(1:101,apply(Sardine_Sabun,2,quantile,probs=0.975), type="l", lty=2, ylim=c(0,4e7), las=1, xlab="", ylab="", main="", xaxt="n")
+plot(1:101,apply(Sardine_Sabun,2,quantile,probs=0.975), type="l", lty=2, ylim=c(0,4e7), las=1, xlab="", ylab="", main="", xaxt="n", cex.axis=1.3)
 lines(1:101,apply(Sardine_Sabun,2,median),lty=1)
 lines(1:101,apply(Sardine_Sabun,2,quantile,probs=0.025),lty=2)
 lines(1:101,apply(Sardine_Sabun,2,quantile,probs=0.875),lty=3)
@@ -634,47 +635,48 @@ lines(1:101,apply(Sardine_Sabun,2,quantile,probs=0.125),lty=3)
 # #Now Depletion
 # plot(1:101,Cod_runs[[1]]$SSB/Cod_runs[[1]]$SSB0, ylim=c(0,2.75), las=1, xlab="", ylab="", main="", type="l", col="grey50", xaxt="n")
 # mtext(text="SSB/SSB0",side=2, line=4)
-# Cod_Depl<-matrix(NA, nrow=Nsim,ncol=101)
-# Cod_Depl[1,]<-Cod_runs[[1]]$SSB/Cod_runs[[1]]$SSB0
-# for(s in 2:Nsim){
-#   Cod_Depl[s,]<-Cod_runs[[s]]$SSB/Cod_runs[[s]]$SSB0
-#   lines(1:101,Cod_runs[[s]]$SSB/Cod_runs[[s]]$SSB0, col="grey50")
-# }
+ Cod_Depl<-matrix(NA, nrow=Nsim,ncol=101)
+ Cod_Depl[1,]<-Cod_runs[[1]]$SSB/Cod_runs[[1]]$SSB0
+ for(s in 2:Nsim){
+   Cod_Depl[s,]<-Cod_runs[[s]]$SSB/Cod_runs[[s]]$SSB0
+   lines(1:101,Cod_runs[[s]]$SSB/Cod_runs[[s]]$SSB0, col="grey50")
+ }
 # plot(1:101,Flatfish_runs[[1]]$SSB/Flatfish_runs[[1]]$SSB0, ylim=c(0,2.75), las=1, xlab="", ylab="", main="", type="l", col="grey50", xaxt="n")
-# Flatfish_Depl<-matrix(NA, nrow=Nsim,ncol=101)
-# Flatfish_Depl[1,]<-Flatfish_runs[[1]]$SSB/Flatfish_runs[[1]]$SSB0
-# for(s in 2:Nsim){
-#   Flatfish_Depl[s,]<-Flatfish_runs[[s]]$SSB/Flatfish_runs[[s]]$SSB0
-#   lines(1:101,Flatfish_runs[[s]]$SSB/Flatfish_runs[[s]]$SSB0, col="grey50")
-# }
+ Flatfish_Depl<-matrix(NA, nrow=Nsim,ncol=101)
+ Flatfish_Depl[1,]<-Flatfish_runs[[1]]$SSB/Flatfish_runs[[1]]$SSB0
+ for(s in 2:Nsim){
+   Flatfish_Depl[s,]<-Flatfish_runs[[s]]$SSB/Flatfish_runs[[s]]$SSB0
+   lines(1:101,Flatfish_runs[[s]]$SSB/Flatfish_runs[[s]]$SSB0, col="grey50")
+ }
 # plot(1:101,Sardine_runs[[1]]$SSB/Sardine_runs[[1]]$SSB0, ylim=c(0,2.75), las=1, xlab="", ylab="", main="", type="l", col="grey50", xaxt="n")
-# Sardine_Depl<-matrix(NA, nrow=Nsim,ncol=101)
-# Sardine_Depl[1,]<-Sardine_runs[[1]]$SSB/Sardine_runs[[1]]$SSB0
-# for(s in 2:Nsim){
-#   Sardine_Depl[s,]<-Sardine_runs[[s]]$SSB/Sardine_runs[[s]]$SSB0
-#   lines(1:101,Sardine_runs[[s]]$SSB/Sardine_runs[[s]]$SSB0, col="grey50")
-# }
+ Sardine_Depl<-matrix(NA, nrow=Nsim,ncol=101)
+ Sardine_Depl[1,]<-Sardine_runs[[1]]$SSB/Sardine_runs[[1]]$SSB0
+ for(s in 2:Nsim){
+   Sardine_Depl[s,]<-Sardine_runs[[s]]$SSB/Sardine_runs[[s]]$SSB0
+   lines(1:101,Sardine_runs[[s]]$SSB/Sardine_runs[[s]]$SSB0, col="grey50")
+ }
 #Ok looking at some CIs of the intervals
-plot(1:101,apply(Cod_Depl,2,quantile,probs=0.975), type="l", lty=2, ylim=c(0,2), las=1, xlab="", ylab="", main="")
-mtext(text="SSB/SSB0",side=2, line=4)
+plot(1:101,apply(Cod_Depl,2,quantile,probs=0.975), type="l", lty=2, ylim=c(0,2), las=1, xlab="", ylab="", main="", cex.axis=1.3)
+mtext(text="SSB/SSB0",side=2, line=4.5, cex=1.2)
 lines(1:101,apply(Cod_Depl,2,median),lty=1)
 lines(1:101,apply(Cod_Depl,2,quantile,probs=0.025),lty=2)
 lines(1:101,apply(Cod_Depl,2,quantile,probs=0.875),lty=3)
 lines(1:101,apply(Cod_Depl,2,quantile,probs=0.125),lty=3)
 
-plot(1:101,apply(Flatfish_Depl,2,quantile,probs=0.975), type="l", lty=2, ylim=c(0,2), las=1, xlab="", ylab="", main="")
-mtext(text="Year",side=1, line=3)
+plot(1:101,apply(Flatfish_Depl,2,quantile,probs=0.975), type="l", lty=2, ylim=c(0,2), las=1, xlab="", ylab="", main="", cex.axis=1.3)
+mtext(text="Year",side=1, line=3, cex=1.2)
 lines(1:101,apply(Flatfish_Depl,2,median),lty=1)
 lines(1:101,apply(Flatfish_Depl,2,quantile,probs=0.025),lty=2)
 lines(1:101,apply(Flatfish_Depl,2,quantile,probs=0.875),lty=3)
 lines(1:101,apply(Flatfish_Depl,2,quantile,probs=0.125),lty=3)
-legend("top", c("Median","Inner 75%","Inner 95%"), lwd=1, lty=c(1,3,2))
+legend("top", c("Median","Inner 75%","Inner 95%"), lwd=1, lty=c(1,3,2), cex=1.2)
 
-plot(1:101,apply(Sardine_Depl,2,quantile,probs=0.975), type="l", lty=2, ylim=c(0,2), las=1, xlab="", ylab="", main="")
+plot(1:101,apply(Sardine_Depl,2,quantile,probs=0.975), type="l", lty=2, ylim=c(0,2), las=1, xlab="", ylab="", main="", cex.axis=1.3)
 lines(1:101,apply(Sardine_Depl,2,median),lty=1)
 lines(1:101,apply(Sardine_Depl,2,quantile,probs=0.025),lty=2)
 lines(1:101,apply(Sardine_Depl,2,quantile,probs=0.875),lty=3)
 lines(1:101,apply(Sardine_Depl,2,quantile,probs=0.125),lty=3)
+#dev.off()
 
 ######################################
 #Example of Getting Data from OMs
