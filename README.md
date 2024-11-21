@@ -14,8 +14,6 @@
 
 **AE_mat_code.R** - Code associated with ageing imprecision matrices
 
-**misc.R** - some miscellaneous plots
-
-### wo_AE contains similar files for Assessment models and CKMR integration without ageing error
+### wo_AE folder contains similar files for Assessment models and CKMR integration without ageing error
 
 
