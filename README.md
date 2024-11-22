@@ -1,5 +1,7 @@
 # CKMR Integration into SCAAs - Fisch (2025): Expected Improvements in Precision when Integrating Opportunistic Close-Kin Mark-Recapture Data into Fisheries Stock Assessments
 
+https://www.sciencedirect.com/science/article/pii/S0165783624002868
+
 **CKMRmultinom_POP_HSP_GPP_Fisch_wAE.cpp** - TMB assessment model with CKMR integration
 
 **SCAA_Fisch_wAE.cpp** - TMB assessment model without CKMR integration
